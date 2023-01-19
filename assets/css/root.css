@@ -1,0 +1,74 @@
+:root {
+    --background-clr: #111123;
+    --background-accence-clr: #444477;
+    --background-accence-text-clr: #9999ee;
+    --primary-clr: #00ffff;
+    --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
+    --btn-shadow: 0 0 5px 5px var(--primary-clr);
+    --font-clr: #efefef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--font-clr);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-clr);
+    border-radius: 25px;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3%;
+}
+
+body {
+    position: relative;
+    min-width: 100%;
+    height: fit-content;
+    background-color: var(--background-clr);
+    overflow-x: hidden;
+}
+
+header,
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+header {
+    padding-top: 5%;
+}
+
+button {
+    cursor: pointer;
+}
+
+footer {
+    position: relative;
+    width: 100vw;
+    height: 30vh;
+    padding: 5px;
+    background-color: var(--background-accence-clr);
+}
+
+
+@media screen and (max-width: 660px) {
+
+    header,
+    section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+}

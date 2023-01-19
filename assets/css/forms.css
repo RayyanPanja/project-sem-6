@@ -1,0 +1,33 @@
+.signup-form-container{
+    position: relative;
+    margin: auto;
+    margin-top: 10%;
+    width: 50%;
+    height: 50vh;
+    border: 2px solid var(--background-accence-clr);
+}
+.signup-form-container > form{
+    margin-top: 2%;
+}
+.register-btn-set{
+    display: flex;
+    gap: 5px;
+    flex-direction: row-reverse;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+.btn{
+    padding: 5px 20px;
+    font-size: 20px;
+    background: transparent;
+    border: 0;
+}
+.submit{
+    background: var(--primary-clr);
+    color: var(--background-accence-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+.cancle{
+  color: var(--primary-clr);  
+}

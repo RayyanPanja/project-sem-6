@@ -1,0 +1,355 @@
+@import url(root.css);
+@import url(navbar.css);
+@import url(miscs.css);
+@import url(forms.css);
+
+.intro-title {
+    margin: 5% 0 0 5%;
+    width: 50%;
+    font-size: 6rem;
+}
+
+.small-txt-group {
+    margin: 0 0 0 5%;
+    width: 30%;
+}
+
+.about-small-txt-group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-small-txt {
+    padding: 3px;
+    text-align: center;
+    width: 50%;
+    font-size: 18px;
+    color: var(--background-accence-text-clr);
+}
+
+.small-txt {
+    padding: 3px;
+    font-size: 18px;
+    color: var(--background-accence-text-clr);
+}
+
+.hero-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.img-holder {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    transition: all 500ms;
+}
+
+.img-holder:hover {
+    transform: rotate(-15deg);
+}
+
+.cool-big-btn {
+    padding: 10px 30px;
+    background: var(--primary-clr);
+    color: var(--background-clr);
+    font-size: 20px;
+    border: 0;
+    box-shadow: 0 0 10px 5px var(--primary-clr);
+    margin: .8% 0 0 5.5%;
+    transition: all 500ms;
+}
+
+.cool-big-btn:hover {
+    background: var(--background-clr);
+    color: var(--primary-clr);
+    box-shadow: 0 0 15px 15px var(--primary-clr);
+}
+
+@media screen and (max-width: 660px) {
+    .intro-title {
+        font-size: 3rem;
+        margin: unset;
+        margin-top: 60%;
+        width: 100%;
+        text-align: center;
+    }
+
+    .img-holder {
+        display: none;
+    }
+
+    .cool-big-btn {
+        width: 85%;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: unset;
+    }
+
+    .small-txt-group {
+        width: 95%;
+        text-align: center;
+    }
+
+    .small-txt {
+        width: 100%;
+    }
+
+    .about-small-txt-group {
+        width: 100%;
+    }
+
+    .about-small-txt {
+        width: 90%;
+        padding: 5px;
+        margin-bottom: 0;
+    }
+
+    #about {
+        height: fit-content;
+    }
+
+}
+
+.login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 70vh;
+    background: var(--background-clr);
+    box-shadow: 0 0 10px 3px var(--primary-clr);
+    border: 0;
+}
+
+.login-form::backdrop {
+    background: black;
+    opacity: 0.8;
+}
+
+.login-img-holder {
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px double var(--primary-clr);
+    display: grid;
+    place-items: center;
+}
+
+.login-img-holder>img {
+    position: relative;
+    object-fit: cover;
+    width: 101%;
+    height: 101%;
+    background: var(--background-clr);
+    border-radius: inherit;
+}
+
+.login-form>h1 {
+    text-align: center;
+}
+
+.login-btn-set {
+    margin-top: 2%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.cool-btn {
+    padding: 5px 25px;
+    font-size: 20px;
+    background: var(--background-clr);
+    border: 0;
+    transition: all 500ms;
+}
+
+.login-btn {
+    background: var(--primary-clr);
+    color: var(--background-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+
+.login-btn:hover {
+    background: var(--background-clr);
+    color: var(--primary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+
+.cancle-btn {
+    background: var(--background-clr);
+    color: var(--primary-clr);
+}
+
+.login-form>form {
+    margin-top: 10%;
+}
+
+.for-login {
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 660px) {
+    .login-form {
+        width: 100%;
+    }
+
+}
+
+.page-title {
+    font-size: 5rem;
+    text-align: center;
+}
+
+/* Customer Slider */
+#container {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -5%;
+    padding: 0;
+    background: var(--background-clr);
+    display: grid;
+    place-items: center;
+}
+
+#slider-container {
+    height: 300px;
+    width: 85vw;
+    max-width: 1400px;
+    background: var(--background-clr);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+#slider-container .btn {
+    position: absolute;
+    top: calc(50% - 30px);
+    height: 30px;
+    width: 30px;
+    border-left: 8px solid var(--primary-clr);
+    border-top: 8px solid var(--primary-clr);
+    filter: drop-shadow(0 0 5px var(--primary-clr));
+}
+
+#slider-container .btn:hover {
+    transform: scale(1.2);
+}
+
+#slider-container .btn.inactive {
+    border-color: var(--background-accence-text-clr)
+}
+
+#slider-container .btn:first-of-type {
+    transform: rotate(-45deg);
+    left: 10px
+}
+
+#slider-container .btn:last-of-type {
+    transform: rotate(135deg);
+    right: 10px;
+}
+
+#slider-container #slider {
+    display: flex;
+    width: 1000%;
+    height: 100%;
+    transition: all .5s;
+}
+
+#slider-container #slider .user-card {
+    width: 2.38%;
+    height: 90%;
+    margin: auto 10px;
+    background-color: var(--background-clr);
+    box-shadow: 0 0 10px 10px var(--primary-clr);
+    display: grid;
+    place-items: center;
+    gap: 0;
+}
+
+.user-msg {
+    color: var(--background-accence-text-clr);
+    text-align: center;
+
+}
+
+@media only screen and (max-width: 660px) {
+    #container > *{
+        display: none;
+    }
+    
+
+}
+
+/* Card Slider Ends */
+
+/* Services */
+.service-grid {
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.service-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.service-name {
+    font-size: 40px;
+}
+
+.service-detail {
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    color: var(--background-accence-text-clr);
+}
+
+@media screen and (max-width:660px) {
+    .service-grid {
+        grid-template-columns: repeat(1, 1fr);
+        place-items: center;
+    }
+
+    .service-card {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        border: 1px solid var(--background-accence-text-clr);
+    }
+
+    .service-name {
+        width: 90%;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .service-detail {
+        width: 80%;
+        text-align: center;
+    }
+
+}
+
+/* Services..ends */
