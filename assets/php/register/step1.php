@@ -23,7 +23,7 @@ include "../connection.php";
                         <label for="SirName">SirName</label>
                     </div>
                     <div class="col-inp-short">
-                        <input type="text" name="sirname" id="sname" class="input" placeholder="SirName">
+                        <input type="text" name="sirname" id="sname" class="input" placeholder="SirName" required>
                     </div>
                 </div>
                 <div class="set">
@@ -31,7 +31,7 @@ include "../connection.php";
                         <label for="YourName">Your Name</label>
                     </div>
                     <div class="col-inp-short">
-                        <input type="text" name="yourname" id="uname" class="input" placeholder="your Name">
+                        <input type="text" name="yourname" id="uname" class="input" placeholder="your Name" required>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ include "../connection.php";
                     <label for="Father Name">Father Name</label>
                 </div>
                 <div class="col-inp">
-                    <input type="text" name="fathername" id="fname" class="input" placeholder="Father Name">
+                    <input type="text" name="fathername" id="fname" class="input" placeholder="Father Name" required>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@ include "../connection.php";
                         <label for="DOB">Date Of Birth</label>
                     </div>
                     <div class="col-inp-short">
-                        <input type="date" name="dob" id="dname" class="input">
+                        <input type="date" name="dob" id="dname" class="input" required>
                     </div>
                 </div>
                 <div class="set">
@@ -58,7 +58,7 @@ include "../connection.php";
                         <label for="gender">Gender</label>
                     </div>
                     <div class="col-inp-short">
-                        <select name="gender" id="gender" class="input">
+                        <select name="gender" id="gender" class="input" required>
                             <option value="Male" class="input-option">Male</option>
                             <option value="Female" class="input-option">Female</option>
                         </select>

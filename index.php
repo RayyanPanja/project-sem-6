@@ -28,7 +28,7 @@ include "assets/php/connection.php"
                     <label for="Account Number">Account Number</label>
                 </div>
                 <div class="col-inp">
-                    <input type="number" name="account" id="accno" class="login-input" placeholder="Account Number">
+                    <input type="number" name="account" id="accno" class="login-input" placeholder="Account Number" required>
                 </div>
             </div>
             <div class="row">
@@ -36,7 +36,7 @@ include "assets/php/connection.php"
                     <label for="Password">Password</label>
                 </div>
                 <div class="col-inp">
-                    <input type="password" name="password" id="psw" class="login-input" placeholder="******">
+                    <input type="password" name="password" id="psw" class="login-input" placeholder="******" required>
                 </div>
             </div>
             <div class="login-btn-set">

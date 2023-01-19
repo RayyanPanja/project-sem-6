@@ -24,7 +24,7 @@ $_SESSION['TempAcc'];
                     <label for="psw">Password</label>
                 </div>
                 <div class="col-inp">
-                    <input type="password" name="password1" id="psw1" class="input " placeholder="******" maxlength="6">
+                    <input type="password" name="password1" id="psw1" class="input " placeholder="******" maxlength="6" required>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@ $_SESSION['TempAcc'];
                     <label for="psw2">Repeat Password</label>
                 </div>
                 <div class="col-inp">
-                    <input type="password" name="password2" id="psw2" class="input " placeholder="******" maxlength="6">
+                    <input type="password" name="password2" id="psw2" class="input " placeholder="******" maxlength="6" required>
                 </div>
             </div> 
             <div class="register-btn-set">

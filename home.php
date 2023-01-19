@@ -9,7 +9,6 @@ $Image= $_SESSION['image'];
 if (empty($Name)) {
     $Name = "unauthorized";
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@ if (empty($Name)) {
     <!-- Login Form -->
     <dialog class="login-form" id="logout-dlg">
         <div class="login-img-holder">
-            <img src="assets/img/user.png" alt="Login">
+            <img src="assets/img/storage/<?php echo $Image;?>" alt="Login">
         </div>
         <h1>Logout</h1>
         <form action="assets/php/auth/logout.php" method="post">

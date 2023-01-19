@@ -25,7 +25,7 @@ $_SESSION['TempAcc'];
                         <label for="Email">Email</label>
                     </div>
                     <div class="col-inp-short">
-                        <input type="email" name="email" id="email" class="input" placeholder="e.g. some@mail.com">
+                        <input type="email" name="email" id="email" class="input" placeholder="e.g. some@mail.com" required>
                     </div>
                 </div>
                 <div class="set">
@@ -33,7 +33,7 @@ $_SESSION['TempAcc'];
                         <label for="contact">Contact</label>
                     </div>
                     <div class="col-inp-short">
-                        <input type="number" name="contact" id="contact" class="input" placeholder="+00 0000000000">
+                        <input type="number" name="contact" id="contact" class="input" placeholder="+00 0000000000" required>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@ $_SESSION['TempAcc'];
                     <label for="image">Upload Img</label>
                 </div>
                 <div class="col-inp">
-                    <input type="file" name="image" id="img" class="input " placeholder="your full address">
+                    <input type="file" name="image" id="img" class="input ">
                 </div>
             </div>
 
