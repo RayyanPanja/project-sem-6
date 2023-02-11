@@ -86,41 +86,6 @@ include "assets/php/connection.php"
                 "At <?php echo $BANKNAME; ?>, we believe in providing our customers with the best banking experience possible. As a community bank, we are dedicated to serving the financial needs of our local area and building long-term relationships with our customers. Our team of experienced professionals is committed to providing personalized service and expert financial advice. We offer a wide range of products and services, including checking and savings accounts, loans, mortgages, and investment options. Trust us to be your partner in managing your financial future."
             </p>
         </div>
-
-        <?php
-        $FetchComment = "SELECT * FROM comment LIMIT 10";
-        $FetchCommentResult = mysqli_query($con, $FetchComment);
-        if (mysqli_num_rows($FetchCommentResult) > 0) {
-            while ($data = mysqli_fetch_assoc($FetchCommentResult)) { ?>
-                <div id="container">
-                    <div id="slider-container">
-                        <span onclick="slideRight()" class="btn"></span>
-                        <div id="slider">
-                            <script src="assets/js/card-mover.js"></script>
-                            <div class="user-card">
-                                <div class="user-pfp-holder">
-                                    <?php if (!empty($data['Img_Path'])) { ?>
-                                        <img src="<?php echo "assets/img/storage/" . $data['Img_Path']; ?>" alt="user">
-                                    <?php } else { ?>
-                                        <img src="<?php echo "assets/img/storage/default.png"; ?>" alt="user">
-                                    <?php } ?>
-                                </div>
-                                <p class="user-name">
-                                    <?php echo $data['Name']; ?>
-                                </p>
-                                <p class="user-msg">
-                                    " <?php echo $data['Msg']; ?>"
-                                </p>
-                            </div>
-                        </div>
-                        <span onclick="slideLeft()" class="btn"></span>
-                    </div>
-                </div>
-            <?php }
-        } else { ?>
-            <h1 class="not-found-msg">-{No Reviews Yet!!}-</h1>
-        <?php } ?>
-
     </section>
 
     <section id="services">

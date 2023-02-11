@@ -1,4 +1,4 @@
-.signup-form-container{
+.signup-form-container {
     position: relative;
     margin: auto;
     margin-top: 10%;
@@ -6,10 +6,12 @@
     height: 50vh;
     border: 2px solid var(--background-accence-clr);
 }
-.signup-form-container > form{
+
+.signup-form-container>form {
     margin-top: 2%;
 }
-.register-btn-set{
+
+.register-btn-set {
     display: flex;
     gap: 5px;
     flex-direction: row-reverse;
@@ -17,17 +19,57 @@
     right: 5%;
     bottom: 5%;
 }
-.btn{
+
+.btn {
     padding: 5px 20px;
     font-size: 20px;
     background: transparent;
     border: 0;
+    transition: all 500ms;
 }
-.submit{
+
+.submit {
     background: var(--primary-clr);
     color: var(--background-accence-clr);
     box-shadow: 0 0 5px 5px var(--primary-clr);
 }
-.cancle{
-  color: var(--primary-clr);  
+.submit:hover{
+    background: transparent;
+    color: var(--primary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+
+.cancle {
+    color: var(--primary-clr);
+}
+
+
+
+/* TRANSFER */
+.transfer-form-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    height: 50vh;
+}
+
+.transfer-btn-set {
+    margin-top: 10%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.t-input{
+    font-size: 30px;
+    text-align: center;
+}
+@media screen and (max-width: 660px) {
+    .transfer-form-container{
+        width: 100%;
+        padding: 10px;
+    }
+    
 }

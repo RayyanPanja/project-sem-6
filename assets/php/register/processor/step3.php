@@ -14,7 +14,7 @@ if (empty($_FILES['image']['name'])) {
     // Get the file data
     $file = $_FILES['image'];
     // Generate a unique file name
-    $fileName = "USER-" . date("Y-M-d") . uniqid() . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
+    $fileName = "USER-" . date("Y-M-d"). "-" . uniqid() . '.' . pathinfo($file['name'], PATHINFO_EXTENSION);
     // Set the destination folder
     $filePath = '../../../img/storage/' . $fileName;
     // Move the uploaded file to the destination folder

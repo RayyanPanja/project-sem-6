@@ -4,7 +4,7 @@ include_once "../connection.php";
 $account = $_REQUEST['account'];
 $password = $_REQUEST['password'];
 
-function Login($Account, $Name, $Password, $SirName, $Father, $img)
+function Login($Account, $Name, $Password, $SirName, $Father, $img,$email)
 {
     session_start();
     $_SESSION["Account"] = $Account;
@@ -13,6 +13,7 @@ function Login($Account, $Name, $Password, $SirName, $Father, $img)
     $_SESSION['Sirname'] = $SirName;
     $_SESSION['Father'] = $Father;
     $_SESSION['image'] = $img;
+    $_SESSION['email'] = $email;
     header("Location:../../../home.php");
 }
 
@@ -22,6 +23,7 @@ if (isset($account) && isset($password)) {
     $Name;
     $Father;
     $SirName;
+    $Email;
 
     $fetch = "SELECT * FROM main WHERE `Account_number` = $account";
     $result = mysqli_query($con, $fetch);
@@ -33,11 +35,12 @@ if (isset($account) && isset($password)) {
             $Father = $data['Fathername'];
             $SirName = $data['Sirname'];
             $ImagePath = $data['Img_Path'];
+            $Email = $data['Email'];
         }
     }
     if ($account == $Acc) {
         if ($password == $PASS) {
-            Login($account, $Name, $password, $SirName, $Father, $ImagePath);
+            Login($account, $Name, $password, $SirName, $Father, $ImagePath,$Email);
         } else { ?>
             <script>
                 alert("Incorrect Password")

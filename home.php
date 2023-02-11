@@ -5,10 +5,7 @@ $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
 $FatherName = $_SESSION['Father'];
-$Image= $_SESSION['image'];
-if (empty($Name)) {
-    $Name = "unauthorized";
-}
+$Image = $_SESSION['image'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +22,10 @@ if (empty($Name)) {
 </head>
 
 <body>
-    <!-- Login Form -->
+    <!-- Logout Form -->
     <dialog class="login-form" id="logout-dlg">
         <div class="login-img-holder">
-            <img src="assets/img/storage/<?php echo $Image;?>" alt="Login">
+            <img src="assets/img/storage/<?php echo $Image; ?>" alt="Login">
         </div>
         <h1>Logout</h1>
         <form action="assets/php/auth/logout.php" method="post">
@@ -39,18 +36,17 @@ if (empty($Name)) {
             </div>
         </form>
     </dialog>
-
-    <!-- Login Form...ENDS -->
+    <!-- Logout Form...ENDS -->
     <nav class="navbar">
         <div class="logo">
             <h1>^w^</h1>
         </div>
         <div class="link-set">
-            <a href="assets/php/" class="link">DashBoard</a>
-            <a href="assets/php/" class="link">Transfer</a>
-            <a href="assets/php/" class="link">Loan</a>
-            <a href="assets/php/" class="link">Balance</a>
-            <a href="assets/php/" class="link">Contact</a>
+            <a href="assets/php/dashboard/dashboard.php" class="link">DashBoard</a>
+            <a href="assets/php/transfer/ui.php" class="link">Transfer</a>
+            <a href="assets/php/loan/ui.php" class="link">Loan</a>
+            <a href="assets/php/balance/ui.php" class="link">Balance</a>
+            <a href="assets/php/contact/ui.php" class="link">Contact</a>
             <button type="submit" class="logout-btn" id="logout-open">Logout</button>
         </div>
         <div class="auth">
@@ -72,11 +68,11 @@ if (empty($Name)) {
     <header class="hero" id="home">
         <h1 class="intro-title">We Provide Security</h1>
         <div class="small-txt-group">
-            <p class="small-txt">Think Banking Can't be fast , flexible, and Transparent ? </p>
+            <p class="small-txt">Enjoy  fast , flexible, and Transparent Banking </p>
             <p class="small-txt">Thank you For Being a Valuable Customer.</p>
             <p class="small-txt">Try Exploring Your Dashboard </p>
         </div>
-        <button class="cool-big-btn" id="transfet-btn">Go to Dashboard</button>
+        <button class="cool-big-btn" id="dashboard-btn">Go to Dashboard</button>
         <div class="img-holder">
             <img src="assets/img/hand.png" alt="">
         </div>
@@ -89,39 +85,6 @@ if (empty($Name)) {
             </p>
         </div>
 
-        <?php
-        $FetchComment = "SELECT * FROM comment LIMIT 10";
-        $FetchCommentResult = mysqli_query($con, $FetchComment);
-        if (mysqli_num_rows($FetchCommentResult) > 0) {
-            while ($data = mysqli_fetch_assoc($FetchCommentResult)) { ?>
-                <div id="container">
-                    <div id="slider-container">
-                        <span onclick="slideRight()" class="btn"></span>
-                        <div id="slider">
-                            <script src="assets/js/card-mover.js"></script>
-                            <div class="user-card">
-                                <div class="user-pfp-holder">
-                                    <?php if (!empty($data['Img_Path'])) { ?>
-                                        <img src="<?php echo "assets/img/storage/" . $data['Img_Path']; ?>" alt="user">
-                                    <?php } else { ?>
-                                        <img src="<?php echo "assets/img/storage/default.png"; ?>" alt="user">
-                                    <?php } ?>
-                                </div>
-                                <p class="user-name">
-                                    <?php echo $data['Name']; ?>
-                                </p>
-                                <p class="user-msg">
-                                    " <?php echo $data['Msg']; ?>"
-                                </p>
-                            </div>
-                        </div>
-                        <span onclick="slideLeft()" class="btn"></span>
-                    </div>
-                </div>
-            <?php }
-        } else { ?>
-            <h1 class="not-found-msg">-{No Reviews Yet!!}-</h1>
-        <?php } ?>
     </section>
 
     <section id="services">
@@ -185,6 +148,10 @@ if (empty($Name)) {
     <script src="assets/js/Dialog.js"></script>
     <script>
         DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
+        const DashboardBtn = document.querySelector('#dashboard-btn');
+        DashboardBtn.addEventListener('click', () => {
+            window.location.assign("assets/php/dashboard/dashboard.php");
+        });
     </script>
 </body>
 

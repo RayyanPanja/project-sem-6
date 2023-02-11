@@ -7,7 +7,7 @@
     align-items: center;
     background: transparent;
     z-index: 9999;
-    padding: 5px;
+    padding: 10px;
 }
 
 .link-set {
@@ -21,7 +21,7 @@
     position: relative;
     font-size: 20px;
     text-decoration: none;
-    padding: 5px;
+    padding: 10px;
 }
 
 .link::after {
@@ -73,12 +73,17 @@
     height: 50px;
     padding: 3px;   
     border-radius: 50%;
+    transition: all 500ms;
+    overflow: hidden;
 }
 .user-img-holder > img{
     position: absolute;
     width: 100%;
     object-fit: cover;
-    pointer-events: none;
+    transition: all 500ms;
+}
+.user-img-holder > img:hover {
+    transform: scale(2);
 }
 .user-name{
     font-size: 22px;
