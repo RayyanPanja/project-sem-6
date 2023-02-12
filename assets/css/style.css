@@ -2,7 +2,6 @@
 @import url(navbar.css);
 @import url(miscs.css);
 @import url(forms.css);
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 
 .intro-title {
     margin: 5% 0 0 5%;
@@ -405,7 +404,7 @@
     font-size: 60px;
     background: var(--transparent-clr);
     color: var(--primary-clr);
-    font-family: 'Orbitron';
+    font-family: var(--G-fonts) ;
     letter-spacing: 10px;
     position: absolute;
     top: 20%;
@@ -440,3 +439,120 @@
 .transaction-note{
     font-size: 18px;
 }
+
+/* Loan */
+.loan-container{
+    position: relative;
+    margin-top: 5%;
+    width: 100%;
+    height: 70vh;
+    padding: 10px;
+}
+.loan-packages-container{
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.package-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    outline: 1px solid var(--primary-clr);
+    padding: 10px;
+    background: var(--dark-clr);
+}
+.package-name{
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+.package-amount{
+    font-size: 33px;
+    font-family: var(--G-fonts);
+    padding: 10px;
+    text-align: center;
+}
+.sponsor{
+    position: absolute;
+    font-size: 20px;
+    bottom: 3%;
+    text-transform: capitalize;
+}
+.user-limit{
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+    font-size: 18px;
+}
+.loan-btn{
+    margin-top: 5%;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 20px;
+    background-color: turquoise;
+    color: var(--background-clr);
+    font-size: 20px;
+    border: 0;
+}
+.term-box{
+    --border-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    height: 50%;
+    padding: 15px;
+    background: var(--background-clr);
+    z-index: 999;
+    border: 0;
+    border-top: var(--border-size) solid var(--primary-clr);
+    border-bottom: var(--border-size) solid var(--primary-clr);
+}
+.term-box > ol{
+    margin-left: 3%;
+}
+.status{
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    border: 2px dashed var(--primary-clr);
+    padding: 10px;
+    font-family: var(--G-fonts);
+}
+.term-input{
+    width: 100%;
+    background: transparent;
+    font-size: 20px;
+    padding: 5px;
+    color: var(--primary-clr);
+    font-family: var(--G-fonts);
+    border: 0;
+    border-bottom: 1px dashed var(--primary-clr);
+    text-align: center;
+}
+.term-input::placeholder{
+    color: var(--primary-clr);
+}
+.term-btn{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px 30px;
+    font-size: 20px;
+    background: var(--primary-clr);
+    color: var(--dark-clr);
+}
+.doc-grid{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    place-items: center;
+}
+/* Loan..ends */

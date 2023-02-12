@@ -35,9 +35,15 @@ $Image = $_SESSION['image'];
     </dialog>
     <!-- Logout Form...ENDS -->
     <!-- TERMS -->
-    <dialog class="term" id="term">
-        <h1>Terms & Conditions.</h1>
-        <p></p>
+    <dialog class="term-box" id="term-dlg">
+        <h1 class="txt-center">Terms & Conditions.</h1>
+        <ol>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque modi cumque ratione aspernatur nihil consectetur.</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque modi cumque ratione aspernatur nihil consectetur.</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque modi cumque ratione aspernatur nihil consectetur.</li>
+            <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque modi cumque ratione aspernatur nihil consectetur.</li>
+        </ol>
+        <button id="term-close" class="loan-btn">Agree</button>
     </dialog>
     <!-- TERMS...ends -->
     <nav class="navbar">
@@ -70,45 +76,49 @@ $Image = $_SESSION['image'];
     </nav>
 
     <main style="padding-top: 5% ;">
-        <h1>Please Read Terms And Conditions Carefully</h1>
-        <button class="cool-big-btn" id="term-open">Terms & Conditions</button>
+        <h1 class="txt-center">Please Read Terms And Conditions Carefully</h1>
+        <button class="term-btn" id="term-open">Terms & Conditions</button>
+        <div class="loan-container">
 
-        <div class="loan-packages-container">
-            <h1>Choose A Package.</h1>
-            <?php
-            $FETCH = "SELECT * FROM `schemes`;";
-            $Result = mysqli_query($con, $FETCH);
-            if (mysqli_num_rows($Result) > 0) {
-                while ($data = mysqli_fetch_assoc($Result)) { ?>
-                    <div class="package-box">
-                        <h1 class="package-name">
-                            <?php echo $data['Scheme_Name']; ?>
-                        </h1>
-                        <h2 class="package-amount">
-                            <?php echo $data['Package']; ?>
-                        </h2>
-                        <div class="sponsor">
-                            <?php echo $data['Sponsor']; ?>
-                        </div>
-                        <div class="user-limit">
-                            <?php echo $data['Users_Using']; ?> / <?php echo $data['Max_Users']; ?>
-                        </div>
-                        <div class="status">
-                            <?php echo $data['Status']; ?>
-                        </div>
-                        <form action="processor/Apply.php" method="post">
-                            <input type="number" value="<?php echo $data['Scheme_ID']; ?>" class="hidden">
-                            <div class="col-inp-short">
-                                <input type="text" name="Confirm" placeholder="CONFIRM" class="input">
-                            </div>
-                            <button class="btn submit">Get</button>
-                        </form>
-                    </div>
-
+            <h1 class="txt-center">Choose A Package.</h1>
+            <div class="loan-packages-container">
                 <?php
-                }
-            } else { ?>
+                $FETCH = "SELECT * FROM `schemes`;";
+                $Result = mysqli_query($con, $FETCH);
+                if (mysqli_num_rows($Result) > 0) {
+                    while ($data = mysqli_fetch_assoc($Result)) { ?>
+                        <div class="package-box">
+                            <h1 class="package-name">
+                                -{ <?php echo $data['Scheme_Name']; ?> }-
+                            </h1>
+                            <h2 class="package-amount">
+                                <?php echo $data['Package']; ?> /-
+                            </h2>
+                            <div class="sponsor">
+                                Sponsered By ( <?php echo $data['Sponsor']; ?> )
+                            </div>
+                            <div class="user-limit">
+                                User-Limit: <?php echo $data['Users_Using']; ?> / <?php echo $data['Max_Users']; ?>
+                            </div>
+                            <div class="status">
+                                <?php echo $data['Status']; ?>
+                            </div>
+                            <form action="processor/Apply.php" method="post">
+                                <label for="Terms">
+                                    <input type="checkbox" name="Agreement" id="agreement" required>
+                                    Terms And Conditions
+                                </label>
+                                <input type="number" name="package-id" value="<?php echo $data['Scheme_ID']; ?>" class="hidden">
+                                <input type="text" name="CONFIRM" placeholder="CONFIRM" class="term-input">
+                                <p class="small-txt">Make Sure CONFIRM Should be in UPPERCASE</p>
+                                <button class="loan-btn">Get</button>
+                            </form>
+                        </div>
 
+                    <?php
+                    }
+                } else { ?>
+            </div>
             <div class="membership-card">
                 <h1>Become Preimum Member For More Loan Opportunities..</h1>
                 <button class="simple-btn btn" onclick="window.location.assign('../membership/ui.php');">
@@ -116,8 +126,8 @@ $Image = $_SESSION['image'];
                 </button>
             </div>
 
-            <?php }
-            ?>
+        <?php }
+        ?>
 
         </div>
     </main>
@@ -126,10 +136,9 @@ $Image = $_SESSION['image'];
 <script src="../../js/Dialog.js"></script>
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
-    const CancleBtn = document.querySelector('#cancle');
-    CancleBtn.addEventListener('click', () => {
-        window.location.assign('../../../home.php');
-    });
+</script>
+<script>
+    DialogHandler('term-open', 'term-close', 'term-dlg', true);
 </script>
 
 </html>

@@ -14,10 +14,10 @@ $Contact = $_REQUEST['contact'];
 
 if (isset($ACC) && isset($PSW)) {
     if ($ACC == $Account && $PSW == $Password) {
-        $ApplicationID = rand(0000000000, 99999999999);
+        $ApplicationID = rand(000000, 9999999);
 
-        $INSERT = "INSERT INTO `loan` (`Application_ID`, `Account_number`,`Email`, `Contact`,`Loan_recovered`, `Decision`,`Date_Loan_Req`) 
-        VALUES ($ApplicationID, $Account, '$Email', '$Contact', '0', 'Pending', current_timestamp());";
+        $INSERT = "INSERT INTO `loan` (`Application_ID`, `Account_number`,`Name`,`Email`, `Contact`,`Loan_recovered`, `Decision`,`Date_Loan_Req`) 
+        VALUES ($ApplicationID, $Account,'$Name','$Email', '$Contact', '0', 'Pending', current_timestamp());";
         $Result = mysqli_query($con, $INSERT);
         if ($Result) {
             $_SESSION['TempAppID'] = $ApplicationID;

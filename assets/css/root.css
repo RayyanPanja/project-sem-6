@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
 :root {
     --background-clr: #111123;
     --background-accence-clr: #444477;
     --background-accence-text-clr: #9999ee;
     --primary-clr: #00ffff;
-    --dark-clr: #323232;
+    --dark-clr: #020f2d;
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
     --font-clr: #efefef;
+    --G-fonts: 'Orbitron' , system-ui ;
 }
 
 * {
@@ -23,6 +26,11 @@
 ::-webkit-scrollbar-thumb {
     background: var(--primary-clr);
     border-radius: 25px;
+}
+*::selection{
+    background: var(--primary-clr);
+    color: var(--dark-clr);
+    user-select: text;
 }
 
 html {
@@ -62,15 +70,22 @@ footer {
     padding: 5px;
     background-color: var(--background-accence-clr);
 }
-.full-size{
+
+.full-size {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
-.hidden{
+
+.hidden {
     display: none;
 }
+
+.txt-center {
+    text-align: center;
+}
+
 @media screen and (max-width: 660px) {
 
     header,

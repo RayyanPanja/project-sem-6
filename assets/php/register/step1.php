@@ -11,7 +11,6 @@ include "../connection.php";
     <title>Sign up</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
-
 <body>
     <h1 align="center">Sign Up</h1>
     <div class="signup-form-container">
