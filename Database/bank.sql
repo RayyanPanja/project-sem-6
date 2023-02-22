@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2023 at 05:55 PM
+-- Generation Time: Feb 22, 2023 at 03:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -185,6 +185,14 @@ CREATE TABLE `transaction` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`) VALUES
+(738830, 9786, 630501, 2500, '2023-02-22', '19:46:08', '2023-02-22 19:46:08', 'Nuts', 'Rayyan', 'YY'),
+(2339183, 630501, 9786, 2500, '2023-02-22', '19:47:14', '2023-02-22 19:47:14', 'Rayyan', 'Nuts', 'YY');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -276,6 +284,20 @@ ALTER TABLE `schemes`
 --
 ALTER TABLE `transaction`
   MODIFY `Receipt_No` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9320454;
+
+DELIMITER $$
+--
+-- Events
+--
+CREATE DEFINER=`root`@`localhost` 
+EVENT `Delete_If_Zero` 
+ON SCHEDULE EVERY 3 DAY 
+STARTS '2023-02-22 08:00:00' 
+ON COMPLETION PRESERVE 
+ENABLE COMMENT 'Used to Delete If User Balance is 0' 
+DO 
+DELETE FROM main WHERE IF(`main`.`Amount` = 0 , 1,0) = 1$$
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

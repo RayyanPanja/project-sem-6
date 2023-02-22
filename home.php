@@ -15,8 +15,6 @@ $Image = $_SESSION['image'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $BANKNAME; ?> Bank</title>
-    <!-- Icon Library -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==' crossorigin='anonymous' />
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -68,7 +66,7 @@ $Image = $_SESSION['image'];
     <header class="hero" id="home">
         <h1 class="intro-title">We Provide Security</h1>
         <div class="small-txt-group">
-            <p class="small-txt">Enjoy  fast , flexible, and Transparent Banking </p>
+            <p class="small-txt">Enjoy fast , flexible, and Transparent Banking </p>
             <p class="small-txt">Thank you For Being a Valuable Customer.</p>
             <p class="small-txt">Try Exploring Your Dashboard </p>
         </div>

@@ -23,7 +23,7 @@ $Image = $_SESSION['image'];
     <dialog class="side-nav-bar" open>
         <div class="user-details">
             <div class="img-holder">
-                <img src="../../img/storage/<?php echo $Image; ?>" alt="">
+                <img src="../../img/storage/<?php echo $Image; ?>" alt="IMG">
             </div>
             <div class="user-name">
                 <h1><?php echo $Name; ?></h1>
@@ -51,8 +51,8 @@ $Image = $_SESSION['image'];
                     while ($data = mysqli_fetch_assoc($result)) { ?>
                         <div class="detail-card">
                             <div class="account"><?php echo $data['To_Acc']; ?></div>
-                            <div class="amount lime"><?php echo $data['Amount']; ?></div>
-                            <div class="name"><?php echo $data['Sender']; ?></div>
+                            <div class="amount lime">Rs.<?php echo $data['Amount']; ?>/-</div>
+                            <div class="name">From: <?php echo $data['Sender']; ?></div>
                             <div class="date">Date:- <?php echo $data['Date'] . "::" . $data['Time']; ?></div>
                         </div>
                 <?php }
@@ -70,8 +70,8 @@ $Image = $_SESSION['image'];
                 if (mysqli_num_rows($result) > 0) {
                     while ($data = mysqli_fetch_assoc($result)) { ?>
                         <div class="detail-card">
-                            <div class="amount red"><?php echo $data['Amount']; ?></div>
-                            <div class="name"><?php echo $data['Receiver']; ?></div>
+                            <div class="amount red">Rs.<?php echo $data['Amount']; ?>/-</div>
+                            <div class="name">To: <?php echo $data['Receiver']; ?></div>
                             <div class="date">Date:- <?php echo $data['Date'] . "::" . $data['Time']; ?></div>
                         </div>
                 <?php }

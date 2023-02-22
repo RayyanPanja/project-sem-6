@@ -598,7 +598,7 @@
     background: #1e8fff68;
     color: white;
 }
-input[type="file"] {
+.doc input[type="file"] {
     display: none;
 }
 .doc-submit{
