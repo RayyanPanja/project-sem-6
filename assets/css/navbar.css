@@ -77,7 +77,6 @@
     overflow: hidden;
 }
 .user-img-holder > img{
-    position: absolute;
     width: 100%;
     object-fit: cover;
     transition: all 500ms;

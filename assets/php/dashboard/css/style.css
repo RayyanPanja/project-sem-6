@@ -40,9 +40,11 @@
     border-radius: 50%;
     border: 2px dotted var(--primary-clr);
     overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: black;
 }
 .img-holder > img{
-    position: absolute;
     width: 100%;
     object-fit: cover;
     border-radius: inherit;

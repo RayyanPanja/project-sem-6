@@ -52,7 +52,7 @@ $Image = $_SESSION['image'];
                         <div class="detail-card">
                             <div class="account"><?php echo $data['To_Acc']; ?></div>
                             <div class="amount lime"><?php echo $data['Amount']; ?></div>
-                            <div class="name"><?php echo $data['Receiver']; ?></div>
+                            <div class="name"><?php echo $data['Sender']; ?></div>
                             <div class="date">Date:- <?php echo $data['Date'] . "::" . $data['Time']; ?></div>
                         </div>
                 <?php }

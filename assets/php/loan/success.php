@@ -66,30 +66,14 @@ $Application_ID = $_SESSION['TempAppID'];
     </nav>
 
     <main style="padding-top: 5%;">
-        <h1 class="txt-center">Please Upload Following Documents To Proceed Futher...</h1>
-        <form action="processor/GetDoc.php" enctype="multipart/form-data" method="post">
-            <h2 class="txt-center">Please Only Use .jpg file</h2>
-            <h2 class="txt-center">All Fields Are required</h2>
-            <div class="doc-grid">
-                <div class="doc">
-                    <label for="file-input-1">Passport Size Photo</label>
-                    <input type="file" id="file-input-1" name="photo" required>
-                </div>
-                <div class="doc">
-                    <label for="file-input-2">Adhar Card</label>
-                    <input type="file" id="file-input-2" name="adharcard" required>
-                </div>
-                <div class="doc">
-                    <label for="file-input-3">Passbook</label>
-                    <input type="file" id="file-input-3" name="passbook" required>
-                </div>
-                <div class="doc">
-                    <label for="file-input-4">Chequebook</label>
-                    <input type="file" id="file-input-4" name="chequebook" required>
-                </div>
-            </div>
-            <button class="doc-submit">Submit</button>
-        </form>
+
+        <h1 class="txt-center">
+            Applied For Loan Successfully......
+        </h1>
+        <h2 class="txt-center">
+            Your Loan Application Has Been Submitted Successfully With
+            <?php echo $Application_ID; ?> ID
+        </h2>
 
     </main>
 
@@ -98,21 +82,9 @@ $Application_ID = $_SESSION['TempAppID'];
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
-<script>
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    const fileButtons = document.querySelectorAll('label[for^="file-input-"]');
-
-    fileInputs.forEach(function(fileInput, i) {
-        const fileButton = fileButtons[i];
-
-        fileInput.addEventListener('change', function() {
-            if (fileInput.files.length > 0) {
-                fileButton.textContent = fileInput.files[0].name;
-            } else {
-                fileButton.textContent = 'Choose file';
-            }
-        });
-    });
-</script>
 
 </html>
+
+<?php
+unset($_SESSION['TempAppID'], $Application_ID);
+?>

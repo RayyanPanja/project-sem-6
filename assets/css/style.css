@@ -404,60 +404,65 @@
     font-size: 60px;
     background: var(--transparent-clr);
     color: var(--primary-clr);
-    font-family: var(--G-fonts) ;
+    font-family: var(--G-fonts);
     letter-spacing: 10px;
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 
-.transaction-list{
+.transaction-list {
     position: relative;
     margin-top: 15%;
     width: 100%;
     height: 85vh;
     background: var(--dark-clr);
     display: grid;
-    grid-template-columns: repeat(1 , 1fr);
+    grid-template-columns: repeat(1, 1fr);
     overflow-y: scroll !important;
 }
-.transaction-display{
+
+.transaction-display {
     outline: 1px solid var(--primary-clr);
     width: 100%;
     height: 100px;
     position: relative;
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
 }
-.transaction-display > *{
+
+.transaction-display>* {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.transaction-note{
+
+.transaction-note {
     font-size: 18px;
 }
 
 /* Loan */
-.loan-container{
+.loan-container {
     position: relative;
     margin-top: 5%;
     width: 100%;
     height: 70vh;
     padding: 10px;
 }
-.loan-packages-container{
+
+.loan-packages-container {
     width: 100%;
     height: 90%;
     overflow-y: scroll;
     padding: 15px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
-.package-box{
+
+.package-box {
     position: relative;
     width: 100%;
     height: 100%;
@@ -465,45 +470,51 @@
     padding: 10px;
     background: var(--dark-clr);
 }
-.package-name{
+
+.package-name {
     width: 100%;
     font-size: 30px;
     text-align: center;
 }
-.package-amount{
+
+.package-amount {
     font-size: 33px;
     font-family: var(--G-fonts);
     padding: 10px;
     text-align: center;
 }
-.sponsor{
+
+.sponsor {
     position: absolute;
     font-size: 20px;
     bottom: 3%;
     text-transform: capitalize;
 }
-.user-limit{
+
+.user-limit {
     position: absolute;
     bottom: 3%;
     right: 3%;
     font-size: 18px;
 }
-.loan-btn{
+
+.loan-btn {
     margin-top: 5%;
     margin-left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 10px 20px;
     background-color: turquoise;
     color: var(--background-clr);
     font-size: 20px;
     border: 0;
 }
-.term-box{
+
+.term-box {
     --border-size: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 50%;
     height: 50%;
     padding: 15px;
@@ -513,10 +524,12 @@
     border-top: var(--border-size) solid var(--primary-clr);
     border-bottom: var(--border-size) solid var(--primary-clr);
 }
-.term-box > ol{
+
+.term-box>ol {
     margin-left: 3%;
 }
-.status{
+
+.status {
     position: absolute;
     right: 3%;
     top: 3%;
@@ -524,7 +537,8 @@
     padding: 10px;
     font-family: var(--G-fonts);
 }
-.term-input{
+
+.term-input {
     width: 100%;
     background: transparent;
     font-size: 20px;
@@ -535,24 +549,67 @@
     border-bottom: 1px dashed var(--primary-clr);
     text-align: center;
 }
-.term-input::placeholder{
-    color: var(--primary-clr);
+
+.term-input::placeholder {
+    color: firebrick;
 }
-.term-btn{
+
+.term-btn {
     position: absolute;
     top: 20%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 10px 30px;
     font-size: 20px;
     background: var(--primary-clr);
     color: var(--dark-clr);
 }
-.doc-grid{
+
+.doc-grid {
     width: 100%;
-    height: 100%;
+    height: 50vh;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(4, 1fr);
     place-items: center;
 }
+
+.doc {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.doc-grid label {
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    font-size: 25px;
+    border: 2px double var(--primary-clr);
+    box-shadow: 0 0 10px 10px var(--primary-clr);
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    transition: all 500ms;
+}
+.doc-grid label:hover{
+    background: #1e8fff68;
+    color: white;
+}
+input[type="file"] {
+    display: none;
+}
+.doc-submit{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    padding: 20px;
+    font-size: 30px;
+    background-color: #1e8fff68;
+    color: white;
+    font-family: var(--G-fonts);
+}
+
 /* Loan..ends */

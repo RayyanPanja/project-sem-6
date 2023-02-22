@@ -25,7 +25,6 @@ if (isset($Pin) && $Pin === $MyPassword) {
                 $hisAmount = $data['Amount'];
                 $hisName = $data['Firstname'];
             }
-
             $FetchMyData = "SELECT * FROM `main` WHERE `Account_number` = $MyAccount;";
             $MyFetchResult = mysqli_query($con, $FetchMyData);
             if ($MyFetchResult) {
@@ -37,36 +36,44 @@ if (isset($Pin) && $Pin === $MyPassword) {
                     echo ("<script>
                     alert('Try Logging out and Logging in Again!!! ')
                     window.location.assign('../ui.php');
-                </script>"
+                    </script>"
                     );
                 }
 
-                // Main Logic {{Will Add Cashback Feature Here }} ....
-                $MyAmount -= $AmountToSend;
-                $hisAmount += $AmountToSend;
+                if ($AmountToSend <= $MyAmount && $MyAmount != 0) {
+                    // Main Logic {{Will Add Cashback Feature Here }} ....
+                    $MyAmount -= $AmountToSend;
+                    $hisAmount += $AmountToSend;
 
-                $UpdateHisAccount = "UPDATE `main` SET `Amount` = $hisAmount WHERE `Account_number` = $HisAccount;";
-                $HisUpdateResult = mysqli_query($con, $UpdateHisAccount);
-                if ($HisUpdateResult) {
-                    $UpdateMyAccount = "UPDATE `main` SET `Amount` = $MyAmount WHERE `Account_number` = $MyAccount;";
-                    $MyUpdateResult = mysqli_query($con, $UpdateMyAccount);
-                    if ($MyUpdateResult) {
+                    $UpdateHisAccount = "UPDATE `main` SET `Amount` = $hisAmount WHERE `Account_number` = $HisAccount;";
+                    $HisUpdateResult = mysqli_query($con, $UpdateHisAccount);
+                    if ($HisUpdateResult) {
+                        $UpdateMyAccount = "UPDATE `main` SET `Amount` = $MyAmount WHERE `Account_number` = $MyAccount;";
+                        $MyUpdateResult = mysqli_query($con, $UpdateMyAccount);
+                        if ($MyUpdateResult) {
 
-                        // RECEIPT GENERATOR.....
-                        $TID = rand(000000, 9999999);
+                            // RECEIPT GENERATOR.....
+                            $TID = rand(000000, 9999999);
 
-                        $Insert = "INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`,`Note`) 
+                            $Insert = "INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`,`Note`) 
                     VALUES ($TID, $MyAccount, $HisAccount, $AmountToSend, current_timestamp(), current_timestamp(), current_timestamp(), '$hisName', '$MyName','$Note');";
 
-                        $InsertResult = mysqli_query($con, $Insert);
+                            $InsertResult = mysqli_query($con, $Insert);
 
-                        if ($InsertResult) {
-                            $_SESSION['Receipt'] = $TID;
-                            header("Location: ../success.php");
+                            if ($InsertResult) {
+                                $_SESSION['Receipt'] = $TID;
+                                header("Location: ../success.php");
+                            }
+
+                            // RECEIPT GENERATOR ENDS.....
                         }
-
-                        // RECEIPT GENERATOR ENDS.....
                     }
+                } else {
+                    echo ("<script>
+                    alert('Funds Insufficient!!!! Try Depositing Some Amount First')
+                    window.location.assign('../ui.php');
+                </script>"
+                    );
                 }
             }
         } else {

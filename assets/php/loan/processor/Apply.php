@@ -67,6 +67,8 @@ if ($CONFIRM === "CONFIRM" && isset($PackageID)) {
                 }
             }
         }
+    } else {
+        echo "<script>Return('Max Users Reached..');</script>";
     }
 }
 ?>

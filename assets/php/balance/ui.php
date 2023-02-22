@@ -82,7 +82,7 @@ $Image = $_SESSION['image'];
 
         <div class="transaction-list">
             <?php
-            $FetchTransaction = "SELECT * FROM `transaction` WHERE `From_Acc` OR `To_Acc` = $Account ORDER BY `transaction`.`DateTime` DESC";
+            $FetchTransaction = "SELECT * FROM `transaction` WHERE `From_Acc` = $Account OR `To_Acc` = $Account ORDER BY `transaction`.`DateTime` DESC";
             $FetchTransactionResult = mysqli_query($con, $FetchTransaction);
             if (mysqli_num_rows($FetchTransactionResult) > 0) {
                 while ($data = mysqli_fetch_assoc($FetchTransactionResult)) { ?>
@@ -92,7 +92,7 @@ $Image = $_SESSION['image'];
                                 From:- <?php echo $data['From_Acc']; ?>
                             </h2>
                             <h2>
-                                To:- <?php echo $data['From_Acc']; ?>
+                                To:- <?php echo $data['To_Acc']; ?>
                             </h2>
                         </div>
                         <div class="transaction-name">
