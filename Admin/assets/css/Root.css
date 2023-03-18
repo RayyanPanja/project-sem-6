@@ -1,0 +1,123 @@
+:root {
+    --background-clr: #252525;
+
+    --primary-clr: #ff5100ee;
+    --secondary-clr: #f1f90ee9;
+    --special-text-clr: #19d7fd;
+
+    --error-clr: #f90349;
+
+    --white-clr: #FFFFFF;
+    --black-clr: #000000;
+    --grey-clr: #8d8b8b;
+    --gray-clr: var(--grey-clr);
+
+    --font-clr: #ffffff;
+    --font-size: 16px;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3%;
+}
+
+body {
+    background: var(--background-clr);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: fit-content;
+    overflow-x: hidden;
+}
+
+header,
+section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    padding-top: 4%;
+}
+code{
+    font-size: 20px;
+    border: 1px solid var(--grey-clr);
+    padding: 0 20px;
+    border-radius: 25px;
+}
+code:hover{
+    background: var(--secondary-clr);
+}
+
+/* Custom Classess... */
+.hidden {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.error-msg {
+    color: var(--error-clr);
+    padding: 3px;
+    font-size: 19px;
+}
+
+.error-msg::before {
+    content: '*';
+}
+
+.white-clr{
+    color: var(--white-clr) !important;
+}
+.text-center{
+    text-align: center;
+}
+.close{
+    font-size: 25px;
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    padding: 10px;
+    border: 0;
+    z-index: 9999;
+}
+.page-title{
+    font-size: 4rem;
+    text-align: center;
+    color: var(--white-clr);
+}
+/* Custom Classess...Ends */
+
+/* Debugging Class.... */
+.debug {
+    padding: 5px !important;
+    isolation: isolate !important;
+    outline: 5px solid var(--primary-clr) !important;
+    background: var(--lightweight-clr) !important;
+    color: var(--white-clr) !important;
+    box-shadow: 0 0 10px 10px var(--primary-clr) !important;
+}
+
+/* Debugging Class....Ends */
+
+::selection {
+    background-color: var(--secondary-clr);
+    color: var(--primary-clr);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--primary-clr);
+}
+
+
+/* Miscs */

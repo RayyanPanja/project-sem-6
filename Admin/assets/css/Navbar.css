@@ -1,0 +1,64 @@
+.navbar {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: var(--primary-clr);
+    z-index: 9999;
+}
+
+.link-set {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.link {
+    position: relative;
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--font-clr);
+    font-weight: 800;
+    transition: all 500ms;
+    padding: 5px;
+}
+
+.link:hover {
+    color: var(--extra-clr);
+}
+
+.link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 5px;
+    background: var(--secondary-clr);
+    transition: all 500ms;
+}
+
+.link:hover::after {
+    width: 100%;
+}
+
+.login-btn {
+    padding: 10px 30px;
+    font-size: 20px;
+    border: 2px solid var(--secondary-clr);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 400ms;
+}
+
+.login-btn:hover {
+    background: black;
+    box-shadow: 0 0 10px 10px var(--primary-clr);
+    color: var(--white-clr);
+}

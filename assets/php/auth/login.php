@@ -1,56 +1,115 @@
 <?php
-include_once "../connection.php";
-
-$account = $_REQUEST['account'];
-$password = $_REQUEST['password'];
-
-function Login($Account, $Name, $Password, $SirName, $Father, $img,$email)
+include "../connection.php";
+session_start();
+function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image)
 {
-    session_start();
-    $_SESSION["Account"] = $Account;
-    $_SESSION['Name'] = $Name;
+    $_SESSION['Account'] = $Account;
     $_SESSION['Password'] = $Password;
-    $_SESSION['Sirname'] = $SirName;
-    $_SESSION['Father'] = $Father;
-    $_SESSION['image'] = $img;
-    $_SESSION['email'] = $email;
-    header("Location:../../../home.php");
+    $_SESSION['Email'] = $Email;
+    $_SESSION['Sirname'] = $Sirname;
+    $_SESSION['Name'] = $Name;
+    $_SESSION['Father'] = $FatherName;
+    $_SESSION['image'] = $Image;
+
+    header("Location: ../../../home.php");
 }
+// Init ->
 
-if (isset($account) && isset($password)) {
-    $Acc;
-    $PASS;
-    $Name;
-    $Father;
-    $SirName;
-    $Email;
+$token;
 
-    $fetch = "SELECT * FROM main WHERE `Account_number` = $account";
-    $result = mysqli_query($con, $fetch);
-    if (mysqli_num_rows($result) > 0) {
-        while ($data = mysqli_fetch_assoc($result)) {
-            $Acc = $data['Account_number'];
-            $PASS =  $data['Password'];
-            $Name =  $data['Firstname'];
-            $Father = $data['Fathername'];
-            $SirName = $data['Sirname'];
-            $ImagePath = $data['Img_Path'];
-            $Email = $data['Email'];
+$Account;
+$Password;
+$Sirname;
+$Name;
+$FatherName;
+$Email;
+$Image;
+
+$message;
+$code;
+$reason;
+
+// GET ->
+$GetAccount = $_REQUEST['account'];
+$GetPassword = $_REQUEST['password'];
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging in.....</title>
+</head>
+
+<body>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+        <h1>Please Wait Logging in.....</h1>
+    </div>
+    <?php
+    if (!empty($GetAccount) && !empty($GetPassword)) {
+        // Get Data From Main Table if exist else search deletedaccounts table....
+        $GetMain = "SELECT * FROM main WHERE `Account_number` = $GetAccount";
+        $FetchMain = mysqli_query($con, $GetMain);
+        if (mysqli_num_rows($FetchMain) > 0) {
+            while ($data = mysqli_fetch_assoc($FetchMain)) {
+                $Account = $data['Account_number'];
+                $Password = $data['Password'];
+                $Sirname = $data['Sirname'];
+                $Name = $data['Firstname'];
+                $FatherName = $data['Fathername'];
+                $Email = $data['Email'];
+                $Image = $data['Img_Path'];
+            }
+            $token = true;
+        } else {
+            $GetDeleted = "SELECT * FROM `deletedaccounts` WHERE `Account_number` = $GetAccount";
+            $FetchDeleted = mysqli_query($con, $GetDeleted);
+            if (mysqli_num_rows($FetchDeleted) > 0) {
+                while ($data = mysqli_fetch_assoc($FetchDeleted)) {
+                    $message = $data['msg'];
+                    $reason = $data['Reason'];
+                    $code = $data['Reason_Code'];
+                }
+    ?>
+                <script>
+                    alert("<?php echo $message; ?>\n<?php echo "Reason: " . $reason; ?>\n<?php echo "CODE: " . $code; ?>");
+                    location.assign("../../../index.php");
+                </script>
+            <?php
+            } else {
+            ?>
+                <script>
+                    alert("Account Does not Exist....");
+                    location.assign("../../../index.php");
+                </script>
+    <?php
+            }
         }
+        // Get Data From Main Table if exist else search deletedaccounts table....ENds
     }
-    if ($account == $Acc) {
-        if ($password == $PASS) {
-            Login($account, $Name, $password, $SirName, $Father, $ImagePath,$Email);
-        } else { ?>
-            <script>
-                alert("Incorrect Password")
-                location.assign("../../../index.php");
-            </script>
+    ?>
+    <script>
         <?php
+        // Compare if GetAccount == Account & GetPassword == Password Are Same to Login....
+        if ($token == true) {
+            if ($GetAccount == $Account) {
+                if ($GetPassword == $Password) {
+                    Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image);
+                } else {
+        ?>
+                    alert("Password Incorrect....")
+                    location.assign("../../../index.php");
+        <?php
+                }
+            }
         }
-    } else { ?>
-        <script>
-            alert("Account Not Exist")
-            location.assign("../../../index.php");
-        </script>
-<?php  } }
+        // Compare if GetAccount & GetPassword Are Same to Login....Ends
+        ?>
+    </script>
+</body>
+
+</html>

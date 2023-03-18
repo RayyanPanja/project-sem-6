@@ -23,7 +23,7 @@ if (
     );
     // Generate a unique folder name...
     $FolderName = $Account . " - " . $Name . " - " . "Documents";
-    $filePath = '../../../img/storage/';
+    $filePath = '../../../img/storage/docs/';
 
     if (!file_exists($FolderName)) {
         mkdir($filePath . $FolderName, 0777, true);

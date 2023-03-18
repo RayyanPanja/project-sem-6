@@ -1,0 +1,30 @@
+:root {
+    --primary-clr: #080346;
+    --loader-clr: #1e90ff;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-clr);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.hidden{
+    color: transparent;
+    display: none;
+}
+.loader {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-bottom: 5px solid var(--loader-clr);
+    border-top: 5px solid var(--loader-clr);
+}
