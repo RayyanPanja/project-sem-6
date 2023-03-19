@@ -17,7 +17,7 @@ if (
 ) {
     $ImageArray = array(
         "Photo" => $_FILES['photo'],
-        "Adhar Card" => $_FILES['adharcard'],
+        "AdharCard" => $_FILES['adharcard'],
         "Passbook" => $_FILES['passbook'],
         "ChequeBook" => $_FILES['chequebook']
     );
@@ -33,11 +33,11 @@ if (
         $fileName =  $ImageName . "." . pathinfo($Image['name'], PATHINFO_EXTENSION);
         // Move the uploaded file to the destination folder
         move_uploaded_file($Image['tmp_name'], $filePath . $FolderName . '/' . $fileName);
+        // func.php
+        SuperUpdate($con, 'loan', $ImageName, $fileName, 'Application_ID', $Application_ID);
     }
 
-    $Update = "UPDATE `loan` SET 
-    `Documents` = 'Submited' ,
-    `Doc_Folder` = '$FolderName'  WHERE `Application_ID` = $Application_ID;";
+    $Update = "UPDATE `loan` SET  `Documents` = 'Submited' , `Doc_Folder` = '$FolderName' WHERE `Application_ID` = $Application_ID;";
     $Result = mysqli_query($con, $Update);
     if ($Result) {
         header("Location: ../success.php");

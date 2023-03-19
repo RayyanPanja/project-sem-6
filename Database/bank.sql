@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 06:18 PM
+-- Generation Time: Mar 19, 2023 at 03:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -78,7 +78,7 @@ CREATE TABLE `deletedaccounts` (
 --
 
 INSERT INTO `deletedaccounts` (`Account_number`, `Date`, `msg`, `Reason`, `Reason_Code`) VALUES
-(192446, '2023-02-22 22:47:00', 'Your Account is Removed , Contact Bank to get more Information', 'Not Deposited Amount', 1);
+(192446, '2023-02-22 22:47:00', 'Your Account is Removed , Contact Bank to get more Information', 'Amount not Deposited', 1);
 
 -- --------------------------------------------------------
 
@@ -102,15 +102,19 @@ CREATE TABLE `loan` (
   `Package_Name` varchar(225) NOT NULL,
   `Package_Amount` int(99) NOT NULL,
   `Documents` varchar(10) NOT NULL DEFAULT 'Not',
-  `Doc_Folder` varchar(50) NOT NULL DEFAULT 'Not Exist'
+  `Doc_Folder` varchar(50) NOT NULL DEFAULT 'Not Exist',
+  `AdharCard` varchar(225) NOT NULL,
+  `ChequeBook` varchar(225) NOT NULL,
+  `Passbook` varchar(225) NOT NULL,
+  `Photo` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `loan`
 --
 
-INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Address`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`) VALUES
-(9507975, 9786, 250000, 'Rayyan', '', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-02-19 22:20:47', 2421462, 'TEST 1', 250000, 'Submited', '9786 - Rayyan - Documents');
+INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Address`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`, `AdharCard`, `ChequeBook`, `Passbook`, `Photo`) VALUES
+(1262557, 9786, 250000, 'Rayyan', '', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-03-18 17:50:28', 2421462, 'TEST 1', 250000, 'Submited', '9786 - Rayyan - Documents', 'AdharCard.jpg', 'ChequeBook.jpg', 'Passbook.png', 'Photo.png');
 
 -- --------------------------------------------------------
 
@@ -141,13 +145,6 @@ CREATE TABLE `main` (
   `Date_Created` datetime NOT NULL DEFAULT current_timestamp(),
   `Created` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `main`
---
-
-INSERT INTO `main` (`Account_number`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Img_Path`, `Amount`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date Of Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Has_recovery`, `Date_Created`, `Created`) VALUES
-(9786, 'Panja', 'Rayyan', 'Gulamhusen', '5555', 'USER-2023-Feb-17-63ef878f0030e.jpg', 2500000, 'Turak Chora Old Patel Wada', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'Yes', 'illumi2701@gmail.com', 9601786974, 'No', '2023-02-17 19:26:01', 1);
 
 -- --------------------------------------------------------
 
@@ -185,7 +182,7 @@ CREATE TABLE `schemes` (
 --
 
 INSERT INTO `schemes` (`Scheme_ID`, `Scheme_Name`, `Sponsor`, `Package`, `Date_Added`, `Status`, `Users_Using`, `Max_Users`) VALUES
-(2421462, 'TEST 1', 'RAYYAN', 250000, '2023-02-11', 'Active', 1, 5);
+(2421462, 'TEST 1', 'RAYYAN', 250000, '2023-02-11', 'Active', 3, 5);
 
 -- --------------------------------------------------------
 
@@ -323,9 +320,9 @@ DELIMITER $$
 --
 -- Events
 --
-CREATE DEFINER=`root`@`localhost` EVENT `Delete_If_Zero` ON SCHEDULE EVERY 1 MINUTE STARTS '2023-02-22 08:02:00' ON COMPLETION PRESERVE ENABLE COMMENT 'Used to Delete If User Balance is 0' DO DELETE FROM main WHERE  `main`.`Amount` = 0 AND `main`.`Created` = 1$$
+CREATE DEFINER=`root`@`localhost` EVENT `Delete_If_Zero` ON SCHEDULE EVERY 10 MINUTE STARTS '2023-02-22 08:02:00' ON COMPLETION PRESERVE ENABLE COMMENT 'Used to Delete If User Balance is 0' DO DELETE FROM main WHERE  `main`.`Amount` = 0 AND `main`.`Created` = 1$$
 
-CREATE DEFINER=`root`@`localhost` EVENT `Inserting` ON SCHEDULE EVERY 30 SECOND STARTS '2023-02-22 08:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'DELETE AND INSERT BOTH AT SAME TIME' DO -- Transfer data into table_to_transfer
+CREATE DEFINER=`root`@`localhost` EVENT `Inserting` ON SCHEDULE EVERY 8 MINUTE STARTS '2023-02-22 08:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'DELETE AND INSERT BOTH AT SAME TIME' DO -- Transfer data into deletedtables if amount = 0
 INSERT INTO deletedaccounts (Account_number)
 SELECT `Account_number` FROM main WHERE `main`.`Amount` = 0 AND `main`.`Created` = 1$$
 

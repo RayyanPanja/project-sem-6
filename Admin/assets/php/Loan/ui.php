@@ -16,6 +16,7 @@ include "../connection.php";
 </head>
 
 <body>
+    <script src="../../js/Function.js"></script>
     <nav class="navbar">
         <div class="link-set">
             <a href="../../../home.php" class="link">Home</a>
@@ -27,14 +28,19 @@ include "../connection.php";
     </nav>
     <main>
         <h1 class="page-title">Loan Applications</h1>
+        <table border="2px">
+            <tr>
+                <th>Application ID</th>
+                <th>Account Number</th>
+                <th>Amount</th>
+                <th>Package</th>
+                <th>CIBIL</th>
+            </tr>
+            <?php
+            
 
-        <dialog class="doc-slide">
-            <img src="../../../../assets/img/storage/docs/" alt="" class="docs">
-            <img src="../../../../assets/img/storage/docs/" alt="" class="docs">
-            <img src="../../../../assets/img/storage/docs/" alt="" class="docs">
-            <img src="../../../../assets/img/storage/docs/" alt="" class="docs">
-        </dialog>
-
+            ?>
+        </table>
     </main>
 </body>
 

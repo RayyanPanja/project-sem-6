@@ -1,5 +1,6 @@
 <!-- Using as Package -->
 <?php
+include "func.php";
 $server = "localhost";
 $user = "root";
 $psw = "";
