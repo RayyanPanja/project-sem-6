@@ -105,7 +105,7 @@ $Image = $_SESSION['image'];
                 <p class="service-detail">
                     Allowing customers to access their accounts, pay bills, transfer money and make transactions online or through mobile apps.
                 </p>
-            </div>
+            </div>   
 
             <div class="service-card">
                 <h1 class="service-name">
