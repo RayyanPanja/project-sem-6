@@ -10,4 +10,4 @@ $con = mysqli_connect($server, $user, $psw, $database);
 if (!$con) {
     die("Connection Not Established" . mysqli_connect_errno());
 }
-$BANKNAME = "Web Wallet";
+$BANKNAME = "WeBank";

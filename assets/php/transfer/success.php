@@ -6,7 +6,7 @@ $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
 $FatherName = $_SESSION['Father'];
 $Image = $_SESSION['image'];
-$Email = $_SESSION['email'];
+$Email = $_SESSION['Email'];
 
 $Receipt = $_SESSION['Receipt'];
 
@@ -141,3 +141,11 @@ $receiver;
 </script>
 
 </html>
+
+<?php
+$Insert = "INSERT INTO `notifications` 
+(`Notification_For`, `Notification`, `Time`) 
+VALUES 
+($to,'A Total Amount of Rs.$amount./- was Transferred to Your Account By $sender', current_timestamp());";
+mysqli_query($con, $Insert);
+?>

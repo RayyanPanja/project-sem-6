@@ -16,3 +16,8 @@ function SuperUpdate($con, $table, $column, $data, $primaryKey, $key)
         return false;
     }
 }
+
+function Seperate($string, $char)
+{
+    return explode($char, $string);
+}

@@ -22,8 +22,8 @@ $Image = $_SESSION['image'];
 <body>
     <dialog class="side-nav-bar" open>
         <div class="user-details">
-            <div class="img-holder">
-                <img src="../../img/storage/<?php echo $Image; ?>" alt="IMG">
+            <div class="side-nav-user-img-holder">
+                <img src="../../img/storage/<?php echo $Image; ?>" alt="IMG" class="side-nav-pfp-img">
             </div>
             <div class="user-name">
                 <h1><?php echo $Name; ?></h1>
@@ -38,52 +38,78 @@ $Image = $_SESSION['image'];
         </div>
     </dialog>
     <main class="panel">
-        <div class="intro-title">
+        <div class="banner">
             <h1>Welcome <?php echo $Name; ?></h1>
         </div>
-        <div class="transactions-history">
-            <div class="receive">
-                <h1>Received</h1>
+
+        <section class="notification-section">
+            <h1>Notifications</h1>
+
+            <div class="notification-area" id="cont">
+
                 <?php
-                $fetch = "SELECT * FROM `transaction` WHERE `To_Acc` = $Account ORDER BY `Date` DESC ;";
+                $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account ORDER BY `time` DESC;";
                 $result = mysqli_query($con, $fetch);
                 if (mysqli_num_rows($result) > 0) {
                     while ($data = mysqli_fetch_assoc($result)) { ?>
-                        <div class="detail-card">
-                            <div class="account"><?php echo $data['To_Acc']; ?></div>
-                            <div class="amount lime">Rs.<?php echo $data['Amount']; ?>/-</div>
-                            <div class="name">From: <?php echo $data['Sender']; ?></div>
-                            <div class="date">Date:- <?php echo $data['Date'] . "::" . $data['Time']; ?></div>
+                        <div class="notification">
+                            <h2><?= $data['Notification']; ?></h2>
                         </div>
-                <?php }
-                } else {
-                    echo "<h1 style='margin-top:30%;'>NO Transactions Yet</h1>";
-                }
-                ?>
-                <div class="detail-card"></div>
-            </div>
-            <div class="sent">
-                <h1>Sent</h1>
+                    <?php
+                    }
+                } else { ?>
+                    <div class="notification">
+                        <h2>No New Notifications</h2>
+                    </div>
                 <?php
-                $fetch = "SELECT * FROM `transaction` WHERE `From_Acc` = $Account ORDER BY `Date` DESC;";
-                $result = mysqli_query($con, $fetch);
-                if (mysqli_num_rows($result) > 0) {
-                    while ($data = mysqli_fetch_assoc($result)) { ?>
-                        <div class="detail-card">
-                            <div class="amount red">Rs.<?php echo $data['Amount']; ?>/-</div>
-                            <div class="name">To: <?php echo $data['Receiver']; ?></div>
-                            <div class="date">Date:- <?php echo $data['Date'] . "::" . $data['Time']; ?></div>
-                        </div>
-                <?php }
-                } else {
-                    echo "<h1 style='margin-top:30%;'>NO Transactions Yet</h1>";
                 }
                 ?>
-                <div class="detail-card"></div>
             </div>
-        </div>
+        </section>
+        <section class="transaction-history">
+            <h1 class="sec-title">Transaction History</h1>
+            <table class="t-table">
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>From Account</th>
+                    <th>To Account</th>
+                    <th>Sender</th>
+                    <th>Receiver</th>
+                    <th>Amount</th>
+                    <th>Note</th>
+                    <th>Date</th>
+                </tr>
+                <?php
+                $Tfetch = "SELECT * FROM `transaction` WHERE `From_Acc` AND `To_Acc` = $Account ORDER BY `DateTime` DESC LIMIT 6 ";
+                $Tresult = mysqli_query($con, $Tfetch);
+                if (mysqli_num_rows($Tresult) > 0) {
+                    while ($data = mysqli_fetch_assoc($Tresult)) { ?>
+                        <tr>
+                            <td><?= $data['Receipt_No']; ?></td>
+                            <td><?= $data['From_Acc']; ?></td>
+                            <td><?= $data['To_Acc']; ?></td>
+                            <td><?= $data['Sender']; ?></td>
+                            <td><?= $data['Receiver']; ?></td>
+                            <td><?= $data['Amount']; ?></td>
+                            <td><?= $data['Note']; ?></td>
+                            <td><?= $data['DateTime']; ?></td>
+                        </tr>
+                <?php
+                    }
+                } else {
+                    echo "<h1>No Transactions Yet..</h1>";
+                }
+                ?>
+            </table>
+            <a href="../balance/ui.php" class="outside-cool-link">Check Out More...</a>
+        </section>
     </main>
 
 </body>
+<script>
+    const Container = document.getElementById('cont');
+    const NumOfChild = Container.childElementCount;
+    Container.style.gridTemplateColumns = `repeat(${NumOfChild},100%)`;
+</script>
 
 </html>

@@ -14,7 +14,7 @@ $Image = $_SESSION['image'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $BANKNAME; ?> Bank</title>
+    <title>Welcome <?php echo $Name; ?></title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -105,7 +105,7 @@ $Image = $_SESSION['image'];
                 <p class="service-detail">
                     Allowing customers to access their accounts, pay bills, transfer money and make transactions online or through mobile apps.
                 </p>
-            </div>   
+            </div>
 
             <div class="service-card">
                 <h1 class="service-name">
