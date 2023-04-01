@@ -11,7 +11,7 @@ function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image
     $_SESSION['Father'] = $FatherName;
     $_SESSION['image'] = $Image;
 
-    header("Location: ../../../home.php");
+    header("Location: ../dashboard/dashboard.php");
 }
 // Init ->
 
@@ -99,6 +99,7 @@ $GetPassword = $_REQUEST['password'];
             if ($GetAccount == $Account) {
                 if ($GetPassword == $Password) {
                     Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image);
+                    $LOGGEDIN = boolval(true);
                 } else {
         ?>
                     alert("Password Incorrect....")

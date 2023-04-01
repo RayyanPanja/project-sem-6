@@ -35,6 +35,7 @@
     border: 0;
     border-bottom: 2px solid var(--primary-clr);
     color: var(--primary-clr);
+    resize: none;
 }
 .input-option{
     font-size: 20px;

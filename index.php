@@ -58,7 +58,7 @@ include "assets/php/connection.php"
         <div class="link-set">
             <a href="#home" class="link">Home</a>
             <a href="#about" class="link">About</a>
-            <a href="#contact" class="link">Contact</a>
+            <a href="assets/php/contact/ui.php" class="link">Contact</a>
 
         </div>
         <div class="auth">
