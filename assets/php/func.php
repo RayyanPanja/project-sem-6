@@ -21,3 +21,27 @@ function Seperate($string, $char)
 {
     return explode($char, $string);
 }
+
+function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image)
+{
+    $_SESSION['Account'] = $Account;
+    $_SESSION['Password'] = $Password;
+    $_SESSION['Email'] = $Email;
+    $_SESSION['Sirname'] = $Sirname;
+    $_SESSION['Name'] = $Name;
+    $_SESSION['Father'] = $FatherName;
+    $_SESSION['image'] = $Image;
+    $_SESSION['Loggedin'] = "true";
+    header("Location: ../dashboard/dashboard.php");
+}
+
+function Logout()
+{
+
+    unset(
+        $_SESSION["Account"],
+        $_SESSION['Name'],
+        $_SESSION['Password']
+    );
+    $_SESSION["Loggedin"] = "false";
+}

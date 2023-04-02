@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
@@ -19,49 +19,11 @@ $Image = $_SESSION['image'];
 </head>
 
 <body>
-    <!-- Logout Form -->
-    <dialog class="login-form" id="logout-dlg">
-        <div class="login-img-holder">
-            <img src="../../img/storage/<?php echo $Image; ?>" alt="Login">
-        </div>
-        <h1>Logout</h1>
-        <form action="../auth/logout.php" method="post">
-            <h1>Are You Sure You Want to Logout </h1>
-            <div class="login-btn-set">
-                <button class="login-btn cool-btn" type="submit">Logout</button>
-                <button class="cancle-btn cool-btn" type="reset" id="logout-close">Cancle</button>
-            </div>
-        </form>
-    </dialog>
-    <!-- Logout Form...ENDS -->
-    <nav class="navbar">
-        <div class="logo">
-            <h1>^w^</h1>
-        </div>
-        <div class="link-set">
-            <a href="../../../home.php" class="link">Home</a>
-            <a href="../dashboard/dashboard.php" class="link">DashBoard</a>
-            <a href="ui.php" class="link">Transfer</a>
-            <a href="../loan/ui.php" class="link">Loan</a>
-            <a href="../balance/ui.php" class="link">Balance</a>
-            <a href="../contact/ui.php" class="link">Contact</a>
-            <button type="submit" class="logout-btn" id="logout-open">Logout</button>
-        </div>
-        <div class="auth">
-            <div class="user-detail-box">
-                <div class="user-img-holder">
-                    <img src="<?php echo "../../img/storage/" . $Image; ?>" alt="<?php echo $SirName . $Name . $FatherName; ?>">
-                </div>
-                <div class="">
-                    <h1 class="user-name" title="<?php echo $SirName . " " . $Name . " " . $FatherName; ?>">
-                        <?php
-                        echo $Name;
-                        ?>
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- NAVBAR -->
+    <?php
+    include("../../components/MainNavbar.php");
+    ?>
+    <!-- NAVBAR -->
 
     <main>
         <div class="transfer-form-container">
@@ -105,7 +67,8 @@ $Image = $_SESSION['image'];
     if (isset($_SESSION['HisAccount'])) { ?>
         <dialog class="login-form" id="Confirm" open>
             <h1>Are You Sure You </h1>
-            <h3 align="center">Are You Sure You Want to Continue Your Transaction of <h1> Rs. <?php echo $_SESSION['Amount']; ?> <br> From Your <?php echo $_SESSION['Account']; ?> <br> To <?php echo $_SESSION['HisAccount']; ?></h1></h3>
+            <h3 align="center">Are You Sure You Want to Continue Your Transaction of <h1> Rs. <?php echo $_SESSION['Amount']; ?> <br> From Your <?php echo $_SESSION['Account']; ?> <br> To <?php echo $_SESSION['HisAccount']; ?></h1>
+            </h3>
             <form action="processor/transfer.php" method="post">
                 <h1><label for="Pin">Enter Pin</label></h1>
 
@@ -124,9 +87,7 @@ $Image = $_SESSION['image'];
     <?php } ?>
 
 </body>
-<script src="../../js/Dialog.js"></script>
 <script>
-    DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
     const CancleBtn = document.querySelector('#cancle');
     CancleBtn.addEventListener('click', () => {
         const Dialog = document.querySelector('#Confirm');

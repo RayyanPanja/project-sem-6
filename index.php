@@ -16,45 +16,10 @@ include "assets/php/connection.php";
 </head>
 
 <body>
-    <!-- Login Form -->
-    <dialog class="login-form" id="login-dlg">
-        <div class="login-img-holder">
-            <img src="assets/img/user.png" alt="Login">
-        </div>
-        <h1>Login</h1>
-        <form action="assets/php/auth/login.php" method="post">
-            <div class="row">
-                <div class="col-lab">
-                    <label for="Account Number">Account Number</label>
-                </div>
-                <div class="col-inp">
-                    <input type="number" name="account" id="accno" class="login-input" placeholder="Account Number" required>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lab">
-                    <label for="Password">Password</label>
-                </div>
-                <div class="col-inp">
-                    <input type="password" name="password" id="psw" class="login-input" placeholder="******" required>
-                </div>
-            </div>
-            <div class="login-btn-set">
-                <button class="login-btn cool-btn" type="submit">Login</button>
-                <button class="cancle-btn cool-btn" type="reset" id="login-close">Cancle</button>
-            </div>
-        </form>
-        <div class="small-txt-set for-login">
-            <p class="small-txt">Dont have an Account??</p>
-            <a href="">Register Now</a>
-        </div>
-    </dialog>
-
-    <!-- Login Form...ENDS -->
 
     <!-- NAVBAR -->
     <?php
-    include("assets/components/Navbar.php"); 
+    include("assets/components/IndexNavbar.php");
     ?>
     <!-- NAVBAR -->
 
@@ -120,26 +85,10 @@ include "assets/php/connection.php";
         </div>
     </section>
 
-    <footer id="footer" class="footer">
-        <h1><?php echo $BANKNAME; ?> Bank</h1>
-
-        <address>
-            <p>
-                Address:- Noble Institute of Technology, Junagadh
-            </p>
-            <p>
-                Contact us:- <a href="mailto:illumi2701@gmail.com">illumi2701@gmail.com</a>
-            </p>
-            <p>
-                Call Us:- <a href="tel:+91 9601786974">+91 9601786974</a>
-            </p>
-        </address>
-    </footer>
-
-    <script src="assets/js/Dialog.js"></script>
+    <!-- Footer.. -->
+    <?php include("assets/components/Footer.php"); ?>
+    <!-- Footer.. -->
     <script>
-        DialogHandler('login-open', 'login-close', 'login-dlg', true);
-
         const NavbarRegisterBtn = document.querySelector('#register-btn');
         const HomeRegisterBtn = document.querySelector('#register-btn-2');
 

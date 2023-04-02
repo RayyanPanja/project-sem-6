@@ -63,13 +63,6 @@ button {
     cursor: pointer;
 }
 
-footer {
-    position: relative;
-    width: 100vw;
-    height: 30vh;
-    padding: 5px;
-    background-color: var(--background-accence-clr);
-}
 
 .full-size {
     position: relative;

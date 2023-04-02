@@ -11,16 +11,6 @@
 <body>
     <?php
     include "../connection.php";
-    function Logout()
-    {
-         
-        unset(
-            $_SESSION["Account"],
-            $_SESSION['Name'],
-            $_SESSION['Password']
-        );
-        $_SESSION["Loggedin"] = boolval(false);
-    }
     Logout();
     header("Location: ../../../index.php");
     ?>

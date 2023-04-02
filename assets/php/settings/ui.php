@@ -13,9 +13,11 @@ include "../connection.php";
 </head>
 
 <body>
+    <!-- NAVBAR -->
     <?php
-    include("../../components/Navbar.php");
+    include("../../components/MainNavbar.php");
     ?>
+    <!-- NAVBAR -->
 
 
 </body>

@@ -38,7 +38,7 @@ $Image = $_SESSION['image'];
     
     <!-- NAVBAR -->
     <?php
-    include("assets/components/Navbar.php");
+    include("assets/components/MainNavbar.php");
     ?>
     <!-- NAVBAR -->
 
@@ -106,21 +106,9 @@ $Image = $_SESSION['image'];
         </div>
     </section>
 
-    <footer id="footer" class="footer">
-        <h1><?php echo $BANKNAME; ?> Bank</h1>
-
-        <address>
-            <p>
-                Address:- Noble Institute of Technology, Junagadh
-            </p>
-            <p>
-                Contact us:- <a href="mailto:illumi2701@gmail.com">illumi2701@gmail.com</a>
-            </p>
-            <p>
-                Call Us:- <a href="tel:+91 9601786974">+91 9601786974</a>
-            </p>
-        </address>
-    </footer>
+    <!-- Footer.. -->
+    <?php include("assets/components/Footer.php"); ?>
+    <!-- Footer.. -->
 
     <script src="assets/js/Dialog.js"></script>
     <script>

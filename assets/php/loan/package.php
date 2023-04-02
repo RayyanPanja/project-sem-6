@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
@@ -46,34 +46,12 @@ $Image = $_SESSION['image'];
         <button id="term-close" class="loan-btn">Agree</button>
     </dialog>
     <!-- TERMS...ends -->
-    <nav class="navbar">
-        <div class="logo">
-            <h1>^w^</h1>
-        </div>
-        <div class="link-set">
-            <a href="../../../home.php" class="link">Home</a>
-            <a href="../dashboard/dashboard.php" class="link">DashBoard</a>
-            <a href="../transfer/ui.php" class="link">Transfer</a>
-            <a href="ui.php" class="link">Loan</a>
-            <a href="../balance/ui.php" class="link">Balance</a>
-            <a href="../contact/ui.php" class="link">Contact</a>
-            <button type="submit" class="logout-btn" id="logout-open">Logout</button>
-        </div>
-        <div class="auth">
-            <div class="user-detail-box">
-                <div class="user-img-holder">
-                    <img src="<?php echo "../../img/storage/" . $Image; ?>" alt="<?php echo $SirName . $Name . $FatherName; ?>">
-                </div>
-                <div class="">
-                    <h1 class="user-name" title="<?php echo $SirName . " " . $Name . " " . $FatherName; ?>">
-                        <?php
-                        echo $Name;
-                        ?>
-                    </h1>
-                </div>
-            </div>
-        </div>
-    </nav>
+
+    <!-- NAVBAR -->
+    <?php
+    include("../../components/MainNavbar.php");
+    ?>
+    <!-- NAVBAR -->
 
     <main style="padding-top: 5% ;">
         <h1 class="txt-center">Please Read Terms And Conditions Carefully</h1>
