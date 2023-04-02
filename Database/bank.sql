@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 03:42 PM
+-- Generation Time: Apr 02, 2023 at 04:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -51,13 +51,24 @@ INSERT INTO `admin` (`Admin_ID`, `Admin_Name`, `Admin_Password`, `Designation`, 
 
 CREATE TABLE `comment` (
   `Cid` int(99) NOT NULL,
-  `Name` varchar(99) NOT NULL,
+  `Email` varchar(99) NOT NULL,
+  `Subject` varchar(225) NOT NULL,
   `Msg` longtext NOT NULL,
   `Status` varchar(50) NOT NULL DEFAULT 'Pending',
   `Time` time NOT NULL DEFAULT current_timestamp(),
-  `Date` date NOT NULL DEFAULT current_timestamp(),
-  `Img_Path` varchar(225) NOT NULL
+  `Date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`Cid`, `Email`, `Subject`, `Msg`, `Status`, `Time`, `Date`) VALUES
+(1, 'Deez', '', 'Lorem safas asf aas ga', 'Pending', '00:00:00', '2023-04-02'),
+(2, 'Rayyan', '', 'LOREM SAFAS IFHAOISFHIUAFH ASKF HAISUFHASUIFL HASHF ASOIFU HASUIFH SAUHFASILFJ AOSILF AF Juasf hauksfh skfh asufh aiu ', 'Pending', '00:00:00', '2023-04-02'),
+(978519, 'illumi2701@gmail.com', 'Test 1', 'Hello, This is a Test Message\r\n', 'Pending', '01:24:13', '2023-04-02'),
+(978520, 'deez@nuts.com', '4-Needs-Good', 'Hello, Nigga * 2500\r\n\r\nSDas', 'Pending', '01:31:45', '2023-04-02'),
+(978521, 'deez@nuts.com', 'ASD65a4', 'Hello,J OIAS DIA SDOIA SD', 'Pending', '01:37:22', '2023-04-02');
 
 -- --------------------------------------------------------
 
@@ -88,7 +99,7 @@ INSERT INTO `deletedaccounts` (`Account_number`, `Date`, `msg`, `Reason`, `Reaso
 
 CREATE TABLE `loan` (
   `Application_ID` bigint(99) NOT NULL,
-  `Account_number` int(99) NOT NULL,
+  `Account_number` bigint(99) UNSIGNED NOT NULL,
   `Debt` int(99) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `Address` varchar(100) NOT NULL,
@@ -109,13 +120,6 @@ CREATE TABLE `loan` (
   `Photo` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `loan`
---
-
-INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Address`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`, `AdharCard`, `ChequeBook`, `Passbook`, `Photo`) VALUES
-(1262557, 9786, 250000, 'Rayyan', '', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-03-18 17:50:28', 2421462, 'TEST 1', 250000, 'Submited', '9786 - Rayyan - Documents', 'AdharCard.jpg', 'ChequeBook.jpg', 'Passbook.png', 'Photo.png');
-
 -- --------------------------------------------------------
 
 --
@@ -123,7 +127,7 @@ INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Address
 --
 
 CREATE TABLE `main` (
-  `Account_number` int(99) NOT NULL,
+  `Account_number` bigint(99) UNSIGNED NOT NULL,
   `Sirname` varchar(100) NOT NULL,
   `Firstname` varchar(100) NOT NULL,
   `Fathername` varchar(100) NOT NULL,
@@ -146,19 +150,34 @@ CREATE TABLE `main` (
   `Created` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `main`
+--
+
+INSERT INTO `main` (`Account_number`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Img_Path`, `Amount`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date Of Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Has_recovery`, `Date_Created`, `Created`) VALUES
+(9786, 'Panja', 'Rayyan', 'Gulamhusen', '5555', 'USER-2023-Mar-19-64172e80cfd70.jpg', 55000, 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'deez@nuts.com', 2365148595, 'No', '2023-03-19 21:15:40', 1),
+(11111, 'Panja', 'Rayyan', 'Gulamhusen', '55555', 'USER-2023-Mar-24-641d631f4c189.jpg', 50100, 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786974, 'No', '2023-03-24 14:14:48', 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recovery`
+-- Table structure for table `notifications`
 --
 
-CREATE TABLE `recovery` (
-  `Account_number` int(99) NOT NULL,
-  `Special_Key` int(30) NOT NULL,
-  `Code_Word` varchar(30) NOT NULL,
-  `Contact` int(12) NOT NULL,
-  `Attempt` int(99) NOT NULL
+CREATE TABLE `notifications` (
+  `id` int(11) NOT NULL,
+  `Notification_For` bigint(20) UNSIGNED NOT NULL,
+  `Notification` mediumtext NOT NULL,
+  `Time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `Notification_For`, `Notification`, `Time`) VALUES
+(5, 9786, 'A Total Amount of Rs.5100./- was Transferred to Your Account By Rayyan', '2023-04-01 20:20:08'),
+(6, 11111, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan', '2023-04-02 14:19:31');
 
 -- --------------------------------------------------------
 
@@ -182,7 +201,7 @@ CREATE TABLE `schemes` (
 --
 
 INSERT INTO `schemes` (`Scheme_ID`, `Scheme_Name`, `Sponsor`, `Package`, `Date_Added`, `Status`, `Users_Using`, `Max_Users`) VALUES
-(2421462, 'TEST 1', 'RAYYAN', 250000, '2023-02-11', 'Active', 3, 5);
+(2421462, 'TEST 1', 'RAYYAN', 250000, '2023-02-11', 'Active', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -192,8 +211,8 @@ INSERT INTO `schemes` (`Scheme_ID`, `Scheme_Name`, `Sponsor`, `Package`, `Date_A
 
 CREATE TABLE `transaction` (
   `Receipt_No` int(99) NOT NULL,
-  `From_Acc` int(99) NOT NULL,
-  `To_Acc` int(99) NOT NULL,
+  `From_Acc` bigint(99) UNSIGNED NOT NULL,
+  `To_Acc` bigint(99) UNSIGNED NOT NULL,
   `Amount` int(99) NOT NULL,
   `Date` date NOT NULL DEFAULT current_timestamp(),
   `Time` time NOT NULL DEFAULT current_timestamp(),
@@ -208,8 +227,7 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`) VALUES
-(738830, 9786, 630501, 2500, '2023-02-22', '19:46:08', '2023-02-22 19:46:08', 'Nuts', 'Rayyan', 'YY'),
-(2339183, 630501, 9786, 2500, '2023-02-22', '19:47:14', '2023-02-22 19:47:14', 'Rayyan', 'Nuts', 'YY');
+(1009190, 9786, 11111, 100, '2023-04-02', '19:49:31', '2023-04-02 19:49:31', 'Rayyan', 'Rayyan', 'Deezz');
 
 --
 -- Indexes for dumped tables
@@ -237,7 +255,8 @@ ALTER TABLE `deletedaccounts`
 -- Indexes for table `loan`
 --
 ALTER TABLE `loan`
-  ADD PRIMARY KEY (`Application_ID`);
+  ADD PRIMARY KEY (`Application_ID`),
+  ADD KEY `Loan_Account_Number` (`Account_number`);
 
 --
 -- Indexes for table `main`
@@ -247,10 +266,11 @@ ALTER TABLE `main`
   ADD KEY `sharing` (`Img_Path`);
 
 --
--- Indexes for table `recovery`
+-- Indexes for table `notifications`
 --
-ALTER TABLE `recovery`
-  ADD PRIMARY KEY (`Account_number`);
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Notification_For` (`Notification_For`);
 
 --
 -- Indexes for table `schemes`
@@ -262,7 +282,9 @@ ALTER TABLE `schemes`
 -- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD PRIMARY KEY (`Receipt_No`);
+  ADD PRIMARY KEY (`Receipt_No`),
+  ADD KEY `Transaction_From_Acc` (`From_Acc`),
+  ADD KEY `Transaction_To_Acc` (`To_Acc`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -278,7 +300,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978519;
+  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978522;
 
 --
 -- AUTO_INCREMENT for table `deletedaccounts`
@@ -296,13 +318,13 @@ ALTER TABLE `loan`
 -- AUTO_INCREMENT for table `main`
 --
 ALTER TABLE `main`
-  MODIFY `Account_number` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=968346;
+  MODIFY `Account_number` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=968346;
 
 --
--- AUTO_INCREMENT for table `recovery`
+-- AUTO_INCREMENT for table `notifications`
 --
-ALTER TABLE `recovery`
-  MODIFY `Account_number` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9787;
+ALTER TABLE `notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `schemes`
@@ -316,6 +338,29 @@ ALTER TABLE `schemes`
 ALTER TABLE `transaction`
   MODIFY `Receipt_No` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9320454;
 
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `loan`
+--
+ALTER TABLE `loan`
+  ADD CONSTRAINT `Loan_Account_Number` FOREIGN KEY (`Account_number`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `Notification_For` FOREIGN KEY (`Notification_For`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `Transaction_From_Acc` FOREIGN KEY (`From_Acc`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Transaction_To_Acc` FOREIGN KEY (`To_Acc`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 DELIMITER $$
 --
 -- Events
@@ -325,6 +370,8 @@ CREATE DEFINER=`root`@`localhost` EVENT `Delete_If_Zero` ON SCHEDULE EVERY 10 MI
 CREATE DEFINER=`root`@`localhost` EVENT `Inserting` ON SCHEDULE EVERY 8 MINUTE STARTS '2023-02-22 08:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'DELETE AND INSERT BOTH AT SAME TIME' DO -- Transfer data into deletedtables if amount = 0
 INSERT INTO deletedaccounts (Account_number)
 SELECT `Account_number` FROM main WHERE `main`.`Amount` = 0 AND `main`.`Created` = 1$$
+
+CREATE DEFINER=`root`@`localhost` EVENT `RemoveNotification` ON SCHEDULE EVERY 2 MINUTE STARTS '2023-04-02 00:40:48' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM notifications WHERE Time < DATE_SUB(NOW(), INTERVAL 2 MINUTE)$$
 
 DELIMITER ;
 COMMIT;
