@@ -12,7 +12,7 @@ if(isset($name) && isset($firstname) && isset($fathername)){
     VALUES ($account, '$firstname', '$name', '$fathername', '$dob', '$gender','No', 'No', 'No', current_timestamp());";
     $Result = mysqli_query($con,$Insert);
     if($Result){
-        session_start();
+         
         $_SESSION['TempAcc'] = $account;
         header("Location: ../step2.php");
     } 

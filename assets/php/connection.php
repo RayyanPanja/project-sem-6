@@ -12,8 +12,10 @@ if (!$con) {
     die("Connection Not Established" . mysqli_connect_errno());
 }
 
-// Usefull Vars....
-$BANKNAME = "WeBank";
-$LOGGEDIN = boolval(false);
+session_start();
+$_SESSION["Loggedin"] = boolval(false);
 
+// Usefull Vars....
+$URL = "http://localhost/project-sem-6/";
+$BANKNAME = "WeBank";
 $Author = "Rayyan Panja";

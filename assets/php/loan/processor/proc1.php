@@ -1,6 +1,6 @@
 <?php
 include "../../connection.php";
-session_start();
+ 
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];

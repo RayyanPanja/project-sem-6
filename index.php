@@ -1,5 +1,5 @@
 <?php
-include "assets/php/connection.php"
+include "assets/php/connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,22 +51,12 @@ include "assets/php/connection.php"
     </dialog>
 
     <!-- Login Form...ENDS -->
-    <nav class="navbar">
-        <div class="logo">
-            <h1>^w^</h1>
-        </div>
-        <div class="link-set">
-            <a href="#home" class="link">Home</a>
-            <a href="#about" class="link">About</a>
-            <a href="assets/php/contact/ui.php" class="link">Contact</a>
 
-        </div>
-        <div class="auth">
-            <button id="login-open" class="auth-btn login">Login</button>
-            <hr>
-            <button id="register-btn" class="auth-btn signup">Register</button>
-        </div>
-    </nav>
+    <!-- NAVBAR -->
+    <?php
+    include("assets/components/Navbar.php"); 
+    ?>
+    <!-- NAVBAR -->
 
     <header class="hero" id="home">
         <h1 class="intro-title">We Provide Security</h1>

@@ -1,6 +1,7 @@
 <?php
 include "../connection.php";
-session_start();
+ 
+
 function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image)
 {
     $_SESSION['Account'] = $Account;
@@ -10,7 +11,6 @@ function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image
     $_SESSION['Name'] = $Name;
     $_SESSION['Father'] = $FatherName;
     $_SESSION['image'] = $Image;
-
     header("Location: ../dashboard/dashboard.php");
 }
 // Init ->
@@ -98,8 +98,8 @@ $GetPassword = $_REQUEST['password'];
         if ($token == true) {
             if ($GetAccount == $Account) {
                 if ($GetPassword == $Password) {
+                    $_SESSION["Loggedin"] = boolval(true);
                     Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image);
-                    $LOGGEDIN = boolval(true);
                 } else {
         ?>
                     alert("Password Incorrect....")

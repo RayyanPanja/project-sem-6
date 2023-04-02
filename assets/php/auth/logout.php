@@ -13,14 +13,16 @@
     include "../connection.php";
     function Logout()
     {
-        session_start();
-        $_SESSION["Account"];
-        $_SESSION['Name'];
-        $_SESSION['Password'];
-        session_destroy();
-        header("Location: ../../../index.php");
+         
+        unset(
+            $_SESSION["Account"],
+            $_SESSION['Name'],
+            $_SESSION['Password']
+        );
+        $_SESSION["Loggedin"] = boolval(false);
     }
     Logout();
+    header("Location: ../../../index.php");
     ?>
     <div class="loader-wrapper">
         <h1>Logging Out</h1>

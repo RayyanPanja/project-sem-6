@@ -7,7 +7,7 @@
 
 <?php
 include "../../connection.php";
-session_start();
+ 
 $Account = $_SESSION['Account'];
 $Password = $_SESSION['Password'];
 

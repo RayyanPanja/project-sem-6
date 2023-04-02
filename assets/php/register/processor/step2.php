@@ -1,6 +1,6 @@
 <?php
 include "../../connection.php";
-session_start();
+ 
 $Acc = $_SESSION['TempAcc'];
 
 $Address = $_REQUEST['address'];
