@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
@@ -15,6 +15,7 @@ $Image = $_SESSION['image'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.css' integrity='sha512-2dJkRM/DmWkZqINs3QixNKKsgG9mlBT9/PieLVF8OEGHCpPNBoPFYmGPL/yD7JuQVVm2IESF5K0zTDBaf4qehQ==' crossorigin='anonymous' />
     <link rel="stylesheet" href="../../css/root.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -42,30 +43,12 @@ $Image = $_SESSION['image'];
             <h1>Welcome <?php echo $Name; ?></h1>
         </div>
 
-        <section class="notification-section">
-            <h1>Notifications</h1>
+        <div class="menubar">
+            <button class="menu-btn">
+                <svg href="../../Svgs/bell-solid.svg"></svg>
+            </button>
+        </div>
 
-            <div class="notification-area" id="cont">
-
-                <?php
-                $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account ORDER BY `time` DESC;";
-                $result = mysqli_query($con, $fetch);
-                if (mysqli_num_rows($result) > 0) {
-                    while ($data = mysqli_fetch_assoc($result)) { ?>
-                        <div class="notification">
-                            <h2><?= $data['Notification']; ?></h2>
-                        </div>
-                    <?php
-                    }
-                } else { ?>
-                    <div class="notification">
-                        <h2>No New Notifications</h2>
-                    </div>
-                <?php
-                }
-                ?>
-            </div>
-        </section>
         <section class="transaction-history">
             <h1 class="sec-title">Transaction History</h1>
             <table class="t-table">

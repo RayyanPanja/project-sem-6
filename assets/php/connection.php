@@ -25,6 +25,7 @@ try {
 } catch (\Throwable $th) {
     header("Location: $URL/Error/error.html");
 }
+?>
 
-
-
+<link rel="stylesheet" href="<?= $URL?>/assets/css/style.css">
+<script src="https://kit.fontawesome.com/5ac4d734e2.js" crossorigin="anonymous"></script>
