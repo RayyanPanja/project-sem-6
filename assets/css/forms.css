@@ -4,7 +4,7 @@
     margin-top: 10%;
     width: 50%;
     height: 50vh;
-    border: 2px solid var(--background-accence-clr);
+    border: 2px solid var(--light-clr);
 }
 
 .signup-form-container>form {
@@ -30,7 +30,7 @@
 
 .submit {
     background: var(--primary-clr);
-    color: var(--background-accence-clr);
+    color: var(--light-clr);
     box-shadow: 0 0 5px 5px var(--primary-clr);
 }
 .submit:hover{

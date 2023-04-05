@@ -2,17 +2,6 @@
 <?php
 include "func.php";
 
-$server = "localhost";
-$user = "root";
-$psw = "";
-$database = "bank";
-
-$con = mysqli_connect($server, $user, $psw, $database);
-if (!$con) {
-    die("Connection Not Established" . mysqli_connect_errno());
-}
-
-
 // Usefull Vars....
 $Dir = "project-sem-6";
 $URL = "http://localhost/{$Dir}";
@@ -22,3 +11,20 @@ $AppName = $BANKNAME;
 $Author = "Rayyan Panja";
 
 session_start();
+
+$server = "localhost";
+$user = "root";
+$psw = "";
+$database = "bank";
+
+try {
+    $con = mysqli_connect($server, $user, $psw, $database);
+    if (!$con) {
+        die("Connection Not Established" . mysqli_connect_errno());
+    }
+} catch (\Throwable $th) {
+    header("Location: $URL/Error/error.html");
+}
+
+
+

@@ -62,7 +62,7 @@
     align-items: center;
     gap: 10px;
     padding: 5px 20px;
-    border: 3px double var(--background-accence-clr);
+    border: 3px double var(--light-clr);
     border-radius: 20px;
 }
 .user-img-holder{

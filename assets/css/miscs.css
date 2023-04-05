@@ -53,7 +53,7 @@ label{
     margin-top: 3%;
     font-size: 3rem;
     text-align: center;
-    color: var(--background-accence-text-clr);
+    color: var(--subtitle-clr);
 }
 .note{
     margin: auto;

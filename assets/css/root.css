@@ -2,10 +2,10 @@
 
 :root {
     --background-clr: #111123;
-    --background-accence-clr: #444477;
-    --background-accence-text-clr: #9999ee;
+    --light-clr: #444477;
+    --subtitle-clr: #9999ee;
     --primary-clr: #00ffff;
-    --dark-clr: #020f2d;
+    --secondary-clr: #020f2d;
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
     --font-clr: #efefef;
@@ -29,7 +29,7 @@
 }
 *::selection{
     background: var(--primary-clr);
-    color: var(--dark-clr);
+    color: var( --secondary-clr);
     user-select: text;
 }
 

@@ -1,0 +1,42 @@
+@import url(../assets/css/root.css);
+
+body{
+    display: grid;
+    place-items: center;
+}
+.center-card{
+    width: 50%;
+    height: 60vh;
+    border: 2px solid var(--light-clr);
+    box-shadow: 0 0 5px 2px var(--primary-clr);
+    text-align: center;
+    padding: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.button{
+    padding: 12px 24px;
+    border-radius: 75px 0;
+    background: transparent;
+    font-size: 25px;
+    border: 1px solid var(--primary-clr);
+    transition: all 500ms , border-radius 200ms;
+}
+.primary-btn:hover{
+    background: var(--primary-clr);
+    color: var(--secondary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+    border-radius: 0 75px;
+}
+
+.oops{
+    font-size: 45px;
+    color: var(--primary-clr);
+}
+.error{
+    font-size: 25px;
+    color: var(--subtitle-clr);
+    font-style: italic;
+}

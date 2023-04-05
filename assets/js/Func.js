@@ -9,3 +9,7 @@ function goToHome(bool = false){
         window.location.assign("../../../home.php")
     }
 }
+
+function retry(){
+    window.location.assign("../index.php");
+}
