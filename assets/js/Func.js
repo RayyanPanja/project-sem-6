@@ -39,3 +39,36 @@ function DialogHandler(open, close, dialog, isModal = false) {
         });
     }
 }
+
+
+// Show Notifications....
+function showNotifications(popupID, buttonID, newClass) {
+    const Btn = document.getElementById(buttonID);
+    const PopUp = document.getElementById(popupID);
+
+    const prevClass = PopUp.className;
+    let flag = false;
+
+    Btn.addEventListener('click', () => {
+        if (flag === false) {
+            PopUp.className = newClass;
+            flag = true;
+        } else {
+            PopUp.className = prevClass;
+            flag = false;
+        }
+    });
+}
+// Show Notifications....Ends
+
+// Currency....
+function ChangeCurrencyFormat(tagID , formate , Lang) {
+    const tag = document.getElementById(tagID);
+    const tagValue = Number(tag.innerHTML);
+    const updatedString = tagValue.toLocaleString(Lang, { style: 'currency', currency: formate });
+    tag.innerHTML = updatedString;
+    console.log('Working: ' + tag.innerHTML);
+}
+
+
+// Currency....

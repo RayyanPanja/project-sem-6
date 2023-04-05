@@ -44,9 +44,24 @@ $Image = $_SESSION['image'];
         </div>
 
         <div class="menubar">
-            <button class="menu-btn">
-                <svg href="../../Svgs/bell-solid.svg"></svg>
-            </button>
+            <div class="notifications">
+                <div class="pop-up" id="notification-pop-up">
+                        <?php
+                        $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account";
+                        $result = mysqli_query($con, $fetch);
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($data = mysqli_fetch_assoc($result)) { ?>
+                                <div class="notification"><?= $data['Notification']; ?></div>
+                            <?php }
+                        } else { ?>
+                            <div class="notification">No Notifications...</div>
+                        <?php }
+                        ?>
+                </div>
+                <button class="menu-btn" id="notification-btn">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+            </div>
         </div>
 
         <section class="transaction-history">
@@ -89,10 +104,9 @@ $Image = $_SESSION['image'];
     </main>
 
 </body>
+<script src="../../js/Func.js"></script>
 <script>
-    const Container = document.getElementById('cont');
-    const NumOfChild = Container.childElementCount;
-    Container.style.gridTemplateColumns = `repeat(${NumOfChild},100%)`;
+    showNotifications('notification-pop-up', 'notification-btn', 'pop-up-active')
 </script>
 
 </html>

@@ -1,27 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-
-:root {
-    --background-clr: #111123;
-    --primary-clr: #00ffff;
-    --secondary-clr: #2f2f67;
-    --subtitle-clr: #9999ee;
-     --secondary-clr: #020f2d;
-    --font-clr: #efefef;
-    --G-fonts: 'Orbitron', system-ui;
-}
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: var(--font-clr);
-}
-
-::-webkit-scrollbar {
-    width: 2px;
-    height: 1px;
-    background-color: var(--primary-clr);
-}
+@import url(../../../css/root.css);
 
 body {
     display: grid;
@@ -44,7 +22,7 @@ body {
     gap: 30px;
     width: 100%;
     height: 100vh;
-    background-color: var( --secondary-clr);
+    background-color: var(--secondary-clr);
     border: 0;
     z-index: 999;
 }
@@ -96,6 +74,7 @@ body {
 .panel {
     width: 1fr;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .banner {
@@ -113,19 +92,69 @@ body {
 /* ? */
 
 /* Menubar Area */
-.menubar{
+.notifications {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.menubar {
+    position: sticky;
+    top: 0;
     width: 100%;
     padding: 20px;
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
-}
-.menu-btn{
-    padding: 5px;
-    font-size: 20px;
-    background: transparent;
+    z-index: 999;
 }
 
+.menu-btn {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    background: var(--secondary-clr);
+    z-index: 9999;
+    transition: all 500ms;
+}
+
+.menu-btn>* {
+    transition: all 500ms;
+}
+
+.menu-btn>i:hover {
+    color: var(--primary-clr);
+}
+
+.menu-btn:hover {
+    box-shadow: 0 0 1px 1px var(--primary-clr);
+}
+
+.pop-up {
+    display: none;
+}
+
+.pop-up-active {
+    background: black;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px var(--primary-clr);
+    z-index: -1;
+
+    max-width: 300px;
+    max-height: 300px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notification{
+    border-bottom: 1px solid var(--subtitle-clr);
+}
 /* Menubar Area */
 
 /* Transaction Sec */
@@ -151,7 +180,7 @@ td {
 }
 
 .t-table th {
-    color: var( --secondary-clr);
+    color: var(--secondary-clr);
 }
 
 .outside-cool-link {

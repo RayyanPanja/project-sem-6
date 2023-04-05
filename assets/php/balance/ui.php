@@ -52,10 +52,10 @@ $Image = $_SESSION['image'];
 
         ?>
 
-        <h1 class="balance">
+        <h1 class="balance" id="balance">
             <?php
             echo $Balance;
-            ?>/-
+            ?>
         </h1>
 
         <div class="transaction-list">
@@ -106,6 +106,7 @@ $Image = $_SESSION['image'];
 </body>
 <script src="../../js/Func.js"></script>
 <script>
+    ChangeCurrencyFormat('balance',"INR","hi-IN");
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
 
