@@ -71,7 +71,7 @@ $Application_ID = $_SESSION['TempAppID'];
     </main>
 
 </body>
-<script src="../../js/Dialog.js"></script>
+<script src="../../js/Func.js"></script>
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
