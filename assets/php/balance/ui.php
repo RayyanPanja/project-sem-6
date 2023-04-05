@@ -1,6 +1,5 @@
 <?php
 include "../connection.php";
-
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
@@ -49,7 +48,6 @@ $Image = $_SESSION['image'];
         while ($data = mysqli_fetch_assoc($Result)) {
             $Balance = $data['Amount'];
         }
-
         ?>
 
         <h1 class="balance" id="balance">
@@ -58,55 +56,13 @@ $Image = $_SESSION['image'];
             ?>
         </h1>
 
-        <div class="transaction-list">
-            <?php
-            $FetchTransaction = "SELECT * FROM `transaction` WHERE `From_Acc` = $Account OR `To_Acc` = $Account ORDER BY `transaction`.`DateTime` DESC";
-            $FetchTransactionResult = mysqli_query($con, $FetchTransaction);
-            if (mysqli_num_rows($FetchTransactionResult) > 0) {
-                while ($data = mysqli_fetch_assoc($FetchTransactionResult)) { ?>
-                    <div class="transaction-display">
-                        <div class="transaction-acc-no">
-                            <h2>
-                                From:- <?php echo $data['From_Acc']; ?>
-                            </h2>
-                            <h2>
-                                To:- <?php echo $data['To_Acc']; ?>
-                            </h2>
-                        </div>
-                        <div class="transaction-name">
-                            <h2>
-                                Sender:- <?php echo $data['Sender']; ?>
-                            </h2>
-                            <h2>
-                                Receiver:- <?php echo $data['Receiver']; ?>
-                            </h2>
-                        </div>
-                        <div class="transaction-amount">
-                            <h1>
-                                <?php echo $data['Amount']; ?>
-                            </h1>
-                        </div>
-                        <div class="transaction-note">
-                            <h4>
-                                Note:- <?php echo $data['Note']; ?>
-                            </h4>
-                        </div>
-                        <div class="transaction-date">
-                            <?php echo $data['DateTime']; ?>
-                        </div>
-
-                    </div>
-            <?php }
-            }
-            ?>
-        </div>
 
     </main>
 
 </body>
 <script src="../../js/Func.js"></script>
 <script>
-    ChangeCurrencyFormat('balance',"INR","hi-IN");
+    ChangeCurrencyFormat('balance', "INR", "hi-IN");
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
 

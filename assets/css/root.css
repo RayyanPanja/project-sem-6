@@ -63,7 +63,9 @@ button {
     cursor: pointer;
 }
 
-
+.center{
+    text-align: center;
+}
 .full-size {
     position: relative;
     width: 100%;
@@ -77,6 +79,13 @@ button {
 
 .txt-center {
     text-align: center;
+}
+
+.flex-ju-ce{
+    justify-content: center;
+}
+.flex-al-ce{
+    align-items: center;
 }
 
 @media screen and (max-width: 660px) {

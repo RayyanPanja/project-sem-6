@@ -22,7 +22,7 @@ function Seperate($string, $char)
     return explode($char, $string);
 }
 
-function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image)
+function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image , $Username)
 {
     $_SESSION['Account'] = $Account;
     $_SESSION['Password'] = $Password;
@@ -31,6 +31,7 @@ function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image
     $_SESSION['Name'] = $Name;
     $_SESSION['Father'] = $FatherName;
     $_SESSION['image'] = $Image;
+    $_SESSION['Username'] = $Username;
     $_SESSION['Loggedin'] = "true";
     header("Location: ../dashboard/dashboard.php");
 }
@@ -44,4 +45,10 @@ function Logout()
         $_SESSION['Password']
     );
     $_SESSION["Loggedin"] = "false";
+}
+
+function pa($array){
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
 }

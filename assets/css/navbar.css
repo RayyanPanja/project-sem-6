@@ -89,13 +89,15 @@
     text-transform: capitalize;
 }
 .logout-btn{
-    padding: 3px 8px;
+    padding: 4px 8px;
     font-size: 20px;
+    font-weight: 600;
     color: black;
     background: orangered;
     border: 2px solid orangered;
-    box-shadow: 0 0 5px 5px orangered;
+    box-shadow: 0 0 2px 2px orangered;
     transition: all 500ms;
+    border-radius: 75px;
 }
 .logout-btn:hover{
     color: orangered;

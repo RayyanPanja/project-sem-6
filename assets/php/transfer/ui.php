@@ -44,7 +44,7 @@ $Image = $_SESSION['image'];
                         <label for="Amount">Amount</label>
                     </div>
                     <div class="col-inp">
-                        <input type="number" name="amount" id="amount" class="input t-input" placeholder="000">
+                        <input type="number" name="amount" id="amount" class="input t-input" placeholder="000" step="0.01">
                     </div>
                 </div>
                 <div class="row">

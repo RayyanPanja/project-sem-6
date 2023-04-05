@@ -5,6 +5,7 @@ $MyAccount = $_SESSION['Account'];
 $MyPassword = $_SESSION['Password'];
 $MyName = $_SESSION['Name'];
 $MyEmail = $_SESSION['email'];
+$MyUsername = $_SESSION['Username'];
 
 $HisAccount = $_REQUEST['hisnaccount'];
 $AmountToSend = $_REQUEST['amounttosend'];
@@ -12,7 +13,8 @@ $Note = $_REQUEST['note'];
 $Pin = $_REQUEST['password'];
 
 $hisAmount;
-$hisName;
+$hisUsername;
+
 $MyAmount;
 
 if (isset($Pin) && $Pin === $MyPassword) {
@@ -23,7 +25,7 @@ if (isset($Pin) && $Pin === $MyPassword) {
         if (mysqli_num_rows($HisFetchResult) == 1) {
             while ($data = mysqli_fetch_assoc($HisFetchResult)) {
                 $hisAmount = $data['Amount'];
-                $hisName = $data['Firstname'];
+                $hisUsername = $data['Username'];
             }
             $FetchMyData = "SELECT * FROM `main` WHERE `Account_number` = $MyAccount;";
             $MyFetchResult = mysqli_query($con, $FetchMyData);
@@ -56,7 +58,7 @@ if (isset($Pin) && $Pin === $MyPassword) {
                             $TID = rand(000000, 9999999);
 
                             $Insert = "INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`,`Note`) 
-                    VALUES ($TID, $MyAccount, $HisAccount, $AmountToSend, current_timestamp(), current_timestamp(), current_timestamp(), '$hisName', '$MyName','$Note');";
+                    VALUES ($TID, $MyAccount, $HisAccount, $AmountToSend, current_timestamp(), current_timestamp(), current_timestamp(), '$hisUsername', '$MyUsername','$Note');";
 
                             $InsertResult = mysqli_query($con, $Insert);
 

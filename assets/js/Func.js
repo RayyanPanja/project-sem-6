@@ -72,3 +72,13 @@ function ChangeCurrencyFormat(tagID , formate , Lang) {
 
 
 // Currency....
+
+
+// MiddleWare...
+function remove(form){
+    const Form = document.getElementById(form);
+    setTimeout(() => {
+        Form.style.display = "none";
+    }, 1000);
+}
+// MiddleWare...

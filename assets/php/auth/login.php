@@ -12,6 +12,7 @@ $Name;
 $FatherName;
 $Email;
 $Image;
+$Username;
 
 $message;
 $code;
@@ -51,6 +52,7 @@ $GetPassword = $_REQUEST['password'];
                 $FatherName = $data['Fathername'];
                 $Email = $data['Email'];
                 $Image = $data['Img_Path'];
+                $Username = $data['Username'];
             }
             $token = true;
         } else {
@@ -86,7 +88,7 @@ $GetPassword = $_REQUEST['password'];
         if ($token == true) {
             if ($GetAccount == $Account) {
                 if ($GetPassword == $Password) {
-                    Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image);
+                    Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image,$Username);
                 } else {
         ?>
                     alert("Password Incorrect....")

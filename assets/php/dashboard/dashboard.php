@@ -34,7 +34,7 @@ $Image = $_SESSION['image'];
             <a href="../../../home.php" class="side-link">Home</a>
             <a href="../transfer/ui.php" class="side-link">Transfer</a>
             <a href="../loan/ui.php" class="side-link">Loan</a>
-            <a href="../balance/ui.php" class="side-link">Balance</a>
+            <a href="../pin.php" class="side-link">Balance</a>
             <a href="../settings/" class="side-link">Settings</a>
         </div>
     </dialog>
