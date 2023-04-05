@@ -51,7 +51,7 @@
 </nav>
 
 
-<script src="<?= $URL ?>/assets/js/Dialog.js"></script>
+<script src="<?= $URL ?>/assets/js/Func.js"></script>
 <script>
     DialogHandler('login-open', 'login-close', 'login-dlg', true);
 </script>

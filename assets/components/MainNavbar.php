@@ -41,7 +41,7 @@
     </div>
 </nav>
 
-<script src="<?= $URL ?>/assets/js/Dialog.js"></script>
+<script src="<?= $URL ?>/assets/js/Func.js"></script>
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
