@@ -22,6 +22,7 @@
     font-size: 20px;
     text-decoration: none;
     padding: 10px;
+    color: var(--font-clr);
 }
 
 .link::after {
@@ -51,6 +52,7 @@
     background: transparent;
     font-size: 18px;
     border: 0;
+    color: var(--font-clr);
 }
 
 .signup {

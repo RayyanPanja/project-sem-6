@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 // Init ->
 
 $token;
@@ -88,7 +88,8 @@ $GetPassword = $_REQUEST['password'];
         if ($token == true) {
             if ($GetAccount == $Account) {
                 if ($GetPassword == $Password) {
-                    Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image,$Username);
+                    $_SESSION['Loggedin'] = false;
+                    Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image, $Username);
                 } else {
         ?>
                     alert("Password Incorrect....")

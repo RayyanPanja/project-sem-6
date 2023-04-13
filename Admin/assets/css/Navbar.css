@@ -9,7 +9,7 @@
     align-items: center;
     gap: 20px;
 
-    background: var(--primary-clr);
+    background: var(--secondary-clr);
     z-index: 9999;
 }
 
@@ -30,7 +30,7 @@
 }
 
 .link:hover {
-    color: var(--extra-clr);
+    color: var(--primary-clr);
 }
 
 .link::after {
@@ -40,7 +40,7 @@
     bottom: 0;
     width: 0;
     height: 5px;
-    background: var(--secondary-clr);
+    background: var(--primary-clr);
     transition: all 500ms;
 }
 
@@ -48,17 +48,88 @@
     width: 100%;
 }
 
-.login-btn {
+.nav-login-btn {
     padding: 10px 30px;
     font-size: 20px;
-    border: 2px solid var(--secondary-clr);
-    border-radius: 5px;
+    border: 2px solid var(--light-clr);
+    border-radius: 75px;
+    background: transparent;
     cursor: pointer;
     transition: all 400ms;
 }
 
-.login-btn:hover {
-    background: black;
-    box-shadow: 0 0 10px 10px var(--primary-clr);
+.nav-login-btn:hover {
+    background: var(--secondary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
     color: var(--white-clr);
+}
+
+.login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 70vh;
+    background: var(--background-clr);
+    box-shadow: 0 0 10px 3px var(--primary-clr);
+    border: 0;
+}
+
+.login-form::backdrop {
+    background: black;
+    opacity: 0.8;
+}
+
+.login-form>h1 {
+    text-align: center;
+}
+
+.login-btn-set {
+    margin-top: 2%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.cool-btn {
+    padding: 5px 25px;
+    font-size: 20px;
+    background: var(--background-clr);
+    border: 0;
+    transition: all 500ms;
+}
+
+.login-btn {
+    background: var(--primary-clr);
+    color: var(--background-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+
+.login-btn:hover {
+    background: var(--background-clr);
+    color: var(--primary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+
+.cancle-btn {
+    background: var(--background-clr);
+    color: var(--primary-clr);
+}
+
+.login-form>form {
+    margin-top: 10%;
+}
+
+.for-login {
+    margin-top: 3%;
+}
+
+@media screen and (max-width: 660px) {
+    .login-form {
+        width: 100%;
+    }
+
 }

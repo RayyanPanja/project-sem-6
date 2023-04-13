@@ -12,7 +12,6 @@ $AppName = $BANKNAME;
 $Author = "Rayyan Panja";
 
 session_start();
-
 $server = "localhost";
 $user = "root";
 $psw = "";

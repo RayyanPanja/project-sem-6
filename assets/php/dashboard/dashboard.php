@@ -99,7 +99,7 @@ $Image = $_SESSION['image'];
                 }
                 ?>
             </table>
-            <a href="../balance/ui.php" class="outside-cool-link">Check Out More...</a>
+            <a href="../pin.php" class="outside-cool-link">Check Out More...</a>
         </section>
     </main>
 

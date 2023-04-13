@@ -17,15 +17,7 @@ include "../connection.php";
 
 <body>
     <script src="../../js/Function.js"></script>
-    <nav class="navbar">
-        <div class="link-set">
-            <a href="../../../home.php" class="link">Home</a>
-            <a href="../Deposit/ui.php" class="link">Deposit Amount</a>
-            <a href="ui.php" class="link">Loan Applications</a>
-            <a href="../Users/ui.php" class="link">User Details</a>
-            <a href="help.html" class="link">Help</a>
-        </div>
-    </nav>
+
     <main>
         <h1 class="page-title">Loan Applications</h1>
         <table border="2px">

@@ -16,62 +16,60 @@ include "../connection.php";
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="link-set">
-            <a href="../../../home.php" class="link">Home</a>
-            <a href="ui.php" class="link">Deposit Amount</a>
-            <a href="../Loan/ui.php" class="link">Loan Applications</a>
-            <a href="../Users/ui.php" class="link">User Details</a>
-            <a href="help.html" class="link">Help</a>
-        </div>
-    </nav>
+    <!-- Navbar -->
+    <?php include("../../components/MainNavbar.php"); ?>
+    <!-- Navbar -->
     <main>
-        <section class="search-section">
-            <h1 class="white-clr">Search By Account Number</h1>
-            <form action="" method="get" class="search-box">
-                <input type="search" name="search" id="search" placeholder="Account Number" class="search-bar" required>
-                <button type="submit" class="search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
-            <div class="display">
-                <?php
-                if (isset($_REQUEST['search'])) {
-                    $GetSearch = $_REQUEST['search'];
+        <section class="flex flex-col g-5">
+            <div class="menu-bar">
+                <form action="" method="get">
+                    <div class="search-wrapper">
+                        <input type="search" name="search" id="search" class="search-bar" placeholder="e.g. 12344">
+                        <button type="submit" class="search-btn ">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="search-grid" id="search-grid">
 
-                    $fetch = "SELECT * FROM main WHERE `Account_number` = $GetSearch";
-                    $Res = mysqli_query($con, $fetch);
-                    if (mysqli_num_rows($Res) > 0) {
-                        while ($data = mysqli_fetch_assoc($Res)) { ?>
 
-                            <dialog id="image-dialog">
-                                <button class="close" id="closeImage">X</button>
-                                <img src="../../../../assets/img/storage/<?php echo $data['Img_Path']; ?>" alt="">
-                            </dialog>
+                <div class="list">
+                <h1 class="giant-text center">Seach Accounts</h1>
+                    <!-- <h1 class="account-number">9786</h1>
+                    <span class="fullname">Panja Rayyan Gulamhusen</span>
+                    <form action="" method="post">
+                        <div class="btn-set">
+                            <input type="hidden" name="account" value="0">
+                            <input type="number" name="amount" id="amount" class="form-input">
+                            <button class="form-btn primary-btn">Deposit</button>
+                        </div>
+                    </form> -->
+                </div>
 
-                            <div class="card">
-                                <h1 class="card-name"><?php echo $data['Sirname'] . " " . $data['Firstname'] . " " . $data['Fathername']; ?></h1>
-                                <form action="Deposit.php" method="post" class="card-form">
-                                    <input type="text" name="account" class="hidden" value="<?php echo $data['Account_number']; ?>">
-                                    <input type="number" name="amount" id="amount" class="card-input" placeholder="Rs.000">
-                                    <input type="number" name="confirmamount" id="amount" class="card-input" placeholder="Confirm Amount">
-                                    <button type="button" id="openImage" class="card-btn">Image</button>
-                                    <button type="submit" class="form-btn primary-btn">Deposit</button>
-                                </form>
-                            </div>
-                            <script src="../../js/Function.js"></script>
-                            <script>
-                                DialogHandler('openImage', 'closeImage', 'image-dialog', true);
-                            </script>
-                <?php
-                        }
-                    } else {
-                        echo "<h1 class='white-clr text-center'>No Such Account</h1>";
-                    }
-                }
-
-                ?>
             </div>
         </section>
     </main>
 </body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.js' integrity='sha512-6DC1eE3AWg1bgitkoaRM1lhY98PxbMIbhgYCGV107aZlyzzvaWCW1nJW2vDuYQm06hXrW0As6OGKcIaAVWnHJw==' crossorigin='anonymous'></script>
+<script>
+    $(document).ready(function() {
+        $('#search').on('keyup', function() {
+            var val = $(this).val();
+            if (val.trim() != "") {
+                $.ajax({
+                    url: 'fetch_acc.php',
+                    method: 'POST',
+                    data: {
+                        search: val
+                    },
+                    success: function(data) {
+                        $('#search-grid').html(data);
+                    }
+                });
+            }else{
+                $('#search-grid').html("<h1 class='giant-text center'>Seach Accounts</h1>");
+            }
+        });
+    });
+</script>
 
 </html>

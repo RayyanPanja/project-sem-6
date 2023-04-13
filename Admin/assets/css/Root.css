@@ -5,7 +5,7 @@
     --light-clr: #444477;
     --subtitle-clr: #9999ee;
     --primary-clr: #00ffff;
-     --secondary-clr: #020f2d;
+    --secondary-clr: #041b50;
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
     --font-clr: #efefef;
@@ -30,7 +30,7 @@
 
 *::selection {
     background: var(--primary-clr);
-    color: var( --secondary-clr);
+    color: var(--secondary-clr);
     user-select: text;
 }
 
@@ -45,7 +45,11 @@ body {
     min-height: 100vh;
     height: 100vh;
     background-color: var(--background-clr);
-    overflow-x: hidden;
+    overflow: hidden;
+}
+
+main {
+    padding-top: 5%;
 }
 
 header,
@@ -64,12 +68,16 @@ button {
     cursor: pointer;
 }
 
-footer {
-    position: relative;
-    width: 100vw;
-    height: 30vh;
-    padding: 5px;
-    background-color: var(--light-clr);
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.center {
+    text-align: center;
 }
 
 .full-size {
@@ -87,6 +95,26 @@ footer {
     text-align: center;
 }
 
+.flex-ju-ce {
+    justify-content: center;
+}
+
+.flex-al-ce {
+    align-items: center;
+}
+.g-5{
+    gap: 5%;
+}
+.g-10{
+    gap: 10%;
+}
+.g-20{
+    gap: 20%;
+}
+.g-30{
+    gap: 30%;
+}
+
 @media screen and (max-width: 660px) {
 
     header,
@@ -96,4 +124,18 @@ footer {
         height: 100vh;
     }
 
+}
+
+.small-txt-group {
+    margin: 0 0 0 5%;
+    width: 30%;
+}
+
+.small-txt {
+    padding: 3px;
+    font-size: 18px;
+    color: var(--subtitle-clr);
+}
+.giant-text{
+    font-size: 5rem;
 }

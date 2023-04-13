@@ -32,7 +32,7 @@ function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image
     $_SESSION['Father'] = $FatherName;
     $_SESSION['image'] = $Image;
     $_SESSION['Username'] = $Username;
-    $_SESSION['Loggedin'] = "true";
+    $_SESSION['Loggedin'] = true;
     header("Location: ../dashboard/dashboard.php");
 }
 

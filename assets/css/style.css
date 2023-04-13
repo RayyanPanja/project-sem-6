@@ -131,7 +131,9 @@
     box-shadow: 0 0 10px 3px var(--primary-clr);
     border: 0;
 }
-
+.login-form > h1{
+    color: var(--font-clr);
+}
 .login-form::backdrop {
     background: black;
     opacity: 0.8;

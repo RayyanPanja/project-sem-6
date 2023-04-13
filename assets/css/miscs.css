@@ -5,6 +5,7 @@
     background: transparent;
     border: 0;
     border-bottom: 2px solid var(--primary-clr);
+    color: var(--primary-clr);
 }
 .row::after {
     content: '';
@@ -34,7 +35,7 @@
     background-color: transparent;
     border: 0;
     border-bottom: 2px solid var(--primary-clr);
-    color: var(--primary-clr);
+    color: var(--font-clr);
     resize: none;
 }
 .input-option{
@@ -45,6 +46,7 @@
 }
 label{
     font-size: 18px;
+    color: var(--font-clr);
 }
 /* BASIC ENDS */
 

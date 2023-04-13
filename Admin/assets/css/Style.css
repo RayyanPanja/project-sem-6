@@ -1,126 +1,64 @@
 @import url(Root.css);
-@import url(Navbar.css);
-@import url(FormCompo.css);
 
-main {
-    padding-top: 5%;
-}
-
-.hero {
+/* Menu Bar [Deposit/ui.php] */
+.menu-bar{
+    position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    padding: 15px;
+    margin-top: 50px;
+    border-top: 1px double var(--primary-clr);
+    border-bottom: 1px double var(--primary-clr);
+}
+.search-wrapper{
+    --content-padding: 5px;
+    --radius: 75px;
+    --border-size: 2px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: var(--radius);
+    border: var(--border-size) solid var(--primary-clr);
+    width: fit-content;
+}
+.search-bar{
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+    padding: 0 20px;
+    color: var(--primary-clr);
+    background: var(--secondary-clr);
+    border: var(--border-size) solid var(--primary-clr);
+    padding: var(--content-padding);
+    border-radius:  var(--radius)  0 0  var(--radius);
+}
+.search-btn{
+    padding: var(--content-padding);
+    font-size: 20px;
+    border: var(--border-size) solid var(--primary-clr);
+    color: var(--primary-clr);
+    background-color: var(--secondary-clr);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    transition: all 500ms;
+}
+.search-btn:hover{
+    background: var(--primary-clr);
+    color: var(--secondary-clr);
+    box-shadow: 0 0 5px 5px var(--primary-clr);
+}
+.search-grid{
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    border: 2px solid var(--primary-clr);
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.list{
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 25px;
+    gap: 30px;
+    background: var(--secondary-clr);
 }
-
-.hero-title {
-    font-size: 5rem;
-    color: var(--font-clr);
-    transition: transform 500ms;
-}
-
-.login-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 25%;
-    height: 70%;
-    background: var(--white-clr);
-    z-index: 9999;
-}
-
-.big-hero-btn {
-    padding: 20px 80px;
-    font-size: 20px;
-    border: 1px solid var(--primary-clr);
-    border-radius: 75px;
-    background: transparent;
-    color: var(--white-clr);
-    cursor: pointer;
-    transition: all 500ms;
-}
-
-.big-hero-btn:hover {
-    border: 1px solid transparent;
-    background: var(--primary-clr);
-    box-shadow: 0 0 6px 6px var(--primary-clr);
-}
-
-.msg-card {
-    position: fixed;
-    right: 0;
-    top: 20%;
-    width: 20%;
-    min-height: 50px;
-    max-height: fit-content;
-    padding: 3px 20px;
-    background: var(--black-clr);
-    border: 3px solid var(--primary-clr);
-    border-right: 0;
-    z-index: 999;
-    box-shadow: 0 0 5px 5px var(--primary-clr);
-    user-select: none;
-}
-
-.msg-card * {
-    color: var(--white-clr);
-}
-
-.msg-title {
-    text-align: center;
-    color: var(--secondary-clr);
-    font-size: 22px;
-    padding: 5px;
-}
-
-.search-box {
-    position: relative;
-    width: 40%;
-    display: flex;
-    align-items: center;
-    border-radius: 75px;
-    border: 3px solid var(--primary-clr);
-}
-
-.search-bar {
-    width: 90%;
-    padding: 5px 10px;
-    font-size: 20px;
-    background: transparent;
-    border-radius: 75px 0 0 75px;
-    border: 0;
-    color: var(--primary-clr);
-}
-
-.search-btn {
-    font-size: 20px;
-    padding: 5px 20px;
-    border-radius: 0 75px 75px 0;
-    border: 0;
-    box-shadow: inset 0 0 3px 3px var(--grey-clr);
-    cursor: pointer;
-}
-
-.doc-slide {
-    position: relative;
-    display: flex;
-    width: 50%;
-    height: 50%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-}
-
-.docs {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.loan-table{
-    width: 100%;
-}
+/* Menu Bar [Deposit/ui.php]...Ends */

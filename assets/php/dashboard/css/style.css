@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
 @import url(../../../css/root.css);
 
+html {
+    color:  var(--font-clr);
+}
 body {
     display: grid;
     grid-template-columns: 20% 80%;
@@ -32,6 +35,9 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.user-name > h1{
+    color: var(--font-clr);
+}
 
 .side-nav-user-img-holder {
     position: relative;
@@ -61,6 +67,7 @@ body {
     font-size: 23px;
     text-decoration: none;
     border: 1px solid transparent;
+    color: var(--font-clr);
 }
 
 .side-link:hover {
@@ -117,6 +124,7 @@ body {
     background: var(--secondary-clr);
     z-index: 9999;
     transition: all 500ms;
+    color: var(--font-clr);
 }
 
 .menu-btn>* {
@@ -187,6 +195,7 @@ td {
     text-decoration: none;
     font-size: 24px;
     padding: 6px;
+    color: var(--font-clr);
 }
 
 .outside-cool-link:hover {

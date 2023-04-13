@@ -1,9 +1,32 @@
+<!-- Using as Package -->
 <?php
- 
 include "func.php";
-$BANKNAME = "Web Wallet";
-$Details = array('localhost', 'root', '', 'bank');
-$con = mysqli_connect($Details[0], $Details[1], $Details[2], $Details[3]);
-if (!$con) {
-    die("Connection Failed" . mysqli_connect_error());
+
+// Usefull Vars....
+$Dir = "project-sem-6/Admin";
+$URLnoDIR = "http://localhost/";
+$URL = "http://localhost/{$Dir}";
+
+$BANKNAME = "WeBank";
+$AppName = $BANKNAME . " Admin";
+$Author = "Rayyan Panja";
+
+session_start();
+
+$server = "localhost";
+$user = "root";
+$psw = "";
+$database = "bank";
+
+try {
+    $con = mysqli_connect($server, $user, $psw, $database);
+    if (!$con) {
+        die("Connection Not Established" . mysqli_connect_errno());
+    }
+} catch (\Throwable $th) {
+    header("Location: $URL/Error/error.html");
 }
+?>
+
+<link rel="stylesheet" href="<?= $URL; ?>/assets/css/Style.css">
+<script src="https://kit.fontawesome.com/5ac4d734e2.js" crossorigin="anonymous"></script>
