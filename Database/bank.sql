@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2023 at 04:21 PM
+-- Generation Time: Apr 23, 2023 at 05:07 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -64,11 +64,26 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`Cid`, `Email`, `Subject`, `Msg`, `Status`, `Time`, `Date`) VALUES
-(1, 'Deez', '', 'Lorem safas asf aas ga', 'Pending', '00:00:00', '2023-04-02'),
-(2, 'Rayyan', '', 'LOREM SAFAS IFHAOISFHIUAFH ASKF HAISUFHASUIFL HASHF ASOIFU HASUIFH SAUHFASILFJ AOSILF AF Juasf hauksfh skfh asufh aiu ', 'Pending', '00:00:00', '2023-04-02'),
-(978519, 'illumi2701@gmail.com', 'Test 1', 'Hello, This is a Test Message\r\n', 'Pending', '01:24:13', '2023-04-02'),
-(978520, 'deez@nuts.com', '4-Needs-Good', 'Hello, Nigga * 2500\r\n\r\nSDas', 'Pending', '01:31:45', '2023-04-02'),
-(978521, 'deez@nuts.com', 'ASD65a4', 'Hello,J OIAS DIA SDOIA SD', 'Pending', '01:37:22', '2023-04-02');
+(14406, 'oozef@gmail.com', 'xupbscv', 'ocuhzzgyvlniliemknki', 'gmpzfq', '19:26:48', '2023-04-23'),
+(17609, 'lwbyx@gmail.com', 'vuagbxj', 'blueutpioioseggwaszo', 'thlwto', '19:26:48', '2023-04-23'),
+(26926, 'ujpro@gmail.com', 'wlfiflm', 'xcgukizgujurvhzpzvfm', 'nbssam', '19:26:48', '2023-04-23'),
+(33368, 'ydkwk@gmail.com', 'yseygao', 'icpyaknyvoksncrzkupo', 'fivjuc', '19:26:48', '2023-04-23'),
+(34053, 'piuoe@gmail.com', 'aprdebx', 'xhuagvkxlxixdfquhpgk', 'lfutxw', '19:26:48', '2023-04-23'),
+(34458, 'nicvh@gmail.com', 'cjypyds', 'fsowbpvlqwsvditznubz', 'gxisiu', '19:26:48', '2023-04-23'),
+(39405, 'woami@gmail.com', 'jxdyteo', 'zisnwhydpxqcnmdhpuxs', 'zjnzwu', '19:26:48', '2023-04-23'),
+(45026, 'pnrga@gmail.com', 'zeixczq', 'pquyagaygjwriepwgypn', 'hjbytc', '19:26:48', '2023-04-23'),
+(47610, 'uivtl@gmail.com', 'rzpahry', 'lahiwedqmqfztcqzgubg', 'zosrep', '19:26:48', '2023-04-23'),
+(49272, 'lajnt@gmail.com', 'gqhfvni', 'jksifkdfwflmrzviksep', 'qhxxor', '19:26:48', '2023-04-23'),
+(50217, 'uoiim@gmail.com', 'bffktss', 'bhqbxpmgounzkxbuccjz', 'glkgaf', '19:26:48', '2023-04-23'),
+(54190, 'seasi@gmail.com', 'dnplgdv', 'xpnyubhaouixpjputtfa', 'qoxpog', '19:26:48', '2023-04-23'),
+(59106, 'xebtp@gmail.com', 'poknehi', 'qaaqianlonrxqpjperwo', 'xtcgfh', '19:26:48', '2023-04-23'),
+(66585, 'skdyq@gmail.com', 'tnfwgsq', 'axfoydcolzmxqyyehvtc', 'jcrvyy', '19:26:48', '2023-04-23'),
+(67354, 'etgra@gmail.com', 'fslklmr', 'clppzwjjraxxhcgywfvl', 'nzugdo', '19:26:48', '2023-04-23'),
+(73359, 'esqgz@gmail.com', 'uqspwho', 'fiskdlsxvqwhnwjiudal', 'ajyhxn', '19:26:48', '2023-04-23'),
+(74256, 'jkayg@gmail.com', 'cvlxybs', 'xpuhvzaqgwsevfltuncw', 'wcydzt', '19:26:48', '2023-04-23'),
+(75154, 'izzet@gmail.com', 'nealtdx', 'cktutuqabwiajrvbzywa', 'jxczds', '19:26:48', '2023-04-23'),
+(89647, 'xklts@gmail.com', 'aqfdvmk', 'ilurgxwtlpypwdqccras', 'nffekm', '19:26:48', '2023-04-23'),
+(91632, 'zbbpm@gmail.com', 'nzwhbgd', 'znlyywlspchgjfzzxjxu', 'gkmqoe', '19:26:48', '2023-04-23');
 
 -- --------------------------------------------------------
 
@@ -83,13 +98,6 @@ CREATE TABLE `deletedaccounts` (
   `Reason` text NOT NULL DEFAULT 'Not Deposited Amount',
   `Reason_Code` int(3) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `deletedaccounts`
---
-
-INSERT INTO `deletedaccounts` (`Account_number`, `Date`, `msg`, `Reason`, `Reason_Code`) VALUES
-(192446, '2023-02-22 22:47:00', 'Your Account is Removed , Contact Bank to get more Information', 'Amount not Deposited', 1);
 
 -- --------------------------------------------------------
 
@@ -128,12 +136,13 @@ CREATE TABLE `loan` (
 
 CREATE TABLE `main` (
   `Account_number` bigint(99) UNSIGNED NOT NULL,
+  `Username` varchar(100) DEFAULT NULL,
   `Sirname` varchar(100) NOT NULL,
   `Firstname` varchar(100) NOT NULL,
   `Fathername` varchar(100) NOT NULL,
   `Password` varchar(15) NOT NULL,
+  `Amount` double NOT NULL,
   `Img_Path` varchar(225) NOT NULL DEFAULT 'default.png',
-  `Amount` int(99) NOT NULL,
   `Address` varchar(225) NOT NULL,
   `City` varchar(225) NOT NULL,
   `Pin_Code` int(6) NOT NULL,
@@ -145,18 +154,17 @@ CREATE TABLE `main` (
   `Loan_requested` varchar(10) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Contact` bigint(12) NOT NULL,
-  `Has_recovery` varchar(10) NOT NULL DEFAULT 'No',
   `Date_Created` datetime NOT NULL DEFAULT current_timestamp(),
-  `Created` tinyint(1) NOT NULL DEFAULT 0
+  `Created` tinyint(1) NOT NULL DEFAULT 0,
+  `Blocked` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `main`
 --
 
-INSERT INTO `main` (`Account_number`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Img_Path`, `Amount`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date Of Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Has_recovery`, `Date_Created`, `Created`) VALUES
-(9786, 'Panja', 'Rayyan', 'Gulamhusen', '5555', 'USER-2023-Mar-19-64172e80cfd70.jpg', 55000, 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'deez@nuts.com', 2365148595, 'No', '2023-03-19 21:15:40', 1),
-(11111, 'Panja', 'Rayyan', 'Gulamhusen', '55555', 'USER-2023-Mar-24-641d631f4c189.jpg', 50100, 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786974, 'No', '2023-03-24 14:14:48', 1);
+INSERT INTO `main` (`Account_number`, `Username`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Amount`, `Img_Path`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date Of Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Date_Created`, `Created`, `Blocked`) VALUES
+(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 24900, 'USER-2023-Apr-23-64453ab5baeb8.png', 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786973, '2023-04-23 19:32:54', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -176,8 +184,8 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `Notification_For`, `Notification`, `Time`) VALUES
-(5, 9786, 'A Total Amount of Rs.5100./- was Transferred to Your Account By Rayyan', '2023-04-01 20:20:08'),
-(6, 11111, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan', '2023-04-02 14:19:31');
+(121216, 9786, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan@123', '2023-04-23 14:41:11'),
+(121217, 9786, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan@123', '2023-04-23 14:41:37');
 
 -- --------------------------------------------------------
 
@@ -211,14 +219,14 @@ INSERT INTO `schemes` (`Scheme_ID`, `Scheme_Name`, `Sponsor`, `Package`, `Date_A
 
 CREATE TABLE `transaction` (
   `Receipt_No` int(99) NOT NULL,
-  `From_Acc` bigint(99) UNSIGNED NOT NULL,
-  `To_Acc` bigint(99) UNSIGNED NOT NULL,
-  `Amount` int(99) NOT NULL,
+  `From_Acc` bigint(99) UNSIGNED DEFAULT NULL,
+  `To_Acc` bigint(99) UNSIGNED DEFAULT NULL,
+  `Amount` double NOT NULL,
   `Date` date NOT NULL DEFAULT current_timestamp(),
   `Time` time NOT NULL DEFAULT current_timestamp(),
   `DateTime` datetime NOT NULL DEFAULT current_timestamp(),
-  `Receiver` varchar(100) NOT NULL,
-  `Sender` varchar(100) NOT NULL,
+  `Receiver` varchar(100) DEFAULT NULL,
+  `Sender` varchar(100) DEFAULT NULL,
   `Note` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -227,7 +235,7 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`) VALUES
-(1009190, 9786, 11111, 100, '2023-04-02', '19:49:31', '2023-04-02 19:49:31', 'Rayyan', 'Rayyan', 'Deezz');
+(9160811, 9786, 9786, 100, '2023-04-23', '20:11:11', '2023-04-23 20:11:11', 'Rayyan@123', 'Rayyan@123', 'Test');
 
 --
 -- Indexes for dumped tables
@@ -263,6 +271,7 @@ ALTER TABLE `loan`
 --
 ALTER TABLE `main`
   ADD PRIMARY KEY (`Account_number`),
+  ADD UNIQUE KEY `Username` (`Username`),
   ADD KEY `sharing` (`Img_Path`);
 
 --
@@ -284,7 +293,9 @@ ALTER TABLE `schemes`
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`Receipt_No`),
   ADD KEY `Transaction_From_Acc` (`From_Acc`),
-  ADD KEY `Transaction_To_Acc` (`To_Acc`);
+  ADD KEY `Transaction_To_Acc` (`To_Acc`),
+  ADD KEY `Transaction_From` (`Sender`),
+  ADD KEY `Transaction_To` (`Receiver`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -300,7 +311,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978522;
+  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978523;
 
 --
 -- AUTO_INCREMENT for table `deletedaccounts`
@@ -318,13 +329,13 @@ ALTER TABLE `loan`
 -- AUTO_INCREMENT for table `main`
 --
 ALTER TABLE `main`
-  MODIFY `Account_number` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=968346;
+  MODIFY `Account_number` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123456790;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121218;
 
 --
 -- AUTO_INCREMENT for table `schemes`
@@ -358,8 +369,10 @@ ALTER TABLE `notifications`
 -- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
-  ADD CONSTRAINT `Transaction_From_Acc` FOREIGN KEY (`From_Acc`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Transaction_To_Acc` FOREIGN KEY (`To_Acc`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Transaction_From` FOREIGN KEY (`Sender`) REFERENCES `main` (`Username`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `Transaction_From_Acc` FOREIGN KEY (`From_Acc`) REFERENCES `main` (`Account_number`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `Transaction_To` FOREIGN KEY (`Receiver`) REFERENCES `main` (`Username`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `Transaction_To_Acc` FOREIGN KEY (`To_Acc`) REFERENCES `main` (`Account_number`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 DELIMITER $$
 --
