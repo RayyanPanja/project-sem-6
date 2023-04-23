@@ -1,15 +1,19 @@
 @import url(Root.css);
 
 /* Menu Bar [Deposit/ui.php] */
-.menu-bar{
+.menu-bar {
     position: relative;
     width: 100%;
     padding: 15px;
     margin-top: 50px;
     border-top: 1px double var(--primary-clr);
     border-bottom: 1px double var(--primary-clr);
+    display: grid;
+    place-items: start;
+    padding-left: 20px;
 }
-.search-wrapper{
+
+.search-wrapper {
     --content-padding: 5px;
     --radius: 75px;
     --border-size: 2px;
@@ -18,47 +22,181 @@
     align-items: center;
     border-radius: var(--radius);
     border: var(--border-size) solid var(--primary-clr);
-    width: fit-content;
+    width: 30%;
 }
-.search-bar{
+
+.search-bar {
     position: relative;
     width: 100%;
     font-size: 20px;
-    padding: 0 20px;
+    padding-left: 20px;
+    text-indent: 20px;
     color: var(--primary-clr);
     background: var(--secondary-clr);
     border: var(--border-size) solid var(--primary-clr);
     padding: var(--content-padding);
-    border-radius:  var(--radius)  0 0  var(--radius);
+    border-radius: var(--radius);
 }
-.search-btn{
-    padding: var(--content-padding);
-    font-size: 20px;
-    border: var(--border-size) solid var(--primary-clr);
-    color: var(--primary-clr);
-    background-color: var(--secondary-clr);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    transition: all 500ms;
-}
-.search-btn:hover{
-    background: var(--primary-clr);
-    color: var(--secondary-clr);
-    box-shadow: 0 0 5px 5px var(--primary-clr);
-}
-.search-grid{
+
+.screen {
     position: relative;
-    width: 100%;
-    height: 65vh;
+    padding: 20px;
     border: 2px solid var(--primary-clr);
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
 }
-.list{
-    min-height: 100px;
+
+.search-options {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 30px;
-    background: var(--secondary-clr);
 }
+
+.search-option {
+    min-width: 200px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    border: 2px solid var(--primary-clr);
+}
+
 /* Menu Bar [Deposit/ui.php]...Ends */
+
+/* Users/ui.php */
+#search-options {
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+
+.Account-list {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid var(--grey-clr);
+}
+
+.account {
+    font-size: 25px;
+    color: var(--primary-clr);
+}
+
+.contact-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.contact-group>* {
+    width: 100%;
+    text-align: center;
+    padding: 3px;
+    border: 1px solid var(--primary-clr);
+}
+
+@media screen and (max-width: 660px) {
+    .Account-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+}
+
+/* Users/ui.php...Ends */
+
+/* Users/proc/Detail.php */
+.detail-main-sec{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+}
+.side-nav {
+    position: relative;
+    width: 100%;
+    min-height: 50dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid var(--primary-clr);
+    gap: 10px;
+}
+
+.action-btns {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px double var(--secondary-clr);
+    gap: 10px;
+}
+
+.action-btns * {
+    width: 100%;
+}
+.pfp{
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+.pfp > img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.detail-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    border: 1px solid var(--primary-clr);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll !important;
+}
+
+.banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-clr);
+}
+
+.banner .name {
+    color: var(--secondary-clr);
+}
+.detail{
+    width: 100%;
+    font-size: 20px;
+    overflow-y: scroll;
+}
+.detail *{
+    padding: 2px;
+}
+.detail *:not(th){
+    border: 1px solid var(--primary-clr);
+}
+.key{
+    font-weight: bold;
+}
+.key::after{
+    content: ':';
+}
+.value{
+    border: 2px solid var(--gray-clr);
+    background: var(--grey-clr);
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+/* Users/proc/Detail.php...Ends */

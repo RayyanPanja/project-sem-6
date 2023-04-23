@@ -6,7 +6,7 @@
     justify-content: space-around;
     align-items: center;
     background: transparent;
-    z-index: 9999;
+    z-index: var(--top-lv-element);
     padding: 10px;
 }
 
@@ -106,9 +106,47 @@
     background: transparent;
     box-shadow: 0 0 7px 7px orangered;
 }
+.toggleNav{
+    display: none;
+}
 @media screen and (max-width:660px) {
+    .navbar{
+        position: relative;
+        background: var(--background-clr);
+    }
     .link-set{
         display: none;
+    }
+    .grid{
+        display: grid;
+        place-items: center;
+    }
+    .link:not(:first-child){
+        display: none;
+    }
+    .block{
+        display: block !important;
+    }
+    .toggleNav{
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+
+        width: 100px;
+        height: 100px;
+        aspect-ratio: 1/1;
+
+        display: grid;
+        place-items: center;
+        
+        font-size: 80px;
+        font-weight: bold;
+
+        border-radius: 50%;
+        background-color: var(--primary-clr);
+        color: var(--light-clr);
+
+        z-index: var(--top-lv-element);
     }
     
 }

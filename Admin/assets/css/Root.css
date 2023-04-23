@@ -2,13 +2,25 @@
 
 :root {
     --background-clr: #111123;
+
     --light-clr: #444477;
+
     --subtitle-clr: #9999ee;
+
     --primary-clr: #00ffff;
     --secondary-clr: #041b50;
+
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
+
+    --grey-clr: #222;
+    --gray-clr: #AAA;
+    --error-clr: #b22222;
+    --success-clr: #008000;
+
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
+
     --font-clr: #efefef;
+
     --G-fonts: 'Orbitron', system-ui;
 }
 
@@ -43,13 +55,14 @@ body {
     position: relative;
     min-width: 100%;
     min-height: 100vh;
-    height: 100vh;
+    height: fit-content;
     background-color: var(--background-clr);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 main {
     padding-top: 5%;
+    overflow-y: scroll;
 }
 
 header,
@@ -68,12 +81,28 @@ button {
     cursor: pointer;
 }
 
+.w-100 {
+    min-width: 100% !important;
+}
+
 .flex {
     display: flex;
 }
 
 .flex-col {
-    flex-direction: column;
+    flex-direction: column !important;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-column-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-column-sidenav {
+    grid-template-columns: 20% 1fr;
 }
 
 .center {
@@ -102,17 +131,45 @@ button {
 .flex-al-ce {
     align-items: center;
 }
-.g-5{
+
+.g-0 {
+    gap: 0;
+}
+
+.g-5 {
     gap: 5%;
 }
-.g-10{
+
+.g-10 {
     gap: 10%;
 }
-.g-20{
+
+.g-20 {
     gap: 20%;
 }
-.g-30{
+
+.g-30 {
     gap: 30%;
+}
+
+.p-5 {
+    padding: 5%;
+}
+
+.p-10 {
+    padding: 10%;
+}
+
+.p-20 {
+    padding: 20%;
+}
+
+.p-30 {
+    padding: 30%;
+}
+
+.border {
+    border: 2px solid var(--primary-clr);
 }
 
 @media screen and (max-width: 660px) {
@@ -136,6 +193,7 @@ button {
     font-size: 18px;
     color: var(--subtitle-clr);
 }
-.giant-text{
+
+.giant-text {
     font-size: 5rem;
 }

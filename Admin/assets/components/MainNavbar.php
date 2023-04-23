@@ -4,6 +4,7 @@
 <!-- Login Form -->
 <dialog class="login-form" id="login-dlg">
     <h1>Logout</h1>
+    <h2 class="alert-text">Are You Sure!!</h2>
     <form action="<?= $URL ?>/assets/php/Auth/logout.php" method="post">
         <div class="login-btn-set">
             <button class="login-btn cool-btn" type="submit">Logout</button>
@@ -15,7 +16,7 @@
 
 <nav class="navbar">
     <div class="link-set">
-        <a href="<?= $URL; ?>home.php" class="link">Home</a>
+        <a href="<?= $URL; ?>/home.php" class="link">Home</a>
         <a href="<?= $URL; ?>/assets/php/Deposit/ui.php" class="link">Deposit Amount</a>
         <a href="<?= $URL; ?>/assets/php/Loan/ui.php" class="link">Loan Applications</a>
         <a href="<?= $URL; ?>/assets/php/Users/ui.php" class="link">User Details</a>

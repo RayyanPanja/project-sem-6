@@ -49,29 +49,46 @@
     cursor: pointer;
     border: 2px double transparent;
     transition: all 500ms;
+    text-decoration: none !important;
 }
 
 .primary-btn {
     background: var(--primary-clr);
+    color: var(--background-clr);
 }
 
 .primary-btn:hover {
     box-shadow: 0 0 5px 5px var(--primary-clr);
     background: transparent;
+    color: var(--primary-clr);
     border-color: var(--primary-clr);
 }
 
 .secondary-btn {
     border-color: var(--secondary-clr);
     background: transparent;
-
 }
 
 .secondary-btn:hover {
     box-shadow: 0 0 5px 5px var(--secondary-clr);
-    background: transparent;
+    background: #1b2336b9;
 }
-
+.danger-btn{
+    background: var(--error-clr);
+}
+.danger-btn:hover{
+    box-shadow: inset 0 0 10px 5px var(--error-clr);
+    background: transparent;
+    color: var(--error-clr);
+}
+.success-btn{
+    background: var(--success-clr);
+}
+.success-btn:hover{
+    box-shadow: inset 0 0 10px 5px var(--success-clr);
+    background: transparent;
+    color: var(--success-clr);
+}
 label {
     font-size: 20px;
     padding: 5px;

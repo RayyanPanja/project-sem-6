@@ -18,7 +18,7 @@
     <div class="logo">
         <h1>^w^</h1>
     </div>
-    <div class="link-set">
+    <div class="link-set" id="set">
         <a href="<?= $URL; ?>/assets/php/dashboard/dashboard.php" class="link">DashBoard</a>
         <a href="<?= $URL; ?>/assets/php/transfer/ui.php" class="link">Transfer</a>
         <a href="<?= $URL; ?>/assets/php/loan/ui.php" class="link">Loan</a>
@@ -41,7 +41,11 @@
     </div>
 </nav>
 
+<button class="toggleNav" id="toggleNav"> <b>+</b></button>
+
 <script src="<?= $URL ?>/assets/js/Func.js"></script>
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>
+
+<script src="<?= $URL ?>/assets/js/Navbar.js"></script>

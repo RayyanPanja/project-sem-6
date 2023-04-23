@@ -9,7 +9,9 @@
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
     --font-clr: #efefef;
-    --G-fonts: 'Orbitron' , system-ui ;
+    --G-fonts: 'Orbitron', system-ui;
+
+    --top-lv-element: 99999;
 }
 
 * {
@@ -26,9 +28,10 @@
     background: var(--primary-clr);
     border-radius: 25px;
 }
-*::selection{
+
+*::selection {
     background: var(--primary-clr);
-    color: var( --secondary-clr);
+    color: var(--secondary-clr);
     user-select: text;
 }
 
@@ -63,15 +66,19 @@ header {
 button {
     cursor: pointer;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.flex-col{
+
+.flex-col {
     flex-direction: column;
 }
-.center{
+
+.center {
     text-align: center;
 }
+
 .full-size {
     position: relative;
     width: 100%;
@@ -87,14 +94,19 @@ button {
     text-align: center;
 }
 
-.flex-ju-ce{
+.flex-ju-ce {
     justify-content: center;
 }
-.flex-al-ce{
+
+.flex-al-ce {
     align-items: center;
 }
 
 @media screen and (max-width: 660px) {
+
+    body {
+        padding: 10px;
+    }
 
     header,
     section {
@@ -103,4 +115,48 @@ button {
         height: 100vh;
     }
 
+    main {
+        padding: 15px;
+    }
+
+}
+
+/* Lazy */
+.lazy{
+    opacity: 0;
+}
+.lazy-load{
+    animation: lazy-load 1s ease-in-out forwards;
+}
+.delay-short{
+    animation-delay: .5s;
+}
+.delay{
+    animation-delay: 1s;
+}
+.delay-long{
+    animation-delay: 1.5s;
+}
+.delay-2{
+    animation-delay: 2s;
+}
+.delay-3{
+    animation-delay: 3s;
+}
+.delay-4{
+    animation-delay: 4s;
+}
+.delay-5{
+    animation-delay: 5s;
+}
+@keyframes lazy-load {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

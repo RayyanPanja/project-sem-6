@@ -22,7 +22,7 @@ function Seperate($string, $char)
     return explode($char, $string);
 }
 
-function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image , $Username)
+function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image, $Username)
 {
     $_SESSION['Account'] = $Account;
     $_SESSION['Password'] = $Password;
@@ -47,8 +47,31 @@ function Logout()
     $_SESSION["Loggedin"] = "false";
 }
 
-function pa($array){
+function pa($array)
+{
     echo "<pre>";
     print_r($array);
     echo "</pre>";
 }
+// Print Array in Console
+function pca($arr, $withKey = false ,$AnyMSG = null)
+{
+    $array = $arr;
+    if ($withKey == false) {
+        echo "<script>";
+        foreach ($array as $value) {
+            echo "
+            console.log('$AnyMSG: $value');
+            ";
+        }
+    } else {
+        echo "<script>";
+        foreach ($array as $key => $value) {
+            echo "
+            console.log('$key , $value');
+            ";
+        }
+    }
+    echo "</script>";
+}
+// Print Array in Console...ENds

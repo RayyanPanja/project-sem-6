@@ -10,6 +10,7 @@
 </head>
 <body>
     <?php include('assets/components/MainNavbar.php'); ?>
+    <?php include('assets/components/HomeHero.php'); ?>
     
 </body>
 </html>

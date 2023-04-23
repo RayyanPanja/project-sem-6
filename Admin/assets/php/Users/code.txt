@@ -1,0 +1,15 @@
+            <div class="form-btn-set">
+                <a href="../../Deposit/ui.php" class="form-btn primary-btn">Deposit Amount</a>
+                <form action="" method="post">
+                    <button type="submit" class="form-btn danger-btn">Delete Account</button>
+                </form>
+                <?php if ($isBanned == 0) { ?>
+                    <form action="Bann/bann.php" method="post">
+                        <button type="submit" class="form-btn danger-btn">Bann Account</button>
+                    </form>
+                <?php } else { ?>
+                    <form action="Bann/unbann.php" method="post">
+                        <button type="submit" class="form-btn success-btn">Unbann Account</button>
+                    </form>
+                <?php } ?>
+            </div>

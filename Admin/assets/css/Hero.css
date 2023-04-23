@@ -48,3 +48,14 @@
 .hero-cool-btn:hover {
     color: var(--secondary-clr);
 }
+
+
+/* Login Form */
+.login-form{
+
+}
+.alert-text{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--primary-clr);
+}

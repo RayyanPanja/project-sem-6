@@ -59,7 +59,7 @@ $Image = $_SESSION['image'];
                         ?>
                 </div>
                 <button class="menu-btn" id="notification-btn">
-                    <i class="fa-solid fa-bell"></i>
+                    +
                 </button>
             </div>
         </div>

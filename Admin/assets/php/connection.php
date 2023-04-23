@@ -3,9 +3,9 @@
 include "func.php";
 
 // Usefull Vars....
-$Dir = "project-sem-6/Admin";
-$URLnoDIR = "http://localhost/";
-$URL = "http://localhost/{$Dir}";
+$Dir = "Admin";
+$URLnoDIR = "http://localhost/project-sem-6";
+$URL = "http://localhost/project-sem-6/{$Dir}";
 
 $BANKNAME = "WeBank";
 $AppName = $BANKNAME . " Admin";
@@ -24,9 +24,15 @@ try {
         die("Connection Not Established" . mysqli_connect_errno());
     }
 } catch (\Throwable $th) {
-    header("Location: $URL/Error/error.html");
+    header("Location: $URLnoDIR/Error/error.html");
 }
 ?>
 
+<!-- Css -->
 <link rel="stylesheet" href="<?= $URL; ?>/assets/css/Style.css">
-<script src="https://kit.fontawesome.com/5ac4d734e2.js" crossorigin="anonymous"></script>
+
+<!-- Icons -->
+
+<!-- Jquery -->
+<script src="<?= $URL ?>/node_modules/jquery/dist/jquery.js"></script>
+<script src="<?= $URL ?>/node_modules/jquery/dist/jquery.min.js"></script>

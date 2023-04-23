@@ -22,29 +22,37 @@ include "../connection.php";
     <main>
         <section class="flex flex-col g-5">
             <div class="menu-bar">
-                <form action="" method="get">
-                    <div class="search-wrapper">
-                        <input type="search" name="search" id="search" class="search-bar" placeholder="e.g. 12344">
-                        <button type="submit" class="search-btn ">Search</button>
+                <div class="search-wrapper">
+                    <input type="search" name="search" id="search" class="search-bar" placeholder="e.g. 12344">
+                </div>
+            </div>
+            <div class="screen">
+                <div class="search-options" id="search-options"></div>
+            </div>
+            <div class="deposit-form">
+                <form action="Deposit.php" method="post">
+                    <div class="form-segment">
+                        <h1 class="segment-title">Deposit Amount</h1>
+                        <div class="dual-row g-5">
+                            <div class="set">
+                                <label for="Account Number">Account Number</label>
+                                <input type="number" name="account" id="account" class="form-input" placeholder="e.g. 123456" required>
+                            </div>
+                            <div class="set">
+                                <label for="Amount">Amount</label>
+                                <input type="number" name="amount" id="account" class="form-input" placeholder="1000/-" required>
+                            </div>
+                            <div class="set">
+                                <label for="CAmount">Confirm Amount</label>
+                                <input type="number" name="confirmAmount" id="account" class="form-input" placeholder="Confirm Must be Same as Amount" required>
+                            </div>
+                        </div>
+                        <div class="form-btn-set">
+                            <button type="reset" class="form-btn secondary-btn">Cancle</button>
+                            <button type="submit" class="form-btn primary-btn">Deposit</button>
+                        </div>
                     </div>
                 </form>
-            </div>
-            <div class="search-grid" id="search-grid">
-
-
-                <div class="list">
-                <h1 class="giant-text center">Seach Accounts</h1>
-                    <!-- <h1 class="account-number">9786</h1>
-                    <span class="fullname">Panja Rayyan Gulamhusen</span>
-                    <form action="" method="post">
-                        <div class="btn-set">
-                            <input type="hidden" name="account" value="0">
-                            <input type="number" name="amount" id="amount" class="form-input">
-                            <button class="form-btn primary-btn">Deposit</button>
-                        </div>
-                    </form> -->
-                </div>
-
             </div>
         </section>
     </main>
@@ -62,11 +70,11 @@ include "../connection.php";
                         search: val
                     },
                     success: function(data) {
-                        $('#search-grid').html(data);
+                        $('#search-options').html(data);
                     }
                 });
-            }else{
-                $('#search-grid').html("<h1 class='giant-text center'>Seach Accounts</h1>");
+            } else {
+                $('#search-options').html("<div class='default'>Seach Accounts</div>");
             }
         });
     });

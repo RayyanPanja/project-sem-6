@@ -1,6 +1,6 @@
 <?php
 include "assets/php/connection.php";
- 
+
 $Account = $_SESSION['Account'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Name'];
@@ -35,7 +35,7 @@ $Image = $_SESSION['image'];
         </form>
     </dialog>
     <!-- Logout Form...ENDS -->
-    
+
     <!-- NAVBAR -->
     <?php
     include("assets/components/MainNavbar.php");
@@ -43,21 +43,21 @@ $Image = $_SESSION['image'];
     <!-- NAVBAR -->
 
     <header class="hero" id="home">
-        <h1 class="intro-title">We Provide Security</h1>
-        <div class="small-txt-group">
+        <h1 class="intro-title lazy">We Provide Security</h1>
+        <div class="small-txt-group lazy delay-small">
             <p class="small-txt">Enjoy fast , flexible, and Transparent Banking </p>
             <p class="small-txt">Thank you For Being a Valuable Customer.</p>
             <p class="small-txt">Try Exploring Your Dashboard </p>
+            <button class="cool-big-btn lazy delay" id="dashboard-btn">Go to Dashboard</button>
         </div>
-        <button class="cool-big-btn" id="dashboard-btn">Go to Dashboard</button>
-        <div class="img-holder">
+        <div class="img-holder lazy delay">
             <img src="assets/img/hand.png" alt="">
         </div>
     </header>
     <section id="about">
-        <h1 class="page-title">About us</h1>
-        <div class="about-small-txt-group">
-            <p class="about-small-txt">
+        <h1 class="page-title lazy">About us</h1>
+        <div class="about-small-txt-group lazy delay-small">
+            <p class="about-small-txt lazy delay">
                 "At <?php echo $BANKNAME; ?>, we believe in providing our customers with the best banking experience possible. As a community bank, we are dedicated to serving the financial needs of our local area and building long-term relationships with our customers. Our team of experienced professionals is committed to providing personalized service and expert financial advice. We offer a wide range of products and services, including checking and savings accounts, loans, mortgages, and investment options. Trust us to be your partner in managing your financial future."
             </p>
         </div>
@@ -65,10 +65,10 @@ $Image = $_SESSION['image'];
     </section>
 
     <section id="services">
-        <h1 class="page-title">Services</h1>
-        <div class="service-grid">
+        <h1 class="page-title lazy">Services</h1>
+        <div class="service-grid lazy delay-small">
 
-            <div class="service-card">
+            <div class="service-card lazy delay">
                 <h1 class="service-name">
                     Credit Services
                 </h1>
@@ -77,29 +77,29 @@ $Image = $_SESSION['image'];
                 </p>
             </div>
 
-            <div class="service-card">
-                <h1 class="service-name">
+            <div class="service-card lazy delay">
+                <h1 class="service-name lazy delay-long">
                     Online and mobile banking
                 </h1>
-                <p class="service-detail">
+                <p class="service-detail lazy delay-long">
                     Allowing customers to access their accounts, pay bills, transfer money and make transactions online or through mobile apps.
                 </p>
             </div>
 
-            <div class="service-card">
-                <h1 class="service-name">
+            <div class="service-card lazy delay">
+                <h1 class="service-name lazy delay-2">
                     Insurance products
                 </h1>
-                <p class="service-detail">
+                <p class="service-detail lazy delay-2">
                     such as life, health, and property insurance.
                 </p>
             </div>
 
-            <div class="service-card">
-                <h1 class="service-name">
+            <div class="service-card lazy delay">
+                <h1 class="service-name lazy delay-3">
                     Depository Services
                 </h1>
-                <p class="service-detail">
+                <p class="service-detail lazy delay-3">
                     such as checking and savings accounts, certificates of deposit (CDs), and individual retirement accounts (IRAs).
                 </p>
             </div>
@@ -118,6 +118,7 @@ $Image = $_SESSION['image'];
             window.location.assign("assets/php/dashboard/dashboard.php");
         });
     </script>
+    <script src="assets/js/Observer.js"></script>
 </body>
 
 </html>

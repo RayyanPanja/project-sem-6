@@ -33,4 +33,27 @@ function NumOfRows($con, $table, $wherecolumn = null, $wherevalue = null)
 
 // Function...Ends
 
-?>
+// Alert...
+function alert($msg, $path)
+{
+    echo "<script>";
+    echo "alert('$msg');";
+    echo "window.location.assign('$path');";
+    echo "</script>";
+}
+
+// Alert...Ends
+
+// Print Array
+function pa($arr)
+{
+    $array = $arr;
+    echo "<script>";
+    foreach ($array as $key => $value) {
+        echo "
+        console.log('$key , $value');
+        ";
+    }
+    echo "</script>";
+}
+// Print Array...ENds
