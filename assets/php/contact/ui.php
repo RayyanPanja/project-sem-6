@@ -27,7 +27,7 @@ include "../connection.php";
         ?>
 
         <div class="signup-form-container">
-            <h1 align="center">Hello <?= $_SESSION['Loggedin']; ?></h1>
+            <h1 align="center">Hello</h1>
             <form action="processor/send.php" method="post">
                 <div class="dual-row">
                     <div class="set">
