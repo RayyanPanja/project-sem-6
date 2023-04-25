@@ -72,9 +72,7 @@ $Application_ID = $_SESSION['TempAppID'];
 
 </body>
 
-<script>
-    DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
-</script>
+
 <script>
     const fileInputs = document.querySelectorAll('input[type="file"]');
     const fileButtons = document.querySelectorAll('label[for^="file-input-"]');

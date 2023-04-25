@@ -49,7 +49,7 @@ $receiver;
         </form>
     </dialog>
     <!-- Logout Form...ENDS -->
-    
+
     <!-- NAVBAR -->
     <?php
     include("../../components/MainNavbar.php");
@@ -114,10 +114,6 @@ $receiver;
         </dialog>
     </main>
 </body>
-
-<script>
-    DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
-</script>
 
 </html>
 

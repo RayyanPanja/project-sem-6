@@ -111,9 +111,7 @@ $Image = $_SESSION['Img_Path'];
     </main>
 
 </body>
-<script>
-    DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
-</script>
+
 <script>
     DialogHandler('term-open', 'term-close', 'term-dlg', true);
 </script>

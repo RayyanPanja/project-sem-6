@@ -44,7 +44,7 @@ $Image = $_SESSION['Img_Path'];
 
     <main class="full-size">
         <?php
-        $MainTable = FetchFrom($con, "main");
+        $MainTable = fetchAllFrom($con, "main");
         $mainObject = searchData($MainTable, "Account_number", $Account);
         $Row = $mainObject['data'];
         $Balance = $Row['Amount']

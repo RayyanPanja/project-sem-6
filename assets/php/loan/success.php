@@ -57,9 +57,7 @@ $Application_ID = $_SESSION['TempAppID'];
 
 </body>
 
-<script>
-    DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
-</script>
+
 
 </html>
 

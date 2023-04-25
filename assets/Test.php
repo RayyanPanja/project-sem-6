@@ -1,6 +1,6 @@
 <?php
 include('Fetched.php');
-$table = FetchFrom($con,"main");
+$table = fetchAllFrom($con,"main");
 // pa($table);
 
 $Row = searchData($table,"Account_number","9786");

@@ -1,7 +1,8 @@
 <?php
 include_once('php/connection.php');
 
-function FetchFrom($con, string $table)
+// this func will fetch data and store it into an Array....
+function fetchAllFrom($con, string $table)
 {
     $Array = array();
     $sql = "SELECT * FROM {$table}";
@@ -13,10 +14,11 @@ function FetchFrom($con, string $table)
     return $Array;
 }
 
-function searchData(array $table, string $key = "id", string $value)
+// this function returns an Object [Associative Array] 1 => data of given primary kry , 2 => boolean
+function searchData(array $table, string $primaryKey = "id", string $value)
 {
     foreach ($table as $innerArray) {
-        if (isset($innerArray[$key]) && $innerArray[$key] == $value) {
+        if (isset($innerArray[$primaryKey]) && $innerArray[$primaryKey] == $value) {
             return array(
                 "data" => $innerArray,
                 "boolean" => boolval(true)
@@ -26,6 +28,7 @@ function searchData(array $table, string $key = "id", string $value)
     return false;
 }
 
+// this Function will Write give input into Console as log....
 function Write($var)
 {
     echo "<script>";

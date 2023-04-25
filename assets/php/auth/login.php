@@ -23,7 +23,7 @@ include_once('../../Fetched.php');
         $dataDeletedAcc;
         // Global Vars...Ends
 
-        $mainTable = FetchFrom($con, "main");
+        $mainTable = fetchAllFrom($con, "main");
         $getMainObject = searchData($mainTable, "Account_number", $_REQUEST['account']);
         if ($getMainObject['boolean'] === boolval(true)) {
             $dataMain = $getMainObject['data'];
@@ -32,7 +32,7 @@ include_once('../../Fetched.php');
                 Login($dataMain);
             }
         } else {
-            $deletedAcc = FetchFrom($con, "deletedAccounts");
+            $deletedAcc = fetchAllFrom($con, "deletedAccounts");
             $getDeletedObject = searchData($deletedAcc, "Account_number", $_REQUEST['account']);
             if ($getDataObject['boolean'] === boolval(true)) {
                 $dataDeletedAcc = $getDeletedObject['data'];
