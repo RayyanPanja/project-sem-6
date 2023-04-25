@@ -24,10 +24,10 @@ $Image = $_SESSION['Img_Path'];
     <dialog class="side-nav-bar" open>
         <div class="user-details">
             <div class="side-nav-user-img-holder">
-                <img src="../../img/storage/<?php echo $Image; ?>" alt="IMG" class="side-nav-pfp-img">
+                <img src="../../img/storage/<?= $Image; ?>" alt="IMG" class="side-nav-pfp-img">
             </div>
             <div class="user-name">
-                <h1><?php echo $Name; ?></h1>
+                <h1><?= $Name; ?></h1>
             </div>
         </div>
         <div class="side-nav-link-set">
@@ -40,7 +40,7 @@ $Image = $_SESSION['Img_Path'];
     </dialog>
     <main class="panel">
         <div class="banner">
-            <h1>Welcome <?php echo $Name; ?></h1>
+            <h1>Welcome <?= $Name; ?></h1>
         </div>
 
         <div class="menubar">

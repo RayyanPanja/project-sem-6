@@ -37,7 +37,7 @@ $receiver;
     <!-- Logout Form -->
     <dialog class="login-form" id="logout-dlg">
         <div class="login-img-holder">
-            <img src="../../img/storage/<?php echo $Image; ?>" alt="Login">
+            <img src="../../img/storage/<?= $Image; ?>" alt="Login">
         </div>
         <h1>Logout</h1>
         <form action="../auth/logout.php" method="post">

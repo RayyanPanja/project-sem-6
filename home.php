@@ -14,7 +14,7 @@ $Image = $_SESSION['Img_Path'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome <?php echo $Name; ?></title>
+    <title>Welcome <?= $Name; ?></title>
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -23,7 +23,7 @@ $Image = $_SESSION['Img_Path'];
     <!-- Logout Form -->
     <dialog class="login-form" id="logout-dlg">
         <div class="login-img-holder">
-            <img src="assets/img/storage/<?php echo $Image; ?>" alt="Login">
+            <img src="assets/img/storage/<?= $Image; ?>" alt="Login">
         </div>
         <h1>Logout</h1>
         <form action="assets/php/auth/logout.php" method="post">
