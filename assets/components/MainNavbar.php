@@ -1,7 +1,7 @@
 <!-- Logout Form -->
 <dialog class="login-form" id="logout-dlg">
     <div class="login-img-holder">
-        <img src="<?= $URL ?>/assets/img/storage/<?= $_SESSION['image']; ?>" alt="Login">
+        <img src="<?= $URL ?>/assets/img/storage/<?= $_SESSION['Img_Path']; ?>" alt="Login">
     </div>
     <h1>Logout</h1>
     <form action="<?= $URL ?>/assets/php/auth/logout.php" method="post">
@@ -30,11 +30,11 @@
     <div class="auth">
         <div class="user-detail-box">
             <div class="user-img-holder">
-                <img src="<?= $URL . "/assets/img/storage/" . $_SESSION['image']; ?>" alt="<?php echo $SirName . $Name . $FatherName; ?>">
+                <img src="<?= $URL . "/assets/img/storage/" . $_SESSION['Img_Path']; ?>" alt="<?php echo $SirName . $Name . $FatherName; ?>">
             </div>
             <div class="">
                 <h1 class="user-name" title="<?= $_SESSION['Email'] ?>">
-                    <?= $_SESSION['Name']; ?>
+                    <?= $_SESSION['Firstname']; ?>
                 </h1>
             </div>
         </div>

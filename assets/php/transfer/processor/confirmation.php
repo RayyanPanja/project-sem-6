@@ -1,9 +1,9 @@
 <?php
 include "../../connection.php";
  
-$MyAccount = $_SESSION['Account'];
+$MyAccount = $_SESSION['Account_number'];
 $MyPassword = $_SESSION['Password'];
-$MyName = $_SESSION['Name'];
+$MyName = $_SESSION['Firstname'];
 
 $Account = $_REQUEST['account'];
 $Amount = $_REQUEST['amount'];

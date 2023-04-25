@@ -1,11 +1,11 @@
 <?php
 include "../connection.php";
 
-$Account = $_SESSION['Account'];
+$Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
-$Name = $_SESSION['Name'];
-$FatherName = $_SESSION['Father'];
-$Image = $_SESSION['image'];
+$Name = $_SESSION['Firstname'];
+$FatherName = $_SESSION['Fathername'];
+$Image = $_SESSION['Img_Path'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +67,7 @@ $Image = $_SESSION['image'];
     if (isset($_SESSION['HisAccount'])) { ?>
         <dialog class="login-form" id="Confirm" open>
             <h1>Are You Sure You </h1>
-            <h3 align="center">Are You Sure You Want to Continue Your Transaction of <h1> Rs. <?php echo $_SESSION['Amount']; ?> <br> From Your <?php echo $_SESSION['Account']; ?> <br> To <?php echo $_SESSION['HisAccount']; ?></h1>
+            <h3 align="center">Are You Sure You Want to Continue Your Transaction of <h1> Rs. <?php echo $_SESSION['Amount']; ?> <br> From Your <?php echo $_SESSION['Account_number']; ?> <br> To <?php echo $_SESSION['HisAccount']; ?></h1>
             </h3>
             <form action="processor/transfer.php" method="post">
                 <h1><label for="Pin">Enter Pin</label></h1>

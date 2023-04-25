@@ -1,10 +1,10 @@
 <?php
 include "../../connection.php";
  
-$Account = $_SESSION['Account'];
+$Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
-$Name = $_SESSION['Name'];
-$FatherName = $_SESSION['Father'];
+$Name = $_SESSION['Firstname'];
+$FatherName = $_SESSION['Fathername'];
 $Password = $_SESSION['Password'];
 
 $ACC = $_REQUEST['account'];

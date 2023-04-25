@@ -36,9 +36,9 @@ include_once('../../Fetched.php');
             $getDeletedObject = searchData($deletedAcc, "Account_number", $_REQUEST['account']);
             if ($getDataObject['boolean'] === boolval(true)) {
                 $dataDeletedAcc = $getDeletedObject['data'];
-                pa($dataDeletedAcc);
-            } else {
                 alert("Your Account Has Been Deleted For {$dataDeletedAcc['Reason']} -- CODE: {$dataDeletedAcc['Code']}", "../../../index.php");
+            } else {
+                alert("Account Could not be Found", "../../../index.php");
             }
         }
     } else {

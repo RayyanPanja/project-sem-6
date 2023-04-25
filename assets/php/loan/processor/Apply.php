@@ -8,7 +8,7 @@
 <?php
 include "../../connection.php";
  
-$Account = $_SESSION['Account'];
+$Account = $_SESSION['Account_number'];
 $Password = $_SESSION['Password'];
 
 $ApplicationID = $_SESSION['TempAppID'];
