@@ -62,7 +62,7 @@ function showNotifications(popupID, buttonID, newClass) {
 // Show Notifications....Ends
 
 // Currency....
-function ChangeCurrencyFormat(tagID , formate , Lang) {
+function ChangeCurrencyFormat(tagID, formate, Lang) {
     const tag = document.getElementById(tagID);
     const tagValue = Number(tag.innerHTML);
     const updatedString = tagValue.toLocaleString(Lang, { style: 'currency', currency: formate });
@@ -75,7 +75,7 @@ function ChangeCurrencyFormat(tagID , formate , Lang) {
 
 
 // MiddleWare...
-function remove(form){
+function remove(form) {
     const Form = document.getElementById(form);
     setTimeout(() => {
         Form.style.display = "none";

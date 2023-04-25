@@ -75,11 +75,11 @@ function pca($arr, $withKey = false, $AnyMSG = null)
 // Print Array in Console...ENds
 
 // Alert...
-function alert(string $msg, string $path)
+function alert($msg, $path)
 {
     echo "<script>";
-    echo "alert({$msg})";
-    echo "window.location.assign({$path})";
+    echo "alert('$msg');";
+    echo "window.location.assign('$path');";
     echo "</script>";
 }
 // Alert...Ends

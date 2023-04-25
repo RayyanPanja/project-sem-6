@@ -11,7 +11,12 @@
 <body>
     <?php
     include "../connection.php";
-    Logout();
+    include('../../Fetched.php');
+    
+    $mainTable = fetchAllFrom($con,"main");
+    $Data = searchData($mainTable,"Account_number",$_SESSION['Account_number']);
+    $mainData = $Data['data'];
+    Logout($mainData);
     ?>
     <div class="loader-wrapper">
         <h1>Logging Out</h1>

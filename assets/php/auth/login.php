@@ -24,7 +24,7 @@ include_once('../../Fetched.php');
                     if ($mainData['Blocked'] == boolval(false)) {
                         Login($mainData);
                     } else {
-                        alert('Your Account has been Blocked , please Contact you Bank.', '../../../index.html');
+                        alert('Your Account has been Blocked , please Contact you Bank.', '../../../index.php');
                     }
                 } else {
                     alert("Password Incorrect", '../../../index.php');
