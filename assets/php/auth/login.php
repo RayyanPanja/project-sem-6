@@ -15,36 +15,33 @@ include_once('../../Fetched.php');
 <body>
     <?php
     if (isset($_REQUEST['account']) && isset($_REQUEST['password'])) {
-
-        // Global Vars...
-        $getMainObject;
-        $getDeletedObject;
-        $dataMain;
-        $dataDeletedAcc;
-        // Global Vars...Ends
-
         $mainTable = fetchAllFrom($con, "main");
-        $getMainObject = searchData($mainTable, "Account_number", $_REQUEST['account']);
-        if ($getMainObject['boolean'] === boolval(true)) {
-            $dataMain = $getMainObject['data'];
-
-            if ($dataMain['Account_number'] === $_REQUEST['account'] && $dataMain['Password'] === $_REQUEST['password']) {
-                Login($dataMain);
+        $Data = searchData($mainTable, "Account_number", $_REQUEST['account']);
+        if ($Data['boolean'] !== boolval(false)) {
+            $mainData = $Data['data'];
+            if ($mainData['Account_number'] == $_REQUEST['account']) {
+                if ($mainData['Password'] == $_REQUEST['password']) {
+                    if ($mainData['Blocked'] == boolval(false)) {
+                        Login($mainData);
+                    } else {
+                        alert('Your Account has been Blocked , please Contact you Bank.', '../../../index.html');
+                    }
+                } else {
+                    alert("Password Incorrect", '../../../index.php');
+                }
+            } else {
+                alert("Account Does not Match", '../../../index.php');
             }
         } else {
-            $deletedAcc = fetchAllFrom($con, "deletedAccounts");
-            $getDeletedObject = searchData($deletedAcc, "Account_number", $_REQUEST['account']);
-            if ($getDataObject['boolean'] === boolval(true)) {
-                $dataDeletedAcc = $getDeletedObject['data'];
-                alert("Your Account Has Been Deleted For {$dataDeletedAcc['Reason']} -- CODE: {$dataDeletedAcc['Code']}", "../../../index.php");
-            } else {
-                alert("Account Could not be Found", "../../../index.php");
+            // Checking Deleted Accounts Table....
+            $deletedAccTable = fetchAllFrom($con, "deletedaccounts");
+            $Data = searchData($deletedAccTable, "Account_number", $_REQUEST['account']);
+            if ($Data['boolean'] !== boolval(false)) {
+                $deletedData = $Data['data'];
+                alert("Your Account has been Suspended , Because: {$deletedData['Reason']}", '../../../index.php');
             }
         }
-    } else {
-        alert("Account Doesn't Exist!!!", '../../../index.php');
     }
-
     ?>
 </body>
 

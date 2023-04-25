@@ -15,14 +15,21 @@ function fetchAllFrom($con, string $table)
 }
 
 // this function returns an Object [Associative Array] 1 => data of given primary kry , 2 => boolean
-function searchData(array $table, string $primaryKey = "id", string $value)
+function searchData(array $table, string $primaryKey = "id", string $value, string $column = null)
 {
     foreach ($table as $innerArray) {
         if (isset($innerArray[$primaryKey]) && $innerArray[$primaryKey] == $value) {
-            return array(
-                "data" => $innerArray,
-                "boolean" => boolval(true)
-            );
+            if (is_null($column)) {
+                return array(
+                    "data" => $innerArray,
+                    "boolean" => boolval(true)
+                );
+            } else {
+                return array(
+                    "data" => $innerArray[$column],
+                    "boolean" => boolval(true)
+                );
+            }
         }
     }
     return false;
