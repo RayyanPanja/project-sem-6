@@ -22,29 +22,27 @@ function Seperate($string, $char)
     return explode($char, $string);
 }
 
-function Login($Account, $Password, $Email, $Sirname, $Name, $FatherName, $Image, $Username)
+// Login...
+function Login($UserTable)
 {
-    $_SESSION['Account'] = $Account;
-    $_SESSION['Password'] = $Password;
-    $_SESSION['Email'] = $Email;
-    $_SESSION['Sirname'] = $Sirname;
-    $_SESSION['Name'] = $Name;
-    $_SESSION['Father'] = $FatherName;
-    $_SESSION['image'] = $Image;
-    $_SESSION['Username'] = $Username;
-    $_SESSION['Loggedin'] = true;
+    foreach ($UserTable as $key => $value) {
+        $_SESSION[$key] = $value;
+    }
+    $_SESSION["Loggedin"] = boolval(true);
     header("Location: ../dashboard/dashboard.php");
 }
+// Login...Ends
 
-function Logout()
+function Logout($UserTable)
 {
+    foreach ($$UserTable as $key => $value) {
+        unset(
+            $_SESSION[$key]
+        );
+    }
+    $_SESSION["Loggedin"] = boolval(false);
 
-    unset(
-        $_SESSION["Account"],
-        $_SESSION['Name'],
-        $_SESSION['Password']
-    );
-    $_SESSION["Loggedin"] = "false";
+    header("Location: ../../../index.php");
 }
 
 function pa($array)
@@ -54,7 +52,7 @@ function pa($array)
     echo "</pre>";
 }
 // Print Array in Console
-function pca($arr, $withKey = false ,$AnyMSG = null)
+function pca($arr, $withKey = false, $AnyMSG = null)
 {
     $array = $arr;
     if ($withKey == false) {
@@ -75,3 +73,13 @@ function pca($arr, $withKey = false ,$AnyMSG = null)
     echo "</script>";
 }
 // Print Array in Console...ENds
+
+// Alert...
+function alert(string $msg, string $path)
+{
+    echo "<script>";
+    echo "alert({$msg})";
+    echo "window.location.assign({$path})";
+    echo "</script>";
+}
+// Alert...Ends

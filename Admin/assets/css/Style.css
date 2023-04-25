@@ -60,10 +60,9 @@
     gap: 5%;
     border: 2px solid var(--primary-clr);
 }
-@media screen and (max-width: 660px) {
-    
-    
-}
+
+@media screen and (max-width: 660px) {}
+
 /* Menu Bar [Deposit/ui.php]...Ends */
 
 /* Users/ui.php */
@@ -104,12 +103,14 @@
 }
 
 @media screen and (max-width: 660px) {
-    .search-wrapper{
+    .search-wrapper {
         width: 100%;
     }
-    #search-options{
+
+    #search-options {
         gap: 30px;
     }
+
     .Account-list {
         display: flex;
         align-items: center;
@@ -234,3 +235,101 @@
 }
 
 /* Users/proc/Detail.php...Ends */
+
+
+/* Mail/ui.php */
+.mail-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mail-wrapper {
+    position: relative;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px var(--primary-clr);
+}
+
+.reply-form-container {
+    width: 30%;
+    border: 2px solid var(--primary-clr);
+    margin-top: 3%;
+}
+
+.mail-subject {
+    padding: 5px 15px;
+}
+
+.mail-subject::first-letter {
+    text-transform: uppercase;
+}
+
+.mail-id {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.mail-id>span {
+    padding: 5px 20px;
+    background: var(--dark-clr);
+    border-radius: 45px;
+    outline: 1px solid var(--light-clr);
+}
+
+.mail-msg {
+    word-spacing: 2px;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.mail-msg::before {
+    content: '"';
+}
+
+.mail-msg::after {
+    content: '"';
+}
+
+.mail-load {
+    opacity: 0;
+}
+.slide{
+    animation-delay: 3s;
+}
+.slide:nth-child(even) {
+    animation: slide-in-left 1s ease-in-out forwards;
+}
+
+.slide:nth-child(odd) {
+    animation: slide-in-right 1s ease-in-out forwards;
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+/* Mail/ui.php...Ends */

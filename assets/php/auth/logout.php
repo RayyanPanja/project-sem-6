@@ -12,7 +12,6 @@
     <?php
     include "../connection.php";
     Logout();
-    header("Location: ../../../index.php");
     ?>
     <div class="loader-wrapper">
         <h1>Logging Out</h1>

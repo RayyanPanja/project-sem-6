@@ -10,6 +10,9 @@
     --primary-clr: #00ffff;
     --secondary-clr: #041b50;
 
+    --dark-clr: #2b2929;
+    --light-clr: #decfcf;
+
     --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
 
     --grey-clr: #222;
@@ -130,8 +133,23 @@ button {
     justify-content: center;
 }
 
+.flex-ju-sb {
+    justify-content: space-between;
+}
+.flex-ju-start {
+    justify-content: flex-start;
+}
+
+.flex-ju-end {
+    justify-content: flex-end;
+}
+
 .flex-al-ce {
     align-items: center;
+}
+
+.flex-al-end {
+    align-items: flex-end;
 }
 
 .g-0 {
@@ -172,6 +190,14 @@ button {
 
 .border {
     border: 2px solid var(--primary-clr);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.big-text {
+    font-size: 4rem;
 }
 
 @media screen and (max-width: 660px) {

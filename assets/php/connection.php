@@ -4,7 +4,7 @@ include "func.php";
 
 // Usefull Vars....
 $Dir = "project-sem-6";
-$URLnoDIR = "http://localhost/"; 
+$URLnoDIR = "http://localhost/";
 $URL = "http://localhost/{$Dir}";
 
 $BANKNAME = "WeBank";
@@ -27,6 +27,5 @@ try {
 }
 ?>
 
-<link rel="stylesheet" href="<?= $URL?>/assets/css/style.css">
-<link rel="stylesheet" href="<?= $URL?>/assets/css/forms.css">
-<script src="https://kit.fontawesome.com/5ac4d734e2.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="<?= $URL ?>/assets/css/style.css">
+<link rel="stylesheet" href="<?= $URL ?>/assets/css/forms.css">

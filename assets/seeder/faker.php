@@ -38,3 +38,8 @@ function RandomDate($from, $to)
     $date = date("Y-m-d", $randomStamp);
     return $date;
 }
+
+function generateRandomForeignFrom(string $table)
+{
+    
+}

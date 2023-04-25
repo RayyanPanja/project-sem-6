@@ -7,6 +7,7 @@
         <a href="<?= $URL; ?>/assets/php/Deposit/ui.php" class="link">Deposit Amount</a>
         <a href="<?= $URL; ?>/assets/php/Loan/ui.php" class="link">Loan Applications</a>
         <a href="<?= $URL; ?>/assets/php/Users/ui.php" class="link">User Details</a>
+        <a href="<?= $URL; ?>/assets/php/Mail/ui.php" class="link">Mails</a>
         <a href="<?= $URL; ?>/assets/php/Help.php" class="link">Help</a>
     </div>
     <div class="auth-set">

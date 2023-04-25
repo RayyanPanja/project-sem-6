@@ -27,12 +27,8 @@ try {
     header("Location: $URLnoDIR/Error/error.html");
 }
 ?>
-
 <!-- Css -->
 <link rel="stylesheet" href="<?= $URL; ?>/assets/css/Style.css">
-
-<!-- Icons -->
-
 <!-- Jquery -->
 <script src="<?= $URL ?>/node_modules/jquery/dist/jquery.js"></script>
 <script src="<?= $URL ?>/node_modules/jquery/dist/jquery.min.js"></script>
