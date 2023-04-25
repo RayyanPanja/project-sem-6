@@ -3,18 +3,18 @@
 include("../php/connection.php");
 include("faker.php");
 
-$fakeData = 100;
+$fakeData = 10;
 
 $Array = array();
 
 for ($i = 0; $i < $fakeData; $i++) {
     $Account = RandomNumber(5);
-    $UserName = RandomString(5) . "@123";
+    $UserName = RandomString(5) . "@" . RandomNumber(3);
     $SName = RandomString(6);
     $Name = RandomString(6);
     $FName = RandomString(6);
     $Password = RandomNumber(8);
-    $Amount = RandomNumber(10);
+    $Amount = RandomNumber(4);
     $Img = RandomString(30) . ".png";
     $Address = RandomString(20);
     $City = RandomString(10);
@@ -25,7 +25,7 @@ for ($i = 0; $i < $fakeData; $i++) {
     $Gender = "Male";
     $Email = RandomString(6) . "@gmail.com";
     $Contact = RandomNumber(8);
-    $Created = RandomDate('2002-01-01', '2023-12-31');
+    // $Created = RandomDate('2002-01-01', '2023-12-31');
 
     $sql = "INSERT INTO `main` 
     (   `Account_number`, 
@@ -49,7 +49,8 @@ for ($i = 0; $i < $fakeData; $i++) {
         `Contact`, 
         `Date_Created`, 
         `Created`, 
-        `Blocked`) 
+        `Blocked`
+    ) 
 VALUES 
 (
     $Account,
@@ -71,15 +72,18 @@ VALUES
     'No',
     '$Email',
     $Contact,
-    '$Created',
+    current_timestamp(),
     true,
     false    
 );";
+
     $res = mysqli_query($con, $sql);
     if ($res) {
         $up = $i + 1;
         array_push($Array, $up);
     }
 }
+
+echo "<h1 class='text-center'>{$fakeData} Fake Data Added...</h1>";
 
 pca($Array, false, "Inserted into Main Table:");

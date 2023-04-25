@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); */
 
 :root {
     --background-clr: #111123;
@@ -22,6 +22,8 @@
     --font-clr: #efefef;
 
     --G-fonts: 'Orbitron', system-ui;
+
+    --top-lv-element: 99999;
 }
 
 * {

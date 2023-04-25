@@ -173,3 +173,15 @@ label {
 }
 
 /* CARD...Ends */
+@media screen and (max-width:660px) {
+    .dual-row{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .col{
+        width: 100%;
+    }
+    
+}

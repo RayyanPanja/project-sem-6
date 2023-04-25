@@ -1,6 +1,6 @@
 <?php
 include "../../connection.php";
- 
+
 $MyAccount = $_SESSION['Account'];
 $MyPassword = $_SESSION['Password'];
 $MyName = $_SESSION['Name'];
@@ -57,8 +57,8 @@ if (isset($Pin) && $Pin === $MyPassword) {
                             // RECEIPT GENERATOR.....
                             $TID = rand(000000, 9999999);
 
-                            $Insert = "INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`,`Note`) 
-                    VALUES ($TID, $MyAccount, $HisAccount, $AmountToSend, current_timestamp(), current_timestamp(), current_timestamp(), '$hisUsername', '$MyUsername','$Note');";
+                            $Insert = "INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`,`Note`,`Backup`) 
+                    VALUES ($TID, $MyAccount, $HisAccount, $AmountToSend, current_timestamp(), current_timestamp(), current_timestamp(), '$hisUsername', '$MyUsername','$Note','$MyUsername');";
 
                             $InsertResult = mysqli_query($con, $Insert);
 

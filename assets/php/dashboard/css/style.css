@@ -51,6 +51,7 @@ body {
 .side-nav-pfp-img {
     object-fit: cover;
     width: 100%;
+    max-width: 180px;
     border-radius: inherit;
 }
 
@@ -149,7 +150,8 @@ body {
 
 .menu-btn {
     cursor: pointer;
-    padding: 5px;
+    padding: 15px;
+    min-width: 100px;
     font-size: 20px;
     background: var(--secondary-clr);
     z-index: 9999;
@@ -189,9 +191,12 @@ body {
     flex-direction: column;
     gap: 15px;
 }
-
 .notification {
     border-bottom: 1px solid var(--subtitle-clr);
+}
+.notification:first-child{
+    background: var(--primary-clr);
+    color: var(--secondary-clr);
 }
 
 @media screen and (max-width: 660px) {

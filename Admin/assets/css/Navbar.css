@@ -10,7 +10,7 @@
     gap: 20px;
 
     background: var(--secondary-clr);
-    z-index: 9999;
+    z-index: var(--top-lv-element);
 }
 
 .link-set {
@@ -127,9 +127,44 @@
     margin-top: 3%;
 }
 
+.nav-grid {
+    display: grid !important;
+}
+
+.nav-block {
+    display: block !important;
+}
+
+
 @media screen and (max-width: 660px) {
+    .navbar{
+        position: relative;
+    }
+    .link:not(:first-child) {
+        display: none;
+    }
+
     .login-form {
         width: 100%;
     }
 
+    .toggleNav {
+        position: fixed;
+        bottom: 5%;
+        right: 5%;
+        width: 100px;
+        height: 100px;
+        padding: 5px;
+        border-radius: 50%;
+        background-color: var(--secondary-clr);
+        z-index: var(--top-lv-element);
+        color: var(--primary-clr);
+        font-size: 60px;
+        transition: rotate 500ms;
+    }
+
+    .toggleNav:active {
+        scale: .9;
+        box-shadow: 0 0 20px 20px var(--secondary-clr);
+    }
 }

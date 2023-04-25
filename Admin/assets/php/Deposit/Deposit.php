@@ -5,7 +5,7 @@ if (isset($_REQUEST['account'], $_REQUEST['amount'], $_REQUEST['confirmAmount'])
     $Account = $_REQUEST['account'];
     $Amount = $_REQUEST['amount'];
     $Confirm = $_REQUEST['confirmAmount'];
-
+    
     if ($Amount === $Confirm) {
         $TotalAmount;
         $fetchMain = "SELECT * FROM main WHERE `Account_number` = $Account";
@@ -21,7 +21,7 @@ if (isset($_REQUEST['account'], $_REQUEST['amount'], $_REQUEST['confirmAmount'])
             $UresultMain = mysqli_query($con, $updateMain);
             if ($UresultMain) {
                 $insertNotification = "INSERT INTO `notifications` (`Notification_For`, `Notification`, `Time`)
-                VALUES ($Account, 'Amount {$Amount}  Deposited to Your Account: {$Account}, TotalAmount: {$TotalAmount}',current_timestamp())";
+                VALUES ($Account, 'Amount {$Amount}  Deposited to Your Account: {$Account}, Total Amount: {$TotalAmount}',current_timestamp())";
                 $IresultNotification = mysqli_query($con, $insertNotification);
                 if ($IresultNotification) {
                     alert("Amount Deposited Successfully", "ui.php");

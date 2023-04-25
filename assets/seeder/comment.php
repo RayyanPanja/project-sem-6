@@ -35,5 +35,6 @@ VALUES
         array_push($Array, $up);
     }
 }
+echo "<h1>{$fakeData} Fake Data Added...</h1>";
 
 pca($Array, false, "Inserted into Comment Table:");

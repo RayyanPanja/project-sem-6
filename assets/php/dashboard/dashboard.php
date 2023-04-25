@@ -47,7 +47,7 @@ $Image = $_SESSION['image'];
             <div class="notifications">
                 <div class="pop-up" id="notification-pop-up">
                         <?php
-                        $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account";
+                        $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account ORDER BY `Time` DESC";
                         $result = mysqli_query($con, $fetch);
                         if (mysqli_num_rows($result) > 0) {
                             while ($data = mysqli_fetch_assoc($result)) { ?>

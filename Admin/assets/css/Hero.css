@@ -51,11 +51,15 @@
 
 
 /* Login Form */
-.login-form{
-
-}
 .alert-text{
     font-size: 3rem;
     text-align: center;
     color: var(--primary-clr);
+}
+
+@media screen and (max-width: 660px) {
+    .hero-cool-btn{
+        width: 80%;
+    }
+
 }
