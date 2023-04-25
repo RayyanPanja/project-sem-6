@@ -114,7 +114,7 @@ $receiver;
         </dialog>
     </main>
 </body>
-<script src="../../js/Func.js"></script>
+
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>

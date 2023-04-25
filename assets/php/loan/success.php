@@ -16,7 +16,7 @@ $Application_ID = $_SESSION['TempAppID'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer</title>
+    <title>Success...</title>
 
 </head>
 
@@ -36,7 +36,7 @@ $Application_ID = $_SESSION['TempAppID'];
         </form>
     </dialog>
     <!-- Logout Form...ENDS -->
-    
+
     <!-- NAVBAR -->
     <?php
     include("../../components/MainNavbar.php");
@@ -50,13 +50,13 @@ $Application_ID = $_SESSION['TempAppID'];
         </h1>
         <h2 class="txt-center">
             Your Loan Application Has Been Submitted Successfully With
-            <?php echo $Application_ID; ?> ID
+            <?= $Application_ID; ?> ID
         </h2>
 
     </main>
 
 </body>
-<script src="../../js/Func.js"></script>
+
 <script>
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);
 </script>

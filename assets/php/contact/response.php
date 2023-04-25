@@ -34,6 +34,6 @@ include "../connection.php";
     </main>
 
 </body>
-<script src="../../js/Func.js"></script>
+
 
 </html>

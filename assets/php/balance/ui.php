@@ -1,5 +1,7 @@
 <?php
 include "../connection.php";
+include('../../Fetched.php');
+
 $Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
 $Name = $_SESSION['Firstname'];
@@ -42,25 +44,21 @@ $Image = $_SESSION['Img_Path'];
 
     <main class="full-size">
         <?php
-        $Balance;
-        $Fetch = "SELECT * FROM main WHERE `Account_number` = $Account;";
-        $Result = mysqli_query($con, $Fetch);
-        while ($data = mysqli_fetch_assoc($Result)) {
-            $Balance = $data['Amount'];
-        }
+        $MainTable = FetchFrom($con, "main");
+        $mainObject = searchData($MainTable, "Account_number", $Account);
+        $Row = $mainObject['data'];
+        $Balance = $Row['Amount']
         ?>
 
         <h1 class="balance" id="balance">
-            <?php
-            echo $Balance;
-            ?>
+            <?= $Balance; ?>
         </h1>
 
 
     </main>
 
 </body>
-<script src="../../js/Func.js"></script>
+
 <script>
     ChangeCurrencyFormat('balance', "INR", "hi-IN");
     DialogHandler('logout-open', 'logout-close', 'logout-dlg', true);

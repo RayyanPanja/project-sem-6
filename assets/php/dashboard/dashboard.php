@@ -104,7 +104,7 @@ $Image = $_SESSION['Img_Path'];
     </main>
 
 </body>
-<script src="../../js/Func.js"></script>
+
 <script>
     showNotifications('notification-pop-up', 'notification-btn', 'pop-up-active')
 </script>

@@ -1,6 +1,5 @@
 <!-- Using as Package -->
 <?php
-include "func.php";
 
 // Usefull Vars....
 $Dir = "project-sem-6";
@@ -25,7 +24,12 @@ try {
 } catch (\Throwable $th) {
     header("Location: $URL/Error/error.html");
 }
+
+include "func.php";
 ?>
 
 <link rel="stylesheet" href="<?= $URL ?>/assets/css/style.css">
 <link rel="stylesheet" href="<?= $URL ?>/assets/css/forms.css">
+
+<!-- JS -->
+<script src="<?= $URL ?>/assets/js/Func.js"></script>
