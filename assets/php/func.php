@@ -85,20 +85,22 @@ function alert($msg, $path)
 // Alert...Ends
 
 // Referesh Sessions....
-function refereshSessions(array $UserTable)
+function unsetUserSessions(array $sessionKeys)
 {
-    function UnsetSessions($UserTable)
-    {
-        foreach ($UserTable as $key => $value) {
-            unset($_SESSION[$key]);
-        }
-        return boolval(true);
+    foreach ($sessionKeys as $key) {
+        unset($_SESSION[$key]);
     }
-    if (UnsetSessions($UserTable)) {
-        foreach ($UserTable as $key => $value) {
-            $_SESSION[$key] = $value;
-        }
-        return boolval(true);
-    }
+    return true;
 }
+
+function refreshUserSessions(array $userSessionData)
+{
+    $sessionKeys = array_keys($userSessionData);
+    unsetUserSessions($sessionKeys);
+    foreach ($userSessionData as $key => $value) {
+        $_SESSION[$key] = $value;
+    }
+    return true;
+}
+
 // Referesh Sessions....Ends

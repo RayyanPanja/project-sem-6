@@ -87,3 +87,16 @@ function deleteData($con, string $table, string $primaryKey = "id", string $valu
     }
     return boolval(false);
 }
+
+// Update Table...
+function UpdateTableData($con, string $table, array $dataSet, string $primaryKey = "id", $primaryKeyValue)
+{
+    foreach ($dataSet as $column => $dataValue) {
+        $sql = "UPDATE {$table} SET `{$column}` = ? WHERE `{$primaryKey}` = ?";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $dataValue, $primaryKeyValue);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+    return boolval(true);
+}

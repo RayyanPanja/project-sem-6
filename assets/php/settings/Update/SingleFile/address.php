@@ -9,22 +9,32 @@ include('../../../../DBFuncs.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updating Name....</title>
+    <title>Updating Address....</title>
 </head>
 
 <body>
     <?php
-    if (isset($_REQUEST['sirname']) || isset($_REQUEST['fathername']) || isset($_REQUEST['firstname'])) {
-        $Sirname = $_REQUEST['sirname'];
-        $Firstname = $_REQUEST['firstname'];
-        $Fathername = $_REQUEST['fathername'];
+    if (
+        isset($_REQUEST['address']) ||
+        isset($_REQUEST['zipcode']) ||
+        isset($_REQUEST['city']) ||
+        isset($_REQUEST['state']) ||
+        isset($_REQUEST['counrty'])
+    ) {
+        $Address = $_REQUEST['address'];
+        $ZipCode = $_REQUEST['zipcode'];
+        $City = $_REQUEST['city'];
+        $State = $_REQUEST['state'];
+        $Country = $_REQUEST['country'];
 
         $myacc = $_SESSION['Account_number'];
 
         $DataSet = array(
-            "Sirname" => $Sirname,
-            "Firstname" => $Firstname,
-            "Fathername" => $Fathername
+            "Address" => $Address,
+            "City" => $City,
+            "Pin_Code" => $ZipCode,
+            "State" => $State,
+            "Country" => $Country
         );
 
         if (UpdateTableData($con, "main", $DataSet, "Account_number", $myacc)) {

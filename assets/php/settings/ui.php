@@ -23,7 +23,7 @@ $username = $_SESSION['Username'];
                     <img src="../../img/storage/<?= $_SESSION['Img_Path'] ?>" alt="">
                 </div>
                 <div class="name-holder">
-                    <h1><?= $name; ?></h1>
+                    <h1 title="<?= $_SESSION['Email'] ?>"><?= $name; ?></h1>
                     <h3><?= $username; ?></h3>
                     <form action="Update/ImageUpdate/" method="post">
                         <button type="submit" class="form-btn primary-btn">Change Profile Pic</button>
@@ -31,6 +31,7 @@ $username = $_SESSION['Username'];
                 </div>
             </div>
             <div class="settings-link-set">
+                <a href="<?= $URL ?>/home.php" class="settings-link">Home</a>
                 <a href="#Update" class="settings-link">Update Profile</a>
                 <a href="" class="settings-link">Track Loan Progress</a>
                 <a href="" class="settings-link">Reply to You Message</a>

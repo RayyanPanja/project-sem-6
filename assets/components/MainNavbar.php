@@ -24,7 +24,7 @@
         <a href="<?= $URL; ?>/assets/php/loan/ui.php" class="link">Loan</a>
         <a href="<?= $URL; ?>/assets/php/pin.php" class="link">Balance</a>
         <a href="<?= $URL; ?>/assets/php/contact/ui.php" class="link">Contact</a>
-        <a href="<?= $URL; ?>/assets/php/settings/ui.php" class="link">Settings</a>
+        <a href="<?= $URL; ?>/assets/php/settings-psw.php" class="link">Settings</a>
         <button type="submit" class="logout-btn" id="logout-open">Logout</button>
     </div>
     <div class="auth">
