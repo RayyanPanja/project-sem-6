@@ -33,3 +33,6 @@ include "func.php";
 
 <!-- JS -->
 <script src="<?= $URL ?>/assets/js/Func.js"></script>
+
+<!-- JQuert -->
+<script src="<?= $URL ?>/Admin/node_modules/jquery/dist/jquery.js"></script>

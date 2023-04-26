@@ -4,7 +4,7 @@ include('../connection.php');
 if (isset($_REQUEST['search'])) {
     $val = $_REQUEST['search'];
 
-    $sql = "SELECT * FROM `comment` WHERE `Cid` LIKE '$val%' OR `Status` LIKE '$val%' OR `Email` LIKE '$val%';";
+    $sql = "SELECT * FROM `comment` WHERE `Cid` LIKE '$val%' OR `Status` LIKE '$val%' OR `Email` LIKE '$val%' OR `Account` LIKE '$val%';";
     $result = mysqli_query($con, $sql);
     while ($data = mysqli_fetch_assoc($result)) { ?>
         <div class="mail-wrapper">
@@ -22,7 +22,7 @@ if (isset($_REQUEST['search'])) {
                     <form action="reply.php" method="post">
                         <div class="row">
                             <div class="col">
-                                <label for="Reply">Reply</label>
+                                <label for="Reply">Reply to <?= $data['Account'] ?></label>
                                 <input type="text" name="reply" class="form-input" placeholder="Reply">
                             </div>
                             <div class="form-btn-set">
@@ -58,7 +58,7 @@ if (isset($_REQUEST['search'])) {
                     <form action="reply.php" method="post">
                         <div class="row">
                             <div class="col">
-                                <label for="Reply">Reply</label>
+                                <label for="Reply">Reply to <?= $data['Account'] ?></label>
                                 <input type="text" name="reply" class="form-input" placeholder="Reply">
                             </div>
                             <div class="form-btn-set">

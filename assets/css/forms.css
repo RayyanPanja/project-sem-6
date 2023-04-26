@@ -3,7 +3,7 @@
     margin: auto;
     margin-top: 10%;
     width: 50%;
-    height: 50vh;
+    min-height: 50vh;
     border: 2px solid var(--light-clr);
 }
 

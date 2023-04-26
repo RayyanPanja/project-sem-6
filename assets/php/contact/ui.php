@@ -52,9 +52,14 @@ include "../connection.php";
                         <div class="col-lab">
                             <label for="Message">Review</label>
                         </div>
-                        <textarea name="message" id="message" cols="50" rows="5" class="input" placeholder="Hello ,">Hello,</textarea>
+                        <textarea name="message" id="message" cols="50" rows="5" class="input" placeholder="Hello ,">Hello,i am <?= ($_SESSION['Loggedin']) ? $_SESSION['Firstname'] : "" ?></textarea>
                     </div>
                 </div>
+                <?php
+                if ($_SESSION['Loggedin'] == true) { ?>
+                    <input type="hidden" name="acc" value="<?= $_SESSION['Account_number'] ?>">
+                <?php }
+                ?>
                 <div class="register-btn-set">
                     <button type="submit" class="submit btn">Send</button>
                     <button type="reset" class="cancle btn">Cancle</button>

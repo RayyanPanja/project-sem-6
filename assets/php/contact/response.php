@@ -15,12 +15,12 @@ include "../connection.php";
 <body>
 
     <?php
-    if ($_SESSION['Loggedin'] == "true") { ?>
+    if ($_SESSION['Loggedin'] == boolval(true)) { ?>
         <?php include('../../components/MainNavbar.php'); ?>
     <?php }
     ?>
     <?php
-    if ($_SESSION['Loggedin'] == "false") { ?>
+    if ($_SESSION['Loggedin'] == boolval(false)) { ?>
         <button class="cool-big-btn" onclick="goToHome()" id="Home">Go Back</button>
     <?php }
     ?>

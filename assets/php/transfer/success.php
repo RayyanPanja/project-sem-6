@@ -74,7 +74,7 @@ $receiver;
 
     <main>
         <dialog class="transaction" open>
-            <h1>Transfer Successfull</h1>
+            <h1 class="text-white">Transfer Successfull</h1>
             <div class="transaction-slip">
                 <table>
                     <tr>

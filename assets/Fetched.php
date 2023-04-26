@@ -15,10 +15,10 @@ function fetchAllFrom($con, string $table)
 }
 
 // this function returns an Object [Associative Array] 1 => data of given primary kry , 2 => boolean
-function searchData(array $table, string $primaryKey = "id", string $value, string $column = null)
+function searchData(array $table, string $key = "id", string $value, string $column = null)
 {
     foreach ($table as $innerArray) {
-        if (isset($innerArray[$primaryKey]) && $innerArray[$primaryKey] == $value) {
+        if (isset($innerArray[$key]) && $innerArray[$key] == $value) {
             if (is_null($column)) {
                 return array(
                     "data" => $innerArray,
@@ -33,6 +33,22 @@ function searchData(array $table, string $primaryKey = "id", string $value, stri
         }
     }
     return false;
+}
+
+// Fetch with Multi Where Clause....
+function fetchWithDualWhere($con, string $table, string $LogicalOperator, string $column1, string $value1, string $column2, string $value2)
+{
+    $Array = array();
+    $sql = "SELECT * FROM {$table} WHERE {$column1} = {$value1} {$LogicalOperator} {$column2} = {$value2};";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        while ($set = mysqli_fetch_assoc($result)) {
+            array_push($Array, $set);
+        }
+        return $Array;
+    } else {
+        return boolval(false);
+    }
 }
 
 // this Function will Write give input into Console as log....
@@ -55,4 +71,16 @@ function Write($var)
         echo "console.log('{$var}');";
     }
     echo "</script>";
+}
+
+
+// Delete From Table 
+function deleteData($con, string $table, string $primaryKey = "id", string $value)
+{
+    $sql = "DELETE FROM {$table} WHERE {$primaryKey} = {$value}";
+    $result = mysqli_query($con, $sql);
+    if ($result) {
+        return boolval(true);
+    }
+    return boolval(false);
 }

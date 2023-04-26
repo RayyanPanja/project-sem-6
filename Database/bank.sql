@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2023 at 05:07 PM
+-- Generation Time: Apr 25, 2023 at 08:05 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -56,34 +56,35 @@ CREATE TABLE `comment` (
   `Msg` longtext NOT NULL,
   `Status` varchar(50) NOT NULL DEFAULT 'Pending',
   `Time` time NOT NULL DEFAULT current_timestamp(),
-  `Date` date NOT NULL DEFAULT current_timestamp()
+  `Date` date NOT NULL DEFAULT current_timestamp(),
+  `Account` bigint(225) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `comment`
 --
 
-INSERT INTO `comment` (`Cid`, `Email`, `Subject`, `Msg`, `Status`, `Time`, `Date`) VALUES
-(14406, 'oozef@gmail.com', 'xupbscv', 'ocuhzzgyvlniliemknki', 'gmpzfq', '19:26:48', '2023-04-23'),
-(17609, 'lwbyx@gmail.com', 'vuagbxj', 'blueutpioioseggwaszo', 'thlwto', '19:26:48', '2023-04-23'),
-(26926, 'ujpro@gmail.com', 'wlfiflm', 'xcgukizgujurvhzpzvfm', 'nbssam', '19:26:48', '2023-04-23'),
-(33368, 'ydkwk@gmail.com', 'yseygao', 'icpyaknyvoksncrzkupo', 'fivjuc', '19:26:48', '2023-04-23'),
-(34053, 'piuoe@gmail.com', 'aprdebx', 'xhuagvkxlxixdfquhpgk', 'lfutxw', '19:26:48', '2023-04-23'),
-(34458, 'nicvh@gmail.com', 'cjypyds', 'fsowbpvlqwsvditznubz', 'gxisiu', '19:26:48', '2023-04-23'),
-(39405, 'woami@gmail.com', 'jxdyteo', 'zisnwhydpxqcnmdhpuxs', 'zjnzwu', '19:26:48', '2023-04-23'),
-(45026, 'pnrga@gmail.com', 'zeixczq', 'pquyagaygjwriepwgypn', 'hjbytc', '19:26:48', '2023-04-23'),
-(47610, 'uivtl@gmail.com', 'rzpahry', 'lahiwedqmqfztcqzgubg', 'zosrep', '19:26:48', '2023-04-23'),
-(49272, 'lajnt@gmail.com', 'gqhfvni', 'jksifkdfwflmrzviksep', 'qhxxor', '19:26:48', '2023-04-23'),
-(50217, 'uoiim@gmail.com', 'bffktss', 'bhqbxpmgounzkxbuccjz', 'glkgaf', '19:26:48', '2023-04-23'),
-(54190, 'seasi@gmail.com', 'dnplgdv', 'xpnyubhaouixpjputtfa', 'qoxpog', '19:26:48', '2023-04-23'),
-(59106, 'xebtp@gmail.com', 'poknehi', 'qaaqianlonrxqpjperwo', 'xtcgfh', '19:26:48', '2023-04-23'),
-(66585, 'skdyq@gmail.com', 'tnfwgsq', 'axfoydcolzmxqyyehvtc', 'jcrvyy', '19:26:48', '2023-04-23'),
-(67354, 'etgra@gmail.com', 'fslklmr', 'clppzwjjraxxhcgywfvl', 'nzugdo', '19:26:48', '2023-04-23'),
-(73359, 'esqgz@gmail.com', 'uqspwho', 'fiskdlsxvqwhnwjiudal', 'ajyhxn', '19:26:48', '2023-04-23'),
-(74256, 'jkayg@gmail.com', 'cvlxybs', 'xpuhvzaqgwsevfltuncw', 'wcydzt', '19:26:48', '2023-04-23'),
-(75154, 'izzet@gmail.com', 'nealtdx', 'cktutuqabwiajrvbzywa', 'jxczds', '19:26:48', '2023-04-23'),
-(89647, 'xklts@gmail.com', 'aqfdvmk', 'ilurgxwtlpypwdqccras', 'nffekm', '19:26:48', '2023-04-23'),
-(91632, 'zbbpm@gmail.com', 'nzwhbgd', 'znlyywlspchgjfzzxjxu', 'gkmqoe', '19:26:48', '2023-04-23');
+INSERT INTO `comment` (`Cid`, `Email`, `Subject`, `Msg`, `Status`, `Time`, `Date`, `Account`) VALUES
+(10364, 'robir@gmail.com', 'zczkylu', 'xacxjxehamugpkodsjwa', 'Pending', '23:30:24', '2023-04-25', NULL),
+(24648, 'gydkn@gmail.com', 'hhqxwrl', 'kerwdlqututqvuchknqr', 'Pending', '23:30:24', '2023-04-25', NULL),
+(27259, 'jkrnq@gmail.com', 'riignlw', 'yllnmttvqxopwxnjtser', 'Pending', '23:30:24', '2023-04-25', NULL),
+(28548, 'ndton@gmail.com', 'ysljkvr', 'jssflsiungacxilprpga', 'Pending', '23:30:24', '2023-04-25', NULL),
+(34580, 'shaql@gmail.com', 'gusdeld', 'iahynggzytndyoxcwxnz', 'Pending', '23:30:24', '2023-04-25', NULL),
+(35199, 'ophyq@gmail.com', 'ddkntua', 'ccpfxgperaekundnrnbb', 'Pending', '23:30:24', '2023-04-25', NULL),
+(48231, 'ntxxp@gmail.com', 'vfaeioc', 'dtvhoedwxjkirtkiizgh', 'Pending', '23:30:24', '2023-04-25', NULL),
+(49318, 'uemrf@gmail.com', 'dmyxndp', 'yucnftpfjfrdiyulkope', 'Pending', '23:30:24', '2023-04-25', NULL),
+(56849, 'xqclp@gmail.com', 'yjxodfw', 'vxjvsgrxbehsomxcyyuv', 'Pending', '23:30:24', '2023-04-25', NULL),
+(58413, 'awgcb@gmail.com', 'ftmkibs', 'dqjgcfvcqmsrmxalgbgm', 'Pending', '23:30:24', '2023-04-25', NULL),
+(60198, 'mbbuk@gmail.com', 'klbsbuw', 'dnsyypvsgldkpcrzhxkk', 'Pending', '23:30:24', '2023-04-25', NULL),
+(61834, 'nkfkm@gmail.com', 'gpldozk', 'zjdvqnhaycngzlzxcvto', 'Pending', '23:30:24', '2023-04-25', NULL),
+(63065, 'xmjdd@gmail.com', 'gullpbh', 'jazeclcgvsozsjpzgfjm', 'Pending', '23:30:24', '2023-04-25', NULL),
+(66746, 'dgdmi@gmail.com', 'cizckke', 'seuyxehjraztzvhxvitd', 'Pending', '23:30:24', '2023-04-25', NULL),
+(67777, 'efitd@gmail.com', 'nnsgauq', 'rwecxilfevmtakqqvsmf', 'Pending', '23:30:24', '2023-04-25', NULL),
+(86782, 'oolew@gmail.com', 'rzttdrn', 'tfhfyecqgrqdmcorpbac', 'Pending', '23:30:24', '2023-04-25', NULL),
+(91185, 'jgitm@gmail.com', 'rzgwqso', 'trputvvhegqtzvcnssjj', 'Pending', '23:30:24', '2023-04-25', NULL),
+(97329, 'jcddj@gmail.com', 'feyeuzh', 'ciolthxovmdzkdtnsjpv', 'Pending', '23:30:24', '2023-04-25', NULL),
+(99661, 'ufbrr@gmail.com', 'kmjhkfo', 'vmezzhcuufbtufbinkbr', 'Pending', '23:30:24', '2023-04-25', NULL),
+(99797, 'yfxwz@gmail.com', 'iwjyraz', 'qjzcfzxudqbqimqjelky', 'Pending', '23:30:24', '2023-04-25', NULL);
 
 -- --------------------------------------------------------
 
@@ -164,7 +165,17 @@ CREATE TABLE `main` (
 --
 
 INSERT INTO `main` (`Account_number`, `Username`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Amount`, `Img_Path`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date Of Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Date_Created`, `Created`, `Blocked`) VALUES
-(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 24900, 'USER-2023-Apr-23-64453ab5baeb8.png', 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786973, '2023-04-23 19:32:54', 1, 1);
+(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 45700, 'USER-2023-Apr-23-64453ab5baeb8.png', 'SomeWhere in This World', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786973, '2023-04-23 19:32:54', 1, 0),
+(13268, 'xvfjm@700', 'tqcjha', 'vtrqud', 'qfhctc', '81982602', 7023, 'fotyydwhinsvsccpyphypijmonztpb.png', 'cuspzpucinesytaqeudb', 'afxlracylb', 760716, 'klibfwtwkv', 'iztbbmjtip', '2013-01-06', 'Male', 'No', 'No', 'ymgwbd@gmail.com', 54638887, '2023-04-25 19:02:50', 1, 0),
+(34555, 'rkunk@243', 'ezbtcr', 'szmrbx', 'shxygh', '62095975', 1767, 'zirqxsgmtkvrbozlsjkedmrjteylsw.png', 'ecmhvnpjlsmlzgusjvag', 'hvrmukiqjp', 964604, 'llcngbljrd', 'iidckfubwp', '2008-10-17', 'Male', 'No', 'No', 'mykfck@gmail.com', 92595786, '2023-04-25 19:02:50', 1, 0),
+(49492, 'jczye@741', 'ojekpr', 'zxeljy', 'jkykxb', '85664572', 2866, 'djdvkrvdudskovzmxdmdyevqzsoesv.png', 'ypxsjmynxjvyjvqitdqs', 'ljrarcvsdn', 219645, 'svgrbrgrrj', 'jfclnqpncj', '2015-01-12', 'Male', 'No', 'No', 'ixsmsx@gmail.com', 76266110, '2023-04-25 19:02:50', 1, 0),
+(49855, 'btgqy@867', 'torggf', 'adbjrf', 'xoqgrg', '58199889', 8412, 'fuhfamxektyuqcrjicrimtyqtydhgf.png', 'qwukhgdhyyadkepqiqou', 'tcpzubqmhl', 803610, 'xfdqhdlhyh', 'mwfffswpqa', '2018-02-18', 'Male', 'No', 'No', 'njzuuh@gmail.com', 19581650, '2023-04-25 19:02:50', 1, 0),
+(65761, 'teixy@851', 'wmsolz', 'teinco', 'gyqzzd', '99206533', 1217, 'xizwwyfphuhevpfhdchrfbnnllkvdw.png', 'mcxrlcuufuaokufedzrm', 'tuugpjeetd', 262696, 'uzuznankws', 'wgbccavjxl', '2003-04-02', 'Male', 'No', 'No', 'heipfl@gmail.com', 50986774, '2023-04-25 19:02:50', 1, 0),
+(68199, 'tfgog@509', 'nvgnkf', 'ghpyng', 'dczihr', '67156968', 3616, 'fakthapsbispztgvzahinobnqspsog.png', 'kkuplkeudygziorcuckm', 'yqckrqisbk', 524619, 'rrxsdykzwl', 'pxxjzuszoy', '2018-09-05', 'Male', 'No', 'No', 'iaryhq@gmail.com', 20988274, '2023-04-25 19:02:50', 1, 0),
+(73519, 'hgpro@880', 'vxjtje', 'zrmldo', 'fgycyv', '74868922', 6602, 'agwiddhdfwgeurfdfpcmcnyvwbjlzv.png', 'vrottomjculcvwxvwskd', 'nemkoonapg', 811639, 'sclgdmqcjq', 'ijucrvabxg', '2004-07-08', 'Male', 'No', 'No', 'kugcmt@gmail.com', 68463837, '2023-04-25 19:02:50', 1, 0),
+(77737, 'woidr@755', 'vjtqxs', 'nyhaiw', 'oodypo', '14892037', 5519, 'tioutujyocuxeoifqpvpfdwdndynpi.png', 'hzdjrswawwjfoarfmnoc', 'jiudqknrle', 971518, 'mlnxdqmbmn', 'ddugqxqhii', '2015-01-06', 'Male', 'No', 'No', 'ffojeb@gmail.com', 37247346, '2023-04-25 19:02:50', 1, 0),
+(91026, 'iyyox@179', 'kshvpn', 'ctmizi', 'tikfzr', '31109553', 7520, 'zjsrqyxunpolixdnssqfmosbkaikiv.png', 'uygnjsqilcmukyiagufj', 'gxvmcozwdi', 342972, 'hzuujuioyz', 'gkjfprxakl', '2016-10-24', 'Male', 'No', 'No', 'iihpxs@gmail.com', 95754875, '2023-04-25 19:02:50', 1, 0),
+(99630, 'hyxrd@997', 'caawwd', 'addmjb', 'qmples', '58104914', 9502, 'dkjksuwkofewwqoaxlqcykvgcibqqm.png', 'ivmxkcojzykqxvbbptqh', 'glklsgcddm', 379864, 'tnoujwqffl', 'fmtavlsbgn', '2007-08-04', 'Male', 'No', 'No', 'giryxu@gmail.com', 95257621, '2023-04-25 19:02:50', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -184,8 +195,8 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `Notification_For`, `Notification`, `Time`) VALUES
-(121216, 9786, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan@123', '2023-04-23 14:41:11'),
-(121217, 9786, 'A Total Amount of Rs.100./- was Transferred to Your Account By Rayyan@123', '2023-04-23 14:41:37');
+(121221, 9786, 'A Total Amount of Rs.5000./- was Transferred to Your Account By Rayyan@123', '2023-04-25 06:36:52'),
+(121222, 9786, 'Amount 25000  Deposited to Your Account: 9786, Total Amount: 45700', '2023-04-25 06:38:13');
 
 -- --------------------------------------------------------
 
@@ -227,15 +238,17 @@ CREATE TABLE `transaction` (
   `DateTime` datetime NOT NULL DEFAULT current_timestamp(),
   `Receiver` varchar(100) DEFAULT NULL,
   `Sender` varchar(100) DEFAULT NULL,
-  `Note` varchar(225) NOT NULL
+  `Note` varchar(225) NOT NULL,
+  `Backup` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`) VALUES
-(9160811, 9786, 9786, 100, '2023-04-23', '20:11:11', '2023-04-23 20:11:11', 'Rayyan@123', 'Rayyan@123', 'Test');
+INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`, `Backup`) VALUES
+(3456473, 9786, 9786, 5000, '2023-04-25', '12:06:51', '2023-04-25 12:06:51', 'Rayyan@123', 'Rayyan@123', 'DEEZ', 'Rayyan@123'),
+(9160811, 9786, 9786, 100, '2023-04-23', '20:11:11', '2023-04-23 20:11:11', 'Rayyan@123', 'Rayyan@123', 'Test', 'Rayyan@123');
 
 --
 -- Indexes for dumped tables
@@ -251,7 +264,8 @@ ALTER TABLE `admin`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`Cid`);
+  ADD PRIMARY KEY (`Cid`),
+  ADD KEY `Comment_Has_Account` (`Account`);
 
 --
 -- Indexes for table `deletedaccounts`
@@ -311,7 +325,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978523;
+  MODIFY `Cid` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=978524;
 
 --
 -- AUTO_INCREMENT for table `deletedaccounts`
@@ -335,7 +349,7 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121218;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121223;
 
 --
 -- AUTO_INCREMENT for table `schemes`
@@ -352,6 +366,12 @@ ALTER TABLE `transaction`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `Comment_Has_Account` FOREIGN KEY (`Account`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `loan`

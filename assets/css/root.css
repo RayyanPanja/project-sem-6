@@ -1,14 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
-
 :root {
     --background-clr: #000020;
     --light-clr: #444477;
     --subtitle-clr: #9999ee;
+    
     --primary-clr: #00ffff;
     --secondary-clr: #020f2d;
-    --transparent-clr: linear-gradient(33deg, rgba(225, 225, 225, 0.100), rgba(225, 225, 225, 0.150), rgba(225, 225, 225, 0.205));
+    
+    --alert-clr: #b22222;
+
+    --grey-clr: #444;
+    
     --btn-shadow: 0 0 5px 5px var(--primary-clr);
+    
     --font-clr: #efefef;
+    
     --G-fonts: 'Orbitron', system-ui;
 
     --top-lv-element: 99999;
@@ -102,6 +107,14 @@ button {
     align-items: center;
 }
 
+.text-white {
+    color: #FFF;
+}
+
+.text-black {
+    color: #000;
+}
+
 @media screen and (max-width: 660px) {
 
     body {
@@ -122,33 +135,42 @@ button {
 }
 
 /* Lazy */
-.lazy{
+.lazy {
     opacity: 0;
 }
-.lazy-load{
+
+.lazy-load {
     animation: lazy-load 1s ease-in-out forwards;
 }
-.delay-short{
+
+.delay-short {
     animation-delay: .5s;
 }
-.delay{
+
+.delay {
     animation-delay: 1s;
 }
-.delay-long{
+
+.delay-long {
     animation-delay: 1.5s;
 }
-.delay-2{
+
+.delay-2 {
     animation-delay: 2s;
 }
-.delay-3{
+
+.delay-3 {
     animation-delay: 3s;
 }
-.delay-4{
+
+.delay-4 {
     animation-delay: 4s;
 }
-.delay-5{
+
+.delay-5 {
     animation-delay: 5s;
 }
+
 @keyframes lazy-load {
     from {
         opacity: 0;

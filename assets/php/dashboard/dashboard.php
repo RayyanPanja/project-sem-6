@@ -15,7 +15,6 @@ $Image = $_SESSION['Img_Path'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.css' integrity='sha512-2dJkRM/DmWkZqINs3QixNKKsgG9mlBT9/PieLVF8OEGHCpPNBoPFYmGPL/yD7JuQVVm2IESF5K0zTDBaf4qehQ==' crossorigin='anonymous' />
     <link rel="stylesheet" href="../../css/root.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -46,20 +45,26 @@ $Image = $_SESSION['Img_Path'];
         <div class="menubar">
             <div class="notifications">
                 <div class="pop-up" id="notification-pop-up">
-                        <?php
-                        $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account ORDER BY `Time` DESC";
-                        $result = mysqli_query($con, $fetch);
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($data = mysqli_fetch_assoc($result)) { ?>
-                                <div class="notification"><?= $data['Notification']; ?></div>
-                            <?php }
-                        } else { ?>
-                            <div class="notification">No Notifications...</div>
+                    <?php
+                    $fetch = "SELECT * FROM `notifications` WHERE `Notification_For` = $Account AND `Notification_Type` = 'Notification' ORDER BY `Time` DESC";
+                    $result = mysqli_query($con, $fetch);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($data = mysqli_fetch_assoc($result)) { ?>
+                            <div class="notification">
+                                <?= $data['Notification']; ?>
+                                <form action="proc/delete.php">
+                                    <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                                    <button type="submit" class="mini-delete-btn">Del</button>
+                                </form>
+                            </div>
                         <?php }
-                        ?>
+                    } else { ?>
+                        <div class="notification">No Notifications...</div>
+                    <?php }
+                    ?>
                 </div>
                 <button class="menu-btn" id="notification-btn">
-                    +
+                    Notifications
                 </button>
             </div>
         </div>
@@ -78,7 +83,7 @@ $Image = $_SESSION['Img_Path'];
                     <th>Date</th>
                 </tr>
                 <?php
-                $Tfetch = "SELECT * FROM `transaction` WHERE `From_Acc` AND `To_Acc` = $Account ORDER BY `DateTime` DESC LIMIT 6 ";
+                $Tfetch = "SELECT * FROM `transaction` WHERE `From_Acc` = $Account OR `To_Acc` = $Account ORDER BY `DateTime` DESC ";
                 $Tresult = mysqli_query($con, $Tfetch);
                 if (mysqli_num_rows($Tresult) > 0) {
                     while ($data = mysqli_fetch_assoc($Tresult)) { ?>
@@ -99,7 +104,6 @@ $Image = $_SESSION['Img_Path'];
                 }
                 ?>
             </table>
-            <a href="../pin.php" class="outside-cool-link">Check Out More...</a>
         </section>
     </main>
 
