@@ -83,3 +83,22 @@ function alert($msg, $path)
     echo "</script>";
 }
 // Alert...Ends
+
+// Referesh Sessions....
+function refereshSessions(array $UserTable)
+{
+    function UnsetSessions($UserTable)
+    {
+        foreach ($UserTable as $key => $value) {
+            unset($_SESSION[$key]);
+        }
+        return boolval(true);
+    }
+    if (UnsetSessions($UserTable)) {
+        foreach ($UserTable as $key => $value) {
+            $_SESSION[$key] = $value;
+        }
+        return boolval(true);
+    }
+}
+// Referesh Sessions....Ends

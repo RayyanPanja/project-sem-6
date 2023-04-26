@@ -1,6 +1,6 @@
 <?php
 include('../connection.php');
-include('../../Fetched.php');
+include('../../DBFuncs.php');
 
 if (isset($_REQUEST['his_Acc'])) {
     $val =  $_REQUEST['his_Acc'];
@@ -20,7 +20,7 @@ if (isset($_REQUEST['his_Acc'])) {
     <?php }
 } else {
     $TransactionTable = fetchAllFrom($con, "transaction");
-    $Data = searchData($TransactionTable, "To_Acc", $_SESSION['Account_number']);
+    $Data = fetchWhere($TransactionTable, "To_Acc", $_SESSION['Account_number']);
     // Write($Data['data']);
     foreach ($TransactionTable as $key => $value) { ?>
         <tr>
@@ -36,4 +36,4 @@ if (isset($_REQUEST['his_Acc'])) {
 <?php }
 }
 
-// $Data = searchData($TransactionTable,"Recipt_No",);
+// $Data = fetchWhere($TransactionTable,"Recipt_No",);

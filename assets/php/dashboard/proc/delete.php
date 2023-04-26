@@ -1,6 +1,6 @@
 <?php
 include('../../connection.php');
-include('../../../Fetched.php');
+include('../../../DBFuncs.php');
 
 $result = deleteData($con, "notifications", 'id', $_REQUEST['id']);
 if ($result) {

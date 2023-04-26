@@ -14,8 +14,9 @@ function fetchAllFrom($con, string $table)
     return $Array;
 }
 
+
 // this function returns an Object [Associative Array] 1 => data of given primary kry , 2 => boolean
-function searchData(array $table, string $key = "id", string $value, string $column = null)
+function fetchWhere(array $table, string $key = "id", string $value, string $column = null)
 {
     foreach ($table as $innerArray) {
         if (isset($innerArray[$key]) && $innerArray[$key] == $value) {
@@ -35,6 +36,7 @@ function searchData(array $table, string $key = "id", string $value, string $col
     return false;
 }
 
+
 // Fetch with Multi Where Clause....
 function fetchWithDualWhere($con, string $table, string $LogicalOperator, string $column1, string $value1, string $column2, string $value2)
 {
@@ -50,6 +52,7 @@ function fetchWithDualWhere($con, string $table, string $LogicalOperator, string
         return boolval(false);
     }
 }
+
 
 // this Function will Write give input into Console as log....
 function Write($var)

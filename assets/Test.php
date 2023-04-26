@@ -1,8 +1,8 @@
 <?php
-include('Fetched.php');
+include('DBFuncs.php');
 $table = fetchAllFrom($con,"main");
 // pa($table);
 
-$Row = searchData($table,"Account_number","9786");
+$Row = fetchWhere($table,"Account_number","9786");
 Write($Row['data']['Amount']);
 ?>

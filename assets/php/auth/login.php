@@ -1,6 +1,6 @@
 <?php
 include('../connection.php');
-include_once('../../Fetched.php');
+include_once('../../DBFuncs.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ include_once('../../Fetched.php');
     <?php
     if (isset($_REQUEST['account']) && isset($_REQUEST['password'])) {
         $mainTable = fetchAllFrom($con, "main");
-        $Data = searchData($mainTable, "Account_number", $_REQUEST['account']);
+        $Data = fetchWhere($mainTable, "Account_number", $_REQUEST['account']);
         if ($Data['boolean'] !== boolval(false)) {
             $mainData = $Data['data'];
             if ($mainData['Account_number'] == $_REQUEST['account']) {
@@ -35,7 +35,7 @@ include_once('../../Fetched.php');
         } else {
             // Checking Deleted Accounts Table....
             $deletedAccTable = fetchAllFrom($con, "deletedaccounts");
-            $Data = searchData($deletedAccTable, "Account_number", $_REQUEST['account']);
+            $Data = fetchWhere($deletedAccTable, "Account_number", $_REQUEST['account']);
             if ($Data['boolean'] !== boolval(false)) {
                 $deletedData = $Data['data'];
                 alert("Your Account has been Suspended , Because: {$deletedData['Reason']}", '../../../index.php');

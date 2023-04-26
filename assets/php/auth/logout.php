@@ -11,10 +11,10 @@
 <body>
     <?php
     include "../connection.php";
-    include('../../Fetched.php');
+    include('../../DBFuncs.php');
     
     $mainTable = fetchAllFrom($con,"main");
-    $Data = searchData($mainTable,"Account_number",$_SESSION['Account_number']);
+    $Data = fetchWhere($mainTable,"Account_number",$_SESSION['Account_number']);
     $mainData = $Data['data'];
     Logout($mainData);
     ?>
