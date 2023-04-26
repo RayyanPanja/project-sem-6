@@ -1,0 +1,195 @@
+@import url(../../../css/root.css);
+
+.grid-with-side-nav {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    overflow: hidden;
+}
+
+.settings-side-nav {
+    padding: 15px;
+    position: relative;
+    min-width: 100%;
+    min-height: 100vh;
+    border: 1px solid var(--primary-clr);
+
+    display: grid;
+    grid-template-rows: fit-content 1fr;
+    z-index: var(--top-lv-element);
+}
+
+.settings-profile-wrapper {
+    padding: 15px;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    width: 100%;
+    height: fit-content;
+    border-bottom: 1px solid var(--primary-clr);
+}
+
+.settings-img-holder {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid var(--primary-clr);
+    background-color: black;
+    overflow: hidden;
+}
+
+.settings-img-holder>img {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+    aspect-ratio: 1/1;
+    -webkit-user-drag: none;
+    user-select: none;
+    transition: all 500ms;
+}
+
+.settings-img-holder>img:hover {
+    scale: 1.5;
+}
+
+.name-holder {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.name-holder>h1 {
+    font-size: 35px;
+}
+
+.name-holder>h3 {
+    font-size: 18px;
+    color: var(--subtitle-clr);
+}
+
+.settings-link-set {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 3px;
+
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Settings Form Controlls */
+.settings-form-set {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 15px;
+}
+.form-segment{
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid var(--primary-clr);
+    /* border-top: 0; */
+}
+.segment-title{
+    padding: 0 30px;
+    border-radius: 75px;
+    width: fit-content;
+    font-size: 30px;
+    border: 2px double var(--primary-clr);
+}
+.form-title{
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+}
+form {
+    padding: 10px;
+}
+
+label {
+    font-size: 20px;
+}
+
+.row {
+    padding: 5px;
+    width: 100%;
+    display: table;
+    clear: both;
+}
+
+.multi-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 5px;
+    clear: both;
+}
+
+.set {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-width: 260px;
+    max-width: 100%;
+}
+.form-input{
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    background-color: transparent;
+    color: var(--primary-clr);
+    border: 0;
+    border-bottom: 2px solid var(--primary-clr);
+}
+.form-btn-set{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.form-btn{
+    min-width: 100px;
+    padding: 8px;
+    border-radius: 70px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: all 300ms ease-in-out;
+}
+.primary-btn{
+    background: var(--primary-clr);
+}
+.primary-btn:hover{
+    background: transparent;
+    color: var(--primary-clr);
+    box-shadow: 0 0 3px 2px var(--primary-clr);
+}
+.secondary-btn{
+    background-color: transparent;
+    color: var(--white-clr);
+}
+.secondary-btn:hover{
+    background: var(--grey-clr);
+}
+/* Settings Form Controlls...ENds */
+
+/* Update Settings */
+.banner {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+    z-index: var(--top-lv-element);
+}
+
+/* Update Settings */
