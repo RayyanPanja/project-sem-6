@@ -16,18 +16,18 @@ function fetchAllFrom($con, string $table)
 
 
 // this function returns an Object [Associative Array] 1 => data of given primary kry , 2 => boolean
-function fetchWhere(array $table, string $key = "id", string $value, string $column = null)
+function fetchWhere(array $table, string $key = "id", string $value, string $specificColumn = null)
 {
     foreach ($table as $innerArray) {
         if (isset($innerArray[$key]) && $innerArray[$key] == $value) {
-            if (is_null($column)) {
+            if (is_null($specificColumn)) {
                 return array(
                     "data" => $innerArray,
                     "boolean" => boolval(true)
                 );
             } else {
                 return array(
-                    "data" => $innerArray[$column],
+                    "data" => $innerArray[$specificColumn],
                     "boolean" => boolval(true)
                 );
             }

@@ -1,5 +1,13 @@
 @import url(../../../css/root.css);
 
+.w-50{
+    width: 50%;
+}
+.outer-link{
+    color: var(--white-clr);
+    font-size: 20px;
+}
+
 .grid-with-side-nav {
     display: grid;
     grid-template-columns: 20% 1fr;
@@ -74,13 +82,27 @@
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    gap: 3px;
+    gap: 10px;
 
     width: 100%;
     text-align: center;
 }
-
-
+.settings-link{
+    width: 85%;
+    padding: 10px;
+    font-size: 23px;
+    color: var(--primary-clr);
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid var(--primary-clr);
+    border-radius: 75px;
+    box-shadow: 0 0 3px 2px var(--primary-clr);
+    transition: all 300ms ease-in-out;
+}
+.settings-link:hover{
+    background-color: var(--primary-clr);
+    color: var(--secondary-clr);
+}
 /* Settings Form Controlls */
 .settings-form-set {
     display: grid;
@@ -189,6 +211,7 @@ label {
     padding: 15px;
     background-color: var(--primary-clr);
     color: var(--secondary-clr);
+    font-size: 32px;
     z-index: var(--top-lv-element);
 }
 

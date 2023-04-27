@@ -95,8 +95,11 @@ function unsetUserSessions(array $sessionKeys)
 
 function refreshUserSessions(array $userSessionData)
 {
-    $sessionKeys = array_keys($userSessionData);
+    $needUnset = $userSessionData;
+
+    $sessionKeys = array_keys($needUnset);
     unsetUserSessions($sessionKeys);
+
     foreach ($userSessionData as $key => $value) {
         $_SESSION[$key] = $value;
     }

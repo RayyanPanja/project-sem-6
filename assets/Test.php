@@ -1,8 +1,8 @@
 <?php
+include('php/connection.php');
 include('DBFuncs.php');
-$table = fetchAllFrom($con,"main");
-// pa($table);
 
-$Row = fetchWhere($table,"Account_number","9786");
-Write($Row['data']['Amount']);
-?>
+$UserTable = fetchAllFrom($con, "main");
+$User = fetchWhere($UserTable, "Account_number", $_SESSION['Account_number'])['data'];
+refreshUserSessions($User);
+alert("RESET...",'php/settings/ui.php');
