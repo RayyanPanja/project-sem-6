@@ -248,18 +248,18 @@ label {
     background: var(--primary-clr);
 }
 
-.primary-btn:hover {
+.settings-primary-btn:hover {
     background: transparent;
     color: var(--primary-clr);
     box-shadow: 0 0 3px 2px var(--primary-clr);
 }
 
-.form-btn secondary-btn  {
+.settings-secondary-btn  {
     background-color: transparent;
     color: var(--white-clr);
 }
 
-.form-btn secondary-btn :hover {
+.settings-secondary-btn:hover {
     background: var(--grey-clr);
 }
 

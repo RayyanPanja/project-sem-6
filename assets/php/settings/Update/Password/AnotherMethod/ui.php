@@ -34,23 +34,23 @@ $username = $_SESSION['Username'];
                     </div>
                     <div class="form-segment">
                         <h2 class="segment-title">Numeric Key</h2>
-                        <div class="row">
-                            <div class="set">
+                        <div class="settings-row">
+                            <div class="settings-set">
                                 <label for="Number">Numeric Key</label>
                                 <input type="number" name="numkey" id="numkey" class="form-input" placeholder="???">
                             </div>
                         </div>
-                        <h1 class="txt-center">OR</h1>
+                        <h1 class="txt-center form-title">OR</h1>
                         <h2 class="segment-title">Alphabetic Key</h2>
-                        <div class="row">
-                            <div class="set">
+                        <div class="settings-row">
+                            <div class="settings-set">
                                 <label for="Word">Alphabetic Word</label>
                                 <input type="text" name="wordkey" id="wordkey" class="form-input" placeholder="?????">
                             </div>
                         </div>
-                        <div class="form-btn-set">
-                            <button type="reset" class="form-btn form-btn secondary-btn ">Clear</button>
-                            <button type="submit" class="form-btn primary-btn">Next</button>
+                        <div class="settings-form-btn-set">
+                            <button type="reset" class="settings-form-btn settings-secondary-btn ">Clear</button>
+                            <button type="submit" class="settings-form-btn settings-primary-btn">Next</button>
                         </div>
                     </div>
                 </form>

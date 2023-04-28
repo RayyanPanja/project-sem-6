@@ -34,7 +34,7 @@ $username = $_SESSION['Username'];
                 <form action="Recog.php" method="post" enctype="multipart/form-data">
                     <div class="form-segment">
                         <h2 class="segment-title">Change Password ?</h2>
-                        <div class="row">
+                        <div class="settings-row">
                             <div class="set w-50">
                                 <label for="Password">Current Password</label>
                                 <input type="password" name="password" id="password" class="form-input" placeholder="**********">
@@ -47,9 +47,9 @@ $username = $_SESSION['Username'];
                         <?php }
                         }
                         ?>
-                        <div class="form-btn-set">
-                            <button type="reset" class="form-btn form-btn secondary-btn ">Clear</button>
-                            <button type="submit" class="form-btn primary-btn">Next</button>
+                        <div class="settings-form-btn-set">
+                            <button type="reset" class="settings-form-btn settings-secondary-btn ">Clear</button>
+                            <button type="submit" class="settings-form-btn settings-primary-btn">Next</button>
                         </div>
                     </div>
                 </form>

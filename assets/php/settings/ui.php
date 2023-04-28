@@ -46,7 +46,7 @@ $username = $_SESSION['Username'];
                                 </div>
                             </div>
                             <div class="settings-form-btn-set">
-                                <button type="reset" class="settings-form-btn secondary-btn ">Clear</button>
+                                <button type="reset" class="settings-form-btn settings-secondary-btn ">Clear</button>
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Update</button>
                             </div>
                         </div>
@@ -63,7 +63,7 @@ $username = $_SESSION['Username'];
                                 </div>
                             </div>
                             <div class="settings-form-btn-set">
-                                <button type="reset" class="settings-form-btn secondary-btn ">Clear</button>
+                                <button type="reset" class="settings-form-btn settings-secondary-btn ">Clear</button>
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Update</button>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ $username = $_SESSION['Username'];
                                 </div>
                             </div>
                             <div class="settings-form-btn-set">
-                                <button type="reset" class="form-btn settings-form-btn secondary-btn ">Clear</button>
+                                <button type="reset" class="form-btn settings-form-btn settings-secondary-btn ">Clear</button>
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Update</button>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ $username = $_SESSION['Username'];
                                 </div>
                             </div>
                             <div class="settings-form-btn-set">
-                                <button type="reset" class="form-btn settings-form-btn secondary-btn ">Clear</button>
+                                <button type="reset" class="settings-form-btn settings-secondary-btn ">Clear</button>
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Update</button>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ $username = $_SESSION['Username'];
                                 <h1 class="form-title">Change Password??</h1>
                             </div>
                             <div class="settings-form-btn-set">
-                                <!-- <button type="reset" class="form-btn settings-form-btn secondary-btn ">Clear</button> -->
+                                <!-- <button type="reset" class="form-btn settings-form-btn settings-secondary-btn ">Clear</button> -->
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Change</button>
                             </div>
                         </div>
@@ -165,7 +165,7 @@ $username = $_SESSION['Username'];
                                 </div>
                             </div>
                             <div class="settings-form-btn-set">
-                                <button type="reset" class="form-btn settings-form-btn secondary-btn ">Clear</button>
+                                <button type="reset" class="form-btn settings-form-btn settings-secondary-btn ">Clear</button>
                                 <button type="submit" class="settings-form-btn settings-primary-btn">Set Up</button>
                             </div>
                         </div>

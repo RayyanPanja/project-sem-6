@@ -33,28 +33,21 @@ $username = $_SESSION['Username'];
                 <form action="update.php" method="post" enctype="multipart/form-data">
                     <div class="form-segment">
                         <h2 class="segment-title">Change Password</h2>
-                        <div class="row">
-                            <div class="set">
+                        <div class="settings-row">
+                            <div class="settings-set">
                                 <label for="Password">New Password</label>
                                 <input type="password" name="password" id="password" class="form-input" placeholder="**********">
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="set">
+                        <div class="settings-row">
+                            <div class="settings-set">
                                 <label for="Password">Confirm Password</label>
                                 <input type="password" name="confirmpassword" id="confirmpassword" class="form-input" placeholder="**********">
                             </div>
                         </div>
-                        <?php
-                        if (isset($_SESSION['temp_bool'])) {
-                            if ($_SESSION['temp_bool'] === boolval(true)) { ?>
-                                <a href="AnotherMethod/ui.php" class="outer-link">Try Another Way??</a>
-                        <?php }
-                        }
-                        ?>
-                        <div class="form-btn-set">
-                            <button type="reset" class="form-btn form-btn secondary-btn ">Clear</button>
-                            <button type="submit" class="form-btn primary-btn">Next</button>
+                        <div class="settings-form-btn-set">
+                            <button type="reset" class="settings-form-btn  settings-secondary-btn ">Clear</button>
+                            <button type="submit" class="settings-form-btn settings-primary-btn">Next</button>
                         </div>
                     </div>
                 </form>
@@ -64,6 +57,3 @@ $username = $_SESSION['Username'];
 </body>
 
 </html>
-<?php
-unset($_SESSION['temp_bool']);
-?>
