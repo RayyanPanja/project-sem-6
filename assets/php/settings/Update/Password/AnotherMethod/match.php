@@ -1,6 +1,6 @@
 <?php
 include('../../../../connection.php');
-include('../../../../../DBFuncs.php');
+include('../../../../Models/Tables.php');
 
 $RecoveryTable = fetchAllFrom($con, "recovery");
 

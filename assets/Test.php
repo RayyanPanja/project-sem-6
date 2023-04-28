@@ -1,4 +1,4 @@
 <?php
 include('php/connection.php');
-include('DBFuncs.php');
+include('php/Models/Tables.php');
 pa($_SESSION);

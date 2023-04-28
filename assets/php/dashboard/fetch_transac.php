@@ -1,6 +1,6 @@
 <?php
 include('../connection.php');
-include('../../DBFuncs.php');
+include('../Models/Tables.php');
 
 if (isset($_REQUEST['his_Acc'])) {
     $val =  $_REQUEST['his_Acc'];

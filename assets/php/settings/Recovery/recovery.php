@@ -1,7 +1,7 @@
 <?php
 // INSERT RECOVERY....
 include('../../connection.php');
-include('../../../DBFuncs.php');
+include('../../Models/Tables.php');
 
 if (isset($_REQUEST['number'], $_REQUEST['word'])) {
     $InsertDataSet = array(
@@ -15,8 +15,8 @@ if (isset($_REQUEST['number'], $_REQUEST['word'])) {
         );
         UpdateTableData($con, "main", $UpdateDataSet, "Account_number", $_SESSION['Account_number']);
 
-        $UserTable = fetchAllFrom($con, "main");
-        $User = fetchWhere($UserTable, "Account_number", $_SESSION['Account_number'])['data'];
+        
+        $User = fetchWhere($USER_TABLE, "Account_number", $_SESSION['Account_number'])['data'];
         if (refreshUserSessions($User)) {
             alert("Recovery Details Set Successfully", "../ui.php");
         }

@@ -8,12 +8,14 @@
     color: var(--white-clr);
     font-size: 20px;
 }
-.scroll-able{
+
+.scroll-able {
     overflow-y: scroll;
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 30px;
 }
+
 .grid-with-side-nav {
     display: grid;
     grid-template-columns: 20% 1fr;
@@ -114,9 +116,10 @@
 }
 
 @media screen and (max-width: 660px) {
-    body{
+    body {
         padding: 0;
     }
+
     .grid-with-side-nav {
         padding: 0;
         display: grid;
@@ -142,10 +145,12 @@
         max-height: fit-content;
         /* flex-direction: column; */
     }
-    .settings-link:not(:first-child){
+
+    .settings-link:not(:first-child) {
         display: none;
     }
-    .block{
+
+    .block {
         display: block;
     }
 
@@ -254,7 +259,7 @@ label {
     box-shadow: 0 0 3px 2px var(--primary-clr);
 }
 
-.settings-secondary-btn  {
+.settings-secondary-btn {
     background-color: transparent;
     color: var(--white-clr);
 }
@@ -297,3 +302,45 @@ label {
 }
 
 /* Update Settings */
+
+
+/* Loan Details... */
+.loan-box {
+    position: relative;
+    padding: 15px;
+    background: var(--black-clr);
+    display: grid;
+    place-items: center;
+}
+
+.detail {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.detail>span {
+    color: var(--primary-clr);
+}
+
+.loan-table {
+    width: 50%;
+    border: 2px double var(--primary-clr);
+}
+.loan-table *{
+    border: 2px double var(--grey-clr);
+}
+.loan-table td,th{
+    padding: 5px;
+    font-size: 20px;
+}
+.loan-table td{
+    text-align: center;
+}
+@media screen and (max-width:660px) {
+    .loan-table{
+        width: 100%;
+    }
+    
+}
+
+/* Loan Details...Ends */

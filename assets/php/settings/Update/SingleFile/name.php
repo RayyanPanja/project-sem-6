@@ -1,6 +1,6 @@
 <?php
 include('../../../connection.php');
-include('../../../../DBFuncs.php');
+include('../../../Models/Tables.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,8 +28,7 @@ include('../../../../DBFuncs.php');
         );
 
         if (UpdateTableData($con, "main", $DataSet, "Account_number", $myacc)) {
-            $UserTable = fetchAllFrom($con, "main");
-            $UpdatedUser = fetchWhere($UserTable, "Account_number", $myacc);
+            $UpdatedUser = fetchWhere($USER_TABLE, "Account_number", $myacc);
             if (refreshUserSessions($UpdatedUser['data'])) {
                 Write($UpdatedUser['data']);
                 alert("Profile Updated...", "../../ui.php");

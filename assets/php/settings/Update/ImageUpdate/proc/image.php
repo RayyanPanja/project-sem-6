@@ -1,6 +1,6 @@
 <?php
 include('../../../../connection.php');
-include('../../../../../DBFuncs.php');
+include('../../../../Models/Tables.php');
 
 
 $fileName;
@@ -16,8 +16,7 @@ if (empty($_FILES['image']['name'])) {
         "Img_Path" => $fileName
     );
     if (UpdateTableData($con, 'main', $Data, 'Account_number', $_SESSION['Account_number'])) {
-        $UserTable = fetchAllFrom($con, "main");
-        $User = fetchWhere($UserTable, "Account_number", $_SESSION['Account_number'])['data'];
+        $User = fetchWhere($USER_TABLE, "Account_number", $_SESSION['Account_number'])['data'];
         refreshUserSessions($User);
         alert("Profile Image Updated!!", '../ui.php');
     } else {

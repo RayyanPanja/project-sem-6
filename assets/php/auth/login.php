@@ -1,6 +1,6 @@
 <?php
 include('../connection.php');
-include_once('../../DBFuncs.php');
+include('../Models/Tables.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +15,8 @@ include_once('../../DBFuncs.php');
 <body>
     <?php
     if (isset($_REQUEST['account']) && isset($_REQUEST['password'])) {
-        $mainTable = fetchAllFrom($con, "main");
-        $Data = fetchWhere($mainTable, "Account_number", $_REQUEST['account']);
+
+        $Data = fetchWhere($USER_TABLE, "Account_number", $_REQUEST['account']);
         if ($Data['boolean'] !== boolval(false)) {
             $mainData = $Data['data'];
             if ($mainData['Account_number'] == $_REQUEST['account']) {

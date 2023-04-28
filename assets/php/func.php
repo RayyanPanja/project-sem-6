@@ -23,9 +23,9 @@ function Seperate($string, $char)
 }
 
 // Login...
-function Login($UserTable)
+function Login($USER_TABLE)
 {
-    foreach ($UserTable as $key => $value) {
+    foreach ($USER_TABLE as $key => $value) {
         $_SESSION[$key] = $value;
     }
     $_SESSION["Loggedin"] = boolval(true);
@@ -33,9 +33,9 @@ function Login($UserTable)
 }
 // Login...Ends
 
-function Logout($UserTable)
+function Logout($USER_TABLE)
 {
-    foreach ($$UserTable as $key) {
+    foreach ($$USER_TABLE as $key) {
         unset(
             $_SESSION[$key]
         );
@@ -124,3 +124,14 @@ function equals($val1, $val2, bool $strict = false)
     }
 }
 // Compare 2 values..ENds
+
+// Skip Iteration For...
+function except(array $dataToSkip, ...$skipFor)
+{
+    foreach ($dataToSkip as $key) {
+        if ($key === $skipFor) {
+            continue;
+        }
+    }
+}
+// Skip Iteration For...Ends

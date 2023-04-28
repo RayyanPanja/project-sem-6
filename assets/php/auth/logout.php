@@ -11,10 +11,8 @@
 <body>
     <?php
     include "../connection.php";
-    include('../../DBFuncs.php');
-
-    $mainTable = fetchAllFrom($con, "main");
-    $Data = fetchWhere($mainTable, "Account_number", $_SESSION['Account_number'])['data'];
+    include('../Models/Tables.php');
+    $Data = fetchWhere($USER_TABLE, "Account_number", $_SESSION['Account_number'])['data'];
     Logout($Data);
     ?>
     <div class="loader-wrapper">

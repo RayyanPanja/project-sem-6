@@ -7,9 +7,9 @@ let Flag = false;
 const speed = 100;
 
 toggleNav.addEventListener('click', () => {
-    scrollTo(0, 0);
     console.log("CLicked");
     if (Flag === false) {
+        scrollTo(0, 0);
         Links.forEach((link, index) => {
             if (index > 0) {
                 setTimeout(() => {
@@ -30,4 +30,15 @@ toggleNav.addEventListener('click', () => {
         });
         Flag = false;
     }
+});
+
+Links.forEach((Link) => {
+    Link.addEventListener('click', () => {
+        Links.forEach((link, index) => {
+            setTimeout(() => {
+                link.classList.remove('block');
+            }, speed * index);
+        })
+        Flag = false;
+    })
 });

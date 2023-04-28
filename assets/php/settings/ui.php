@@ -1,5 +1,7 @@
 <?php
 include "../connection.php";
+include('../Models/Tables.php');
+
 $acc = $_SESSION['Account_number'];
 $name = $_SESSION['Firstname'];
 $username = $_SESSION['Username'];
@@ -175,6 +177,54 @@ $username = $_SESSION['Username'];
             <section id="LoanProgress">
                 <div class="banner">
                     <h1>Oo , You Applied For Loan ??</h1>
+                </div>
+                <?php
+                $UserLoan = fetchWhere($LOAN_TABLE, "Account_number", $_SESSION['Account_number'])['data'];
+                $Package = fetchWhere($LOAN_SCHEME_TABLE, "Scheme_ID", $UserLoan['Package_ID'])['data'];
+                Write($Package);
+                ?>
+
+                <div class="loan-details">
+                    <div class="user-end">
+                        <div class="loan-box">
+                            <div class="detail">
+                                Loan Requested By:
+                                <span>
+                                    <?= $UserLoan['Account_number'] ?> | <?= $UserLoan['Name'] ?>
+                                </span>
+                            </div>
+                            <div class="detail">
+                                Decision:
+                                <span>
+                                    <?= $UserLoan['Decision'] ?>
+                                </span>
+                            </div>
+                            <table class="loan-table">
+                                <?php
+                                foreach ($Package as $key => $value) {
+                                    if ($key == "Users_Using" || $key == "Max_Users") {
+                                        continue;
+                                    } else {
+                                ?>
+                                        <tr>
+                                            <th><?= $key ?></th>
+                                            <td><?= $value ?></td>
+                                        </tr>
+                                <?php }
+                                } ?>
+                            </table>
+                        </div>
+                        <form action="Loan/withDraw.php" method="post">
+                            <div class="form-segment">
+                                <h1 class="segment-title">Withdraw Loan Application???</h1>
+                                <h2>if You Wish to Withdraw you Applcation You Can Withdraw it.</h2>
+                                <input type="hidden" name="appid" value="<?= $UserLoan['Application_ID'] ?>">
+                                <div class="settings-form-btn-set">
+                                    <button type="submit" class="settings-form-btn primary-btn">Withdraw</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
             </section>

@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
-include('../../DBFuncs.php');
+include('../../Models/Tables.php');
 
 $Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
@@ -44,8 +44,8 @@ $Image = $_SESSION['Img_Path'];
 
     <main class="full-size">
         <?php
-        $MainTable = fetchAllFrom($con, "main");
-        $mainObject = fetchWhere($MainTable, "Account_number", $Account);
+        
+        $mainObject = fetchWhere($USER_TABLE, "Account_number", $Account);
         $Row = $mainObject['data'];
         $Balance = $Row['Amount']
         ?>
