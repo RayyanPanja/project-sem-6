@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 $_SESSION['TempAcc'];
 ?>
 <!DOCTYPE html>
@@ -20,25 +20,21 @@ $_SESSION['TempAcc'];
         <h1 align="center">Set Password</h1>
         <form action="processor/setpsw.php" method="post">
             <div class="row">
-                <div class="col-lab">
+                <div class="set">
                     <label for="psw">Password</label>
-                </div>
-                <div class="col-inp">
                     <input type="password" name="password1" id="psw1" class="input " placeholder="******" maxlength="6" required>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lab">
+                <div class="set">
                     <label for="psw2">Repeat Password</label>
-                </div>
-                <div class="col-inp">
                     <input type="password" name="password2" id="psw2" class="input " placeholder="******" maxlength="6" required>
                 </div>
-            </div> 
-            <div class="register-btn-set">
-                <button type="submit" class="submit btn">Create</button>
-                <button type="reset" class="cancle btn">Cancle</button>
+            </div>
+            <div class="form-btn-set">
+                <button type="submit" class="form-btn primary-btn">Create</button>
+                <button type="reset" class="form-btn secondary-btn">Cancle</button>
             </div>
         </form>
     </div>

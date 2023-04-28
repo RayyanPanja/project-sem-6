@@ -35,7 +35,7 @@ function Login($UserTable)
 
 function Logout($UserTable)
 {
-    foreach ($$UserTable as $key => $value) {
+    foreach ($$UserTable as $key) {
         unset(
             $_SESSION[$key]
         );
@@ -107,3 +107,20 @@ function refreshUserSessions(array $userSessionData)
 }
 
 // Referesh Sessions....Ends
+
+// Compare 2 values
+function equals($val1, $val2, bool $strict = false)
+{
+    if ($strict === boolval(true)) {
+        if ($val1 === $val2) {
+            return boolval(true);
+        }
+        return boolval(false);
+    } else {
+        if ($val1 == $val2) {
+            return boolval(true);
+        }
+        return boolval(false);
+    }
+}
+// Compare 2 values..ENds

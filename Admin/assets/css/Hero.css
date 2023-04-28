@@ -16,7 +16,7 @@
     text-align: center;
 }
 
-.hero-cool-btn {
+.hero- {
     position: relative;
     padding: 15px;
     width: 20%;
@@ -28,7 +28,7 @@
     transition: all 500ms;
 }
 
-.hero-cool-btn::before {
+.hero-::before {
     content: '';
     position: absolute;
     left: 0;
@@ -40,12 +40,12 @@
     z-index: -1;
 }
 
-.hero-cool-btn:hover::before {
+.hero-:hover::before {
     width: 100%;
     box-shadow: 0 0 5px 5px var(--primary-clr) ;
 }
 
-.hero-cool-btn:hover {
+.hero-:hover {
     color: var(--secondary-clr);
 }
 
@@ -58,7 +58,7 @@
 }
 
 @media screen and (max-width: 660px) {
-    .hero-cool-btn{
+    .hero-{
         width: 80%;
     }
 

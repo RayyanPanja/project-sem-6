@@ -29,27 +29,27 @@ include "../connection.php";
         <div class="signup-form-container">
             <h1 align="center">Hello</h1>
             <form action="processor/send.php" method="post">
-                <div class="dual-row">
+                <div class="multi-row">
                     <div class="set">
-                        <div class="col-lab">
+                        <div class="set">
                             <label for="Email">Email</label>
                         </div>
-                        <div class="col-inp">
+                        <div class="set">
                             <input type="email" name="email" id="email" class="input" placeholder="e.g. yourEmail@mail.com">
                         </div>
                     </div>
                     <div class="set">
-                        <div class="col-lab">
+                        <div class="set">
                             <label for="Subject">Subject</label>
                         </div>
-                        <div class="col-inp">
+                        <div class="set">
                             <input type="text" name="subject" id="subject" class="input" placeholder="Question OR Improvement">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="set">
-                        <div class="col-lab">
+                        <div class="set">
                             <label for="Message">Review</label>
                         </div>
                         <textarea name="message" id="message" cols="50" rows="5" class="input" placeholder="Hello ,">Hello,i am <?= ($_SESSION['Loggedin']) ? $_SESSION['Firstname'] : "" ?></textarea>
@@ -60,9 +60,9 @@ include "../connection.php";
                     <input type="hidden" name="acc" value="<?= $_SESSION['Account_number'] ?>">
                 <?php }
                 ?>
-                <div class="register-btn-set">
-                    <button type="submit" class="submit btn">Send</button>
-                    <button type="reset" class="cancle btn">Cancle</button>
+                <div class="form-btn-set">
+                    <button type="submit" class="form-btn primary-btn">Send</button>
+                    <button type="reset" class="form-btn secondary-btn">Cancle</button>
                 </div>
             </form>
         </div>

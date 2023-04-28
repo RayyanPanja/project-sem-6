@@ -5,24 +5,24 @@
     <h1>Login</h1>
     <form action="<?= $URL ?>/assets/php/Auth/login.php" method="post">
         <div class="row">
-            <div class="col-lab">
+            <div class="set">
                 <label for="Account Number">Account Number</label>
             </div>
-            <div class="col-inp">
+            <div class="set">
                 <input type="number" name="account" id="accno" class="form-input" placeholder="Account Number" required>
             </div>
         </div>
         <div class="row">
-            <div class="col-lab">
+            <div class="set">
                 <label for="Password">Password</label>
             </div>
-            <div class="col-inp">
+            <div class="set">
                 <input type="password" name="password" id="psw" class="form-input" placeholder="******" required>
             </div>
         </div>
-        <div class="login-btn-set">
-            <button class="login-btn cool-btn" type="submit">Login</button>
-            <button class="cancle-btn cool-btn" type="reset" id="login-close">Cancle</button>
+        <div class="form-btn-set">
+            <button class="form-btn primary-btn" type="submit">Login</button>
+            <button class="form-btn secondary-btn   " type="reset" id="login-close">Cancle</button>
         </div>
     </form>
     <div class="small-txt-set for-login">
@@ -33,7 +33,7 @@
 
 <header class="hero">
     <h1 class="intro-title"><?= $AppName; ?></h1>
-    <button class="hero-cool-btn" id="login-open" >Login</button>
+    <button class="hero-" id="login-open" >Login</button>
 </header>
 
 <script src="<?= $URL ?>/assets/js/Function.js"></script>

@@ -32,33 +32,33 @@ $Image = $_SESSION['Img_Path'];
             </h1>
             <form action="processor/confirmation.php" method="post" id="transfer">
                 <div class="row">
-                    <div class="col-lab">
+                    <div class="set">
                         <label for="Account Number">Account Number</label>
                     </div>
-                    <div class="col-inp">
+                    <div class="set">
                         <input type="number" name="account" id="acc" class="input t-input" maxlength="5" placeholder="0000">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lab">
+                    <div class="set">
                         <label for="Amount">Amount</label>
                     </div>
-                    <div class="col-inp">
+                    <div class="set">
                         <input type="number" name="amount" id="amount" class="input t-input" placeholder="000" step="0.01">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lab">
+                    <div class="set">
                         <label for="Amount">Note</label>
                     </div>
-                    <div class="col-inp">
+                    <div class="set">
                         <input type="text" name="note" id="note" class="input t-input" placeholder="Note...">
                     </div>
                 </div>
 
                 <div class="transfer-btn-set">
-                    <button type="reset" class="cancle btn">Cancle</button>
-                    <button type="submit" class="submit btn" id="Transfer-btn">Transfer</button>
+                    <button type="reset" class="form-btn secondary-btn">Cancle</button>
+                    <button type="submit" class="form-btn primary-btn" id="Transfer-btn">Transfer</button>
                 </div>
             </form>
         </div>
@@ -79,8 +79,8 @@ $Image = $_SESSION['Img_Path'];
                 <input type="password" name="password" id="password" class="input t-input" placeholder="******">
 
                 <div class="transfer-btn-set">
-                    <button type="reset" id="cancle" class="cancle btn">Cancle</button>
-                    <button type="submit" class="submit btn" id="Transfer-btn">Confirm</button>
+                    <button type="reset" id="cancle" class="form-btn secondary-btn">Cancle</button>
+                    <button type="submit" class="form-btn primary-btn" id="Transfer-btn">Confirm</button>
                 </div>
             </form>
         </dialog>

@@ -48,7 +48,7 @@ $username = $_SESSION['Username'];
                         }
                         ?>
                         <div class="form-btn-set">
-                            <button type="reset" class="form-btn secondary-btn">Clear</button>
+                            <button type="reset" class="form-btn form-btn secondary-btn ">Clear</button>
                             <button type="submit" class="form-btn primary-btn">Next</button>
                         </div>
                     </div>

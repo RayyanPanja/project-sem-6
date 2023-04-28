@@ -104,14 +104,19 @@ function UpdateTableData($con, string $table, array $dataSet, string $primaryKey
 
 // Insert Data...
 
-function InsertTableData($con, string $table, array $dataSet)
+function insertTableData($con, string $table, array $dataSet)
 {
-    foreach ($dataSet as $column => $dataValue) {
-        $sql = "INSERT INTO {$table} {$column} = ? VALUES `{$dataValue}` ?";
-        $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $dataValue, $primaryKeyValue);
+    $columns = implode(", ", array_keys($dataSet));
+    $placeholders = implode(", ", array_fill(0, count($dataSet), "?"));
+    $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+    $stmt = mysqli_prepare($con, $sql);
+    if ($stmt) {
+        $values = array_values($dataSet);
+        mysqli_stmt_bind_param($stmt, str_repeat('s', count($values)), ...$values);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        return true;
+    } else {
+        return false;
     }
-    return boolval(true);
 }

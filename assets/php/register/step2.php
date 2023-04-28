@@ -1,6 +1,6 @@
 <?php
 include "../connection.php";
- 
+
 $_SESSION['TempAcc'];
 ?>
 <!DOCTYPE html>
@@ -21,55 +21,36 @@ $_SESSION['TempAcc'];
         <form action="processor/step2.php" method="get">
 
             <div class="row">
-                <div class="col-lab">
+                <div class="set">
                     <label for="address">Address</label>
-                </div>
-                <div class="col-inp">
                     <input type="text" name="address" id="add" class="input" placeholder="your full address" required>
                 </div>
             </div>
 
-            <div class="dual-row">
+            <div class="multi-row">
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="city">City</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="text" name="city" id="city" class="input" placeholder="e.g. Veraval" required>
-                    </div>
+                    <label for="city">City</label>
+                    <input type="text" name="city" id="city" class="input" placeholder="e.g. Veraval" required>
                 </div>
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="pincode">Pin Code</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="number" name="pincode" id="pin" class="input" placeholder="e.g. 362265" maxlength="6" required>
-                    </div>
+                    <label for="pincode">Pin Code</label>
+                    <input type="number" name="pincode" id="pin" class="input" placeholder="e.g. 362265" maxlength="6" required>
                 </div>
             </div>
 
-            <div class="dual-row">
+            <div class="multi-row">
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="state">State</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="text" name="state" id="state" class="input" placeholder="e.g. Gujarat" required>
-                    </div>
+                    <label for="state">State</label>
+                    <input type="text" name="state" id="state" class="input" placeholder="e.g. Gujarat" required>
                 </div>
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="text" name="country" id="country" class="input" placeholder="e.g. India" required>
-                    </div>
+                    <label for="country">Country</label>
+                    <input type="text" name="country" id="country" class="input" placeholder="e.g. India" required>
                 </div>
             </div>
-
-            <div class="register-btn-set">
-                <button type="submit" class="submit btn">Next</button>
-                <button type="reset" class="cancle btn">Cancle</button>
+            <div class="form-btn-set">
+                <button type="submit" class="form-btn primary-btn">Next</button>
+                <button type="reset" class="form-btn secondary-btn">Cancle</button>
             </div>
         </form>
     </div>

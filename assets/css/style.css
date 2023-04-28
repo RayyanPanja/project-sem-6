@@ -2,6 +2,7 @@
 @import url(navbar.css);
 @import url(miscs.css);
 @import url(forms.css);
+@import url(FormComponent.css);
 
 .intro-title {
     margin: 5% 0 0 5%;

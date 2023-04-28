@@ -27,9 +27,9 @@ $Image = $_SESSION['Img_Path'];
         <h1>Logout</h1>
         <form action="../auth/logout.php" method="post">
             <h1>Are You Sure You Want to Logout </h1>
-            <div class="login-btn-set">
-                <button class="login-btn cool-btn" type="submit">Logout</button>
-                <button class="cancle-btn cool-btn" type="reset" id="logout-close">Cancle</button>
+            <div class="form-btn-set">
+                <button class="form-btn primary-btn" type="submit">Logout</button>
+                <button class="form-btn secondary-btn   " type="reset" id="logout-close">Cancle</button>
             </div>
         </form>
     </dialog>
@@ -44,43 +44,43 @@ $Image = $_SESSION['Img_Path'];
     <main>
         <div class="signup-form-container">
             <form action="processor/proc1.php" method="post">
-                <div class="dual-row">
+                <div class="multi-row">
                     <div class="set">
-                        <div class="col-lab">
+                        <div class="set">
                             <label for="ACC">Account Number</label>
                         </div>
-                        <div class="col-inp-short">
+                        <div class="set">
                             <input type="number" name="account" id="accno" class="input" placeholder="000000" required>
                         </div>
                     </div>
                     <div class="set">
-                        <div class="col-lab">
+                        <div class="set">
                             <label for="Password">Password</label>
                         </div>
-                        <div class="col-inp-short">
+                        <div class="set">
                             <input type="password" name="password" id="psw" class="input" placeholder="******" required>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lab">
+                    <div class="set">
                         <label for="Email">Email</label>
                     </div>
-                    <div class="col-inp">
+                    <div class="set">
                         <input type="email" name="email" id="email" class="input" placeholder="example@mail.com" required>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lab">
+                    <div class="set">
                         <label for="Contact">Contact</label>
                     </div>
-                    <div class="col-inp">
+                    <div class="set">
                         <input type="tel" name="contact" id="contact" class="input" placeholder="0000000000" required>
                     </div>
                 </div>
-                <div class="register-btn-set">
-                    <button type="submit" class="submit btn">Next</button>
-                    <button type="reset" id="cancle" class="cancle btn">Cancle</button>
+                <div class="form-btn-set">
+                    <button type="submit" class="form-btn primary-btn">Next</button>
+                    <button type="reset" id="cancle" class="form-btn secondary-btn">Cancle</button>
                 </div>
             </form>
         </div>

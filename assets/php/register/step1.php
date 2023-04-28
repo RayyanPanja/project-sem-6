@@ -11,62 +11,44 @@ include "../connection.php";
     <title>Sign up</title>
 
 </head>
+
 <body>
     <h1 align="center">Sign Up</h1>
     <div class="signup-form-container">
         <h1 align="center">Fill Up Details</h1>
         <form action="processor/step1.php" method="get">
-            <div class="dual-row">
+            <div class="multi-row">
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="SirName">SirName</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="text" name="sirname" id="sname" class="input" placeholder="SirName" required>
-                    </div>
+                    <label for="SirName">SirName</label>
+                    <input type="text" name="sirname" id="sname" class="input" placeholder="SirName" required>
                 </div>
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="YourName">Your Name</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="text" name="yourname" id="uname" class="input" placeholder="your Name" required>
-                    </div>
+                    <label for="YourName">Your Name</label>
+                    <input type="text" name="yourname" id="uname" class="input" placeholder="your Name" required>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lab">
+                <div class="set">
                     <label for="Father Name">Father Name</label>
-                </div>
-                <div class="col-inp">
                     <input type="text" name="fathername" id="fname" class="input" placeholder="Father Name" required>
                 </div>
             </div>
-
-            <div class="dual-row">
+            <div class="multi-row">
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="DOB">Date Of Birth</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <input type="date" name="dob" id="dname" class="input" required>
-                    </div>
+                    <label for="DOB">Date Of Birth</label>
+                    <input type="date" name="dob" id="dname" class="input" required>
                 </div>
                 <div class="set">
-                    <div class="col-lab">
-                        <label for="gender">Gender</label>
-                    </div>
-                    <div class="col-inp-short">
-                        <select name="gender" id="gender" class="input" required>
-                            <option value="Male" class="input-option">Male</option>
-                            <option value="Female" class="input-option">Female</option>
-                        </select>
-                    </div>
+                    <label for="gender">Gender</label>
+                    <select name="gender" id="gender" class="input" required>
+                        <option value="Male" class="input-option">Male</option>
+                        <option value="Female" class="input-option">Female</option>
+                    </select>
                 </div>
             </div>
-            <div class="register-btn-set">
-                <button type="submit" class="submit btn">Next</button>
-                <button type="reset" class="cancle btn">Cancle</button>
+            <div class="form-btn-set">
+                <button type="submit" class="form-btn primary-btn">Next</button>
+                <button type="reset" class="form-btn secondary-btn">Cancle</button>
             </div>
         </form>
     </div>

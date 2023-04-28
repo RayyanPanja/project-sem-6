@@ -20,9 +20,9 @@
                 <input type="password" name="password" id="psw" class="form-input" placeholder="******" required>
             </div>
         </div>
-        <div class="login-btn-set">
-            <button class="login-btn cool-btn" type="submit">Login</button>
-            <button class="cancle-btn cool-btn" type="reset" id="login-close">Cancle</button>
+        <div class="form-btn-set">
+            <button class="form-btn primary-btn" type="submit">Login</button>
+            <button class="form-btn secondary-btn   " type="reset" id="login-close">Cancle</button>
         </div>
     </form>
     <div class="small-txt-set for-login">

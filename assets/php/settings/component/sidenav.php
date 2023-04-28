@@ -14,11 +14,18 @@ $Path = $URL . "/assets/php/settings";
             </form>
         </div>
     </div>
-    <div class="settings-link-set">
+    <div class="settings-link-set" id="settings-link-set">
         <a href="<?= $URL ?>/home.php" class="settings-link">Home</a>
         <a href="<?= $Path ?>/ui.php #Update" class="settings-link">Update Profile</a>
-        <a href="<?= $Path ?>/ui.php #Recovery" class="settings-link">Add Recovery Keys</a>
+        <?php
+        if (empty($_SESSION['Recovery']) || $_SESSION['Recovery'] === 0) {
+        ?>
+            <a href="<?= $Path ?>/ui.php #Recovery" class="settings-link">Add Recovery Keys</a>
+        <?php } ?>
         <a href="<?= $Path ?>/ui.php #LoanProgress" class="settings-link">Track Loan Progress</a>
         <a href="<?= $Path ?>/ui.php #Reply" class="settings-link">Reply to You Message</a>
     </div>
 </nav>
+
+<button class="toggleNav" id="toggleNav">+</button>
+<script src="<?= $URL ?>/assets/php/settings/component/sidenav.js"></script>

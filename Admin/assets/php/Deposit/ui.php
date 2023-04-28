@@ -31,7 +31,7 @@ include "../connection.php";
                 <form action="Deposit.php" method="post">
                     <div class="form-segment">
                         <h1 class="segment-title">Deposit Amount</h1>
-                        <div class="dual-row g-5">
+                        <div class="multi-row g-5">
                             <div class="col">
                                 <label for="Account Number">Account Number</label>
                                 <input type="number" name="account" id="account" class="form-input" placeholder="e.g. 123456" required>
@@ -46,7 +46,7 @@ include "../connection.php";
                             </div>
                         </div>
                         <div class="form-btn-set">
-                            <button type="reset" class="form-btn secondary-btn">Cancle</button>
+                            <button type="reset" class="form-btn form-btn secondary-btn ">Cancle</button>
                             <button type="submit" class="form-btn primary-btn">Deposit</button>
                         </div>
                     </div>

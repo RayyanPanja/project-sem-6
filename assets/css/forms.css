@@ -11,7 +11,7 @@
     margin-top: 2%;
 }
 
-.register-btn-set {
+.form-btn-set {
     display: flex;
     gap: 5px;
     flex-direction: row-reverse;
@@ -133,7 +133,7 @@
     text-align: center;
 }
 
-.login-btn-set {
+.form-btn-set {
     margin-top: 2%;
     display: flex;
     gap: 10px;
@@ -142,7 +142,7 @@
     flex-direction: row-reverse;
 }
 
-.cool-btn {
+. {
     padding: 5px 25px;
     font-size: 20px;
     background: var(--background-clr);
@@ -150,7 +150,7 @@
     transition: all 500ms;
 }
 
-.login-btn {
+.form-btn primary-btn{
     background: var(--primary-clr);
     color: var(--background-clr);
     box-shadow: 0 0 5px 5px var(--primary-clr);
@@ -162,7 +162,7 @@
     box-shadow: 0 0 5px 5px var(--primary-clr);
 }
 
-.cancle-btn {
+ {
     background: var(--background-clr);
     color: var(--primary-clr);
 }

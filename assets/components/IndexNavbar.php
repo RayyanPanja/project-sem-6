@@ -6,24 +6,24 @@
     <h1>Login</h1>
     <form action="<?= $URL ?>/assets/php/auth/login.php" method="post">
         <div class="row">
-            <div class="col-lab">
+            <div class="set">
                 <label for="Account Number">Account Number</label>
             </div>
-            <div class="col-inp">
-                <input type="number" name="account" id="accno" class="login-input" placeholder="Account Number" required>
+            <div class="set">
+                <input type="number" name="account" id="accno" class="input" placeholder="Account Number" required>
             </div>
         </div>
         <div class="row">
-            <div class="col-lab">
+            <div class="set">
                 <label for="Password">Password</label>
             </div>
-            <div class="col-inp">
-                <input type="password" name="password" id="psw" class="login-input" placeholder="******" required>
+            <div class="set">
+                <input type="password" name="password" id="psw" class="input" placeholder="******" required>
             </div>
         </div>
-        <div class="login-btn-set">
-            <button class="login-btn cool-btn" type="submit">Login</button>
-            <button class="cancle-btn cool-btn" type="reset" id="login-close">Cancle</button>
+        <div class="form-btn-set">
+            <button class="form-btn primary-btn" type="submit">Login</button>
+            <button class="form-btn secondary-btn   " type="reset" id="login-close">Cancle</button>
         </div>
     </form>
     <div class="small-txt-set for-login">

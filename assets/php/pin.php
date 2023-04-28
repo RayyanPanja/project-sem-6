@@ -11,22 +11,25 @@
 
 <body>
 
-    <div class="login-form">
-        <form action="balance-middleware.php" method="post">
-            <h1 class="center">Security Wall</h1>
-            <div class="row">
-                <div class="col-lab">
-                    <label for="Pin">Pin</label>
+    <div class="center-div">
+
+        <div class="pin-form">
+            <form action="balance-middleware.php" method="post">
+                <h1 class="center">Security Wall</h1>
+                <div class="row">
+                    <div class="set">
+                        <label for="Pin">Pin</label>
+                    </div>
+                    <div class="set">
+                        <input type="password" name="pin" id="pin" class="input" placeholder="Pin" required>
+                    </div>
                 </div>
-                <div class="col-inp">
-                    <input type="password" name="pin" id="pin" class="login-input" placeholder="Pin" required>
+                <div class="form-btn-set">
+                    <button class="form-btn primary-btn" type="submit">Access</button>
+                    <button class="form-btn secondary-btn   " type="reset">Cancle</button>
                 </div>
-            </div>
-            <div class="login-btn-set">
-                <button class="login-btn cool-btn" type="submit">Access</button>
-                <button class="cancle-btn cool-btn" type="reset">Cancle</button>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 
 </body>

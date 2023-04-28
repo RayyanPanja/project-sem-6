@@ -1,19 +1,26 @@
 @import url(../../../css/root.css);
 
-.w-50{
+.w-50 {
     width: 50%;
 }
-.outer-link{
+
+.outer-link {
     color: var(--white-clr);
     font-size: 20px;
 }
-
+.scroll-able{
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 30px;
+}
 .grid-with-side-nav {
     display: grid;
     grid-template-columns: 20% 1fr;
     overflow: hidden;
 }
 
+/* Navbar */
 .settings-side-nav {
     padding: 15px;
     position: relative;
@@ -87,7 +94,8 @@
     width: 100%;
     text-align: center;
 }
-.settings-link{
+
+.settings-link {
     width: 85%;
     padding: 10px;
     font-size: 23px;
@@ -99,17 +107,60 @@
     box-shadow: 0 0 3px 2px var(--primary-clr);
     transition: all 300ms ease-in-out;
 }
-.settings-link:hover{
+
+.settings-link:hover {
     background-color: var(--primary-clr);
     color: var(--secondary-clr);
 }
+
+@media screen and (max-width: 660px) {
+    body{
+        padding: 0;
+    }
+    .grid-with-side-nav {
+        padding: 0;
+        display: grid;
+        grid-template-columns: unset;
+        grid-template-rows: 30% 1fr;
+    }
+
+    .settings-side-nav {
+        position: relative;
+        width: 100%;
+        min-height: 30vh;
+        height: fit-content;
+        background-color: var(--secondary-clr);
+    }
+
+    .settings-img-holder {
+        width: 100px;
+        height: 100px;
+    }
+
+    .settings-link-set {
+        padding: 10px 0;
+        max-height: fit-content;
+        /* flex-direction: column; */
+    }
+    .settings-link:not(:first-child){
+        display: none;
+    }
+    .block{
+        display: block;
+    }
+
+}
+
+/* Navbar */
+
 /* Settings Form Controlls */
 .settings-form-set {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     padding: 15px;
 }
-.form-segment{
+
+.form-segment {
     position: relative;
     width: 100%;
     padding: 10px;
@@ -119,18 +170,21 @@
     border: 1px solid var(--primary-clr);
     /* border-top: 0; */
 }
-.segment-title{
+
+.segment-title {
     padding: 0 30px;
     border-radius: 75px;
     width: fit-content;
     font-size: 30px;
     border: 2px double var(--primary-clr);
 }
-.form-title{
+
+.form-title {
     width: 100%;
     font-size: 35px;
     text-align: center;
 }
+
 form {
     padding: 10px;
 }
@@ -139,14 +193,14 @@ label {
     font-size: 20px;
 }
 
-.row {
+.settings-row {
     padding: 5px;
     width: 100%;
     display: table;
     clear: both;
 }
 
-.multi-row {
+.settings-multi-row {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -155,14 +209,15 @@ label {
     clear: both;
 }
 
-.set {
+.settings-set {
     display: flex;
     flex-direction: column;
     padding: 5px;
     min-width: 260px;
     max-width: 100%;
 }
-.form-input{
+
+.form-input {
     width: 100%;
     padding: 5px;
     font-size: 20px;
@@ -171,13 +226,15 @@ label {
     border: 0;
     border-bottom: 2px solid var(--primary-clr);
 }
-.form-btn-set{
+
+.settings-form-btn-set {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 15px;
 }
-.form-btn{
+
+.settings-form-btn {
     min-width: 100px;
     padding: 8px;
     border-radius: 70px;
@@ -186,21 +243,38 @@ label {
     border: 1px solid transparent;
     transition: all 300ms ease-in-out;
 }
-.primary-btn{
+
+.settings-primary-btn {
     background: var(--primary-clr);
 }
-.primary-btn:hover{
+
+.primary-btn:hover {
     background: transparent;
     color: var(--primary-clr);
     box-shadow: 0 0 3px 2px var(--primary-clr);
 }
-.secondary-btn{
+
+.form-btn secondary-btn  {
     background-color: transparent;
     color: var(--white-clr);
 }
-.secondary-btn:hover{
+
+.form-btn secondary-btn :hover {
     background: var(--grey-clr);
 }
+
+@media screen and (max-width:660px) {
+    .settings-form-set {
+        padding: 20px 5px;
+        gap: 20px;
+    }
+
+    form {
+        padding: 0;
+    }
+
+}
+
 /* Settings Form Controlls...ENds */
 
 /* Update Settings */
@@ -212,7 +286,14 @@ label {
     background-color: var(--primary-clr);
     color: var(--secondary-clr);
     font-size: 32px;
-    z-index: var(--top-lv-element);
+    z-index: calc(var(--top-lv-element) - 1);
+}
+
+@media screen and (max-width:660px) {
+    .banner {
+        font-size: 20px;
+    }
+
 }
 
 /* Update Settings */

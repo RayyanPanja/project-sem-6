@@ -42,9 +42,9 @@ $receiver;
         <h1>Logout</h1>
         <form action="../auth/logout.php" method="post">
             <h1>Are You Sure You Want to Logout </h1>
-            <div class="login-btn-set">
-                <button class="login-btn cool-btn" type="submit">Logout</button>
-                <button class="cancle-btn cool-btn" type="reset" id="logout-close">Cancle</button>
+            <div class="form-btn-set">
+                <button class="form-btn primary-btn" type="submit">Logout</button>
+                <button class="form-btn secondary-btn   " type="reset" id="logout-close">Cancle</button>
             </div>
         </form>
     </dialog>

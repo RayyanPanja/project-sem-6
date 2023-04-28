@@ -26,7 +26,7 @@ if (isset($_REQUEST['search'])) {
                                 <input type="text" name="reply" class="form-input" placeholder="Reply">
                             </div>
                             <div class="form-btn-set">
-                                <button type="reset" class="form-btn secondary-btn">Cancle</button>
+                                <button type="reset" class="form-btn form-btn secondary-btn ">Cancle</button>
                                 <button type="submit" class="form-btn primary-btn">Send</button>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ if (isset($_REQUEST['search'])) {
                                 <input type="text" name="reply" class="form-input" placeholder="Reply">
                             </div>
                             <div class="form-btn-set">
-                                <button type="reset" class="form-btn secondary-btn">Cancle</button>
+                                <button type="reset" class="form-btn form-btn secondary-btn ">Cancle</button>
                                 <button type="submit" class="form-btn primary-btn">Send</button>
                             </div>
                         </div>

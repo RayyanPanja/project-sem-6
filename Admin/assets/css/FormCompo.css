@@ -6,7 +6,7 @@
     color: var(--white-clr) !important;
 }
 
-.dual-row {
+.multi-row {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,12 +64,12 @@
     border-color: var(--primary-clr);
 }
 
-.secondary-btn {
+.form-btn secondary-btn  {
     border-color: var(--secondary-clr);
     background: transparent;
 }
 
-.secondary-btn:hover {
+.form-btn secondary-btn :hover {
     box-shadow: 0 0 5px 5px var(--secondary-clr);
     background: #1b2336b9;
 }
@@ -174,7 +174,7 @@ label {
 
 /* CARD...Ends */
 @media screen and (max-width:660px) {
-    .dual-row{
+    .multi-row{
         display: flex;
         flex-direction: column;
         width: 100%;
