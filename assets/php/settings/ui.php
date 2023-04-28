@@ -17,28 +17,10 @@ $username = $_SESSION['Username'];
 
 <body>
     <main class="grid-with-side-nav">
-        <nav class="settings-side-nav">
-            <div class="settings-profile-wrapper">
-                <div class="settings-img-holder">
-                    <img src="../../img/storage/<?= $_SESSION['Img_Path'] ?>" alt="">
-                </div>
-                <div class="name-holder">
-                    <h1 title="<?= $_SESSION['Email'] ?>"><?= $name; ?></h1>
-                    <h3><?= $username; ?></h3>
-                    <form action="Update/ImageUpdate/ui.php" method="get">
-                        <button type="submit" class="form-btn primary-btn">Change Profile Pic</button>
-                    </form>
-                </div>
-            </div>
-            <div class="settings-link-set">
-                <a href="<?= $URL ?>/home.php" class="settings-link">Home</a>
-                <a href="#Update" class="settings-link">Update Profile</a>
-                <a href="#LoanProgress" class="settings-link">Track Loan Progress</a>
-                <a href="" class="settings-link">Reply to You Message</a>
-            </div>
-        </nav>
+        <!-- Side Nav -->
+        <?php include('component/sidenav.php'); ?>
+        <!-- Side Nav -->
         <section class="scroll-able">
-
             <section id="Update" class="update-section">
                 <div class="banner">
                     <h1>Hii!! <?= $name ?>, Look Around if You Wish to Update Your Profile</h1>
@@ -155,6 +137,35 @@ $username = $_SESSION['Username'];
                     </form>
                 </div>
 
+            </section>
+
+            <section id="Recovery">
+                <div class="banner">
+                    <h1>You Still Haven't Activated Recovery </h1>
+                </div>
+                <!-- Recovery -->
+                <form action="Recovery/recovery.php" method="get">
+                    <div class="form-segment">
+                        <h2 class="segment-title">Recovery</h2>
+                        <div class="multi-row">
+                            <h1 class="form-title">Setup Recovery</h1>
+                        </div>
+                        <div class="multi-row">
+                            <div class="set">
+                                <label for="Numeric">Numeric Key</label>
+                                <input type="number" name="number" id="num" class="form-input" placeholder="e.g. <?= rand(00000, 999999) ?>">
+                            </div>
+                            <div class="set">
+                                <label for="Alphabetic">Alphabetic Key</label>
+                                <input type="text" name="word" id="word" class="form-input" placeholder="e.g. xay-sad-cas-va">
+                            </div>
+                        </div>
+                        <div class="form-btn-set">
+                            <button type="reset" class="form-btn secondary-btn">Clear</button>
+                            <button type="submit" class="form-btn primary-btn">Set Up</button>
+                        </div>
+                    </div>
+                </form>
             </section>
 
             <section id="LoanProgress">

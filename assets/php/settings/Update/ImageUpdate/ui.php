@@ -17,24 +17,9 @@ $username = $_SESSION['Username'];
 
 <body>
     <main class="grid-with-side-nav">
-        <nav class="settings-side-nav">
-            <div class="settings-profile-wrapper">
-                <div class="settings-img-holder">
-                    <img src="../../../../img/storage/<?= $_SESSION['Img_Path'] ?>" alt="">
-                </div>
-                <div class="name-holder">
-                    <h1 title="<?= $_SESSION['Email'] ?>"><?= $name; ?></h1>
-                    <h3><?= $username; ?></h3>
-                </div>
-            </div>
-            <div class="settings-link-set">
-                <a href="<?= $URL ?>/home.php" class="settings-link">Home</a>
-                <a href="../../ui.php #Update" class="settings-link">Update Profile</a>
-                <a href="../../ui.php #LoanProgress" class="settings-link">Track Loan Progress</a>
-                <a href="../../ui.php " class="settings-link">Reply to You Message</a>
-            </div>
-        </nav>
-
+        <!-- Side Nav -->
+        <?php include('../../component/sidenav.php'); ?>
+        <!-- Side Nav -->
         <section id="Update" class="update-section">
             <div class="banner">
                 <h1>Looking to Change Profile?? <?= $name ?></h1>

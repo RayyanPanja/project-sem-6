@@ -100,3 +100,18 @@ function UpdateTableData($con, string $table, array $dataSet, string $primaryKey
     }
     return boolval(true);
 }
+
+
+// Insert Data...
+
+function InsertTableData($con, string $table, array $dataSet)
+{
+    foreach ($dataSet as $column => $dataValue) {
+        $sql = "INSERT INTO {$table} {$column} = ? VALUES `{$dataValue}` ?";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $dataValue, $primaryKeyValue);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+    return boolval(true);
+}
