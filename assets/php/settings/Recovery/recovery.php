@@ -1,7 +1,7 @@
 <?php
 // INSERT RECOVERY....
-include('../../connection.php');
-include('../../Models/Tables.php');
+include_once('../../connection.php');
+include_once('../../Models/Tables.php');
 
 if (isset($_REQUEST['number'], $_REQUEST['word'])) {
     $InsertDataSet = array(

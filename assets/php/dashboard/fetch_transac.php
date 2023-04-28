@@ -1,6 +1,6 @@
 <?php
-include('../connection.php');
-include('../Models/Tables.php');
+include_once('../connection.php');
+include_once('../Models/Tables.php');
 
 if (isset($_REQUEST['his_Acc'])) {
     $val =  $_REQUEST['his_Acc'];

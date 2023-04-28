@@ -1,5 +1,5 @@
 <?php
-include "assets/php/connection.php";
+include_once "assets/php/connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@ include "assets/php/connection.php";
 
     <!-- NAVBAR -->
     <?php
-    include("assets/components/IndexNavbar.php");
+    include_once("assets/components/IndexNavbar.php");
     ?>
     <!-- NAVBAR -->
 
@@ -86,7 +86,7 @@ include "assets/php/connection.php";
     </section>
 
     <!-- Footer.. -->
-    <?php include("assets/components/Footer.php"); ?>
+    <?php include_once("assets/components/Footer.php"); ?>
     <!-- Footer.. -->
     <script>
         const NavbarRegisterBtn = document.querySelector('#register-btn');

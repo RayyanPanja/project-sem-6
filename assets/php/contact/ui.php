@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include_once "../connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ include "../connection.php";
 
     <?php
     if ($_SESSION['Loggedin'] == true) { ?>
-        <?php include('../../components/MainNavbar.php'); ?>
+        <?php include_once('../../components/MainNavbar.php'); ?>
     <?php }
     ?>
     <main>

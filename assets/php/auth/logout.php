@@ -10,8 +10,8 @@
 
 <body>
     <?php
-    include "../connection.php";
-    include('../Models/Tables.php');
+    include_once "../connection.php";
+    include_once('../Models/Tables.php');
     $Data = fetchWhere($USER_TABLE, "Account_number", $_SESSION['Account_number'])['data'];
     Logout($Data);
     ?>

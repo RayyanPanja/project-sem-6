@@ -1,5 +1,5 @@
 <?php
-include "../../../../connection.php";
+include_once "../../../../connection.php";
 $acc = $_SESSION['Account_number'];
 $name = $_SESSION['Firstname'];
 $username = $_SESSION['Username'];
@@ -19,7 +19,7 @@ $username = $_SESSION['Username'];
     <main class="grid-with-side-nav">
 
         <!-- Side Nav -->
-        <?php include('../../../component/sidenav.php'); ?>
+        <?php include_once('../../../component/sidenav.php'); ?>
         <!-- Side Nav -->
 
         <section id="Update" class="update-section">

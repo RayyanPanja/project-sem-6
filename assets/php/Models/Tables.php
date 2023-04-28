@@ -1,6 +1,6 @@
 <?php
 include_once('../connection.php');
-include('../../DBFuncs.php');
+include_once('../../DBFuncs.php');
 // All Tables
 $USER_TABLE = fetchAllFrom($con, "main");
 $TRANSACTION_TABLE = fetchAllFrom($con, "transaction");

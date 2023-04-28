@@ -1,5 +1,5 @@
 <?php
-include "../../connection.php";
+include_once "../../connection.php";
 
 $GetEmail = $_REQUEST['email'];
 $GetSubject = $_REQUEST['subject'];

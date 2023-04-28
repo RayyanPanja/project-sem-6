@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include_once "../connection.php";
 
 $Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
@@ -21,7 +21,7 @@ $Image = $_SESSION['Img_Path'];
 <body>
     <!-- NAVBAR -->
     <?php
-    include("../../components/MainNavbar.php");
+    include_once("../../components/MainNavbar.php");
     ?>
     <!-- NAVBAR -->
 

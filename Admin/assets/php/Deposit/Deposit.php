@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include_once "../connection.php";
 
 if (isset($_REQUEST['account'], $_REQUEST['amount'], $_REQUEST['confirmAmount'])) {
     $Account = $_REQUEST['account'];

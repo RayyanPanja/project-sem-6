@@ -1,7 +1,7 @@
 <?php
 // Seed Account With Random Data...
-include("../php/connection.php");
-include("faker.php");
+include_once("../php/connection.php");
+include_once("faker.php");
 
 $fakeData = 10;
 

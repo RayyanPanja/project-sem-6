@@ -1,5 +1,5 @@
 <?php
-include "assets/php/connection.php";
+include_once "assets/php/connection.php";
 
 $Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
@@ -38,7 +38,7 @@ $Image = $_SESSION['Img_Path'];
 
     <!-- NAVBAR -->
     <?php
-    include("assets/components/MainNavbar.php");
+    include_once("assets/components/MainNavbar.php");
     ?>
     <!-- NAVBAR -->
 
@@ -107,7 +107,7 @@ $Image = $_SESSION['Img_Path'];
     </section>
 
     <!-- Footer.. -->
-    <?php include("assets/components/Footer.php"); ?>
+    <?php include_once("assets/components/Footer.php"); ?>
     <!-- Footer.. -->
 
     <script src="assets/js/Dialog.js"></script>

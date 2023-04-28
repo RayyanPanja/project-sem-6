@@ -6,7 +6,7 @@
 </script>
 
 <?php
-include "../../connection.php";
+include_once "../../connection.php";
  
 $Account = $_SESSION['Account_number'];
 $Password = $_SESSION['Password'];

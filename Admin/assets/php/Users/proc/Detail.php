@@ -1,5 +1,5 @@
 <?php
-include('../../connection.php');
+include_once('../../connection.php');
 $ForAcc;
 if (isset($_REQUEST['accno'])) {
     $ForAcc = $_REQUEST['accno'];
@@ -39,7 +39,7 @@ $isBanned = $Array[7];
 </head>
 
 <body>
-    <?php include('../../../components/MainNavbar.php') ?>
+    <?php include_once('../../../components/MainNavbar.php') ?>
     <main class="detail-main-sec">
         <div class="side-nav">
             <div class="pfp">

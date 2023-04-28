@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include_once "../connection.php";
 
 $Account = $_SESSION['Account_number'];
 $SirName = $_SESSION['Sirname'];
@@ -38,7 +38,7 @@ $Application_ID = $_SESSION['TempAppID'];
     <!-- Logout Form...ENDS -->
     <!-- NAVBAR -->
     <?php
-    include("../../components/MainNavbar.php");
+    include_once("../../components/MainNavbar.php");
     ?>
     <!-- NAVBAR -->
 

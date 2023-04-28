@@ -1,4 +1,4 @@
-<?php include('../connection.php'); ?>
+<?php include_once('../connection.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <?php include('../../components/MainNavbar.php'); ?>
+    <?php include_once('../../components/MainNavbar.php'); ?>
     <main>
         <h1 class="text-center big-text">Mails</h1>
         <section class="flex flex-col g-5">

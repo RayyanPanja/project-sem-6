@@ -25,7 +25,7 @@ try {
     header("Location: $URL/Error/error.html");
 }
 
-include "func.php";
+include_once "func.php";
 ?>
 
 <link rel="stylesheet" href="<?= $URL ?>/assets/css/style.css">

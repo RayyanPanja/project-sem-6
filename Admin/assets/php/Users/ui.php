@@ -1,5 +1,5 @@
 <?php
-include "../connection.php";
+include_once "../connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ include "../connection.php";
 
 <body>
     <!-- Navbar -->
-    <?php include("../../components/MainNavbar.php"); ?>
+    <?php include_once("../../components/MainNavbar.php"); ?>
     <!-- Navbar -->
     <main>
         <section class="flex flex-col g-5">

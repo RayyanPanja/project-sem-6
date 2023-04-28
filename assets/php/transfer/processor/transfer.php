@@ -1,5 +1,5 @@
 <?php
-include "../../connection.php";
+include_once "../../connection.php";
 
 $MyAccount = $_SESSION['Account_number'];
 $MyPassword = $_SESSION['Password'];

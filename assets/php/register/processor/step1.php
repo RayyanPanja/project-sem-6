@@ -1,5 +1,5 @@
 <?php
-include "../../connection.php";
+include_once "../../connection.php";
 
 $firstname = $_REQUEST['sirname'];
 $name = $_REQUEST['yourname'];

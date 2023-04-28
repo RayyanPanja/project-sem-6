@@ -1,6 +1,6 @@
 <?php
-include('../../../../connection.php');
-include('../../../../Models/Tables.php');
+include_once('../../../../connection.php');
+include_once('../../../../Models/Tables.php');
 
 if (isset($_REQUEST['password'], $_REQUEST['confirmpassword'])) {
     if ($_REQUEST['password'] === $_REQUEST['confirmpassword']) {
