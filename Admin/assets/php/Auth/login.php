@@ -1,5 +1,5 @@
 <?php
-include_once("../connection.php");
+require("../connection.php");
 
 $GetID = $_REQUEST['adminid'];
 $GetPassword = $_REQUEST['password'];

@@ -1,0 +1,43 @@
+:root {
+    --background-clr: #000020;
+
+    --primary-clr: #17f0f0;
+    --secondary-clr: #020d26;
+
+    --dark-clr: #050c19;
+    --light-clr: #20fefe;
+
+    --banner-clr: #112243;
+
+    --alert-clr: #b22222;
+
+    --grey-clr: #444;
+    --gray-clr: #AAA;
+
+    --white-clr: #fff;
+    --black-clr: #000;
+
+    --font-clr: #efefef;
+    --G-fonts: "Clash Display";
+    --top-lv-element: 99999;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-clr: #efefef;
+
+        --primary-clr: #1734f0;
+        --secondary-clr: #dedede;
+
+        --alert-clr: #b22222;
+
+        --grey-clr: #444;
+        --gray-clr: #999;
+
+        --white-clr: #000;
+        --black-clr: #fff;
+
+        --font-clr: #252525;
+        --top-lv-element: 99999;
+    }
+}

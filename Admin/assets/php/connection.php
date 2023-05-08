@@ -1,6 +1,6 @@
 <!-- Using as Package -->
 <?php
-include_once "func.php";
+require "func.php";
 
 // Usefull Vars....
 $Dir = "Admin";

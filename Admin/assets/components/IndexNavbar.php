@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?= $URL ?>/assets/css/Navbar.css">
 
-<?php include_once('Login.php'); ?>
+<?php require('Login.php'); ?>
 
 <nav class="navbar">
     <div class="link-set" id="set">

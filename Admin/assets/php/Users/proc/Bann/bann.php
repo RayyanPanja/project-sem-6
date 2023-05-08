@@ -1,5 +1,5 @@
 <?php
-include_once('../../../connection.php');
+require('../../../connection.php');
 
 if (isset($_REQUEST['acc'])) {
     $Account = $_REQUEST['acc'];

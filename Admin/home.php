@@ -1,4 +1,4 @@
-<?php include_once('assets/php/connection.php'); ?>
+<?php require('assets/php/connection.php'); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,8 +9,8 @@
     <title>Welcome <?= $_SESSION['AdminName']; ?></title>
 </head>
 <body>
-    <?php include_once('assets/components/MainNavbar.php'); ?>
-    <?php include_once('assets/components/HomeHero.php'); ?>
+    <?php require('assets/components/MainNavbar.php'); ?>
+    <?php require('assets/components/HomeHero.php'); ?>
     
 </body>
 </html>

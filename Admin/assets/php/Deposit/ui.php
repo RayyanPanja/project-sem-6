@@ -1,5 +1,5 @@
 <?php
-include_once "../connection.php";
+require "../connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +15,7 @@ include_once "../connection.php";
 
 <body>
     <!-- Navbar -->
-    <?php include_once("../../components/MainNavbar.php"); ?>
+    <?php require("../../components/MainNavbar.php"); ?>
     <!-- Navbar -->
     <main>
         <section class="flex flex-col g-5">

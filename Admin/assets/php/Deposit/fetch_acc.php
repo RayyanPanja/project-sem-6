@@ -1,5 +1,5 @@
 <?php
-include_once "../connection.php";
+require "../connection.php";
 
 if (isset($_REQUEST['search'])) {
     $val = $_REQUEST['search'];

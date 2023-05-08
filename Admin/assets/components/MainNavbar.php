@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="<?= $URL ?>/assets/css/Navbar.css">
 
-<?php include_once('Logout.php'); ?>
+<?php require('Logout.php'); ?>
 <nav class="navbar">
     <div class="link-set" id="set">
         <a href="<?= $URL; ?>/home.php" class="link">Home</a>

@@ -1,0 +1,14 @@
+{
+  "name": "webank-oop",
+  "version": "1.0.0",
+  "description": "pop got messy so , now doing in oop",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rayyan Panja",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.4"
+  }
+}

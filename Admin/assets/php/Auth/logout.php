@@ -1,4 +1,4 @@
 <?php
-    include_once "../connection.php";
+    require "../connection.php";
     logout();
 ?>

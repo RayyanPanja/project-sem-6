@@ -1,5 +1,7 @@
 <?php
-include_once "assets/php/connection.php";
+require 'back_end/Classes/All.class.php';
+require "back_end/include/include.php";
+$URL = new URL();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,101 +10,73 @@ include_once "assets/php/connection.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $BANKNAME; ?></title>
-    <!-- Icon Library -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' integrity='sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==' crossorigin='anonymous' />
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="<?= $URL->getCss('Style') ?>">
 </head>
 
 <body>
-
-    <!-- NAVBAR -->
+    <!-- Including Navbar -->
     <?php
-    include_once("assets/components/IndexNavbar.php");
+    if (Auth::isauth()) { ?>
+        <?php include "src/view/component/mainNav.comp.php"; ?>
+    <?php } else { ?>
+        <?php include "src/view/component/indexNav.comp.php"; ?>
+    <?php }
     ?>
-    <!-- NAVBAR -->
+    <!-- Including Header -->
+    <?php include "src/view/component/Hero.comp.php"; ?>
 
-    <header class="hero" id="home">
-        <h1 class="intro-title lazy">We Provide Security</h1>
-        <div class="small-txt-group lazy">
-            <p class="small-txt lazy delay-short">Think Banking Can't be fast , flexible, and Transparent ? </p>
-            <p class="small-txt lazy delay-short">Think again. Open an Account Today to Experience Remote Banking</p>
-            <button class="lazy delay-long cool-big-btn" id="register-btn-2">Open your account</button>
-        </div>
-        <div class="img-holder lazy">
-            <img src="assets/img/hand.png" alt="">
-        </div>
-    </header>
-    <section id="about">
-        <h1 class="page-title lazy">About us</h1>
-        <div class="about-small-txt-group lazy">
-            <p class="about-small-txt lazy delay">
-                "At <?php echo $BANKNAME; ?>, we believe in providing our customers with the best banking experience possible. As a community bank, we are dedicated to serving the financial needs of our local area and building long-term relationships with our customers. Our team of experienced professionals is committed to providing personalized service and expert financial advice. We offer a wide range of products and services, including checking and savings accounts, loans, mortgages, and investment options. Trust us to be your partner in managing your financial future."
+    <section id="About">
+        <h1 class="section-title lazy">About</h1>
+        <div class="text-group lazy">
+            <p class="about-text">
+                "At <?= Connection::getAppName() ?>, we believe in providing our customers with the best banking experience possible. As a community bank, we are dedicated to serving the financial needs of our local area and building long-term relationships with our customers. Our team of experienced professionals is committed to providing personalized service and expert financial advice. We offer a wide range of products and services, including checking and savings accounts, loans, mortgages, and investment options. Trust us to be your partner in managing your financial future."
             </p>
         </div>
     </section>
-
-    <section id="services">
-        <h1 class="page-title lazy">Services</h1>
-        <div class="service-grid lazy">
-
-            <div class="service-card lazy delay-short">
-                <h1 class="service-name lazy delay">
+    <section id="Services">
+        <h1 class="section-title lazy">Services</h1>
+        <div class="services-grid">
+            <div class="service lazy">
+                <h2 class="service-name">
                     Credit Services
-                </h1>
-                <p class="service-detail lazy delay">
+                </h2>
+                <div class="service-desc">
                     personal loans, mortgages, home equity loans, and lines of credit.
-                </p>
+                </div>
             </div>
 
-            <div class="service-card lazy delay-short">
-                <h1 class="service-name lazy delay-long">
+            <div class="service lazy">
+                <h2 class="service-name">
                     Online and mobile banking
-                </h1>
-                <p class="service-detail lazy delay-long">
+                </h2>
+                <div class="service-desc">
                     Allowing customers to access their accounts, pay bills, transfer money and make transactions online or through mobile apps.
-                </p>
+                </div>
             </div>
 
-            <div class="service-card lazy delay-short">
-                <h1 class="service-name lazy delay-2">
-                    Insurance products
-                </h1>
-                <p class="service-detail lazy delay-2">
-                    such as life, health, and property insurance.
-                </p>
-            </div>
-
-            <div class="service-card lazy delay-short">
-                <h1 class="service-name lazy delay-3">
+            <div class="service lazy">
+                <h2 class="service-name">
                     Depository Services
-                </h1>
-                <p class="service-detail lazy delay-3">
+                </h2>
+                <div class="service-desc">
                     such as checking and savings accounts, certificates of deposit (CDs), and individual retirement accounts (IRAs).
-                </p>
+                </div>
+            </div>
+
+            <div class="service lazy">
+                <h2 class="service-name">
+                    Insurance products
+                </h2>
+                <div class="service-desc">
+                    such as life, health, and property insurance.
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer.. -->
-    <?php include_once("assets/components/Footer.php"); ?>
-    <!-- Footer.. -->
-    <script>
-        const NavbarRegisterBtn = document.querySelector('#register-btn');
-        const HomeRegisterBtn = document.querySelector('#register-btn-2');
+    <script src="<?= $URL->getJs("Observer") ?>"></script>
 
-        if (NavbarRegisterBtn != null || HomeRegisterBtn != null) {
-            NavbarRegisterBtn.addEventListener('click', () => {
-                window.location.assign("assets/php/register/step1.php");
-            });
-            HomeRegisterBtn.addEventListener('click', () => {
-                window.location.assign("assets/php/register/step1.php");
-            });
-
-        }
-    </script>
-    <script src="assets/js/Observer.js"></script>
 </body>
 
 </html>

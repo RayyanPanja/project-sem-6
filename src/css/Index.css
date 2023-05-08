@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html {
+    color: var(--font-clr);
+}
+
+body {
+    max-width: 100%;
+    min-height: 100dvh;
+    background: var(--background-clr);
+    overflow-x: hidden;
+}
+
+header,
+section {
+    max-width: 100%;
+    min-height: 100dvh;
+}
+
+button {
+    cursor: pointer;
+}
+
+*::selection {
+    background-color: var(--primary-clr);
+    color: var(--background-clr);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 5px;
+    background: var(--primary-clr);
+}
+
+/* Lazy Load */
+.lazy {
+    opacity: 0;
+}
+
+.lazy-load {
+    animation: load 1s ease-in-out forwards;
+}
+
+@keyframes load {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notify {
+    opacity: 0;
+    animation: notify-hide 1s ease-in-out forwards;
+}
+
+@keyframes notify-hide {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+}
+
+.notify-load {
+    animation: notify 1s ease-in-out forwards;
+}
+
+@keyframes notify {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Custom Classes */
+
+/* Display Properties... */
+.grid {
+    display: grid !important;
+}
+
+.flex {
+    display: flex !important;
+}
+.none{
+    display: none !important;
+}
+.block{
+    display: block !important;
+}
+/* Display Properties...ends */
+
+.text-group {
+    width: 100%;
+    color: var(--font-clr);
+    padding: 10px;
+    font-size: 20px;
+}
+
+.text-group>a {
+    color: var(--primary-clr);
+}
+
+.p-t-5 {
+    padding-top: 5%;
+}
+
+.grid-center {
+    display: grid;
+    place-items: center;
+}
+
+.white-text {
+    color: var(--white-clr);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.top-lv-element {
+    z-index: var(--top-lv-element);
+}
+
+.border {
+    border: 1px solid var(--primary-clr);
+}
+
+.w-100 {
+    width: 100% !important;
+}

@@ -1,5 +1,5 @@
 <?php
-include_once "../connection.php";
+require "../connection.php";
 
 
 if (empty($_REQUEST['search'])) {

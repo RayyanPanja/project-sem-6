@@ -1,4 +1,4 @@
-<?php include_once("assets/php/connection.php"); ?>
+<?php require("assets/php/connection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,11 +9,11 @@
 </head>
 <body>
     <!-- Navbar -->
-    <?php include_once("assets/components/IndexNavbar.php"); ?>
+    <?php require("assets/components/IndexNavbar.php"); ?>
     <!-- Navbar -->
     
     <!-- Hero -->
-    <?php include_once("assets/components/Hero.php"); ?>
+    <?php require("assets/components/Hero.php"); ?>
     <!-- Hero -->
 </body>
 </html>
