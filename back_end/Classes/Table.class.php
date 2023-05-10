@@ -141,7 +141,7 @@ class Table extends Connection
 
     public function deleteFromPrimary($id)
     {
-        $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = {$id}";
+        $sql = "DELETE FROM `{$this->table}` WHERE `{$this->primaryKey}` = {$id}";
         $res = mysqli_query($this->Connect()->getConnection(), $sql);
         if ($res) {
             return boolval(true);

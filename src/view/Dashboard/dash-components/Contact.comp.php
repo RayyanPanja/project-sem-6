@@ -9,16 +9,27 @@
         for ($i = 0; $i < count($Data); $i++) {
     ?>
             <div class="message-wrapper">
-                <div class="status"><?= $Data[$i]['Status'] ?></div>
-                <h1 class="subject"><?= $Data[$i]['Subject']; ?></h1>
-                <p class="message">"<?= $Data[$i]['Msg'] ?>"</p>
-                <?php if ($Data[$i]["Status"] !== "Pending") { ?>
-                    <div class="response-group">
-                        <p class="message response"><?= $Data[$i]['Response'] ?></p>
-                        <strong>Responded By: </strong>
-                    </div>
-                <?php } ?>
-                <div><?= $Data[$i]["Time"] . " " . $Data[$i]["Date"] ?></div>
+                <form action="<?= $URL->getController("DeleteMessage", "deleteMessage") ?>" class="msg-del-form">
+                    <input type="hidden" name="comment_id" value="<?= $Data[$i]['Cid'] ?>">
+                    <button type="submit" class="small-del-btn">Delete</button>
+                </form>
+
+                <div class="msg-top-sec">
+                    <h1 class="subject"><?= $Data[$i]['Subject']; ?></h1>
+                    <div class="status"><?= $Data[$i]['Status'] ?></div>
+                </div>
+                <div class="msg-middle-sec">
+                    <p class="message">"<?= $Data[$i]['Msg'] ?>"</p>
+                    <?php if ($Data[$i]["Status"] !== "Pending") { ?>
+                        <div class="response-group">
+                            <p class="message-response">"<?= $Data[$i]['Response'] ?>"</p>
+                            <strong>Responded By: <?= $Data[$i]['Response_By'] ?> </strong>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="msg-bottom-sec">
+                    <div><?= $Data[$i]["Time"] . " " . $Data[$i]["Date"] ?></div>
+                </div>
             </div>
         <?php }
     } else { ?>

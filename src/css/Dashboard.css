@@ -35,7 +35,7 @@ body {
     z-index: var(--top-lv-element);
 }
 
-.select-label{
+.select-label {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,7 +43,8 @@ body {
     gap: 5px;
     font-size: 23px;
 }
-.select-link{
+
+.select-link {
     width: 80%;
     padding: 5px;
     color: var(--white-clr);
@@ -51,9 +52,11 @@ body {
     text-align: center;
     background: var(--black-clr);
 }
-.select-link:hover{
+
+.select-link:hover {
     background: var(--black-clr);
 }
+
 .side-nav-bar:hover {
     box-shadow: 0 0 2px 2px var(--primary-clr);
 }
@@ -124,11 +127,13 @@ body {
     background-color: var(--dark-clr);
     gap: 30px;
 }
-.track-link{
+
+.track-link {
     width: 100%;
     height: 100px;
     padding: 10px;
 }
+
 .side-link:hover {
     background-color: var(--primary-clr);
     color: var(--secondary-clr);
@@ -450,10 +455,81 @@ body {
 
 /* Review Section... */
 .message-container {
+    position: relative;
     width: 100%;
     height: 50vh;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-wrapper {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: var(--secondary-clr);
+    border: 1px double var(--grey-clr);
+}
+
+.msg-top-sec {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.subject {
+    font-size: 2rem;
+    text-decoration: underline;
+    padding: 10px 0;
+}
+
+.msg-middle-sec {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 10px;
+}
+
+.msg-bottom-sec {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message,
+.message-response {
+    padding: 0 10px;
+    min-width: 300px;
+    width: fit-content;
+    border-radius: 5px;
+    background: var(--dark-clr);
+    font-size: 1.3rem;
+}
+
+.message::before {
+    content: "Question: ";
+    color: var(--primary-clr);
+    font-family: var(--G-fonts);
+    background-color: var(--secondary-clr);
+}
+
+.response-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.response-group > strong{
+    position: absolute;
+    right: 0;
+}
+.message-response::before {
+    content: "Reply ";
+    color: var(--primary-clr);
+    font-family: var(--G-fonts);
+    background-color: var(--secondary-clr);
 }
 
 /* Review Section...Ends */
