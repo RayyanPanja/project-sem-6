@@ -160,13 +160,6 @@ textarea:is(.form-input) {
     text-align: center;
 }
 
-.badge {
-    padding: 2px;
-    border-radius: 5px;
-    background-color: springgreen;
-    color: var(--black-clr);
-}
-
 .x-btn {
     background-color: transparent;
     position: absolute;

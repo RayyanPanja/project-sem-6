@@ -51,7 +51,7 @@ $URL = new URL;
     <div class="auth">
         <button id="login-open" class="auth-btn login">Login</button>
         <hr>
-        <button id="register-btn" class="auth-btn signup">Register</button>
+        <a href="<?= $URL->getView("Signup", "Register") ?>" id="register-btn" class="auth-btn signup">Register</a>
     </div>
 </nav>
 <button id="toggleNav" class="toggleNav">+</button>

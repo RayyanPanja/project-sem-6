@@ -6,6 +6,10 @@ $acc = $_REQUEST['account'];
 $psw = $_REQUEST['password'];
 
 
-if (Auth::attempt($acc, $psw)) {
-    header("Location: {$URL->getHomePage()}");
+if (Auth::check_if_Banned($acc)) {
+    alert("Your Account Has Been Blocked , Contact Your Bank For Futher Details...", $URL->getHomePage());
+} else {
+    if (Auth::attempt($acc, $psw)) {
+        justChangePath($URL->getHomePage());
+    }
 }

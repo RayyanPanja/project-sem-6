@@ -29,6 +29,6 @@ try {
 ?>
 <!-- Css -->
 <link rel="stylesheet" href="<?= $URL; ?>/assets/css/Style.css">
-<!-- Jquery -->
-<script src="<?= $URL ?>/node_modules/jquery/dist/jquery.js"></script>
-<script src="<?= $URL ?>/node_modules/jquery/dist/jquery.min.js"></script>
+
+<script src="../../../node_modules/jquery/dist/jquery.js"></script>
+<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>

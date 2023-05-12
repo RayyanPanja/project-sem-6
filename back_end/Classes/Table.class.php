@@ -127,6 +127,8 @@ class Table extends Connection
         $sql = "";
         if (is_string($columnValue)) {
             $sql = "UPDATE `{$this->table}` SET `{$columnToUpdate}` = '{$ValueToUpdate}' WHERE `{$this->table}`.`{$SearchByColumn}` = '{$columnValue}';";
+        } else if (is_null($columnValue)) {
+            $sql = "UPDATE `{$this->table}` SET `{$columnToUpdate}` = '{$ValueToUpdate}' WHERE `{$this->table}`.`{$SearchByColumn}` = NULL";
         } else {
             $sql = "UPDATE `{$this->table}` SET `{$columnToUpdate}` = '{$ValueToUpdate}' WHERE `{$this->table}`.`{$SearchByColumn}` = {$columnValue};";
         }

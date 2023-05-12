@@ -457,10 +457,11 @@ body {
 .message-container {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    overflow-y: scroll;
 }
 
 .message-wrapper {

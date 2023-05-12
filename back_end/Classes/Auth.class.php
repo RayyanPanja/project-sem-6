@@ -5,24 +5,19 @@ class Auth
 
     public static function attempt(int $Account, string $Password)
     {
-
-        $URL = new URL;
-
         $UserTable = new Table("main", "Account_number");
-        $User = $UserTable->fetchWhere("Account_number", $Account)[0];
-        if (is_bool($User)) {
-            alert("User Does not Exist", $URL->getHomePage());
-        } else {
-            if ($User['Account_number'] == $Account) {
-                if ($User['Password'] == $Password) {
-                    self::login($User);
-                    return boolval(true);
-                } else {
-                    alert("Password Incorrect", $URL->getHomePage());
+        $User = $UserTable->fetchWhere("Account_number", $Account);
+        if (is_array($User)) {
+            if ($Account === $User[0]['Account']) {
+                if ($Password === $User[0]['Password']) {
+                    self::login($User[0]);
+                    return true;
                 }
-            } else {
-                alert("Account Does not Match", $URL->getHomePage());
+                return false;
             }
+            return false;
+        } else {
+            return false;
         }
     }
 
@@ -40,6 +35,19 @@ class Auth
         header("Location: {$URL->getHomePage()}");
     }
 
+    public static function check_if_Banned($Account)
+    {
+        $UserTable = new Table("main", "Account_number");
+        $UserData = $UserTable->fetchWhere("Account_number", $Account);
+
+        if (is_array($UserData)) {
+            if ($UserData[0]["Blocked"] == boolval(true)) {
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
     public static function isauth()
     {
         if (Session::Exist("isLoggedin")) {

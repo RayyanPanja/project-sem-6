@@ -79,3 +79,22 @@ if (!function_exists("Jumbe")) {
         return (int)implode('', $digits);
     }
 }
+
+
+if (!function_exists("filter_array")) {
+    function filter_array($array)
+    {
+        $newArray = array();
+        foreach ($array as $subarray) {
+            $filteredSubarray = array();
+            foreach ($subarray as $key => $value) {
+                if ($key === "Reference_to_Message" && $value === null) {
+                    continue; // Skip iteration for key with null value
+                }
+                $filteredSubarray[$key] = $value; // Store the key-value pair in the filtered subarray
+            }
+            $newArray[] = $filteredSubarray; // Add the filtered subarray to the new array
+        }
+        return $newArray; // Return the filtered multi-dimensional array
+    }
+}

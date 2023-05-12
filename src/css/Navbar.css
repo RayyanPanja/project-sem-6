@@ -50,10 +50,12 @@
 }
 
 .auth-btn {
+    font-family: var(--G-fonts);
     background: transparent;
     font-size: 18px;
     border: 0;
     color: var(--font-clr);
+    text-decoration: none;
 }
 
 .signup {

@@ -6,6 +6,7 @@
 }
 
 html {
+    font-size: 14px;
     color: var(--font-clr);
 }
 
@@ -105,12 +106,15 @@ button {
 .flex {
     display: flex !important;
 }
-.none{
+
+.none {
     display: none !important;
 }
-.block{
+
+.block {
     display: block !important;
 }
+
 /* Display Properties...ends */
 
 .text-group {
@@ -151,4 +155,27 @@ button {
 
 .w-100 {
     width: 100% !important;
+}
+
+.font-size-big {
+    font-size: 2rem !important;
+}
+
+.badge {
+    padding: 2px;
+    border-radius: 5px;
+    color: var(--black-clr);
+    font-family: var(--G-fonts);
+}
+
+.success-badge {
+    background-color: springgreen;
+}
+
+.warn-badge {
+    background-color: yellow;
+}
+
+.danger-badge {
+    background-color: firebrick;
 }

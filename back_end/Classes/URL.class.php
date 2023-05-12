@@ -43,11 +43,17 @@ class URL
         }
     }
 
-    public function getView(string $file, string $subDir = null)
+    public function getView(string $file, string $subDir = null, string $toID = null)
     {
         if (!is_null($subDir)) {
+            if (!is_null($toID)) {
+                return self::$MainURL . "/src/view/{$subDir}/{$file}.view.php#{$toID}";
+            }
             return self::$MainURL . "/src/view/{$subDir}/{$file}.view.php";
         } else {
+            if (!is_null($toID)) {
+                return self::$MainURL . "/src/view/{$file}.view.php#{$toID}";
+            }
             return self::$MainURL . "/src/view/{$file}.view.php";
         }
     }
