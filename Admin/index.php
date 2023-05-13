@@ -17,13 +17,13 @@ require "app/Classes/autoload.php";
     <?php
     include("app/Components/AuthForms.cont.php");
 
-    if (Session::Exists("isLoggedin")) {
+    if (Session::Exists("AdminLoggedin")) {
         include("app/Components/indexNav.cont.php");
     }
     ?>
 
     <header class="hero-section">
-        <?php if (!Session::Exists("isLoggedin")) { ?>
+        <?php if (!Session::Exists("AdminLoggedin")) { ?>
             <div class="intro-logo">
                 WeBank Admin
             </div>
@@ -34,7 +34,7 @@ require "app/Classes/autoload.php";
         <?php } ?>
         <div class="interactable">
             <?php
-            if (Session::Exists("isLoggedin") && Session::Exists("Admin_Name")) { ?>
+            if (Session::Exists("AdminLoggedin") && Session::Exists("Admin_Name")) { ?>
                 <h1 class="intro-title">Hello <?= Session::get_Session("Admin_Name") ?> , <br> Working Hard it Seems</h1>
                 <p class="intro-subtitle">
                     Hey <?= Session::get_Session("Admin_Name") ?> , Lets Work Hard...
@@ -53,7 +53,7 @@ require "app/Classes/autoload.php";
 </body>
 <?= Route::getJS('Dialog') ?>
 <script>
-    <?php if (!Session::Exists("isLoggedin")) { ?>
+    <?php if (!Session::Exists("AdminLoggedin")) { ?>
         DialogHandle('open-login-dlg', 'close-login-dlg', "login-dlg", true);
     <?php } else { ?>
         DialogHandle('open-logout-dlg', 'close-logout-dlg', "logout-dlg", true);

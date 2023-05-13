@@ -5,6 +5,7 @@ class Auth
 
     public static function attempt(int $Account, string $Password)
     {
+        $URL = new URL;
         $UserTable = new Table("main", "Account_number");
         $User = $UserTable->fetchWhere("Account_number", $Account);
         if (is_array($User)) {
@@ -12,12 +13,14 @@ class Auth
                 if ($Password == $User[0]['Password']) {
                     self::login($User[0]);
                     return true;
+                } else {
+                    alert("Password Incorrect", $URL->getHomePage());
                 }
-                return false;
+            } else {
+                alert("Account Does not Exist", $URL->getHomePage());
             }
-            return false;
         } else {
-            return false;
+            alert("Account Does not Exist", $URL->getHomePage());
         }
     }
 
@@ -28,7 +31,7 @@ class Auth
         }
         $_SESSION['isLoggedin'] = boolval(true);
     }
-    
+
     public static function logout()
     {
         $URL = new URL;

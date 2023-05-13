@@ -14,22 +14,12 @@ require "back_end/Logic/SignupLogic.php";
 </head>
 
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
-        <input type="file" name="img">
-        <button type="submit">AS</button>
-    </form>
     Session:
     <?php
     Session::printSession();
     ?>
-
-    TEST::
-    <?php
-    if (isset($_FILES['img'])) {
-        echo uploadProfileImage("img","test_storage");
-    }
+    TESR::
     ?>
-
 </body>
 
 </html>

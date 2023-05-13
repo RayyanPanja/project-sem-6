@@ -1,5 +1,5 @@
 <?php
-if (!Session::Exists("isLoggedin")) { ?>
+if (!Session::Exists("AdminLoggedin")) { ?>
     <!-- Login Form -->
     <dialog class="login-form" id="login-dlg">
         <form action="<?= Route::getController("Login", "AuthControllers") ?>" method="post">
