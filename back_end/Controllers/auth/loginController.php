@@ -11,5 +11,7 @@ if (Auth::check_if_Banned($acc)) {
 } else {
     if (Auth::attempt($acc, $psw)) {
         justChangePath($URL->getHomePage());
+    }else{
+        justAlert("FAILED");
     }
 }

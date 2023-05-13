@@ -1,0 +1,22 @@
+:root {
+    --background-clr: #101520;
+    --depth-clr: #102030;
+
+    --primary-clr: #1e90ff;
+    --secondary-clr: #9113cc;
+
+    --white-clr: #efefef;
+    --black-clr: #121212;
+
+    --grey-clr: #555;
+    --gray-clr: #888;
+
+    --alert-text: #e0e0e0;
+    --alert-clr: #b22222;
+    --warn-clr: yellow;
+    --success-clr: springgreen;
+
+    --G-fonts: "Clash Display";
+
+    --top-lv-element: 999999;
+}

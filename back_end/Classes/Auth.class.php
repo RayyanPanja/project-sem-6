@@ -8,8 +8,8 @@ class Auth
         $UserTable = new Table("main", "Account_number");
         $User = $UserTable->fetchWhere("Account_number", $Account);
         if (is_array($User)) {
-            if ($Account === $User[0]['Account']) {
-                if ($Password === $User[0]['Password']) {
+            if ($Account == $User[0]['Account_number']) {
+                if ($Password == $User[0]['Password']) {
                     self::login($User[0]);
                     return true;
                 }
@@ -28,6 +28,7 @@ class Auth
         }
         $_SESSION['isLoggedin'] = boolval(true);
     }
+    
     public static function logout()
     {
         $URL = new URL;

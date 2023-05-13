@@ -21,12 +21,19 @@ class Connection
         }
         return "Connection Failed";
     }
+
     public function getConnection()
     {
         return $this->con;
     }
+
     public static function getAppName()
     {
         return self::$AppName;
+    }
+
+    public function execute_query($sql)
+    {
+        return mysqli_query($this->Connect()->getConnection(), $sql);
     }
 }

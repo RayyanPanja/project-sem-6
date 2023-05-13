@@ -1,0 +1,152 @@
+.form-segment {
+    width: 100%;
+    clear: both;
+    padding: 3px;
+}
+
+.segment-title {
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    color: var(--white-clr);
+}
+
+.form-text {
+    color: var(--white-clr);
+    text-align: center;
+}
+
+.row {
+    position: relative;
+    width: 100%;
+    clear: both;
+    padding: 3px;
+}
+
+.multi-row {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+}
+
+.set {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+label {
+    font-size: 1.3rem;
+    font-family: var(--G-fonts);
+    color: var(--white-clr);
+}
+
+.form-input {
+    position: relative;
+    width: 100%;
+    padding: 2px 10px;
+    border: 0;
+    border-bottom: 4px double var(--primary-clr);
+    border-radius: 5px;
+    font-size: 1.3rem;
+    color: var(--primary-clr);
+    background-color: transparent;
+    resize: none;
+    text-align: justify;
+}
+
+.form-input:focus {
+    outline: 0;
+    border-bottom: 4px double var(--success-clr);
+}
+
+.form-btn-set {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-btn {
+    padding: 10px 25px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background-color: transparent;
+    text-align: center;
+    font-weight: bold;
+    color: var(--white-clr);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 300ms;
+}
+
+.primary-btn {
+    background: var(--primary-clr);
+}
+
+.primary-btn:hover {
+    background: transparent;
+    color: var(--primary-clr);
+    border-color: var(--success-clr);
+}
+
+.secondary-btn {
+    color: var(--gray-clr);
+}
+
+.secondary-btn:hover {
+    color: var(--white-clr);
+    background: var(--grey-clr);
+}
+
+/* Forms..... */
+.login-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 30%;
+    height: 80vh;
+
+    background: var(--depth-clr);
+    border: 1px solid var(--primary-clr);
+    border-radius: 10px;
+
+    z-index: var(--top-lv-element);
+}
+
+.login-form .form-segment {
+    margin-top: 20%;
+}
+
+.login-form .form-btn-set {
+    margin-top: 1em;
+}
+
+.login-form .form-btn {
+    width: 30%;
+}
+
+.login-form .form-text {
+    margin-top: 10%;
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: inherit;
+    cursor: pointer;
+    background-color: orangered;
+    color: var(--white-clr);
+    font-weight: bold;
+    transition: all 500ms;
+}
+
+.logout-btn:hover {
+    background: transparent;
+    box-shadow: 0 0 8px 3px var(--warn-clr);
+}

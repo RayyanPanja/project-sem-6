@@ -15,7 +15,7 @@ if (isset($_REQUEST['address'], $_REQUEST['email'], $_REQUEST['tel-country-code'
         "State" => $AddressArray[2],
         "Country" => $AddressArray[3],
         "Email" => $_REQUEST['email'],
-        "Contact" => trim($_REQUEST['contact']),
+        "Contact" => trim($_REQUEST['contact'], " ")
     );
 
     if (updateUser(Session::getSession('tempAccount'), $DataSet)) {

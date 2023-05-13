@@ -9,6 +9,6 @@
   "author": "Rayyan Panja",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.6.4"
+    "jquery": "^3.7.0"
   }
 }

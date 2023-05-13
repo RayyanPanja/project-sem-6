@@ -1,0 +1,302 @@
+@import url(Root.css);
+@import url(Index.css);
+@import url(Form.css);
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.intro-logo {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 20%;
+    padding: 10px;
+    background: var(--depth-clr);
+    border-radius: 0 75px 75px 0;
+    border: 1px solid var(--primary-clr);
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    font-family: var(--G-fonts);
+}
+
+.intro-logo:hover {
+    animation: shake .5s forwards;
+}
+
+@keyframes shake {
+
+    from,
+    to {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(10px);
+    }
+
+    40% {
+        transform: translateX(-10px);
+    }
+
+    50% {
+        transform: translateX(10px);
+    }
+
+    70% {
+        transform: translateX(-10px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+}
+
+.interactable {
+    width: 50%;
+}
+
+.intro-title {
+    font-size: 4rem;
+}
+
+.intro-subtitle {
+    font-size: 2rem;
+    width: 80%;
+}
+
+.intro-btn {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 25px;
+    text-align: center;
+    font-size: 2.5rem;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: var(--background-clr);
+    color: var(--white-clr);
+    border: 2px double var(--primary-clr);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.intro-btn::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    opacity: .8;
+    border-radius: inherit;
+    background-color: var(--primary-clr);
+}
+
+.intro-btn:hover::after {
+    animation: cool-btn 1s ease-in-out forwards;
+}
+
+@keyframes cool-btn {
+
+    from {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        transform: scale(1.5);
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+/* Manage User  */
+.search-section {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--depth-clr);
+}
+
+.user-ajax-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.user-details-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border: 3px double var(--primary-clr);
+}
+
+.top-segment {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+}
+
+.top-items {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.top-items:nth-child(1) {
+    place-self: start;
+}
+
+.top-items:nth-child(3) {
+    place-self: end;
+}
+
+.middle-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.middle-items {
+    font-size: 1.8rem;
+    padding: 10px;
+}
+
+.bottom-segment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-full-detail {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-side {
+    position: relative;
+    background-color: var(--depth-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 5px;
+}
+
+.user-detail {
+    margin-top: 30%;
+    display: grid;
+    place-items: center;
+    padding: 15px;
+    height: 40%;
+    min-height: 200px;
+    border: 1px solid var(--grey-clr);
+}
+
+.img-holder {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    padding: 15px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--primary-clr);
+    outline: 4px double var(--success-clr);
+    outline-offset: 0px;
+    overflow: hidden;
+    transition: all 500ms, box-shadow 500ms 300ms ease-in-out;
+}
+
+.img-holder>img {
+    object-fit: cover;
+    width: 100%;
+    transition: all 500ms;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.img-holder:hover {
+    outline-offset: 10px;
+    box-shadow: 0 0 30px 15px var(--success-clr);
+}
+
+.img-holder>img:hover {
+    scale: 1.5;
+}
+
+.user-detail>.name {
+    font-size: 2rem;
+}
+
+.control-btn-set {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+}
+
+.control-btn-set .form-btn {
+    width: 100%;
+}
+
+.panel {
+    border: 1px solid var(--primary-clr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 5%;
+    padding: 5%;
+    overflow-y: scroll;
+}
+
+.details {
+    position: relative;
+    padding: 10px;
+    width: 100%;
+    min-height: 300px;
+    height: fit-content;
+    border: 2px solid var(--primary-clr);
+}
+
+.details h1 {
+    font-size: 2rem;
+}
+
+.x2 {
+    grid-column: 1 / span 2;
+}
+
+table {
+    width: 100%;
+    border: 1px solid var(--primary-clr);
+}
+
+th,
+td {
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+th {
+    background-color: var(--primary-clr);
+    color: var(--depth-clr);
+    border: 2px solid var(--primary-clr);
+}
+
+/* Manage User  */

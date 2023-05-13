@@ -1,0 +1,103 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background: var(--grey-clr);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-clr);
+}
+
+html {
+    font-size: 16px;
+    color: var(--white-clr);
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: var(--background-clr);
+    overflow: hidden;
+}
+
+.ajax-screen {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+
+.badge {
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--depth-clr);
+}
+
+.success {
+    border: 2px solid var(--success-clr) !important;
+    background: var(--success-clr) !important;
+    color: var(--depth-clr) !important;
+    /* transition: all 500ms; */
+}
+
+.success:hover {
+    background-color: transparent !important;
+    color: var(--success-clr) !important;
+    box-shadow: 0 0 10px 1px var(--success-clr);
+}
+
+.warn {
+    border: 2px solid var(--warn-clr) !important;
+    background: var(--warn-clr) !important;
+    color: var(--depth-clr) !important;
+}
+
+.warn:hover {
+    background-color: transparent !important;
+    color: var(--warn-clr) !important;
+    box-shadow: 0 0 10px 1px var(--warn-clr);
+}
+
+.alert {
+    border: 2px solid var(--alert-clr) !important;
+    background: var(--alert-clr) !important;
+    color: var(--white-clr) !important;
+}
+
+.alert:hover {
+    background-color: transparent !important;
+    color: var(--alert-clr) !important;
+    box-shadow: 0 0 10px 1px var(--alert-clr) !important;
+}
+
+.primary {
+    border: 1px solid var(--primary-clr) !important;
+    color: var(--depth-clr) !important;
+    background: var(--primary-clr) !important;
+}
+
+.primary:hover {
+    background: transparent !important;
+    color: var(--primary-clr) !important;
+    box-shadow: 0 0 10px 1px var(--primary-clr) !important;
+}
+
+.padding-top{
+    padding: 5% !important;
+}
+
+.sql{
+    width: 100%;
+    background-color: var(--depth-clr);
+    color: var(--success-clr);
+    font-size: 1.5rem;
+    font-family: var(--G-fonts);
+    text-align: center  ;
+}
