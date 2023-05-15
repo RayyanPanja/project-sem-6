@@ -14,7 +14,8 @@ if (isset($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['confirmpasswo
     $DataSet = array(
         "Username" => $_REQUEST['username'],
         "Password" => $_REQUEST['password'],
-        "Img_Path" => $Image
+        "Img_Path" => $Image,
+        "Created" => true
     );
 
     if (!updateUser(Session::getSession("tempAccount"), $DataSet)) {

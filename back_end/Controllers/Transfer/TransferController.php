@@ -21,7 +21,7 @@ if (isset($_REQUEST['password'])) {
             if ($Tresponse) {
 
                 $UserTable = new Table("main", "Account_number");
-                $HisAccount = $UserTable->fetchWhere("Account_number", $Account)[0];
+                $HisAccount = $UserTable->select()->where("Account_number",$Account)->execute_query()[0];
 
                 $TransacTable = new Table('transaction', "Receipt_No");
                 $Receipt = rand(000000, 9999999);
@@ -43,11 +43,11 @@ if (isset($_REQUEST['password'])) {
                 // INSERT INTO NOTIFICATION TABLE..................
 
                 // FOR RECEIVER........
-                logNotification(new Table("notifications"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
+                logNotification(new Table("notifications","id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
                 // FOR RECEIVER........
 
                 // FOR SENDER.........
-                logNotification(new Table("notifications"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
+                logNotification(new Table("notifications","id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
                 // FOR SENDER.........
 
                 // INSERT INTO NOTIFICATION TABLE..................

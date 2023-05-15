@@ -42,7 +42,7 @@ function uploadImage($image, string $name, string $path, string $column)
     $FolderName = Session::getSession("Username") . "-" . Session::getSession("Account_number") . "-Documents";
     $filePath = $path . $FolderName;
 
-    if (!file_exists($FolderName)) {
+    if (!file_exists($filePath)) {
         mkdir($filePath, 0777, true);
     }
 

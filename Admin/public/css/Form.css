@@ -61,6 +61,10 @@ label {
     border-bottom: 4px double var(--success-clr);
 }
 
+.form-input option {
+    background-color: var(--depth-clr);
+    color: var(--success-clr);
+}
 .form-btn-set {
     display: flex;
     align-items: center;

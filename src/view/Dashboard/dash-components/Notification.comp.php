@@ -7,8 +7,8 @@
 </div>
 <div class="notification-wrapper none" id="notfication-set">
     <?php
-    $NotifyTable = new Table("notifications");
-    $UsersNotify = $NotifyTable->fetchWhereOrderBy("Notification_For", Session::getSession("Account_number"), "Time", "DESC");
+    $NotifyTable = new Table("notifications","id");
+    $UsersNotify = $NotifyTable->select()->where("Notification_For",Session::getSession("Account_number"))->order_by("Time")->execute_query();
     if (!is_bool($UsersNotify) && is_array($UsersNotify)) {
         for ($i = 0; $i < count($UsersNotify); $i++) {
     ?>

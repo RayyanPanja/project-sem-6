@@ -31,10 +31,23 @@ $User = $UserTable->select()->get_data_from_primary(Session::get_Session("Accoun
                     </div>
                 </div>
                 <div class="control-btn-set">
-                    <a href="<?= Route::getView("Deposit", "DepositAmount") ?>" class="form-btn primary">Deposit Money</a>
-                    <form action="" method="post">
-                        <button type="submit" class="form-btn alert">Bann User</button>
+                    <form action="<?= Route::getController("DeleteUser", "ManageUserControllers") ?>" method="post">
+                        <input type="hidden" name="account" value="<?= $User['Account_number'] ?>">
+                        <button type="submit" class="form-btn alert">Delete User</button>
                     </form>
+                    <a href="<?= Route::getView("Deposit", "DepositAmount") ?>" class="form-btn primary">Deposit Money</a>
+                    <?php
+                    if ($User['Blocked'] == boolval(false)) { ?>
+                        <form action="<?= Route::getController("BanUser", "ManageUserControllers") ?>" method="post">
+                            <input type="hidden" name="account" value="<?= $User['Account_number'] ?>">
+                            <button type="submit" class="form-btn warn">Bann User</button>
+                        </form>
+                    <?php } else { ?>
+                        <form action="<?= Route::getController("UnBanUser", "ManageUserControllers") ?>" method="post">
+                            <input type="hidden" name="account" value="<?= $User['Account_number'] ?>">
+                            <button type="submit" class="form-btn success">UnBann User</button>
+                        </form>
+                    <?php } ?>
                     <a href="" class="form-btn success">Reward User</a>
                 </div>
             </section>

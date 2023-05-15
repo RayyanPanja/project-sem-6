@@ -24,7 +24,7 @@ if (is_null(MiddleWare::getAccessPermission()) || MiddleWare::getAccessPermissio
         <section class="balance-section">
             <?php
             $UserTable = new Table("main", "Account_number");
-            $User = $UserTable->fetchWhere("Account_number", Session::getSession("Account_number"))[0];
+            $User = $UserTable->select()->where("Account_number", Session::getSession("Account_number"))->execute_query()[0];
             ?>
             <div class="balance">
                 <?= $User['Amount']; ?>

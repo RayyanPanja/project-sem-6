@@ -7,21 +7,19 @@ class Auth
     {
         $URL = new URL;
         $UserTable = new Table("main", "Account_number");
-        $User = $UserTable->fetchWhere("Account_number", $Account);
+
+        $User = $UserTable->select()->where("Account_number", $Account)->execute_query();
         if (is_array($User)) {
-            if ($Account == $User[0]['Account_number']) {
-                if ($Password == $User[0]['Password']) {
-                    self::login($User[0]);
-                    return true;
-                } else {
-                    alert("Password Incorrect", $URL->getHomePage());
-                }
-            } else {
-                alert("Account Does not Exist", $URL->getHomePage());
+            if ($User[0]["Password"] === $Password) {
+                self::login($User[0]);
+                return true;
+            }else{
+                alert("Password Incorrect!",$URL->getHomePage());
             }
-        } else {
-            alert("Account Does not Exist", $URL->getHomePage());
+        }else{
+            alert("Account Does not Exist",$URL->getHomePage());
         }
+        return false;
     }
 
     private static function login(array $User)
@@ -42,10 +40,10 @@ class Auth
     public static function check_if_Banned($Account)
     {
         $UserTable = new Table("main", "Account_number");
-        $UserData = $UserTable->fetchWhere("Account_number", $Account);
+        $User = $UserTable->select()->where("Account_number", $Account)->execute_query();
 
-        if (is_array($UserData)) {
-            if ($UserData[0]["Blocked"] == boolval(true)) {
+        if (is_array($User)) {
+            if ($User[0]["Blocked"] == boolval(true)) {
                 return true;
             }
             return false;

@@ -8,4 +8,7 @@ require "Table.class.php";
 require "Auth.class.php";
 require "Session.class.php";
 require "Middleware.class.php";
+require "Route.class.php";
+
+echo Route::getCSS("Style");
 ?>

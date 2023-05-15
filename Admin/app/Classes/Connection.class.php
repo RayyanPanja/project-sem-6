@@ -3,6 +3,7 @@
 class Connection
 {
     private $con;
+    private static $AppName = "WeBank";
 
     public function Connect()
     {
@@ -33,5 +34,9 @@ class Connection
             array_push($Data, $data);
         }
         return $Data;
+    }
+    public static function getAppName()
+    {
+        return self::$AppName;
     }
 }

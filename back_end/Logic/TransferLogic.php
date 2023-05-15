@@ -5,12 +5,12 @@ function fetchUsers($AccountToFetch)
 {
     $URL = new URL;
     $UserTable = new Table("main", "Account_number");
-    $Account = $UserTable->fetchWhere("Account_number", $AccountToFetch);
+    $Account = $UserTable->select()->where("Account_number", $AccountToFetch)->execute_query()[0];
     if (is_bool($Account)) {
         alert("Could Not Fetch My User Details", $URL->getView("Transfer", "Transfer"));
         // return false;
     } else {
-        return $Account[0];
+        return $Account;
     }
 }
 // Fetch Users...........................
@@ -20,7 +20,7 @@ function updateUserAmount(Table $UserTable, $FromAccount, $ToAccount, $MyAmount,
 {
     $URL = new URL;
     $UserTable = new Table("main", "Account_number");
-    $MyUpdateResponse = $UserTable->updateData("Account_number", $FromAccount, "Amount", $MyAmount);
+    $MyUpdateResponse = $UserTable->update("Account_number", $FromAccount, "Amount", $MyAmount);
     if ($MyUpdateResponse) {
         $HisUpdateResponse = $UserTable->updateData("Account_number", $ToAccount, "Amount", $HisAmount);
         if ($HisUpdateResponse) {

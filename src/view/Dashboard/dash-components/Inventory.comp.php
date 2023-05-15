@@ -5,7 +5,7 @@
     <?php
     $OrderBy = array("column" => 'expires', "value" => "DESC");
     $RewardsTable = new Table("rewards", "Reward_ID", null, $OrderBy);
-    $UsersReward = $RewardsTable->fetchWhere("For_Account", Session::getSession('Account_number'));
+    $UsersReward = $RewardsTable->select()->where("For_Account",Session::getSession("Account_number"))->execute_query();
 
     if (!is_bool($UsersReward) && is_array($UsersReward)) {
         for ($i = 0; $i < count($UsersReward); $i++) { ?>

@@ -4,7 +4,8 @@
 <div class="message-container">
     <?php
     $CommentTable = new Table("comment", "Cid");
-    $Data = $CommentTable->fetchWhereOrderBy("Account", Session::getSession("Account_number"),"Time","DESC");
+    $Data = $CommentTable->select()->where("Account",Session::getSession("Account_number"))->print_SQL();
+    die;
     if (is_array($Data)) {
         for ($i = 0; $i < count($Data); $i++) {
     ?>
@@ -27,21 +28,6 @@
                             <strong>Responded By: <?= $Data[$i]['Response_By'] ?> </strong>
                         </div>
                     <?php } ?>
-                </div>
-                <div class="comment-form">
-                    <form action="<?= $URL->getController("Contact", "contact") ?>" method="post">
-                        <div class="row">
-                            <div class="set">
-                                <label for="FollowUp_Message">Add A Follow Up Question.</label>
-                                <textarea name="message" id="FollowUp_Message" cols="30" rows="3" class="form-input" placeholder="Follow up by a Message or Question."></textarea>
-                            </div>
-                            <input type="hidden" name="email" value="<?= Session::getSession("Email") ?>">
-                            <input type="hidden" name="subject" value="Follow up Question-<?= $Data[$i]['Cid'] ?>">
-                        </div>
-                        <div class="form-btn-set">
-                            <button type="submit" class="form-btn primary-btn">Send</button>
-                        </div>
-                    </form>
                 </div>
 
                 <div class="msg-bottom-sec">

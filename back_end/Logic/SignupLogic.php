@@ -2,10 +2,11 @@
 
 
 
-function insertUser(array $Dataset)
+function insertUser(array $columns, array $values)
 {
     $UserTable = new Table("main", "Account_number");
-    if ($UserTable->insertData($Dataset)) {
+    $res = $UserTable->insert()->insert_columns($columns)->insert_values($values)->print_SQL()->execute_query();
+    if ($res) {
         return true;
     }
     return false;
@@ -26,11 +27,12 @@ function updateUser($tempAccount, array $DataSet)
 {
     $UserTable = new Table("main", "Account_number");
     foreach ($DataSet as $key => $value) {
-        if (!$UserTable->updateData("Account_number", $tempAccount, $key, $value)) {
-            return false;
-        }
+        $res = $UserTable->update($key, $value)->where("Account_number", $tempAccount)->execute_query();
     }
-    return true;
+    if ($res) {
+        return true;
+    }
+    return false;
 }
 
 function uploadProfileImage(string $image, string $path)

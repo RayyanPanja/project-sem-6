@@ -22,7 +22,7 @@ if (!is_null($UsersData) && is_array($UsersData)) {
                 <div class="top-items"><?= $UsersData[$i]["Username"] ?></div>
             </div>
             <div class="middle-segment">
-                <div class="middle-items badge success"><?= $UsersData[$i]['Amount'] ?>/-</div>
+                <div class="middle-items badge <?= ($UsersData[$i]["Blocked"]) ? "alert" : "success"  ?> "><?= $UsersData[$i]['Amount'] ?>/-</div>
                 <form action="<?= Route::getController("FullDetails", "ManageUserControllers") ?>" method="post">
                     <input type="hidden" name="account" value="<?= $UsersData[$i]["Account_number"] ?>">
                     <div class="form-btn-set">
