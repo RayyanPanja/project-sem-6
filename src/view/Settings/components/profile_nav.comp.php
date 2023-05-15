@@ -9,16 +9,10 @@
     </div>
     <div class="side-nav-link-set">
         <a href="<?= $URL->getHomePage() ?>" class="side-link">Home</a>
-        <fieldset class="side-nav-link-set">
-            <legend align="center"><h2>Dashbord Links</h2></legend>
-            <a href="<?= $URL->getView("Dashboard", "Dashboard") ?>#inventory" class="side-link">Inventory</a>
-            <a href="<?= $URL->getView("Dashboard", "Dashboard") ?>#Loan" class=" side-link">Loan Application</a>
-            <a href="<?= $URL->getView("Dashboard", "Dashboard") ?>#Review" class=" side-link">Message Status</a>
-        </fieldset>
+        <a href="<?= $URL->getView("Dashboard", "Dashboard") ?>" class="side-link">Dashboard</a>
         <a href="<?= $URL->getView("Transfer", "Transfer") ?>" class="side-link">Transfer</a>
         <a href="<?= $URL->getView("Loan", "Loan") ?>" class="side-link">Loan</a>
         <a href="<?= $URL->getView("Balance", "Balance") ?>" class="side-link">Balance</a>
-        <a href="<?= $URL->getView("Settings", "Settings") ?>" class="side-link">Settings</a>
     </div>
 </aside>
 <button class="toggleNav" id="toggleLink"> <b>+</b></button>

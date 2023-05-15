@@ -2,7 +2,7 @@
 require "../../app/Classes/autoload.php";
 
 $UserTable = new Table("main", "Account_number");
-$User = $UserTable->select()->get_data_from_primary(Session::get_Session("AccountDetails"));
+$User = $UserTable->select()->get_data_from_primary(Session::getSession("AccountDetails"));
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ $User = $UserTable->select()->get_data_from_primary(Session::get_Session("Accoun
                         <div class="row">
                             <div class="set">
                                 <label for="Account">Account Number</label>
-                                <input type="number" name="account" id="account" class="form-input" placeholder="Account to Deposit Amount" value="<?= Session::get_Session("AccountDetails") ?>" required>
+                                <input type="number" name="account" id="account" class="form-input" placeholder="Account to Deposit Amount" value="<?= Session::getSession("AccountDetails") ?>" required>
                             </div>
                         </div>
                         <div class="row">

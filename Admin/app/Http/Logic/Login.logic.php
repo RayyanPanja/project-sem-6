@@ -14,9 +14,9 @@ function check_if_user_exists($Account)
 function register_user(array $User)
 {
     foreach ($User as $key => $value) {
-        Session::set_Session($key, $value);
+        Session::setSession($key, $value);
     }
-    Session::set_Session("AdminLoggedin", true);
+    Session::setSession("AdminLoggedin", true);
 
     return true;
 }

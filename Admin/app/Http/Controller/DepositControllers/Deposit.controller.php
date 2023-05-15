@@ -6,16 +6,16 @@ $request = new Request;
 if ($request->Exists("account") && $request->Exists("amount")) {
 
     $UserTable = new Table("main", "Account_number");
-    $User = $UserTable->select()->where("Account_number", Session::get_Session("AccountDetails"))->execute_query()[0];
+    $User = $UserTable->select()->where("Account_number", Session::getSession("AccountDetails"))->execute_query()[0];
     $Amount = $User["Amount"] + $request->get("amount");
-    $res = $UserTable->update("Amount", $Amount)->where("primary Key", Session::get_Session('AccountDetails'))->execute_query();
+    $res = $UserTable->update("Amount", $Amount)->where("primary Key", Session::getSession('AccountDetails'))->execute_query();
 
     if ($res === boolval(true)) {
         $NTable = new Table("notifications", "id");
         $Columns = $NTable->Fetch_Columns()->get_Columns();
         $Values = [
             rand(00000, 99999),
-            Session::get_Session("AccountDetails"),
+            Session::getSession("AccountDetails"),
             "Notification",
             "{$request->get('amount')}/- has been Deposited to Your Account , on Data: {$currentTimestamp}",
             $currentTimestamp

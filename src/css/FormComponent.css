@@ -19,9 +19,10 @@
 }
 
 .multi-row {
-    display: flex;
-    align-items: center;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 5px;
 }
 
@@ -29,7 +30,7 @@
 .set {
     display: flex;
     flex-direction: column;
-    min-width: 40%;
+    min-width: 300px;
 }
 
 label {
@@ -38,6 +39,7 @@ label {
 }
 
 .form-input {
+    min-width: 100px;
     width: 100%;
     padding: 3px;
     font-size: 20px;
@@ -335,22 +337,25 @@ textarea:is(.form-input) {
 /* Register FOrm...Ends */
 
 /* Contact Form.... */
-.contact-section{
+.contact-section {
     display: grid;
     place-items: center;
 }
-.contact-form-container{
+
+.contact-form-container {
     position: relative;
     width: 50%;
     min-width: 50vw;
     min-height: 400px;
     border: 4px double var(--primary-clr);
 }
+
 @media screen and (max-width:700px) {
-    .contact-form-container{
+    .contact-form-container {
         width: 100%;
     }
-    
+
 }
+
 /* Contact Form....ENds */
 /* Actual Forms...Ends */

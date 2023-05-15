@@ -51,7 +51,7 @@ class Route
 
     public static function getProfile(string $filename)
     {
-        return self::$URI . "../storage/profiles/{$filename}";
+        return self::$URI . "storage/profiles/{$filename}";
     }
     public static function getController($filename, string $subdir = null)
     {

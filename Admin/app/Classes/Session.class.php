@@ -18,11 +18,11 @@ class Session
     {
         return isset($_SESSION[$key]);
     }
-    public static function set_Session(string $key, $value)
+    public static function setSession(string $key, $value)
     {
         $_SESSION[$key] = $value;
     }
-    public static function get_Session(string $key)
+    public static function getSession(string $key)
     {
         return $_SESSION[$key];
     }

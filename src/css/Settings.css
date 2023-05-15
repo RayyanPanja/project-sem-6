@@ -1,0 +1,35 @@
+.scroll-able {
+    overflow: hidden;
+    overflow-y: scroll !important;
+}
+
+.settings-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    width: 100%;
+    height: 100dvh;
+    border: 1px solid var(--primary-clr);
+}
+
+.profile-nav {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    border: 2px solid var(--primary-clr);
+}
+.forms{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+form{
+    border: 1px solid var(--grey-clr);
+    min-height: 200px;
+}
+.update{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
