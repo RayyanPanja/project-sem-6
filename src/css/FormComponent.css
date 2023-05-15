@@ -21,7 +21,6 @@
 .multi-row {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 5px;
 }
@@ -30,7 +29,8 @@
 .set {
     display: flex;
     flex-direction: column;
-    min-width: 300px;
+    min-width: 200px;
+    width: 100%;
 }
 
 label {

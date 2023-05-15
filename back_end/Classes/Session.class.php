@@ -39,4 +39,20 @@ class Session
             return false;
         }
     }
+    public static function referesh()
+    {
+        foreach ($_SESSION as $key) {
+            if ($key != "Account_number") {
+                unset($_SESSION[$key]);
+            }
+        }
+
+        $USER_TABLE = new Table("main", "Account_number");
+        $USER = $USER_TABLE->select()->where("Account_number", self::getSession("Account_number"))->execute_query()[0];
+
+        foreach ($USER as $key => $value) {
+            $_SESSION[$key] = $value;
+        }
+        return true;
+    }
 }

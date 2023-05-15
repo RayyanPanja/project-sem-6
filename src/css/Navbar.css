@@ -23,6 +23,10 @@
     text-decoration: none;
     padding: 10px;
     color: var(--font-clr);
+    transition: all 300ms ease-in-out;
+}
+.link:hover{
+    transform: translateY(10px);
 }
 
 .link::after {
@@ -30,14 +34,13 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3px;
-    width: 0;
-    background-color: var(--primary-clr);
-    transition: all 500ms;
+    width: 100%;
+    height: 2px;
 }
 
 .link:hover::after {
-    width: 100%;
+    background: var(--primary-clr);
+    box-shadow:  0 2px 10px 2px var(--primary-clr);
 }
 
 .auth {

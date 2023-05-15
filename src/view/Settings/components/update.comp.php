@@ -25,7 +25,7 @@
             </div>
             <div class="form-btn-set">
                 <button type="reset" class="form-btn secondary-btn">Cancle</button>
-                <button type="reset" class="form-btn primary-btn">Update</button>
+                <button type="submit" class="form-btn primary-btn">Update</button>
             </div>
         </form>
 
@@ -46,7 +46,7 @@
             </div>
             <div class="form-btn-set">
                 <button type="reset" class="form-btn secondary-btn">Cancle</button>
-                <button type="reset" class="form-btn primary-btn">Update</button>
+                <button type="submit" class="form-btn primary-btn">Update</button>
             </div>
         </form>
 
@@ -80,11 +80,11 @@
             </div>
             <div class="form-btn-set">
                 <button type="reset" class="form-btn secondary-btn">Cancle</button>
-                <button type="reset" class="form-btn primary-btn">Update</button>
+                <button type="submit" class="form-btn primary-btn">Update</button>
             </div>
         </form>
 
-        <form action="<?= $URL->getController("profile", "Settings/Update") ?>" method="post">
+        <form action="<?= $URL->getController("profile", "Settings/Update") ?>" method="post" enctype="multipart/form-data">
             <div class="form-segment">
                 <h1 class="segment-title">Update Profile Image</h1>
                 <div class="row">
@@ -97,14 +97,14 @@
             </div>
             <div class="form-btn-set">
                 <button type="reset" class="form-btn secondary-btn">Cancle</button>
-                <button type="reset" class="form-btn primary-btn">Update</button>
+                <button type="submit" class="form-btn primary-btn">Update</button>
             </div>
         </form>
 
-        <form action="<?= $URL->getController("contact", "Settings/Update") ?>" method="post">
+        <form action="<?= $URL->getController("verify", "Settings/Update/Password") ?>" method="post">
             <div class="form-segment">
                 <h1 class="segment-title">Update Password</h1>
-                <button type="reset" class="form-btn primary-btn">Change Password</button>
+                <button type="submit" class="form-btn primary-btn">Change Password</button>
         </form>
     </div>
 
