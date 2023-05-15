@@ -21,33 +21,44 @@ if (isset($_REQUEST['password'])) {
             if ($Tresponse) {
 
                 $UserTable = new Table("main", "Account_number");
-                $HisAccount = $UserTable->select()->where("Account_number",$Account)->execute_query()[0];
+                $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
 
                 $TransacTable = new Table('transaction', "Receipt_No");
                 $Receipt = rand(000000, 9999999);
-                $DataSet = array(
-                    "Receipt_No" => $Receipt,
-                    "From_Acc" => Session::getSession("Account_number"),
-                    "To_Acc" => $Account,
-                    "Amount" => $Amount,
-                    "Receiver" => $HisAccount['Username'],
-                    "Sender" => Session::getSession("Username"),
-                    "Note" => $Note,
-                    "Backup" => Session::getSession("Username")
+                $TransacCol = [
+                    "Receipt_No",
+                    "From_Acc",
+                    "To_Acc",
+                    "Amount",
+                    "Receiver",
+                    "Sender",
+                    "Note",
+                    "Backup"
+                ];
+
+                $TransacVal = array(
+                    $Receipt,
+                    Session::getSession("Account_number"),
+                    $Account,
+                    $Amount,
+                    $HisAccount['Username'],
+                    Session::getSession("Username"),
+                    $Note,
+                    Session::getSession("Username")
                 );
 
                 // INSERT INTO TRANSACTION TABLE...................
-                logTransaction($TransacTable, $DataSet);
+                logTransaction($TransacCol, $TransacVal);
                 // INSERT INTO TRANSACTION TABLE...................
 
                 // INSERT INTO NOTIFICATION TABLE..................
 
                 // FOR RECEIVER........
-                logNotification(new Table("notifications","id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
+                logNotification(new Table("notifications", "id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
                 // FOR RECEIVER........
 
                 // FOR SENDER.........
-                logNotification(new Table("notifications","id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
+                logNotification(new Table("notifications", "id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
                 // FOR SENDER.........
 
                 // INSERT INTO NOTIFICATION TABLE..................
@@ -59,33 +70,45 @@ if (isset($_REQUEST['password'])) {
             $Tresponse =  TransferWithReward(Session::getSession("Account_number"), $Account, $Amount, $Reward);
             if ($Tresponse) {
                 $UserTable = new Table("main", "Account_number");
-                $HisAccount = $UserTable->fetchWhere("Account_number", $Account)[0];
+                $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
 
                 $TransacTable = new Table('transaction', "Receipt_No");
                 $Receipt = rand(000000, 9999999);
-                $DataSet = array(
-                    "Receipt_No" => $Receipt,
-                    "From_Acc" => Session::getSession("Account_number"),
-                    "To_Acc" => $Account,
-                    "Amount" => $Amount,
-                    "Receiver" => $HisAccount['Username'],
-                    "Sender" => Session::getSession("Username"),
-                    "Note" => $Note,
-                    "Backup" => Session::getSession("Username")
+
+                $TransacCol = [
+                    "Receipt_No",
+                    "From_Acc",
+                    "To_Acc",
+                    "Amount",
+                    "Receiver",
+                    "Sender",
+                    "Note",
+                    "Backup"
+                ];
+
+                $TransacVal = array(
+                    $Receipt,
+                    Session::getSession("Account_number"),
+                    $Account,
+                    $Amount,
+                    $HisAccount['Username'],
+                    Session::getSession("Username"),
+                    $Note,
+                    Session::getSession("Username")
                 );
 
                 // INSERT INTO TRANSACTION TABLE...................
-                logTransaction($TransacTable, $DataSet);
+                logTransaction($TransacCol, $TransacVal);
                 // INSERT INTO TRANSACTION TABLE...................
 
                 // INSERT INTO NOTIFICATION TABLE..................
 
                 // FOR RECEIVER........
-                logNotification(new Table("notifications"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
+                logNotification(new Table("notifications","id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
                 // FOR RECEIVER........
 
                 // FOR SENDER.........
-                logNotification(new Table("notifications"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
+                logNotification(new Table("notifications","id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
                 // FOR SENDER.........
 
                 // INSERT INTO NOTIFICATION TABLE..................

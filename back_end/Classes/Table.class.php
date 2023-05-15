@@ -95,7 +95,7 @@ class Table extends Connection
 
     public function like(string $column, $value)
     {
-        $this->SQL .= " WHERE `{$column}` LIKE '%{$value}%' ";
+        $this->SQL .= " WHERE `{$column}` LIKE '{$value}%' ";
         return $this;
     }
 
@@ -116,7 +116,7 @@ class Table extends Connection
     }
     public function order_by(string $by_Column, string $val = "DESC")
     {
-        $this->SQL .= "ORDER BY `{$by_Column}` {$val}";
+        $this->SQL .= " ORDER BY `{$by_Column}` {$val} ";
         return $this;
     }
 
@@ -176,9 +176,12 @@ class Table extends Connection
         return $this->extract_table_data($this->SQL);
     }
 
-    public function print_SQL()
+    public function print_SQL(bool $die = false)
     {
         echo "SQL: <p class='sql'>" . $this->SQL . "</p><br>";
+        if ($die) {
+            die;
+        }
         return $this;
     }
     public function clear_SQL()

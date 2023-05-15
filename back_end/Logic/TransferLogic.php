@@ -18,14 +18,12 @@ function fetchUsers($AccountToFetch)
 // Update User Amount.......................................................................
 function updateUserAmount(Table $UserTable, $FromAccount, $ToAccount, $MyAmount, $HisAmount)
 {
-    $URL = new URL;
     $UserTable = new Table("main", "Account_number");
-    $MyUpdateResponse = $UserTable->update("Account_number", $FromAccount, "Amount", $MyAmount);
-    if ($MyUpdateResponse) {
-        $HisUpdateResponse = $UserTable->updateData("Account_number", $ToAccount, "Amount", $HisAmount);
-        if ($HisUpdateResponse) {
-            return true;
-        }
+
+    $res = $UserTable->update("Amount", $MyAmount)->where("Account_number", $FromAccount)->execute_query();
+    $res2 = $UserTable->update("Amount", $HisAmount)->where("Account_number", $ToAccount)->execute_query();
+    if ($res && $res2) {
+        return true;
     }
     return false;
 }
@@ -46,15 +44,22 @@ function generateReward($FromAccount, $Amount)
         $Reward = generateCashBack();
     }
 
-    $DataSet = array(
-        "Reward_ID" => rand(0000000000, 99999999999),
-        "For_Account" => $FromAccount,
-        "Code" => $Key,
-        "CashBack" => $Reward,
-        "expires" => $expireDate
+    $col = [
+        "Reward_ID",
+        "For_Account",
+        "Code",
+        "CashBack",
+        "expires"
+    ];
+    $val = array(
+        rand(0000000000, 99999999999),
+        $FromAccount,
+        $Key,
+        $Reward,
+        $expireDate
     );
+    $res = $RewardTable->insert()->insert_columns($col)->insert_values($val)->execute_query();
 
-    $res = $RewardTable->insertData($DataSet);
     if ($res) {
         Session::setSession("RewardKey", $Key);
         Session::setSession("Reward", $Reward);
@@ -70,20 +75,18 @@ function generateReward($FromAccount, $Amount)
 function deleteReward($RewardCode)
 {
     $RewardsTable = new Table("rewards", "Reward_ID");
-    return ($RewardsTable->deleteFromColumn("Code", $RewardCode)) ?  true : false;
+    return ($RewardsTable->delete()->where("Code", $RewardCode)->execute_query()) ?  true : false;
 }
 
 
 // Add Data in Transaction Table.....................
-function logTransaction(Table $TransacTable, array $DataSet)
+function logTransaction(array $col, array $val)
 {
-
-    $res = $TransacTable->insertData($DataSet);
+    $TransacTable = new Table("transaction","Receipt_No");
+    $res = $TransacTable->insert()->insert_columns($col)->insert_values($val)->execute_query();
     if ($res) {
-        // alert("Sucess",$URL->getView("Transfer","Transfer"));
         return true;
     } else {
-        // alert("Failed",$URL->getView("Transfer","Transfer"));
         return false;
     }
 }
@@ -92,14 +95,20 @@ function logTransaction(Table $TransacTable, array $DataSet)
 // Add Notifications.......
 function logNotification(Table $Notification, int $ForAccount, string $Message)
 {
-    $DataSet = array(
-        "id" => rand(00000, 999999),
-        "Notification_For" => $ForAccount,
-        "Notification_Type" => "Notification",
-        "Notification" => $Message
+    $col = [
+        "id",
+        "Notification_For",
+        "Notification_Type",
+        "Notification"
+    ];
+    $val = array(
+        rand(00000, 999999),
+        $ForAccount,
+        "Notification",
+        $Message
     );
 
-    $Notification->insertData($DataSet);
+    $Notification->insert()->insert_columns($col)->insert_values($val)->execute_query();
 }
 // Add Notifications.......
 
@@ -121,7 +130,7 @@ function TransferWithReward($FromAccount, $ToAccount, $Amount, $RewardCode)
     if ($MyAccount['Amount'] > MIN_AMOUNT) {
 
         $RewardsTable = new Table("rewards", "For_Account");
-        $res = $RewardsTable->fetchWhere("Code", $RewardCode)[0];
+        $res = $RewardsTable->select()->where("Code",$RewardCode)->execute_query()[0];
         $CashBack = $res['CashBack'];
 
         // Math..........
@@ -130,7 +139,7 @@ function TransferWithReward($FromAccount, $ToAccount, $Amount, $RewardCode)
         // Math..........
 
         if (updateUserAmount($UserTable, $FromAccount, $ToAccount, round($MyNewAmount, 2), $HisNewAmount)) {
-            logNotification(new Table('notifications'), $FromAccount, "{$CashBack} CashBack Redeemed!!!");
+            logNotification(new Table('notifications',"id"), $FromAccount, "{$CashBack} CashBack Redeemed!!!");
             return (deleteReward($RewardCode)) ? true : false;
         } else {
             alert("Update Failed", $URL->getView("Transfer", "Transfer"));

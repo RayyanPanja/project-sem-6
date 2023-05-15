@@ -1,12 +1,11 @@
 <?php
 require "../../Classes/All.class.php";
 require "../../include/include.php";
-$OrderBy = array("column" => "DateTime", "value" => 'DESC');
-$TransacTable = new Table("transaction", "Receipt_No", 10, $OrderBy);
+$TransacTable = new Table("transaction", "Receipt_No");
 
 if (isset($_REQUEST['search'])) {
-    $UsersTransacData = $TransacTable->fetchWhereLike("Receipt_No", $_REQUEST['search']);
-    if (!is_bool($UsersTransacData) && is_array($UsersTransacData)) {
+    $UsersTransacData = $TransacTable->select()->like("Receipt_No",$_REQUEST['search'])->order_by("DateTime")->execute_query();
+    if (!is_bool($UsersTransacData) && is_array($UsersTransacData) && count($UsersTransacData) != 0) {
         for ($i = 0; $i < count($UsersTransacData); $i++) { ?>
             <div class="transaction-card">
                 <h1 class="id"><?= $UsersTransacData[$i]['Receipt_No'] ?></h1>
@@ -35,7 +34,7 @@ if (isset($_REQUEST['search'])) {
         </div>
         <?php }
 } else {
-    $UsersTransacData = $TransacTable->fetchWhereOrderBy("From_Acc", Session::getSession('Account_number'), "DateTime", "DESC");
+    $UsersTransacData = $TransacTable->select()->where("From_Acc", Session::getSession('Account_number'))->order_by("DateTime")->execute_query();
     if (!is_bool($UsersTransacData) && is_array($UsersTransacData)) {
         for ($i = 0; $i < count($UsersTransacData); $i++) { ?>
             <div class="transaction-card">
