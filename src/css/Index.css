@@ -162,20 +162,75 @@ button {
 }
 
 .badge {
-    padding: 2px;
+    min-width: 100px;
+    width: fit-content;
+    margin: 5px;
+    padding: 2px 10px;
     border-radius: 5px;
-    color: var(--black-clr);
     font-family: var(--G-fonts);
+    font-size: 1.3rem;
+    color: var(--depth-clr);
+    text-align: center;
 }
 
-.success-badge {
-    background-color: springgreen;
+.success {
+    border: 2px solid var(--success-clr) !important;
+    background: var(--success-clr) !important;
+    color: var(--depth-clr) !important;
+    /* transition: all 500ms; */
 }
 
-.warn-badge {
-    background-color: yellow;
+.success:hover {
+    background-color: transparent !important;
+    color: var(--success-clr) !important;
+    box-shadow: 0 0 10px 1px var(--success-clr);
 }
 
-.danger-badge {
-    background-color: firebrick;
+.warn {
+    border: 2px solid var(--warn-clr) !important;
+    background: var(--warn-clr) !important;
+    color: var(--depth-clr) !important;
+}
+
+.warn:hover {
+    background-color: transparent !important;
+    color: var(--warn-clr) !important;
+    box-shadow: 0 0 10px 1px var(--warn-clr);
+}
+
+.alert {
+    border: 2px solid var(--alert-clr) !important;
+    background: var(--alert-clr) !important;
+    color: var(--white-clr) !important;
+}
+
+.alert:hover {
+    background-color: transparent !important;
+    color: var(--alert-clr) !important;
+    box-shadow: 0 0 10px 1px var(--alert-clr) !important;
+}
+
+.primary {
+    border: 1px solid var(--primary-clr) !important;
+    color: var(--depth-clr) !important;
+    background: var(--primary-clr) !important;
+}
+
+.primary:hover {
+    background: transparent !important;
+    color: var(--primary-clr) !important;
+    box-shadow: 0 0 10px 1px var(--primary-clr) !important;
+}
+
+.padding-top {
+    padding: 5% !important;
+}
+
+.sql {
+    width: 100%;
+    background-color: var(--depth-clr);
+    color: var(--success-clr);
+    font-size: 1.5rem;
+    font-family: var(--G-fonts);
+    text-align: center;
 }

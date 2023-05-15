@@ -60,8 +60,22 @@ require "../../../back_end/include/include.php";
                     <div class="form-segment">
                         <h1 class="segment-title">Are You Sure...</h1>
                         <p class="form-text">
-                            Please Confirm Your Transaction To Account <span class="badge success"> <?= $_REQUEST['account'] ?> </span>from your Account <span class="badge sucess"><?= $_SESSION['Account_number'] ?></span> of Amount <span class="badge success"><?= $_REQUEST['amount'] ?></span>
+                            Please Confirm Your Transaction To Account:
                         </p>
+                        <table>
+                            <tr>
+                                <th class="badge">From Account</th>
+                                <td class="badge warn"> <?= Session::getSession("Account_number") ?></td>
+                            </tr>
+                            <tr>
+                                <th class="badge">To Account</th>
+                                <td class="badge success"><?= $_REQUEST['account'] ?></td>
+                            </tr>
+                            <tr>
+                                <th class="badge">Amount</th>
+                                <td class="badge alert"><?= $_REQUEST['amount'] ?></td>
+                            </tr>
+                        </table>
                         <div class="row">
                             <label for="Password">Enter Password</label>
                             <input type="password" name="password" id="psw" class="form-input" placeholder="*****" required>

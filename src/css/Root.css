@@ -1,5 +1,6 @@
 :root {
     --background-clr: #000020;
+    --depth-clr: #102030;
 
     --primary-clr: #17f0f0;
     --secondary-clr: #020d26;
@@ -16,6 +17,11 @@
 
     --white-clr: #fff;
     --black-clr: #000;
+
+    --alert-text: #e0e0e0;
+    --alert-clr: #b22222;
+    --warn-clr: yellow;
+    --success-clr: springgreen;
 
     --font-clr: #efefef;
     --G-fonts: "Clash Display";

@@ -4,7 +4,7 @@
 function checkIfLoanRequested(int $accont)
 {
     $UserTable = new Table("main", "Account");
-    $User = $UserTable->fetchWhere("Account_number", $accont)[0];
+    $User = $UserTable->select()->where("Account_number", $accont)->execute_query()[0];
 
     if (is_bool($User)) {
         return false;
@@ -19,18 +19,19 @@ function updateLoanData($packageID)
 {
     $LoanTable = new Table("loan", "Application_ID");
     $PackagesTable = new Table("loan_packages", "Package_ID");
-    $PackageData = $PackagesTable->fetchWhere("Package_ID", $packageID)[0];
+    $PackageData = $PackagesTable->select()->where("Package_ID", $packageID)->execute_query()[0];
 
-    if ($LoanTable->updateData("Application_ID", Session::getSession("tempAppID"), "Package_ID", $packageID)) {
-        if ($LoanTable->updateData("Application_ID", Session::getSession("tempAppID"), "Package_Name", $PackageData["Package_Name"])) {
-            if ($LoanTable->updateData("Application_ID", Session::getSession("tempAppID"), "Package_Amount", $PackageData["Package_Amount"])) {
-                return true;
-            }
-            return false;
-        }
+    if (!is_array($PackageData)) {
         return false;
     }
-    return false;
+
+    $res = $LoanTable->update("Package_ID", $PackageData["Package_ID"])->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    $res2 = $LoanTable->update("Package_Name", $PackageData["Package_Name"])->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    $res3 = $LoanTable->update("Package_Amount", $PackageData["Package_Amount"])->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+
+    if ($res && $res2 && $res3) {
+        return true;
+    }
 }
 
 function uploadImage($image, string $name, string $path, string $column)
@@ -53,16 +54,15 @@ function uploadImage($image, string $name, string $path, string $column)
     }
 
     $LoanTable = new Table("loan", "Application_ID");
-    $updateFolder = $LoanTable->updateData("Application_ID", Session::getSession("tempAppID"), "Doc_Folder", "Exists");
-    $updateColumn = $LoanTable->updateData("Application_ID", Session::getSession("tempAppID"), $column, $imageName);
-    return $updateFolder && $updateColumn;
-
-    return false;
+    $updateFolder = $LoanTable->update("Doc_Folder", "Exists")->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    $updateColumn = $LoanTable->update($column, $imageName)->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    $res = $LoanTable->update('Documents', "Submitted")->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    return $updateFolder && $updateColumn && $res;
 }
 
 function setLoanRequest(Table $UserTable, $Account)
 {
-    if ($UserTable->updateData("Account_number", $Account, "Loan_Requested", "Yes")) {
+    if ($UserTable->update("Account_number", $Account, "Loan_Requested", "Yes")->where("Account_number", $Account)) {
         return true;
     }
     return false;

@@ -155,9 +155,10 @@ textarea:is(.form-input) {
 
 .form-text {
     color: var(--white-clr);
-    font-size: 20px;
+    font-size: 1.3rem;
     padding: 10px;
     text-align: center;
+    word-spacing: 10px;
 }
 
 .x-btn {

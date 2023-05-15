@@ -24,7 +24,7 @@ require "../../../back_end/include/include.php";
                 <div class="loan-package-grid">
                     <?php
                     $LoanPackagesTable = new Table("loan_packages", "Package_ID");
-                    $LoanPackages = $LoanPackagesTable->fetchTable();
+                    $LoanPackages = $LoanPackagesTable->select()->execute_query();
                     if (is_array($LoanPackages)) {
                         for ($i = 0; $i < count($LoanPackages); $i++) { ?>
                             <dialog class="terms" id="term-for-<?= $LoanPackages[$i]["Package_ID"] ?>">

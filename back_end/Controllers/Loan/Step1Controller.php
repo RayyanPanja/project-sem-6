@@ -19,16 +19,25 @@ if (isset($_REQUEST['account'])) {
     if (checkIfLoanRequested($_REQUEST['account'])) {
         $LoanTable = new Table("loan", "Application_ID");
         $AppID = rand(000000, 9999999);
-        $DataSet = array(
-            "Application_ID" => $AppID,
-            "Account_number" => Session::getSession("Account_number"),
-            "Name" => Session::getSession("Firstname"),
-            "Email" => Session::getSession("Email"),
-            "Contact" => Session::getSession("Contact"),
-            "Loan_recovered" => boolval(false),
-            "Decision" => "Pending"
+        $cols = [
+            "Application_ID",
+            "Account_number",
+            "Name",
+            "Email",
+            "Contact",
+            "Loan_recovered",
+            "Decision"
+        ];
+        $vals = array(
+            $AppID,
+            Session::getSession("Account_number"),
+            Session::getSession("Firstname"),
+            Session::getSession("Email"),
+            Session::getSession("Contact"),
+            0,
+            "Pending"
         );
-        if ($LoanTable->insertData($DataSet)) {
+        if ($LoanTable->insert()->insert_columns($cols)->insert_values($vals)->execute_query()) {
             Session::setSession("tempAppID", $AppID);
             justChangePath($URL->getView("Loan2", "Loan"));
         }

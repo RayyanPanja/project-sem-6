@@ -522,10 +522,12 @@ body {
     display: flex;
     flex-direction: column;
 }
-.response-group > strong{
+
+.response-group>strong {
     position: absolute;
     right: 0;
 }
+
 .message-response::before {
     content: "Reply ";
     color: var(--primary-clr);
@@ -534,3 +536,49 @@ body {
 }
 
 /* Review Section...Ends */
+
+
+/* LOAN DETAILS....... */
+.loan-details {
+    display: grid;
+    place-items: center;
+}
+.loan-card-top-sec{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    min-width: 30vw;
+    padding: 20px;
+    background-color: var(--banner-clr);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--white-clr);
+}
+
+.card-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: var(--white-clr);
+}
+.card-data > div{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    transition: background 200ms ease-in-out;
+}
+.card-data > div:hover{
+    background: var(--success-clr);
+    color: var(--black-clr);
+}
+/* LOAN DETAILS....... */
