@@ -18,7 +18,7 @@ require "../../app/Classes/autoload.php";
     <main class="padding-top">
         <section class="center-form">
             <div class="loan-package-form">
-                <form action="" method="post">
+                <form action="<?= Route::getController("AddPackage", "AddPackageControllers") ?>" method="post">
                     <div class="form-segment">
                         <h1 class="segment-title">Package Details</h1>
                         <div class="row">
@@ -27,10 +27,14 @@ require "../../app/Classes/autoload.php";
                                 <input type="text" name="PackageName" id="PackageName" class="form-input" placeholder="Package Name" required>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="multi-row">
                             <div class="set">
                                 <label for="PackageAmount">Package Amount</label>
-                                <input type="number" name="PackageAmount" id="PackageAmount" class="form-input" placeholder="Package Name" required>
+                                <input type="number" name="PackageAmount" id="PackageAmount" class="form-input" placeholder="Package Amount" required>
+                            </div>
+                            <div class="set">
+                                <label for="Sponsor">Sponsor</label>
+                                <input type="text" name="Sponsor" id="Sponsor" class="form-input" placeholder="Package Sponosor" required>
                             </div>
                         </div>
                         <div class="multi-row">
@@ -39,8 +43,12 @@ require "../../app/Classes/autoload.php";
                                 <input type="number" name="MaxUsers" id="MaxUsers" min="5" max="10" class="form-input" value="5">
                             </div>
                             <div class="set">
-                                <label for="Intrest">Intrest Rate</label>
-                                <input type="number" name="Intrest" id="Intrest" min="0" max="30" class="form-input" value="5" placeholder="%">
+                                <label for="Interest">Interest Rate</label>
+                                <input type="number" name="Interest" id="Interest" min="0" max="30" class="form-input" value="5" placeholder="%">
+                            </div>
+                            <div class="set">
+                                <label for="LoanTerm">LoanTerm (in Year)</label>
+                                <input type="number" name="LoanTerm" id="LoanTerm" min="0" max="40" class="form-input" value="5" placeholder="In Years">
                             </div>
                         </div>
                         <div class="row">
