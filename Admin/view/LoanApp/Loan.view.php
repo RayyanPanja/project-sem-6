@@ -29,7 +29,7 @@ require "../../app/Classes/autoload.php";
                 </div>
             </form>
         </section>
-        <section class="ajax-screen user-ajax-screen">
+        <section class="ajax-screen loan-ajax-screen">
             
         </section>
     </main>
@@ -37,7 +37,7 @@ require "../../app/Classes/autoload.php";
 <?= Route::getJQuery(); ?>
 <script>
     $(document).ready(function() {
-        function loadManageUser() {
+        function loadManageLoan() {
             $.ajax({
                 type: "post",
                 url: "<?= Route::getAjax("Loan") ?>",
@@ -47,7 +47,7 @@ require "../../app/Classes/autoload.php";
             });
         }
 
-        function searchUser(value) {
+        function searchLoan(value) {
             $.ajax({
                 type: "post",
                 url: "<?= Route::getAjax("Loan") ?>",
@@ -60,13 +60,13 @@ require "../../app/Classes/autoload.php";
             });
         }
 
-        loadManageUser();
+        loadManageLoan();
 
         $("#search").on('input', function() {
             var value = $(this).val();
-            searchUser(value);
+            searchLoan(value);
             if ($(this).val() === "") {
-                loadManageUser();
+                loadManageLoan();
             }
         });
     });

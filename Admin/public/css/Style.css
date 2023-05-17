@@ -363,4 +363,11 @@ th {
     color: var(--white-clr);
 }
 
+.loan-ajax-screen{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Loan APp */
+

@@ -2,15 +2,15 @@
 require "../Classes/autoload.php";
 $request = new Request;
 $LoanTable = new Table("loan", "Application_ID");
-$LoanData = $LoanTable->select()->order_by("Date_Created","ASC")->execute_query();
-if ($request->Exists("search")) {
+$LoanData = $LoanTable->select()->where("Decision","Pending")->order_by("Date_Created", "ASC")->execute_query();
+// Helper::pa($LoanData);
+if ($request->Exists("search") && count($request->all()) > 0) {
     $LoanData = $LoanTable->select()->like("Application_ID", $request->get('search'))->get_Table();
 }
 ?>
 
-<!-- PRINTER........................... -->
 <?php
-if (!is_null($LoanData) && is_array($LoanData)) {
+if (is_array($LoanData)) {
     for ($i = 0; $i < count($LoanData); $i++) {
 ?>
         <dialog class="doc-dlg" id="doc-<?= $LoanData[$i]['Application_ID'] ?>">
@@ -36,6 +36,14 @@ if (!is_null($LoanData) && is_array($LoanData)) {
                 </div>
             </div>
         </dialog>
+<?php }
+} ?>
+
+<?php
+if (is_array($LoanData)) {
+    for ($i = 0; $i < count($LoanData); $i++) {
+?>
+        <!-- PRINTER........................... -->
         <div class="user-details-wrapper">
             <div class="top-segment">
                 <div class="top-items"><?= $LoanData[$i]["Application_ID"] ?></div>
@@ -44,8 +52,11 @@ if (!is_null($LoanData) && is_array($LoanData)) {
             </div>
             <div class="middle-segment">
                 <div class="middle-items badge primary"><?= $LoanData[$i]['Package_Amount'] ?>/-</div>
-                <form action="<?= Route::getController("FullDetails", "ManageUserControllers") ?>" method="post">
-                    <input type="hidden" name="account" value="<?= $LoanData[$i]["Application_ID"] ?>">
+                <form action="<?= Route::getController("Decision", "LoanApplicationControllers") ?>" method="post">
+                    <input type="hidden" name="application" value="<?= $LoanData[$i]["Application_ID"] ?>">
+                    <input type="hidden" name="account" value="<?= $LoanData[$i]["Account_number"] ?>">
+                    <input type="hidden" name="amount" value="<?= $LoanData[$i]["Package_Amount"] ?>">
+                    <input type="hidden" name="packageid" value="<?= $LoanData[$i]["Package_ID"] ?>">
                     <div class="form-btn-set">
                         <div class="form-segment">
                             <div class="row">
@@ -67,23 +78,22 @@ if (!is_null($LoanData) && is_array($LoanData)) {
                 <div class="bottom-items"><?= $LoanData[$i]["Contact"] ?></div>
             </div>
         </div>
-        <?= Route::getJS("Dialog") ?>
-        <?php
-        if (!is_null($LoanData) && is_array($LoanData)) {
-            for ($i = 0; $i < count($LoanData); $i++) {
-        ?>
-                <script>
-                    DialogHandle("open-dlg-<?= $LoanData[$i]['Application_ID'] ?>", "close-dlg-<?= $LoanData[$i]['Application_ID'] ?>", "doc-<?= $LoanData[$i]['Application_ID'] ?>", true)
-                </script>
-        <?php }
-        } ?>
+        <!-- PRINTER........................... -->
+<?php }
+} ?>
+<?= Route::getJS("Dialog") ?>
+<?php
+if (!is_null($LoanData) && is_array($LoanData)) {
+    for ($i = 0; $i < count($LoanData); $i++) {
+?>
+        <script>
+            DialogHandle("open-dlg-<?= $LoanData[$i]['Application_ID'] ?>", "close-dlg-<?= $LoanData[$i]['Application_ID'] ?>", "doc-<?= $LoanData[$i]['Application_ID'] ?>", true)
+        </script>
+<?php }
+} ?>
 
-    <?php }
-} else { ?>
-    <div class="user-details-wrapper">
-        <div class="middle-segment">
-            <h1 class="segment-title">User with This Account Does Not Exist</h1>
-        </div>
+<div class="user-details-wrapper">
+    <div class="middle-segment">
+        <h1 class="segment-title">No More Applications</h1>
     </div>
-<?php } ?>
-<!-- PRINTER........................... -->
+</div>
