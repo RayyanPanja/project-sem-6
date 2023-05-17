@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 06:05 PM
+-- Generation Time: May 15, 2023 at 06:10 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -51,7 +51,6 @@ INSERT INTO `admin` (`Admin_ID`, `Admin_Name`, `Admin_Password`, `Designation`, 
 
 CREATE TABLE `comment` (
   `Cid` bigint(99) UNSIGNED NOT NULL,
-  `Reference_to_Message` bigint(99) UNSIGNED DEFAULT NULL,
   `Email` varchar(99) NOT NULL,
   `Subject` varchar(225) NOT NULL,
   `Msg` longtext NOT NULL,
@@ -67,12 +66,8 @@ CREATE TABLE `comment` (
 -- Dumping data for table `comment`
 --
 
-INSERT INTO `comment` (`Cid`, `Reference_to_Message`, `Email`, `Subject`, `Msg`, `Response`, `Response_By`, `Status`, `Time`, `Date`, `Account`) VALUES
-(82793, NULL, 'illumi2701@gmail.com', 'Review', 'Hello User\r\nAVASVSa', NULL, NULL, 'Pending', '21:18:02', '2023-05-10', 9786),
-(135626, NULL, 'illumi2701@gmail.com', 'Follow up Question-82793', 'Hey Nigga', NULL, NULL, 'Pending', '21:18:14', '2023-05-10', 9786),
-(342571, NULL, 'illumi2701@gmail.com', 'Follow up Question-135626', 'Fuck You Nigga', NULL, NULL, 'Pending', '21:19:10', '2023-05-10', 9786),
-(978528, 135626, '', '', '', NULL, NULL, 'Pending', '21:18:14', '2023-05-10', NULL),
-(978529, 342571, '', '', '', NULL, NULL, 'Pending', '21:19:10', '2023-05-10', NULL);
+INSERT INTO `comment` (`Cid`, `Email`, `Subject`, `Msg`, `Response`, `Response_By`, `Status`, `Time`, `Date`, `Account`) VALUES
+(784115, 'illumi2701@gmail.com', 'Question', 'Hey i Have a Question?\r\n', NULL, NULL, 'Pending', '15:21:55', '2023-05-12', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,7 +100,7 @@ CREATE TABLE `loan` (
   `Decision` varchar(30) NOT NULL DEFAULT 'Pending',
   `Decision_By` varchar(225) NOT NULL,
   `Date_Loan_Req` datetime NOT NULL DEFAULT current_timestamp(),
-  `Package_ID` int(99) NOT NULL,
+  `Package_ID` bigint(99) UNSIGNED NOT NULL,
   `Package_Name` varchar(225) NOT NULL,
   `Package_Amount` int(99) NOT NULL,
   `Documents` varchar(10) NOT NULL DEFAULT 'Not',
@@ -121,7 +116,7 @@ CREATE TABLE `loan` (
 --
 
 INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`, `AdharCard`, `ChequeBook`, `Passbook`, `Photo`) VALUES
-(5553933, 9786, 0, 'Rayyan', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-05-06 13:14:17', 987654321, 'Naruto', 10253046, 'Not', 'Exists', 'AdharCard.jpg', 'ChequeBook.jpg', 'Passbook.png', 'Photo.jpg');
+(8493681, 9786, 0, 'Rayyan', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-05-15 19:09:12', 123456789, 'One Piece', 100000000, 'Submitted', 'Rayyan@123-9786-Documents', 'AdharCard.svg', 'ChequeBook.png', 'Passbook.jpg', 'Photo.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,7 +125,7 @@ INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Email`,
 --
 
 CREATE TABLE `loan_packages` (
-  `Package_ID` int(99) NOT NULL,
+  `Package_ID` bigint(99) UNSIGNED NOT NULL,
   `Package_Name` varchar(100) NOT NULL,
   `Sponsor` varchar(100) NOT NULL,
   `Package_Amount` int(99) NOT NULL,
@@ -186,10 +181,9 @@ CREATE TABLE `main` (
 --
 
 INSERT INTO `main` (`Account_number`, `Username`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Amount`, `Img_Path`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date_Of_Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Date_Created`, `Created`, `Blocked`, `Recovery`) VALUES
-(1234, 'ACSA@123', 'DASD', 'ACSA', 'ASVASF', '00000', 13810, 'USER-2023-Apr-28-644bb0ec15128.svg', 'SomeWhere in This World', 'asfafe', 125684, 'AScavfe', 'VEafva', '2542-12-11', 'Female', 'No', 'No', 'deez@nuts.com', 5165478650, '2023-04-28 17:09:01', 1, 0, 0),
-(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 24506.66, 'USER-2023-Apr-27-644aa60f4aa1a.png', 'Turak Chora Old Patel Wada', 'Veraval', 362265, 'Gujarat', 'India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786974, '2023-04-23 19:32:54', 1, 0, 1),
-(23715, 'ACZA@135', 'BRANCH', 'TEST', '3', '222222', 0, 'USER-2023-May-06-6456900468e13.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat ', ' India', '2023-05-06', 'Male', 'No', 'No', 'aswd@fasf.com', 13221, '2023-05-06 22:43:09', 0, 0, 0),
-(25602, 'Branch@asd123', 'BRANCH', 'TEST', '4', '111111', 0, 'USER-2023-May-08-6458d1558c1be.svg', 'Deez asdf ', ' VASC', 365486, ' vsavase ', ' BASasc', '2023-05-08', 'Male', 'No', 'No', 'test@Branch.in', 65236, '2023-05-08 16:08:20', 0, 0, 0);
+(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 19833.76, 'USER-2023-May-12-645e1e203563e.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat ', ' India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786974, '2023-05-12 16:36:57', 0, 0, 0),
+(11111, 'Tejas@124', 'Vachhani', 'Tejas', '', '11111', 17800, 'USER-2023-May-12-645e1e203563e.png', 'SOME WHERE', 'JUNAGADH', 265685, ' Gujarat ', ' India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 96017, '2023-05-12 16:36:57', 0, 0, 0),
+(31658, 'Nigga@69420', 'DASD', 'ACASX', 'ACASC', '505050', 0, 'USER-2023-May-15-6461e395b1ed0.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat', ' India', '2002-02-24', 'Male', 'No', 'No', 'illumi2701@gmail.cc', 9556214523, '2023-05-15 13:11:45', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -210,47 +204,23 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `Notification_For`, `Notification_Type`, `Notification`, `Time`) VALUES
-(2320, 1234, 'Notification', '500 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 10:34:21'),
-(65516, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:06:56'),
-(76684, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:29:43'),
-(92808, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 14:16:24'),
-(94841, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:38:43'),
-(97201, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 18:38:27'),
-(124924, 1234, 'Notification', '300 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 10:45:29'),
-(160637, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:36:01'),
-(231712, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 18:39:03'),
-(237643, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 11:56:26'),
-(238609, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:38:27'),
-(245076, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:41:41'),
-(298636, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-06 17:43:08'),
-(301795, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:07:17'),
-(320175, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:39:32'),
-(322618, 1234, 'Notification', '500 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:15:54'),
-(394131, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 18:38:43'),
-(398240, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 18:41:41'),
-(412544, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 14:17:33'),
-(505798, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:06:26'),
-(517540, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 14:20:12'),
-(521985, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:33:34'),
-(561898, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 10:46:51'),
-(574419, 9786, 'Notification', '200 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 18:39:32'),
-(589035, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:37:56'),
-(594577, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:39:03'),
-(600278, 9786, 'Notification', '426.66 CashBack Redeemed!!!', '2023-05-06 17:43:08'),
-(601864, 9786, 'Notification', '99.1 CashBack Redeemed!!!', '2023-05-04 18:41:41'),
-(659151, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:39:51'),
-(662833, 9786, 'Notification', '5000 Debited From Your Account , Transferred To ACSA@123', '2023-05-04 19:35:08'),
-(687007, 1234, 'Notification', '300 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:05:08'),
-(705727, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:16:32'),
-(715541, 1234, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 10:35:34'),
-(741332, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-06 17:43:08'),
-(754129, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 18:35:37'),
-(890035, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-02 15:06:39'),
-(896776, 1234, 'Notification', '5000 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 19:35:08'),
-(904133, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:28:19'),
-(916678, 9786, 'Notification', '98.74 CashBack Redeemed!!!', '2023-05-04 18:39:32'),
-(969127, 1234, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-04 11:08:54'),
-(983576, 9786, 'Notification', 'Amount 5000  Deposited to Your Account: 9786, Total Amount: 49280.1', '2023-05-04 19:25:46');
+(26607, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:15:00'),
+(32050, 9786, 'Notification', '5000/- has been Deposited to Your Account , on Data: 2023-05-15 15:58:29', '2023-05-15 10:28:29'),
+(80933, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:54:01'),
+(156613, 11111, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:52:05'),
+(248243, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 10:34:50'),
+(334376, 11111, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:07:36'),
+(348640, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 12:58:09'),
+(355133, 9786, 'Notification', '304.76 CashBack Redeemed!!!', '2023-05-15 13:37:05'),
+(390895, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:54:22'),
+(493188, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:11:40'),
+(512219, 9786, 'Notification', '200 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:37:05'),
+(514244, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:50:24'),
+(619083, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 12:58:09'),
+(683892, 9786, 'Notification', '1000 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:07:36'),
+(725743, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:11:40'),
+(916649, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:37:05'),
+(979895, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:15:00');
 
 -- --------------------------------------------------------
 
@@ -267,13 +237,6 @@ CREATE TABLE `recovery` (
   `Date_Updated` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `recovery`
---
-
-INSERT INTO `recovery` (`For_Account`, `Recovery_Number`, `Recovery_Word`, `Tries`, `Date_Created`, `Date_Updated`) VALUES
-(9786, 123465789, 'deez-nuts', 0, '2023-04-28 15:27:27', '2023-04-28 15:27:27');
-
 -- --------------------------------------------------------
 
 --
@@ -288,17 +251,6 @@ CREATE TABLE `rewards` (
   `expires` datetime NOT NULL DEFAULT current_timestamp(),
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `rewards`
---
-
-INSERT INTO `rewards` (`Reward_ID`, `For_Account`, `Code`, `CashBack`, `expires`, `date_created`) VALUES
-(6970669373, 9786, 'QO0-T2V-LL', 239.07, '2023-05-11 00:00:00', '2023-05-05 01:05:08'),
-(17988016842, 9786, '4GF-K13-7L', 115.04, '2023-05-07 00:00:00', '2023-05-05 01:04:44'),
-(21685440594, 9786, '7Q0-ZP3-4G', 171.3, '2023-05-07 00:00:00', '2023-05-05 01:01:53'),
-(25814806112, 9786, 'Z7D-VM8-9O', 92.31, '2023-05-08 00:00:00', '2023-05-05 00:09:03'),
-(28392617578, 9786, 'GX4-AC3-UC', 401.07, '2023-05-11 00:00:00', '2023-05-05 01:04:28');
 
 -- --------------------------------------------------------
 
@@ -325,20 +277,17 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`Receipt_No`, `From_Acc`, `To_Acc`, `Amount`, `Date`, `Time`, `DateTime`, `Receiver`, `Sender`, `Note`, `Backup`) VALUES
-(440621, 9786, 1234, 200, '2023-05-04', '16:58:19', '2023-05-04 16:58:19', 'ACSA@123', 'Rayyan@123', 'ASc', 'Rayyan@123'),
-(1049670, 9786, 1234, 200, '2023-05-05', '00:09:03', '2023-05-05 00:09:03', 'ACSA@123', 'Rayyan@123', 'dasdas', 'Rayyan@123'),
-(3964648, 9786, 1234, 200, '2023-05-05', '00:11:41', '2023-05-05 00:11:41', 'ACSA@123', 'Rayyan@123', 'Hello', 'Rayyan@123'),
-(4205223, 9786, 1234, 200, '2023-05-05', '00:09:32', '2023-05-05 00:09:32', 'ACSA@123', 'Rayyan@123', 'Hello', 'Rayyan@123'),
-(4598699, 9786, 1234, 200, '2023-05-05', '00:08:43', '2023-05-05 00:08:43', 'ACSA@123', 'Rayyan@123', 'sfasf', 'Rayyan@123'),
-(4764349, 9786, 1234, 1000, '2023-05-04', '23:59:43', '2023-05-04 23:59:43', 'ACSA@123', 'Rayyan@123', 'A', 'Rayyan@123'),
-(6009794, 9786, 1234, 1000, '2023-05-04', '17:09:51', '2023-05-04 17:09:51', 'ACSA@123', 'Rayyan@123', 'HELLOWW', 'Rayyan@123'),
-(6306161, 9786, 1234, 200, '2023-05-05', '00:08:27', '2023-05-05 00:08:27', 'ACSA@123', 'Rayyan@123', 'sadasd', 'Rayyan@123'),
-(6858181, 9786, 1234, 200, '2023-05-05', '00:05:37', '2023-05-05 00:05:37', 'ACSA@123', 'Rayyan@123', 'asd', 'Rayyan@123'),
-(7842824, 9786, 1234, 1000, '2023-05-04', '17:03:34', '2023-05-04 17:03:34', 'ACSA@123', 'Rayyan@123', 'ASF', 'Rayyan@123'),
-(7939110, 9786, 1234, 1000, '2023-05-04', '17:06:01', '2023-05-04 17:06:01', 'ACSA@123', 'Rayyan@123', 'ASD', 'Rayyan@123'),
-(7945418, 9786, 1234, 5000, '2023-05-05', '01:05:08', '2023-05-05 01:05:08', 'ACSA@123', 'Rayyan@123', '9786', 'Rayyan@123'),
-(8064413, 9786, 1234, 200, '2023-05-04', '17:07:56', '2023-05-04 17:07:56', 'ACSA@123', 'Rayyan@123', '1000', 'Rayyan@123'),
-(9166971, 9786, 1234, 200, '2023-05-06', '23:13:08', '2023-05-06 23:13:08', 'ACSA@123', 'Rayyan@123', 'bb', 'Rayyan@123');
+(365535, 9786, 11111, 100, '2023-05-15', '18:45:00', '2023-05-15 18:45:00', 'Tejas@124', 'Rayyan@123', 'CAS', 'Rayyan@123'),
+(419254, 9786, 11111, 1000, '2023-05-15', '14:22:05', '2023-05-15 14:22:05', 'Tejas@124', 'Rayyan@123', 'ASCAc', 'Rayyan@123'),
+(650730, 9786, 11111, 100, '2023-05-15', '18:41:40', '2023-05-15 18:41:40', 'Tejas@124', 'Rayyan@123', 'CAS', 'Rayyan@123'),
+(2262636, 9786, 11111, 300, '2023-05-14', '19:19:56', '2023-05-14 19:19:56', 'Tejas@124', 'Rayyan@123', 'Helllo', 'Rayyan@123'),
+(2782205, 9786, 11111, 100, '2023-05-15', '16:04:50', '2023-05-15 16:04:50', 'Tejas@124', 'Rayyan@123', 'ASC', 'Rayyan@123'),
+(5482242, 9786, 11111, 200, '2023-05-15', '19:07:05', '2023-05-15 19:07:05', 'Tejas@124', 'Rayyan@123', '200', 'Rayyan@123'),
+(6280275, 9786, 11111, 200, '2023-05-15', '14:20:24', '2023-05-15 14:20:24', 'Tejas@124', 'Rayyan@123', 'ASCA', 'Rayyan@123'),
+(6579963, 9786, 11111, 1000, '2023-05-15', '18:37:36', '2023-05-15 18:37:36', 'Tejas@124', 'Rayyan@123', '1000', 'Rayyan@123'),
+(7284237, 9786, 11111, 200, '2023-05-15', '14:24:22', '2023-05-15 14:24:22', 'Tejas@124', 'Rayyan@123', 'NINAS', 'Rayyan@123'),
+(8071230, 9786, 11111, 100, '2023-05-15', '18:28:09', '2023-05-15 18:28:09', 'Tejas@124', 'Rayyan@123', 'NIGGA', 'Rayyan@123'),
+(9479095, 9786, 11111, 200, '2023-05-15', '14:24:01', '2023-05-15 14:24:01', 'Tejas@124', 'Rayyan@123', 'CASC', 'Rayyan@123');
 
 --
 -- Indexes for dumped tables
@@ -357,7 +306,6 @@ ALTER TABLE `admin`
 ALTER TABLE `comment`
   ADD PRIMARY KEY (`Cid`),
   ADD KEY `Comment_Has_Account` (`Account`),
-  ADD KEY `Reference_to` (`Reference_to_Message`),
   ADD KEY `Response_By` (`Response_By`);
 
 --
@@ -371,7 +319,8 @@ ALTER TABLE `deletedaccounts`
 --
 ALTER TABLE `loan`
   ADD PRIMARY KEY (`Application_ID`),
-  ADD KEY `Loan_Account_Number` (`Account_number`);
+  ADD KEY `Loan_Account_Number` (`Account_number`),
+  ADD KEY `Package_ID` (`Package_ID`);
 
 --
 -- Indexes for table `loan_packages`
@@ -426,7 +375,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `Admin_ID` int(90) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Admin_ID` int(90) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -450,7 +399,7 @@ ALTER TABLE `loan`
 -- AUTO_INCREMENT for table `loan_packages`
 --
 ALTER TABLE `loan_packages`
-  MODIFY `Package_ID` int(99) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=987654322;
+  MODIFY `Package_ID` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=987654322;
 
 --
 -- AUTO_INCREMENT for table `main`
@@ -462,7 +411,7 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=983577;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=996969;
 
 --
 -- AUTO_INCREMENT for table `recovery`
@@ -491,14 +440,14 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `Comment_Has_Account` FOREIGN KEY (`Account`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Reference_to` FOREIGN KEY (`Reference_to_Message`) REFERENCES `comment` (`Cid`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `Response_By` FOREIGN KEY (`Response_By`) REFERENCES `admin` (`Admin_Name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `loan`
 --
 ALTER TABLE `loan`
-  ADD CONSTRAINT `Loan_Account_Number` FOREIGN KEY (`Account_number`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `Loan_Account_Number` FOREIGN KEY (`Account_number`) REFERENCES `main` (`Account_number`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Package_ID` FOREIGN KEY (`Package_ID`) REFERENCES `loan_packages` (`Package_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notifications`
@@ -531,9 +480,9 @@ DELIMITER $$
 --
 -- Events
 --
-CREATE DEFINER=`root`@`localhost` EVENT `Delete_If_Zero` ON SCHEDULE EVERY 10 MINUTE STARTS '2023-02-22 08:02:00' ON COMPLETION PRESERVE ENABLE COMMENT 'Used to Delete If User Balance is 0' DO DELETE FROM main WHERE  `main`.`Amount` = 0 AND `main`.`Created` = 1$$
+CREATE DEFINER=`root`@`localhost` EVENT `Delete_If_Zero` ON SCHEDULE EVERY 10 SECOND STARTS '2023-02-22 08:02:00' ON COMPLETION PRESERVE ENABLE COMMENT 'Used to Delete If User Balance is 0' DO DELETE FROM main WHERE  `main`.`Amount` = 0 AND `main`.`Created` = 1$$
 
-CREATE DEFINER=`root`@`localhost` EVENT `Inserting` ON SCHEDULE EVERY 8 MINUTE STARTS '2023-02-22 08:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'DELETE AND INSERT BOTH AT SAME TIME' DO -- Transfer data into deletedtables if amount = 0
+CREATE DEFINER=`root`@`localhost` EVENT `Inserting` ON SCHEDULE EVERY 6 SECOND STARTS '2023-02-22 08:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'DELETE AND INSERT BOTH AT SAME TIME' DO -- Transfer data into deletedtables if amount = 0
 INSERT INTO deletedaccounts (Account_number)
 SELECT `Account_number` FROM main WHERE `main`.`Amount` = 0 AND `main`.`Created` = 1$$
 

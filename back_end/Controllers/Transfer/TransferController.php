@@ -11,12 +11,16 @@ if (isset($_REQUEST['password'])) {
     $Password = $_REQUEST['password'];
     if ($Password === $_SESSION['Password']) {
 
+        $Receipt = rand(000000, 9999999);
         $Account = $_REQUEST['Account'];
         $Amount = $_REQUEST['Amount'];
         $Note = $_REQUEST['Note'];
         $Reward = $_REQUEST['Reward'];
 
         if ($Reward === "") {
+
+            Session::setSession("tempReceipt", $Receipt);
+
             $Tresponse = Transfer(Session::getSession("Account_number"), $Account, $Amount);
             if ($Tresponse) {
 
@@ -24,7 +28,6 @@ if (isset($_REQUEST['password'])) {
                 $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
 
                 $TransacTable = new Table('transaction', "Receipt_No");
-                $Receipt = rand(000000, 9999999);
                 $TransacCol = [
                     "Receipt_No",
                     "From_Acc",
@@ -73,7 +76,6 @@ if (isset($_REQUEST['password'])) {
                 $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
 
                 $TransacTable = new Table('transaction', "Receipt_No");
-                $Receipt = rand(000000, 9999999);
 
                 $TransacCol = [
                     "Receipt_No",
@@ -104,11 +106,11 @@ if (isset($_REQUEST['password'])) {
                 // INSERT INTO NOTIFICATION TABLE..................
 
                 // FOR RECEIVER........
-                logNotification(new Table("notifications","id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
+                logNotification(new Table("notifications", "id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
                 // FOR RECEIVER........
 
                 // FOR SENDER.........
-                logNotification(new Table("notifications","id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
+                logNotification(new Table("notifications", "id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
                 // FOR SENDER.........
 
                 // INSERT INTO NOTIFICATION TABLE..................

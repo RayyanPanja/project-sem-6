@@ -13,6 +13,7 @@ if (!function_exists("pa")) {
 if (!function_exists("alert")) {
     function alert($msg, $path)
     {
+        Session::referesh();
         echo "<script>";
         echo "alert('$msg');";
         echo "window.location.assign('$path');";
@@ -26,6 +27,7 @@ if (!function_exists("alert")) {
     }
     function justChangePath($path)
     {
+        Session::referesh();
         echo "<script>";
         echo "window.location.assign('$path');";
         echo "</script>";
@@ -53,11 +55,7 @@ if (!function_exists("generateRewardKey")) {
     }
     function generateCashBack()
     {
-        return round((rand(1000, 10000) / 100), 2);
-    }
-    function generateHugeCashBack()
-    {
-        return round((rand(10000, 50000) / 100), 2);
+        return round((rand(1000, 5000) / 100), 2);
     }
 }
 

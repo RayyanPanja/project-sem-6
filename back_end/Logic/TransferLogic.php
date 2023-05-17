@@ -39,7 +39,7 @@ function generateReward($FromAccount, $Amount)
     $expireDate = getDateAfterDays(rand(3, 9));
 
     if ($Amount >= HUGE_REWARD_AMOUNT) {
-        $Reward = generateHugeCashBack();
+        $Reward = generateCashBack();
     } else {
         $Reward = generateCashBack();
     }

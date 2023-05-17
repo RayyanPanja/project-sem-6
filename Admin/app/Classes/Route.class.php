@@ -3,6 +3,7 @@
 class Route
 {
     private static $URI = "http://localhost/project-sem-6/Admin/";
+    public static $URL = "http://localhost/project-sem-6/";
 
     public static function getHomePage()
     {

@@ -40,6 +40,56 @@ require "../../../back_end/include/include.php";
 
             <div class="transfer-details-wrapper">
                 <h1 class="transfer-heading">Transfer SuccessFull</h1>
+                <?php
+                $UserTable = new Table("main", "Account_number");
+                $TransacTable = new Table("transaction", "Receipt_No");
+
+                $User = $UserTable->select()->where("Account_number", Session::getSession("Account_number"))->execute_query()[0];
+                $Transac = $TransacTable->select()->where("Receipt_No", Session::getSession("tempReceipt"))->execute_query()[0];
+                ?>
+                <div class="transfer-text">
+                    <div class="header-text">
+                        Dear <?= Session::getSession("Firstname") ?>, <br>
+                    </div>
+                    <div class="subject">
+                        This is to inform you that a successful transaction has been made from your account. Please find the details below:
+                    </div>
+                    <div class="details">
+                        <table border="2">
+                            <tr>
+                                <th class="badge"> Reference Number </th>
+                                <td class="badge success"><?= $Transac["Receipt_No"] ?></td>
+                            </tr>
+                            <tr>
+                                <th class="badge"> Recipient </th>
+                                <td class="badge success"><?= $Transac["Receiver"] ?></td>
+                            </tr>
+                            <tr>
+                                <th class="badge"> Amount </th>
+                                <td class="badge alert"><?= $Transac["Amount"] ?></td>
+                            </tr>
+                            <tr>
+                                <th class="badge"> Date and Time </th>
+                                <td class="badge success"><?= $Transac["DateTime"] ?></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p>
+                        If you have any questions or concerns regarding this transaction, please feel free to contact our <a href="<?= $URL->getView("contact","Contact")?>" class="white">customer support</a>.
+                    </p>
+                    <p>
+                        Thank you for using our banking services!
+                    </p>
+                    <div class="regards">
+                        <div>
+                            Best regards,
+                        </div>
+                        <div>
+                            ~<?= Connection::getAppName() ?>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
 

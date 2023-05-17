@@ -98,7 +98,11 @@ class Table extends Connection
         $this->SQL .= " WHERE `{$column}` LIKE '%{$value}%' ";
         return $this;
     }
-
+    public function order_by(string $by_Column, string $val = "DESC")
+    {
+        $this->SQL .= " ORDER BY `{$by_Column}` {$val} ";
+        return $this;
+    }
     public function and()
     {
         $this->SQL .= " AND ";
@@ -162,7 +166,7 @@ class Table extends Connection
     public function get_data_from_primary($id)
     {
         $sql = $this->SQL . " WHERE `{$this->primaryKey}` = {$id}";
-        return $this->extract_table_data($sql)[0];
+        return $this->extract_table_data($sql);
     }
 
     public function get_data_from_column(string $column, $value)

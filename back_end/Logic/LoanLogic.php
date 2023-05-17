@@ -9,7 +9,7 @@ function checkIfLoanRequested(int $accont)
     if (is_bool($User)) {
         return false;
     }
-    if ($User['Loan_requested'] === "No") {
+    if ($User['Loan_requested'] == false) {
         return true;
     }
 }
@@ -29,7 +29,10 @@ function updateLoanData($packageID)
     $res2 = $LoanTable->update("Package_Name", $PackageData["Package_Name"])->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
     $res3 = $LoanTable->update("Package_Amount", $PackageData["Package_Amount"])->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
 
-    if ($res && $res2 && $res3) {
+    $users = $PackageData["Users_Using"] + 1;
+    $res4 = $PackagesTable->update("Users_Using", $users)->where("Package_ID", $packageID)->execute_query();
+
+    if ($res && $res2 && $res3 && $res4) {
         return true;
     }
 }
@@ -40,7 +43,7 @@ function uploadImage($image, string $name, string $path, string $column)
         return false;
     }
 
-    $FolderName = Session::getSession("Username") . "-" . Session::getSession("Account_number") . "-Documents";
+    $FolderName = Session::getSession("Username") . "-" . Session::getSession("Account_number") . uniqid() . "-Documents";
     $filePath = $path . $FolderName;
 
     if (!file_exists($filePath)) {
@@ -54,7 +57,7 @@ function uploadImage($image, string $name, string $path, string $column)
     }
 
     $LoanTable = new Table("loan", "Application_ID");
-    $updateFolder = $LoanTable->update("Doc_Folder", "Exists")->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
+    $updateFolder = $LoanTable->update("Doc_Folder", $FolderName)->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
     $updateColumn = $LoanTable->update($column, $imageName)->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
     $res = $LoanTable->update('Documents', "Submitted")->where("Application_ID", Session::getSession("tempAppID"))->execute_query();
     return $updateFolder && $updateColumn && $res;
@@ -62,7 +65,7 @@ function uploadImage($image, string $name, string $path, string $column)
 
 function setLoanRequest(Table $UserTable, $Account)
 {
-    if ($UserTable->update("Account_number", $Account, "Loan_Requested", "Yes")->where("Account_number", $Account)) {
+    if ($UserTable->update("Account_number", $Account, "Loan_Requested", "Yes")->where("Account_number", $Account)->execute_query()) {
         return true;
     }
     return false;

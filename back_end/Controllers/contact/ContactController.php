@@ -14,29 +14,42 @@ if (!validateSubject($_REQUEST['subject'])) {
 $DataSet = array();
 $cid = rand(00000, 999999);
 if (Session::Exist("Account_number")) {
-    $DataSet = array(
-        "Cid" => $cid,
-        "Email" => $_REQUEST['email'],
-        "Subject" => $_REQUEST['subject'],
-        "Msg" => $_REQUEST['message'],
-        "Status" => "Pending",
-        "Account" => Session::getSession("Account_number")
+    $Cols = [
+        "Cid",
+        "Email",
+        "Subject",
+        "Msg",
+        "Status",
+        "Account"
+    ];
+    $Vals = array(
+        $cid,
+        $_REQUEST['email'],
+        $_REQUEST['subject'],
+        $_REQUEST['message'],
+        "Pending",
+        Session::getSession("Account_number")
     );
 } else {
-    $DataSet = array(
-        "Cid" => $cid,
-        "Email" => $_REQUEST['email'],
-        "Subject" => $_REQUEST['subject'],
-        "Msg" => $_REQUEST['message'],
-        "Status" => "Pending",
-        "Account" => Session::getSession("Account_number")
+    $Cols = [
+        "Cid",
+        "Email",
+        "Subject",
+        "Msg",
+        "Status",
+        "Account"
+    ];
+    $Vals = array(
+        $cid,
+        $_REQUEST['email'],
+        $_REQUEST['subject'],
+        $_REQUEST['message'],
+        "Pending",
+        Session::getSession("Account_number")
     );
 }
 
-if (insert_into_Contact($DataSet)) {
-    if (followUpQustion(explode("-",$_REQUEST['subject'])[0], $cid)) {
-        justChangePath($URL->getView("Dashboard", "Dashboard"));
-    }
+if (insert_into_Contact($Cols, $Vals)) {
     justChangePath($URL->getView("ContactSuccess", "contact"));
 } else {
     alert("Failed!!", $URL->getView("contact", "contact"));

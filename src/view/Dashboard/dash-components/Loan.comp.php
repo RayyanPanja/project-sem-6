@@ -9,7 +9,7 @@ if (Session::getSession("Loan_requested") == boolval(true)) {
     <h1>Oo You Applied For Loan?</h1>
 </div>
 <div class="loan-details">
-    <?php if (Session::getSession("Loan_requested") == boolval(false)) { ?>
+    <?php if (Session::getSession("Loan_requested") == false) { ?>
         <h1 class="section-title">Loan Not Requested</h1>
     <?php } else { ?>
         <h1 class="section-title">Loan Request</h1>
@@ -42,7 +42,9 @@ if (Session::getSession("Loan_requested") == boolval(true)) {
                         <strong>Package Name:</strong><?= $Loan["Package_Name"] ?>
                     </div>
                 </div>
-                <form action="" method="post">
+                <form action="<?= $URL->getController("WithdrawLoan", "Dashboard") ?>" method="post">
+                    <input type="hidden" name="loanApp" value="<?= $Loan['Application_ID'] ?>">
+                    <input type="hidden" name="user" value="<?= $Loan["Account_number"] ?>">
                     <button type="submit" class="form-btn alert">Withdraw</button>
                 </form>
             </div>

@@ -101,3 +101,11 @@ body {
     font-family: var(--G-fonts);
     text-align: center  ;
 }
+
+.x-btn{
+    font-size: 2rem;
+    padding: 5px 20px;
+    background-color: transparent;
+    color: var(--warn-clr);
+    cursor: pointer;
+}

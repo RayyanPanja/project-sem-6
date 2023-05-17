@@ -18,6 +18,7 @@ if (isset($_FILES['adharcard'], $_FILES['chequebook'], $_FILES['passbook'], $_FI
         }
     }
     if (setLoanRequest(new Table('main', "Account_number"), Session::getSession("Account_number"))) {
+        $LoanPackages = new Table("loan_packages","Package_ID");
         justChangePath($URL->getView("LoanSuccess", "Loan"));
     }
 }

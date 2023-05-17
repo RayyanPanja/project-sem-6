@@ -10,9 +10,9 @@ class Request
         $this->request = $_REQUEST;
     }
 
-    public function Exists($key)
+    public static function Exists($key)
     {
-        return isset($_REQUEST[$key]);
+        return !empty($_REQUEST[$key]);
     }
 
     public function print_Request()
@@ -28,7 +28,7 @@ class Request
     }
     public function all()
     {
-        return $_REQUEST;
+        return $this->request;
     }
     public function isEmpty($key)
     {

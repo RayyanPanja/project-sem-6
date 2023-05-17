@@ -2,7 +2,7 @@
 require "../../app/Classes/autoload.php";
 
 $UserTable = new Table("main", "Account_number");
-$User = $UserTable->select()->get_data_from_primary(Session::getSession("AccountDetails"));
+$User = $UserTable->select()->get_data_from_primary(Session::getSession("AccountDetails"))[0];
 
 ?>
 <!DOCTYPE html>

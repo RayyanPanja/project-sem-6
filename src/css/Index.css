@@ -169,7 +169,7 @@ button {
     border-radius: 5px;
     font-family: var(--G-fonts);
     font-size: 1.3rem;
-    color: var(--depth-clr);
+    color: var(--white-clr);
     text-align: center;
 }
 
@@ -233,4 +233,8 @@ button {
     font-size: 1.5rem;
     font-family: var(--G-fonts);
     text-align: center;
+}
+
+.white {
+    color: white;
 }

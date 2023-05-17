@@ -28,6 +28,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 3px;
+    gap: 10px;
 }
 
 .set {
@@ -65,6 +66,7 @@ label {
     background-color: var(--depth-clr);
     color: var(--success-clr);
 }
+
 .form-btn-set {
     display: flex;
     align-items: center;
@@ -103,6 +105,11 @@ label {
 .secondary-btn:hover {
     color: var(--white-clr);
     background: var(--grey-clr);
+}
+
+.center-form{
+    display: grid;
+    place-items: center;
 }
 
 /* Forms..... */
@@ -153,4 +160,12 @@ label {
 .logout-btn:hover {
     background: transparent;
     box-shadow: 0 0 8px 3px var(--warn-clr);
+}
+
+.loan-package-form{
+    width: 50%;
+    min-height: 50vh;
+    height: fit-content;
+    padding: 10px;
+    border: 4px double var(--warn-clr);
 }

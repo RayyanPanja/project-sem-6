@@ -99,9 +99,13 @@ class Table extends Connection
         return $this;
     }
 
-    public function and()
+    public function and(string $column, string $char = "=", $value)
     {
-        $this->SQL .= " AND ";
+        if (is_string($value)) {
+            $this->SQL .= " AND `{$column}` {$char} '{$value}' ";
+        } else {
+            $this->SQL .= " AND `{$column}` {$char} {$value} ";
+        }
         return $this;
     }
     public function or()

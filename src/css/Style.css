@@ -229,18 +229,50 @@
 
 /* Transfer Success */
 .transfer-details-wrapper {
-    width: 50%;
-    min-height: 400px;
+    position: relative;
+    width: 70%;
+    min-height: 500px;
     height: fit-content;
     border: 1px solid var(--primary-clr);
-    display: grid;
-    place-items: center;
 }
 
 .transfer-heading {
-    place-self: start center;
-    font-size: 36px;
+    padding: 10px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.transfer-text {
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.transfer-text * {
+    font-size: 1.5rem;
+    font-family: var(--G-fonts);
+}
+
+.header-text {
+    padding: 10px;
+}
+
+.subject {
+    padding: 10px;
+    width: 80%;
+}
+
+.transfer-text>p {
+    padding: 10px;
+}
+
+.regards {
+    padding: 5px 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 @media screen and (max-width:700px) {
@@ -272,7 +304,7 @@
 }
 
 @media screen and (max-width:700px) {
-    .balance{
+    .balance {
         width: 100%;
     }
 }

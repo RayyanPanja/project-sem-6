@@ -21,7 +21,7 @@ require "../../../back_end/include/include.php";
             <div class="loan-form-container">
                 <h1 class="segment-title">Applied For Loan SuccessFullyyyy</h1>
                 <p class="form-text">
-                    Applied for Loan Successfully with You Application No. <span class="badge success-badge"> <?= Session::getSession('tempAppID') ?> </span>, wait till you get response from our Bank.
+                    Applied for Loan Successfully with You Application No. <span class="badge success"> <?= Session::getSession('tempAppID') ?> </span>, wait till you get response from our Bank.
                 </p>
                 <div class="set">
                     <a href="<?= $URL->getHomePage() ?>" class=" w-100 text-center form-btn primary-btn">Go Back</a>
