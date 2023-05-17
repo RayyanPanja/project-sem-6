@@ -19,12 +19,12 @@ require "../../../back_end/include/include.php";
     <main>
         <section class="grid-center p-t-5">
             <div class="loan-package-container">
-                <p>Application ID: <?= Session::getSession('tempAppID')?></p>
+                <p>Application ID: <?= Session::getSession('tempAppID') ?></p>
                 <h1 class="segment-title">Select Loan Package</h1>
                 <div class="loan-package-grid">
                     <?php
                     $LoanPackagesTable = new Table("loan_packages", "Package_ID");
-                    $LoanPackages = $LoanPackagesTable->select()->execute_query();
+                    $LoanPackages = $LoanPackagesTable->select()->where("Status", true)->execute_query();
                     if (is_array($LoanPackages)) {
                         for ($i = 0; $i < count($LoanPackages); $i++) { ?>
                             <dialog class="terms" id="term-for-<?= $LoanPackages[$i]["Package_ID"] ?>">

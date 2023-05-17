@@ -8,6 +8,10 @@ if (isset($_REQUEST['loanApp'])) {
     $res = $LoanTable->delete()->where("Application_ID", $_REQUEST['loanApp'])->and("Account_number", "=", $_REQUEST['user'])->execute_query();
 
     if ($res) {
-        justChangePath($URL->getView("Dashboard", "Dashboard", "Loan"));
+        $UserTable = new Table("main", "Account_number");
+        $res1 = $UserTable->update("Loan_Requested", 0)->where("Account_number", Session::getSession("Account_number"))->execute_query();
+        if ($res1) {
+            justChangePath($URL->getView("Dashboard", "Dashboard", "Loan"));
+        }
     }
 }

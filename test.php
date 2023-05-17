@@ -1,7 +1,6 @@
 <?php
 require "back_end/Classes/All.class.php";
 require "back_end/include/include.php";
-require "back_end/Logic/SignupLogic.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,8 +17,30 @@ require "back_end/Logic/SignupLogic.php";
     <?php
     Session::printSession();
     ?>
-    TESR::
-    ?>
+    <form action="">
+        <h1>MANAGE SESSION</h1>
+        <select name="option" class="form-input">
+            <option value="REFERESH">REFERESH</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+        <button type="submit" class="form-btn primary-btn">DO</button>
+    </form>
 </body>
 
 </html>
+<?php
+if (isset($_REQUEST['option'])) {
+    $opt = $_REQUEST['option'];
+    switch ($opt) {
+        case 'REFERESH':
+            Session::referesh();
+            break;
+        case "DELETE":
+            Session::destroySession();
+            break;
+        default:
+            # code...
+            break;
+    }
+}
+?>

@@ -37,15 +37,16 @@ function updateLoanData($packageID)
     }
 }
 
-function uploadImage($image, string $name, string $path, string $column)
+function uploadImage($image, string $name, string $path, string $column, string $uniqueId)
 {
     if (empty($image['name'])) {
         return false;
     }
 
-    $FolderName = Session::getSession("Username") . "-" . Session::getSession("Account_number") . uniqid() . "-Documents";
+    $FolderName = Session::getSession("Username") . "-" . Session::getSession("Account_number") . $uniqueId . "-Documents";
     $filePath = $path . $FolderName;
 
+    // Check if folder already exists
     if (!file_exists($filePath)) {
         mkdir($filePath, 0777, true);
     }
@@ -63,9 +64,23 @@ function uploadImage($image, string $name, string $path, string $column)
     return $updateFolder && $updateColumn && $res;
 }
 
-function setLoanRequest(Table $UserTable, $Account)
+function can_disable($packageID)
 {
-    if ($UserTable->update("Account_number", $Account, "Loan_Requested", "Yes")->where("Account_number", $Account)->execute_query()) {
+    $PackagesTable = new Table("loan_packages", "Package_ID");
+    $PackageData = $PackagesTable->select()->where("Package_ID", $packageID)->execute_query()[0];
+    if ($PackageData["Users_Using"] >= $PackageData["Max_Users"]) {
+        $res = $PackagesTable->update("Status", 0)->where("Package_ID", $packageID)->execute_query();
+
+        if ($res) return true;
+    } else {
+        return false;
+    }
+}
+
+function setLoanRequest($Account)
+{
+    $UserTable = new Table("main", "Account_number");
+    if ($UserTable->update("Loan_Requested", true)->where("Account_number", $Account)->execute_query()) {
         return true;
     }
     return false;

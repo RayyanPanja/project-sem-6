@@ -7,6 +7,7 @@ if (isset($_REQUEST['package_id'], $_REQUEST['terms'], $_REQUEST['confirm'])) {
 
     if ($_REQUEST['confirm'] === "CONFIRM") {
         if (updateLoanData($_REQUEST['package_id'])) {
+            Session::setSession("tempPackageID",$_REQUEST['package_id']);
             justChangePath($URL->getView("Loan3", "Loan"));
         }
     } else {

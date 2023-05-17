@@ -4,13 +4,12 @@
 <div class="message-container">
     <?php
     $CommentTable = new Table("comment", "Cid");
-    $Data = $CommentTable->select()->where("Account",Session::getSession("Account_number"))->print_SQL();
-    die;
-    if (is_array($Data)) {
+    $Data = $CommentTable->select()->where("Account",Session::getSession("Account_number"))->execute_query();
+    if (is_array($Data) && count($Data) > 0) {
         for ($i = 0; $i < count($Data); $i++) {
     ?>
             <div class="message-wrapper">
-                <form action="<?= $URL->getController("DeleteMessage", "deleteMessage") ?>" class="msg-del-form">
+                <form action="<?= $URL->getController("DeleteMessage", "deleteMessage") ?>" method="post" class="msg-del-form">
                     <input type="hidden" name="comment_id" value="<?= $Data[$i]['Cid'] ?>">
                     <button type="submit" class="small-del-btn">Delete</button>
                 </form>
