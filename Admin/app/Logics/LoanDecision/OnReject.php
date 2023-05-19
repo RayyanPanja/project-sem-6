@@ -23,3 +23,11 @@ function add_reject_notification(Table $NotificationTable, $data)
     $res = $NotificationTable->insert()->insert_columns($cols)->insert_values($vals)->execute_query();
     return $res;
 }
+
+function update_Users_Using($data)
+{
+    $LoanPackage = new Table("loan_packages", "Package_ID");
+    $Packagedata = $LoanPackage->select()->where("Package_ID", $data['packageid'])->execute_query()[0];
+    $UsersUsing = $Packagedata['Users_Using'] - 1;
+    $LoanPackage->update("Users_Using", $UsersUsing)->where("Package_ID", $data['packageid'])->execute_query();
+}

@@ -124,7 +124,7 @@ $req = new Request;
                             <h1 class="segment-title">Update Terms & Conditions</h1>
                             <div class="row">
                                 <label for="NewTerms">New Terms</label>
-                                <textarea name="terms" id="terms" cols="30" rows="10" class="form-input"><?= $LoanPackage['Terms']; ?></textarea>
+                                <textarea name="terms" id="terms" cols="30" rows="8" class="form-input"><?= $LoanPackage['Terms']; ?></textarea>
                             </div>
                             <input type="hidden" name="packageid" value="<?= $LoanPackage['Package_ID'] ?>">
                         </div>

@@ -9,6 +9,8 @@ function on_reject(Request $request)
     $LoanTable = new Table("loan", "Application_ID");
     $UserTable = new Table("main", "Account_number");
     $NotificationTable = new Table("notifications", "id");
+
+
     // Delete Application
     $res = delete_application($LoanTable, $data);
     if (!$res) {
@@ -24,6 +26,11 @@ function on_reject(Request $request)
     $res2 = add_reject_notification($NotificationTable, $data);
     if (!$res2) {
         Helper::just_alert("Notification Failed");
+    }
+    // User - 1....
+    $res3 = update_Users_Using($data);
+    if (!$res3) {
+        Helper::just_alert("Users Using Failed");
     }
     return true;
 }

@@ -22,6 +22,7 @@ if ($request->Exists("account") && $request->Exists("amount")) {
         ];
         $res = $NTable->insert()->insert_columns($Columns)->insert_values($Values)->execute_query();
         if ($res) {
+            Helper::updateBankAmount();
             Helper::just_move(Route::getView("Users", "Users"));
         } else {
             Helper::just_alert("Failed");

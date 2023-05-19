@@ -133,7 +133,7 @@ class Table extends Connection
     {
         $this->SQL .= ";";
         if (strpos($this->SQL, "SELECT") !== false) {
-            return $this->extract_table_data($this->SQL);
+            return $this->tableData = $this->extract_table_data($this->SQL);
         } else {
             return $this->run_query($this->SQL);
         }

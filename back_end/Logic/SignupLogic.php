@@ -5,12 +5,14 @@
 function insertUser(array $columns, array $values)
 {
     $UserTable = new Table("main", "Account_number");
-    $res = $UserTable->insert()->insert_columns($columns)->insert_values($values)->print_SQL()->execute_query();
+    $res = $UserTable->insert()->insert_columns($columns)->insert_values($values)->execute_query();
     if ($res) {
         return true;
     }
     return false;
 }
+
+
 
 function seperateAddress($address)
 {

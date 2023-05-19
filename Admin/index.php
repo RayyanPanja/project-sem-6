@@ -37,7 +37,7 @@ require "app/Classes/autoload.php";
             if (Session::Exists("AdminLoggedin") && Session::Exists("Admin_Name")) { ?>
                 <h1 class="intro-title">Hello <?= Session::getSession("Admin_Name") ?> , <br> Working Hard it Seems</h1>
                 <p class="intro-subtitle">
-                    Hey <?= Session::getSession("Admin_Name") ?> , Lets Work Hard...
+                    Keep Working Hard...
                 </p>
             <?php } else { ?>
                 <h1 class="intro-title">Hello Human , Please Login So We Can Identify You!</h1>

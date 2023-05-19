@@ -16,7 +16,7 @@ require "../../../back_end/include/include.php";
 <body>
 
     <?php
-    if (Session::Exist("isLoggedin")) {
+    if (Session::Exists("isLoggedin")) {
         include('../component/mainNav.comp.php');
     } else {
         include('../component/indexNav.comp.php');

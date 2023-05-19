@@ -25,9 +25,11 @@ if (!function_exists("alert")) {
         echo "alert('$msg');";
         echo "</script>";
     }
-    function justChangePath($path)
+    function justChangePath($path, $referesh = false)
     {
-        Session::referesh();
+        if ($referesh === true) {
+            Session::referesh();
+        }
         echo "<script>";
         echo "window.location.assign('$path');";
         echo "</script>";
@@ -95,4 +97,20 @@ if (!function_exists("filter_array")) {
         }
         return $newArray; // Return the filtered multi-dimensional array
     }
+}
+
+function updateBankAmount()
+{
+    $Amount = 0;
+
+    $UserTable = new Table("main", "Account_number");
+    $Data = $UserTable->select()->execute_query();
+
+    for ($i = 0; $i <  count($Data); $i++) {
+        $Amount += $Data[$i]["Amount"];
+    }
+
+    $Bank = new Table("bank", "Account");
+    $Bank->update("Amount", $Amount)->print_SQL();
+    die;
 }

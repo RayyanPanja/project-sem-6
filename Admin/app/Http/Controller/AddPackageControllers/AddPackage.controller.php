@@ -32,6 +32,7 @@ if ($req->Exists("PackageName")) {
 
     $res = $PackageTable->insert()->insert_columns($col)->insert_values($val)->execute_query();
     if ($res) {
+        Helper::updateBankAmount();
         Helper::just_move(Route::getView("LoanPackage", "LoanPackage"));
     }
 }

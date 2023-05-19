@@ -52,7 +52,7 @@ class Auth
     }
     public static function isauth()
     {
-        if (Session::Exist("isLoggedin")) {
+        if (Session::Exists("isLoggedin")) {
             return boolval(true);
         }
         return boolval(false);

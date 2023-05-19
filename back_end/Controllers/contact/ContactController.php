@@ -13,7 +13,7 @@ if (!validateSubject($_REQUEST['subject'])) {
 
 $DataSet = array();
 $cid = rand(00000, 999999);
-if (Session::Exist("Account_number")) {
+if (Session::Exists("Account_number")) {
     $Cols = [
         "Cid",
         "Email",

@@ -1,10 +1,9 @@
 <?php
 require "../../../Classes/autoload.php";
-require "../../../Logics/LoanDecision.php";
 $req = new Request;
 
 if ($req->Exists("decision")) {
-
+    require "../../../Logics/LoanDecision.php";
     switch ($req->get("decision")) {
         case 'Reject':
             if (!on_reject($req)) {
