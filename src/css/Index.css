@@ -238,3 +238,6 @@ button {
 .white {
     color: white;
 }
+.primary-link{
+    color: var(--primary-clr);
+}

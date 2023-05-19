@@ -276,7 +276,11 @@
 }
 
 @media screen and (max-width:700px) {
-    .card-wrapper {
+    .transfer-details-wrapper {
+        width: 100%;
+    }
+
+    .transfer-details-wrapper * {
         width: 100%;
     }
 }

@@ -511,7 +511,7 @@ body {
 }
 
 .message::before {
-    content: "Question: ";
+    content: "Message: ";
     color: var(--primary-clr);
     font-family: var(--G-fonts);
     background-color: var(--secondary-clr);

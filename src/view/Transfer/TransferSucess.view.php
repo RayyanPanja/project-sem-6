@@ -75,7 +75,7 @@ require "../../../back_end/include/include.php";
                         </table>
                     </div>
                     <p>
-                        If you have any questions or concerns regarding this transaction, please feel free to contact our <a href="<?= $URL->getView("contact","Contact")?>" class="white">customer support</a>.
+                        If you have any questions or concerns regarding this transaction, please feel free to contact our <a href="<?= $URL->getView("contact","Contact")?>" class="primary-link">customer support</a>.
                     </p>
                     <p>
                         Thank you for using our banking services!

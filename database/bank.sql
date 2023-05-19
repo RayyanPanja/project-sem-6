@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2023 at 06:10 PM
+-- Generation Time: May 17, 2023 at 08:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -100,7 +100,7 @@ CREATE TABLE `loan` (
   `Decision` varchar(30) NOT NULL DEFAULT 'Pending',
   `Decision_By` varchar(225) NOT NULL,
   `Date_Loan_Req` datetime NOT NULL DEFAULT current_timestamp(),
-  `Package_ID` bigint(99) UNSIGNED NOT NULL,
+  `Package_ID` bigint(99) UNSIGNED DEFAULT NULL,
   `Package_Name` varchar(225) NOT NULL,
   `Package_Amount` int(99) NOT NULL,
   `Documents` varchar(10) NOT NULL DEFAULT 'Not',
@@ -108,15 +108,17 @@ CREATE TABLE `loan` (
   `AdharCard` varchar(225) NOT NULL,
   `ChequeBook` varchar(225) NOT NULL,
   `Passbook` varchar(225) NOT NULL,
-  `Photo` varchar(225) NOT NULL
+  `Photo` varchar(225) NOT NULL,
+  `Date_Created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `loan`
 --
 
-INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`, `AdharCard`, `ChequeBook`, `Passbook`, `Photo`) VALUES
-(8493681, 9786, 0, 'Rayyan', 'illumi2701@gmail.com', 9601786974, 0, 'Pending', '', '2023-05-15 19:09:12', 123456789, 'One Piece', 100000000, 'Submitted', 'Rayyan@123-9786-Documents', 'AdharCard.svg', 'ChequeBook.png', 'Passbook.jpg', 'Photo.jpg');
+INSERT INTO `loan` (`Application_ID`, `Account_number`, `Debt`, `Name`, `Email`, `Contact`, `Loan_recovered`, `Decision`, `Decision_By`, `Date_Loan_Req`, `Package_ID`, `Package_Name`, `Package_Amount`, `Documents`, `Doc_Folder`, `AdharCard`, `ChequeBook`, `Passbook`, `Photo`, `Date_Created`) VALUES
+(2334161, 9786, 15750000, 'Rayyan', 'illumi2701@gmail.com', 9601786974, 0, 'Approved', 'Rayyan', '2023-05-17 21:16:01', 123456789, 'One Piece', 15000000, 'Submitted', 'Rayyan@123-97866464f7067fd3d-Documents', 'AdharCard.png', 'ChequeBook.png', 'Passbook.jpg', 'Photo.jpg', '2023-05-17 21:16:01'),
+(7002337, 9786, 26250, 'Rayyan', 'illumi2701@gmail.com', 9601786974, 0, 'Approved', 'Rayyan', '2023-05-17 21:01:05', 123456789, 'One Piece', 25000, 'Submitted', 'Rayyan@123-97866464f3baccec9-Documents', 'AdharCard.png', 'ChequeBook.png', 'Passbook.png', 'Photo.png', '2023-05-17 21:01:05');
 
 -- --------------------------------------------------------
 
@@ -129,9 +131,11 @@ CREATE TABLE `loan_packages` (
   `Package_Name` varchar(100) NOT NULL,
   `Sponsor` varchar(100) NOT NULL,
   `Package_Amount` int(99) NOT NULL,
+  `Interest` int(2) NOT NULL DEFAULT 5,
+  `Loan_Term` int(2) NOT NULL DEFAULT 1,
   `Terms` longtext NOT NULL,
   `Date_Added` date NOT NULL DEFAULT current_timestamp(),
-  `Status` varchar(30) NOT NULL DEFAULT 'Active',
+  `Status` tinyint(1) NOT NULL DEFAULT 1,
   `Users_Using` int(99) NOT NULL DEFAULT 0,
   `Max_Users` int(99) NOT NULL DEFAULT 5
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -140,9 +144,10 @@ CREATE TABLE `loan_packages` (
 -- Dumping data for table `loan_packages`
 --
 
-INSERT INTO `loan_packages` (`Package_ID`, `Package_Name`, `Sponsor`, `Package_Amount`, `Terms`, `Date_Added`, `Status`, `Users_Using`, `Max_Users`) VALUES
-(123456789, 'One Piece', 'Monkey D. Luffy', 100000000, 'i have 50% intrest Rate Because i am a Pirate', '2023-05-04', 'Active', 0, 5),
-(987654321, 'Naruto', 'Itachi', 10253046, 'i have 0% intrest rate because it is haram', '2023-05-04', 'Active', 0, 5);
+INSERT INTO `loan_packages` (`Package_ID`, `Package_Name`, `Sponsor`, `Package_Amount`, `Interest`, `Loan_Term`, `Terms`, `Date_Added`, `Status`, `Users_Using`, `Max_Users`) VALUES
+(123456789, 'One Piece', 'Monkey D. Luffy', 15000000, 5, 1, 'Interest Rate: 20%,\r\nRepayment Starts : after 6 months,\r\nLoan Duration : 3 years,\r\nAmount to Pay: Rs. 28,750 \r\nif borrower becomes Defaulter , he shall be punished!\r\n', '2023-05-04', 0, 5, 5),
+(987654321, 'Naruto', 'Itachi', 10253046, 5, 1, 'i have 0% intrest rate because it is haram', '2023-05-04', 1, 0, 5),
+(43271014972, 'GigaNigga', 'IShowSpeed', 75000, 10, 3, '\r\nTO ALL NIGGERSSSSS', '2023-05-17', 1, 0, 8);
 
 -- --------------------------------------------------------
 
@@ -166,8 +171,8 @@ CREATE TABLE `main` (
   `Country` varchar(225) NOT NULL,
   `Date_Of_Birth` date NOT NULL,
   `Gender` varchar(50) NOT NULL,
-  `Loan_taken` varchar(10) NOT NULL,
-  `Loan_requested` varchar(10) NOT NULL,
+  `Loan_taken` tinyint(1) NOT NULL DEFAULT 0,
+  `Loan_requested` tinyint(1) NOT NULL DEFAULT 0,
   `Email` varchar(100) NOT NULL,
   `Contact` bigint(12) NOT NULL,
   `Date_Created` datetime NOT NULL DEFAULT current_timestamp(),
@@ -181,9 +186,9 @@ CREATE TABLE `main` (
 --
 
 INSERT INTO `main` (`Account_number`, `Username`, `Sirname`, `Firstname`, `Fathername`, `Password`, `Amount`, `Img_Path`, `Address`, `City`, `Pin_Code`, `State`, `Country`, `Date_Of_Birth`, `Gender`, `Loan_taken`, `Loan_requested`, `Email`, `Contact`, `Date_Created`, `Created`, `Blocked`, `Recovery`) VALUES
-(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 19833.76, 'USER-2023-May-12-645e1e203563e.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat ', ' India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 9601786974, '2023-05-12 16:36:57', 0, 0, 0),
-(11111, 'Tejas@124', 'Vachhani', 'Tejas', '', '11111', 17800, 'USER-2023-May-12-645e1e203563e.png', 'SOME WHERE', 'JUNAGADH', 265685, ' Gujarat ', ' India', '2004-01-27', 'Male', 'No', 'No', 'illumi2701@gmail.com', 96017, '2023-05-12 16:36:57', 0, 0, 0),
-(31658, 'Nigga@69420', 'DASD', 'ACASX', 'ACASC', '505050', 0, 'USER-2023-May-15-6461e395b1ed0.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat', ' India', '2002-02-24', 'Male', 'No', 'No', 'illumi2701@gmail.cc', 9556214523, '2023-05-15 13:11:45', 1, 0, 0);
+(9786, 'Rayyan@123', 'Panja', 'Rayyan', 'Gulamhusen', '55555', 15100100, 'USER-2023-May-12-645e1e203563e.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat ', ' India', '2004-01-27', 'Male', 1, 1, 'illumi2701@gmail.com', 9601786974, '2023-05-12 16:36:57', 0, 0, 0),
+(11111, 'Tejas@124', 'Vachhani', 'Tejas', '', '11111', 17800, 'USER-2023-May-12-645e1e203563e.png', 'SOME WHERE', 'JUNAGADH', 265685, ' Gujarat ', ' India', '2004-01-27', 'Male', 0, 0, 'illumi2701@gmail.com', 96017, '2023-05-12 16:36:57', 0, 0, 0),
+(31658, 'Nigga@69420', 'DASD', 'ACASX', 'ACASC', '505050', 0, 'USER-2023-May-15-6461e395b1ed0.png', 'Turak Chora Old Patel Wada', ' Veraval', 362265, ' Gujarat', ' India', '2002-02-24', 'Male', 0, 0, 'illumi2701@gmail.cc', 9556214523, '2023-05-15 13:11:45', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -205,22 +210,15 @@ CREATE TABLE `notifications` (
 
 INSERT INTO `notifications` (`id`, `Notification_For`, `Notification_Type`, `Notification`, `Time`) VALUES
 (26607, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:15:00'),
-(32050, 9786, 'Notification', '5000/- has been Deposited to Your Account , on Data: 2023-05-15 15:58:29', '2023-05-15 10:28:29'),
 (80933, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:54:01'),
 (156613, 11111, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:52:05'),
 (248243, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 10:34:50'),
 (334376, 11111, 'Notification', '1000 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:07:36'),
-(348640, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 12:58:09'),
-(355133, 9786, 'Notification', '304.76 CashBack Redeemed!!!', '2023-05-15 13:37:05'),
 (390895, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:54:22'),
 (493188, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:11:40'),
-(512219, 9786, 'Notification', '200 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:37:05'),
 (514244, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 08:50:24'),
 (619083, 11111, 'Notification', '100 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 12:58:09'),
-(683892, 9786, 'Notification', '1000 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:07:36'),
-(725743, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:11:40'),
-(916649, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:37:05'),
-(979895, 9786, 'Notification', '100 Debited From Your Account , Transferred To Tejas@124', '2023-05-15 13:15:00');
+(916649, 11111, 'Notification', '200 has Been Transfered to Your Account By Rayyan@123', '2023-05-15 13:37:05');
 
 -- --------------------------------------------------------
 
@@ -399,7 +397,7 @@ ALTER TABLE `loan`
 -- AUTO_INCREMENT for table `loan_packages`
 --
 ALTER TABLE `loan_packages`
-  MODIFY `Package_ID` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=987654322;
+  MODIFY `Package_ID` bigint(99) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43271014973;
 
 --
 -- AUTO_INCREMENT for table `main`
@@ -411,7 +409,7 @@ ALTER TABLE `main`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=996969;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=996976;
 
 --
 -- AUTO_INCREMENT for table `recovery`
