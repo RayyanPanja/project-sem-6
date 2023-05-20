@@ -39,7 +39,12 @@ class Helper
         $Amount = 0;
 
         $UserTable = new Table("main", "Account_number");
+        $Bank = new Table("bank", "Account");
+
         $Data = $UserTable->select()->execute_query();
+        $BankData = $Bank->select()->where("Account", 1345647541345687545)->execute_query()[0];
+
+        $Bank->update("Amount_Before", $BankData["Amount"])->execute_query();
 
         for ($i = 0; $i <  count($Data); $i++) {
             $Amount += $Data[$i]["Amount"];
@@ -51,7 +56,8 @@ class Helper
             $Amount += $PackageData[$i]["Package_Amount"];
         }
 
-        $Bank = new Table("bank", "Account");
+        $Bank->update("Gap", ($Amount - $BankData["Amount"]))->execute_query();
+        $Bank->update("Amount", $Amount)->execute_query();
         $Bank->update("Amount", $Amount)->execute_query();
     }
 }

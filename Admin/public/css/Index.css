@@ -89,23 +89,46 @@ body {
     box-shadow: 0 0 10px 1px var(--primary-clr) !important;
 }
 
-.padding-top{
-    padding: 5% !important;
+
+.text-success {
+    color: var(--success-clr) !important;
 }
 
-.sql{
+.text-warn {
+    color: var(--warn-clr) !important;
+}
+
+.text-alert {
+    color: var(--alert-clr) !important;
+}
+
+
+.padding-top {
+    padding: 5% 0 0 0 !important;
+}
+
+.sql {
     width: 100%;
     background-color: var(--depth-clr);
     color: var(--success-clr);
     font-size: 1.5rem;
     font-family: var(--G-fonts);
-    text-align: center  ;
+    text-align: center;
 }
 
-.x-btn{
+.x-btn {
     font-size: 2rem;
     padding: 5px 20px;
     background-color: transparent;
     color: var(--warn-clr);
     cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.full-size{
+    width: 100%;
+    height: 100%;
 }

@@ -363,7 +363,7 @@ th {
     color: var(--white-clr);
 }
 
-.loan-ajax-screen{
+.loan-ajax-screen {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -371,3 +371,40 @@ th {
 
 /* Loan APp */
 
+
+
+/* MANAGE BANK */
+.bank-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 3px double var(--primary-clr);
+    padding: 10px;
+}
+
+.status {
+    width: 300px;
+    height: 100px;
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.bank-name {
+    font-size: 2.5rem;
+    padding: 10px;
+}
+
+.screen {
+    width: 100%;
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+}
+
+.bank-input {
+    width: 80%;
+    font-size: 1.5rem;
+    padding: 3px;
+    background: var(--depth-clr);
+    border: 0;
+}
