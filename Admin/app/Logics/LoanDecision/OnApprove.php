@@ -36,7 +36,7 @@ function add_balance_to_user(Table $UserTable, $data)
     $User = get_User_Data($data['account']);
     $Amount = $User['Amount'] + $data['amount'];
 
-    $UserTable->update("Amount", $Amount)->where("Account_number", $data['account'])->execute_query();
+    return  $UserTable->update("Amount", $Amount)->where("Account_number", $data['account'])->execute_query();
 }
 
 function add_approve_notification(Table $NotificationTable, $data)
@@ -51,6 +51,18 @@ function add_approve_notification(Table $NotificationTable, $data)
     return $res;
 }
 
+function credit_amount_from_bank($data)
+{
+    $BankTable = new Table("bank", "Account");
+
+    $Bank = fetch_Bank();
+    $Package = get_Package_Data($data['packageid']);
+
+    $Amount = $Bank['Amount'] - $Package['Package_Amount'];
+
+    $res = $BankTable->update("Amount", $Amount)->execute_query();
+    return $res;
+}
 
 
 // Data Fetcher...
@@ -67,6 +79,12 @@ function get_User_Data($id)
     return $data;
 }
 
+function fetch_Bank()
+{
+    $Table = new Table("bank", "Account");
+    $data = $Table->select()->execute_query()[0];
+    return $data;
+}
 
 function get_Interest_Ammount($principalAmount, $interestRate, $timeInYears)
 {

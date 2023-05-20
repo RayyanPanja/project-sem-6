@@ -53,7 +53,7 @@ class Helper
         $LoanPackages = new Table("loan_packages", "Package_ID");
         $PackageData = $LoanPackages->select()->execute_query();
         for ($i = 0; $i <  count($PackageData); $i++) {
-            $Amount += $PackageData[$i]["Package_Amount"];
+            $Amount += ($PackageData[$i]["Package_Amount"] * $PackageData[$i]["Max_Users"]);
         }
 
         $Bank->update("Gap", ($Amount - $BankData["Amount"]))->execute_query();

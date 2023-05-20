@@ -36,7 +36,7 @@ $Users = $UserTable->select()->execute_query();
                     <div class="row">
                         <div class="set">
                             <label for="Before">Amount Before Refresh</label>
-                            <input type="text" class="bank-input <?= ($BankData["Amount_Before"] >= $BankData["Amount"]) ? "text-success" : "text-alert" ?>" value="<?= $BankData["Amount_Before"] ?>/-" readonly>
+                            <input type="text" class="bank-input <?= ($BankData["Amount_Before"] <= $BankData["Amount"]) ? "text-success" : "text-alert" ?>" value="<?= $BankData["Amount_Before"] ?>/-" readonly>
                         </div>
                     </div>
                     <div class="row">

@@ -4,7 +4,7 @@ $request = new Request;
 $LoanPackageTable = new Table("loan_packages", "Package_ID");
 $LoanPackageData = $LoanPackageTable->select()->get_Table();
 
-Helper::pa($request->all());
+// Helper::pa($request->all());
 if ($request->Exists("search")) {
     $LoanPackageData = $LoanPackageTable->select()->like("Package_ID", $request->get('search'))->get_Table();
 }

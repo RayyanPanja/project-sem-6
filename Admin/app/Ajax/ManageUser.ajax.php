@@ -4,7 +4,7 @@ $request = new Request;
 $UserTable = new Table("main", "Account_number");
 $UsersData = $UserTable->select()->get_Table();
 
-Helper::pa($request->all());
+// Helper::pa($request->all());
 if ($request->Exists("search")) {
     $UsersData = $UserTable->select()->like("Account_number", $request->get('search'))->get_Table();
 }
