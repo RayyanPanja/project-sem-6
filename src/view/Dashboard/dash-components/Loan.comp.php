@@ -18,6 +18,9 @@ if (Session::getSession("Loan_requested") == boolval(true)) {
                 <div class="card-title">Loan Application</div>
                 <div class="card-data">
                     <div>
+                        <strong>Status:</strong><?= $Loan["Decision"] ?>
+                    </div>
+                    <div>
                         <strong>Application ID:</strong><?= $Loan["Application_ID"] ?>
                     </div>
                     <div>
@@ -42,11 +45,15 @@ if (Session::getSession("Loan_requested") == boolval(true)) {
                         <strong>Package Name:</strong><?= $Loan["Package_Name"] ?>
                     </div>
                 </div>
-                <form action="<?= $URL->getController("WithdrawLoan", "Dashboard") ?>" method="post">
-                    <input type="hidden" name="loanApp" value="<?= $Loan['Application_ID'] ?>">
-                    <input type="hidden" name="user" value="<?= $Loan["Account_number"] ?>">
-                    <button type="submit" class="form-btn alert">Withdraw</button>
-                </form>
+                <?php
+                if ($Loan['Decision'] == "Pending") {
+                ?>
+                    <form action="<?= $URL->getController("WithdrawLoan", "Dashboard") ?>" method="post">
+                        <input type="hidden" name="loanApp" value="<?= $Loan['Application_ID'] ?>">
+                        <input type="hidden" name="user" value="<?= $Loan["Account_number"] ?>">
+                        <button type="submit" class="form-btn alert">Withdraw</button>
+                    </form>
+                <?php } ?>
             </div>
         </div>
     <?php } ?>

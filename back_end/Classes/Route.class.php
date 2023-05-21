@@ -31,9 +31,9 @@ class Route
     public static function getView(string $filename, string $subdir = null)
     {
         if (is_null($subdir)) {
-            return self::$URI . "view/{$filename}.view.php";
+            return self::$URI . "src/view/{$filename}.view.php";
         }
-        return self::$URI . "view/{$subdir}/{$filename}.view.php";
+        return self::$URI . "src/view/{$subdir}/{$filename}.view.php";
     }
 
     public static function getJQuery()
@@ -56,8 +56,8 @@ class Route
     public static function getController($filename, string $subdir = null)
     {
         if (is_null($subdir)) {
-            return self::$URI . "app/Http/Controller/{$filename}.controller.php";
+            return self::$URI . "back_end/Controllers/{$filename}Controller.php";
         }
-        return self::$URI . "app/Http/Controller/{$subdir}/{$filename}.controller.php";
+        return self::$URI . "back_end/Controllers/{$subdir}/{$filename}Controller.php";
     }
 }
