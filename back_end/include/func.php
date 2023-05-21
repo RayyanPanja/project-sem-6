@@ -57,7 +57,7 @@ if (!function_exists("generateRewardKey")) {
     }
     function generateCashBack()
     {
-        return round((rand(1000, 5000) / 100), 2);
+        return round((rand(500, 2000) / 100), 2);
     }
 }
 

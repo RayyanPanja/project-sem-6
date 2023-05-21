@@ -5,7 +5,7 @@ $BankTable = new Table("bank", "Account");
 $BankData = $BankTable->select()->execute_query()[0];
 
 $UserTable = new Table("main", "Account_number");
-$Users = $UserTable->select()->execute_query();
+$Users = $UserTable->select()->order_by("Amount")->execute_query();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +53,10 @@ $Users = $UserTable->select()->execute_query();
                     </div>
                 </div>
                 <div class="details">
+                    <h1 class="text-center">Leaderboard</h1>
                     <table>
                         <tr>
+                            <th>Rank</th>
                             <th>Account Number</th>
                             <th>Name</th>
                             <th>Amount</th>
@@ -62,6 +64,7 @@ $Users = $UserTable->select()->execute_query();
                         <?php
                         for ($i = 0; $i < count($Users); $i++) { ?>
                             <tr>
+                                <td>#<?= $i + 1?></td>
                                 <td><?= $Users[$i]['Account_number'] ?></td>
                                 <td><?= $Users[$i]['Sirname'] ?> <?= $Users[$i]['Firstname'] ?> <?= $Users[$i]['Fathername'] ?></td>
                                 <td><?= $Users[$i]['Amount'] ?></td>

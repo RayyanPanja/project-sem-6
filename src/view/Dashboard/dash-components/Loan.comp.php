@@ -1,7 +1,7 @@
 <?php
 if (Session::getSession("Loan_requested") == boolval(true)) {
     $LoanTable = new Table("loan", "Application_ID");
-    $Loan = $LoanTable->select()->where("Account_number", Session::getSession("Account_number"))->execute_query()[0];
+    $Loan = $LoanTable->select()->where("Account_number", Session::getSession("Account_number"))->execute_query();
 }
 ?>
 
@@ -9,7 +9,7 @@ if (Session::getSession("Loan_requested") == boolval(true)) {
     <h1>Oo You Applied For Loan?</h1>
 </div>
 <div class="loan-details">
-    <?php if (Session::getSession("Loan_requested") == false) { ?>
+    <?php if (Session::getSession("Loan_requested") == false || true) { ?>
         <h1 class="section-title">Loan Not Requested</h1>
     <?php } else { ?>
         <h1 class="section-title">Loan Request</h1>

@@ -34,7 +34,7 @@ $URL = new URL;
     </form>
     <div class="text-group">
         <p>Dont have an Account??</p>
-        <a href="<?= $URL->getView("Step1", "Register") ?>">Register Now</a>
+        <a href="<?= $URL->getView("Signup", "Register") ?>">Register Now</a>
     </div>
 </dialog>
 <!-- Login Form...ENDS -->

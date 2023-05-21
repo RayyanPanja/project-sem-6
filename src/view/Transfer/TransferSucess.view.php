@@ -21,7 +21,7 @@ require "../../../back_end/include/include.php";
     <main>
         <section class="p-t-5 grid-center">
             <?php
-            if (isset($_SESSION['RewardKey'])) {
+            if (Session::Exists('RewardKey')) {
             ?>
                 <div class="card-wrapper" id="card-wrap">
                     <div class="card-container" id="scard">
@@ -75,7 +75,7 @@ require "../../../back_end/include/include.php";
                         </table>
                     </div>
                     <p>
-                        If you have any questions or concerns regarding this transaction, please feel free to contact our <a href="<?= $URL->getView("contact","Contact")?>" class="primary-link">customer support</a>.
+                        If you have any questions or concerns regarding this transaction, please feel free to contact our <a href="<?= $URL->getView("contact", "Contact") ?>" class="primary-link">customer support</a>.
                     </p>
                     <p>
                         Thank you for using our banking services!

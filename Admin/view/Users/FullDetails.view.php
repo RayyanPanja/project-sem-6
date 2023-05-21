@@ -75,23 +75,31 @@ $User = $UserTable->select()->get_data_from_primary(Session::getSession("Account
                             <th>Contact</th>
                             <td><?= $User["Contact"] ?></td>
                         </tr>
-                        <tr>
-                            <th>Amount</th>
-                            <td><?= $User["Amount"] ?>/-</td>
-                        </tr>
                     </table>
                 </div>
 
                 <div class="details">
-                    <h1>Loan Details</h1>
+                    <h1>Account Details</h1>
                     <table border="2">
                         <tr>
-                            <th>Requested</th>
-                            <td><?= $User["Loan_requested"] ?></td>
+                            <th>Account Number</th>
+                            <td><?= $User["Account_number"] ?></td>
                         </tr>
                         <tr>
-                            <th>Taken</th>
-                            <td><?= $User["Loan_taken"] ?></td>
+                            <th>Amount</th>
+                            <td><?= $User["Amount"] ?>/-</td>
+                        </tr>
+                        <tr>
+                            <th>Loan Requested</th>
+                            <td><?= ($User["Loan_requested"]) ? "Yes" : "No" ?></td>
+                        </tr>
+                        <tr>
+                            <th>Loan Taken</th>
+                            <td><?= ($User["Loan_taken"]) ? "Yes" : "No" ?></td>
+                        </tr>
+                        <tr>
+                            <th>Blocked? </th>
+                            <td><?= ($User["Blocked"]) ? "Yes" : "No" ?></td>
                         </tr>
                     </table>
                 </div>

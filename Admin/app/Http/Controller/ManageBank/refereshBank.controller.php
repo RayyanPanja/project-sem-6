@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REFERESHING</title>
 </head>
+
 <body>
     <?php
     require "../../../Classes/autoload.php";
 
-    Helper::updateBankAmount();
-
+    $bank = new Table("bank", "Account");
+    $data = $bank->select()->execute_query()[0];
+    if ($data['Amount'] !== $data['Amount_Before']) {
+        Helper::updateBankAmount();
+    }
     Helper::just_move(Route::getView("Bank", "ManageBank"));
     ?>
 </body>
+
 </html>

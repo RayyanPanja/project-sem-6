@@ -40,7 +40,7 @@ function updateUser($tempAccount, array $DataSet)
 function uploadProfileImage(string $image, string $path)
 {
     $fileName = "";
-    if (empty($_FILES[$image])) {
+    if (empty($_FILES[$image]['name'])) {
         $fileName = 'default.png';
     } else {
         $file = $_FILES[$image];

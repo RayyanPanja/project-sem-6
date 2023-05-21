@@ -1,14 +1,12 @@
 <?php
-require "URL.class.php";
-require "Connect.class.php";
-require "Table.class.php";
-
-// require "NewTable.class.php";
-
-require "Auth.class.php";
-require "Session.class.php";
-require "Middleware.class.php";
-require "Route.class.php";
+require_once "URL.class.php";
+require_once "Connect.class.php";
+require_once "Table.class.php";
+require_once "Auth.class.php";
+require_once "Session.class.php";
+require_once "Middleware.class.php";
+require_once "Route.class.php";
+require_once "Request.class.php";
 
 echo Route::getCSS("Style");
 ?>

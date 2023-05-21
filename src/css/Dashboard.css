@@ -198,6 +198,9 @@ body {
     padding: 10px 20px;
     font-size: 2.5rem;
     background-color: var(--banner-clr);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .toggleNotification {
@@ -245,6 +248,11 @@ body {
     padding: 20px;
     border-radius: 75px;
     border: 1px solid var(--primary-clr);
+}
+.notification-read-able{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .msg::before {
@@ -543,7 +551,8 @@ body {
     display: grid;
     place-items: center;
 }
-.loan-card-top-sec{
+
+.loan-card-top-sec {
     display: flex;
     justify-content: space-between;
 }
@@ -570,15 +579,18 @@ body {
     font-size: 1.3rem;
     color: var(--white-clr);
 }
-.card-data > div{
+
+.card-data>div {
     padding: 10px;
     width: 100%;
     display: flex;
     gap: 10px;
     transition: background 200ms ease-in-out;
 }
-.card-data > div:hover{
+
+.card-data>div:hover {
     background: var(--success-clr);
     color: var(--black-clr);
 }
+
 /* LOAN DETAILS....... */

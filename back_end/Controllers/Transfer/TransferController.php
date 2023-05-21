@@ -3,123 +3,68 @@ require "../../Classes/All.class.php";
 require "../../include/include.php";
 require "../../Logic/TransferLogic.php";
 
+if (Request::Exists("Account") && Request::Exists("Amount") && Request::Exists("password")) {
+    $req = new Request;
 
-
-if (isset($_REQUEST['password'])) {
-    unset($_SESSION['tempFlag']);
-
-    $Password = $_REQUEST['password'];
-    if ($Password === $_SESSION['Password']) {
-
-        $Receipt = rand(000000, 9999999);
-        $Account = $_REQUEST['Account'];
-        $Amount = $_REQUEST['Amount'];
-        $Note = $_REQUEST['Note'];
-        $Reward = $_REQUEST['Reward'];
-
-        if ($Reward === "") {
-
-            Session::setSession("tempReceipt", $Receipt);
-
-            $Tresponse = Transfer(Session::getSession("Account_number"), $Account, $Amount);
-            if ($Tresponse) {
-
-                $UserTable = new Table("main", "Account_number");
-                $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
-
-                $TransacTable = new Table('transaction', "Receipt_No");
-                $TransacCol = [
-                    "Receipt_No",
-                    "From_Acc",
-                    "To_Acc",
-                    "Amount",
-                    "Receiver",
-                    "Sender",
-                    "Note",
-                    "Backup"
-                ];
-
-                $TransacVal = array(
-                    $Receipt,
-                    Session::getSession("Account_number"),
-                    $Account,
-                    $Amount,
-                    $HisAccount['Username'],
-                    Session::getSession("Username"),
-                    $Note,
-                    Session::getSession("Username")
-                );
-
-                // INSERT INTO TRANSACTION TABLE...................
-                logTransaction($TransacCol, $TransacVal);
-                // INSERT INTO TRANSACTION TABLE...................
-
-                // INSERT INTO NOTIFICATION TABLE..................
-
-                // FOR RECEIVER........
-                logNotification(new Table("notifications", "id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
-                // FOR RECEIVER........
-
-                // FOR SENDER.........
-                logNotification(new Table("notifications", "id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
-                // FOR SENDER.........
-
-                // INSERT INTO NOTIFICATION TABLE..................
-                alert("Transfer Successfull", $URL->getView("TransferSucess", "Transfer"));
-            } else {
-                justAlert("Transfer Failed");
-            }
-        } else {
-            $Tresponse =  TransferWithReward(Session::getSession("Account_number"), $Account, $Amount, $Reward);
-            if ($Tresponse) {
-                $UserTable = new Table("main", "Account_number");
-                $HisAccount = $UserTable->select()->where("Account_number", $Account)->execute_query()[0];
-
-                $TransacTable = new Table('transaction', "Receipt_No");
-
-                $TransacCol = [
-                    "Receipt_No",
-                    "From_Acc",
-                    "To_Acc",
-                    "Amount",
-                    "Receiver",
-                    "Sender",
-                    "Note",
-                    "Backup"
-                ];
-
-                $TransacVal = array(
-                    $Receipt,
-                    Session::getSession("Account_number"),
-                    $Account,
-                    $Amount,
-                    $HisAccount['Username'],
-                    Session::getSession("Username"),
-                    $Note,
-                    Session::getSession("Username")
-                );
-
-                // INSERT INTO TRANSACTION TABLE...................
-                logTransaction($TransacCol, $TransacVal);
-                // INSERT INTO TRANSACTION TABLE...................
-
-                // INSERT INTO NOTIFICATION TABLE..................
-
-                // FOR RECEIVER........
-                logNotification(new Table("notifications", "id"), $Account, "{$Amount} has Been Transfered to Your Account By " . Session::getSession('Username'));
-                // FOR RECEIVER........
-
-                // FOR SENDER.........
-                logNotification(new Table("notifications", "id"), Session::getSession("Account_number"), "{$Amount} Debited From Your Account , Transferred To {$HisAccount['Username']}");
-                // FOR SENDER.........
-
-                // INSERT INTO NOTIFICATION TABLE..................
-
-                alert("Transfer Successfull , Reward Redeemed", $URL->getView("TransferSucess", "Transfer"));
-            } else {
-                justAlert("Transfer Failed with Reward");
-            }
-        }
+    if (!validate_password($req->get("password"))) {
+        alert("Password Incorrect", Route::getView("Transfer", "Transfer"));
         die;
+    }
+
+    $Sender = fetch_user(Session::getSession("Account_number"));
+    $Receiver = fetch_user($req->get("Account"));
+
+    if (!validate_amount($Sender)) {
+        alert("Insufficient Balance", Route::getView("Transfer", "Transfer"));
+        die;
+    }
+
+    // Try Generating Reward.......................
+    generate_reward($req->get("Amount"), $Sender, $req);
+
+    // Subtract Amount From User Account................................
+    if (!deduct_amount_from($Sender, $req->get("Amount"), $req)) {
+        alert("Amount Deduction Failed", Route::getView("Transfer", "Transfer"));
+        die;
+    }
+
+    // Add Amount From User Account................................
+    if (!add_amount_to($Receiver, $req->get("Amount"))) {
+        alert("Transfer Failed", Route::getView("Transfer", "Transfer"));
+        die;
+    }
+
+    // Add Notification For Sender Account................................
+    $senderVals = [
+        $Sender['Account_number'],
+        "Notification",
+        "Rs.{$req->get('Amount')}/- Deducted From Your Account: {$Sender['Account_number']} , Transfered to {$Receiver['Username']}"
+    ];
+    if (!add_notification($senderVals)) {
+        alert("Notification For Sender Failed", Route::getView("Transfer", "Transfer"));
+        die;
+    }
+
+    // Add Notification For Receiver Account................................
+    $receiverVals = [
+        $Receiver['Account_number'],
+        "Notification",
+        "Rs.{$req->get('Amount')}/- Transfered toYour Account: {$Receiver['Account_number']} , Transfered From {$Sender['Username']}"
+    ];
+
+    if (!add_notification($receiverVals)) {
+        alert("Notification For Receiver Failed", Route::getView("Transfer", "Transfer"));
+        die;
+    }
+
+    // Register Transaction in DB................................
+    if (log_transaction($Sender, $Receiver, $req->get("Amount"), $req->get("Note"))) {
+        if ($req->get("Reward") != "") {
+            alert("Reward Claimed , Transfer Successfull!", Route::getView("TransferSucess", "Transfer"));
+            die;
+        } else {
+            alert("Transfer Successfull!", Route::getView("TransferSucess", "Transfer"));
+            die;
+        }
     }
 }
